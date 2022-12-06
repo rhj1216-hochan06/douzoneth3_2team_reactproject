@@ -1,0 +1,69 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "아더에러 x 자라 패치워크 오버사이즈 니트 스웨터 멀티컬러",
+      "provider": "Ader Error",
+      "price": 313000,
+      "image": "/images/image001.png",
+      "category": "의류"
+    },
+    {
+      "id": 2,
+      "name": "텐씨 아틱 다운 파카 그레이",
+      "provider": "Ten C",
+      "price": 840000,
+      "image": "/images/image002.png",
+      "category": "의류"
+    },
+    {
+      "id": 3,
+      "name": "넘버링 1901 A13 워치 브레이슬릿 블랙 스트랩 실버",
+      "provider": "Numbering",
+      "price": 198000,
+      "image": "/images/image003.png",
+      "category": "패션잡화"
+    },
+    {
+      "id": 4,
+      "name": "오프화이트 x 포스트 아카이브 팩션 피규어 오브 스피치 캡 라이트 블랙",
+      "provider": "Off-White",
+      "price": 188000,
+      "image": "/images/image004.png",
+      "category": "패션잡화"
+    },
+    {
+      "id": 5,
+      "name": "폴리테루 리소 데님 인디고 22FW",
+      "provider": "Polyteru",
+      "price": 164000,
+      "image": "/images/image005.png",
+      "category": "의류"
+    },
+    {
+      "id": 6,
+      "name": "알레그리 캐시미어 리치 30 핸드메이드 더블 칼라 세미 오버 로브 코트 제트 블랙",
+      "provider": "Allegri",
+      "price": 1170000,
+      "image": "/images/image006.png",
+      "category": "의류"
+
+    },
+    {
+      "id": 7,
+      "name": "애플 아이폰 13 프로 맥스 128GB 그래파이트",
+      "provider": "Kracker",
+      "price": 1319000,
+      "image": "/images/image007.png",
+      "category": "테크"
+    },
+    {
+      "id": 8,
+      "name": "아더에러 x 자라 백팩 블랙",
+      "provider": "Ader Error",
+      "price": 280000,
+      "image": "/images/image008.png",
+      "category": "라이프"
+    }
+  ]
+}
