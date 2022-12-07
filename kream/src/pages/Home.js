@@ -6,7 +6,7 @@ const Home = ({products, setProducts}) => {
     <>
     <EventBanner/>    
     홈페이지, <Link to="/products"> 상품 목록 보기</Link>
-    </>
+   </>
   );
 };
 

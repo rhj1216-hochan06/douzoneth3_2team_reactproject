@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import DetailPage from './pages/DetailPage';
 import { Detail } from './components/detail/Detail';
+import { Provider, useSelector } from 'react-redux';
+import store from './store/store';
 
 function App() {
   //상품 변수 정의
@@ -19,22 +21,26 @@ function App() {
       setProducts(data.data.products);
     });
   }, [setProducts]);
-
   //
   return (
     <>
       <TopNavBar />
       <Routes>
         <Route exact={true} path="/"
-          element={<Home
-            products={products}
-            setProducts={setProducts}
-          />} />
+          element={
+            <Home
+              products={products}
+              setProducts={setProducts}
+            />
+          } />
         <Route path="/products"
-          element={<Products
-            products={products}
-            setProducts={setProducts}
-          />} />
+          element={
+            <Provider store={store}>
+              <Products
+                products={products}
+                setProducts={setProducts}
+              />
+            </Provider>} />
         <Route
           path="/products/:id" element={<DetailPage
           />} />

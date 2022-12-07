@@ -1,12 +1,23 @@
 //products.js
 import styles from "./Products.module.css";
 import { Product } from "./product";
+import {useSelector,useDispatch} from 'react-redux';
+import store from '../../store/store';
+import {up} from '../../store/counterSlice';
 
 export const Products = ({products, setProducts}) => {
-  //useEffect로 최초 1번만 쇼핑몰데이터 렌더링
+  const dispatch = useDispatch();
+    const number = useSelector(state=>{
+      return state.counter.value;
+    })
   return (
     <>
       Home에서 데이터를 받아 수십개의 상품들 나열
+
+      <button onClick={()=>{
+      dispatch(up(2));
+    }}>+</button> {number};
+
       <div className={styles.filter}>
         <p>정렬기준 1</p>
         <p>정렬기준 2</p>
