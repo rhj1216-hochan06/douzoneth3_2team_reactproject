@@ -5,7 +5,7 @@ import styles from "./product.module.css";
 export const Product = ({ product }) => {
   return (
     <div className={styles.product}>
-      <Link to={`/product/${product.id}`}>
+      <Link to={`/products/${product.id}`}>
         <div className={styles.product_image}>
           <img src={product.image} alt="product" />
         </div>
@@ -19,7 +19,7 @@ export const Product = ({ product }) => {
       </div>
 
       <div className={styles.product_price}>
-        <span className={styles.price}>product.price</span>
+        <span className={styles.price}>{product.price}</span>
         <span className={styles.unit}>원</span>
       </div>
     </div>

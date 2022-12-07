@@ -4,8 +4,10 @@ import { Route, Routes, Link } from 'react-router-dom';
 import { TopNavBar } from "./components/header/TopNavBar.js";
 import Home from "./pages/Home";
 import { Products } from "./components/products/Products";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import DetailPage from './pages/DetailPage';
+import { Detail } from './components/detail/Detail';
 
 function App() {
   //상품 변수 정의
@@ -32,6 +34,9 @@ function App() {
           element={<Products
             products={products}
             setProducts={setProducts}
+          />} />
+        <Route
+          path="/products/:id" element={<DetailPage
           />} />
         <Route />
       </Routes>
