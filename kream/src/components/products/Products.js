@@ -1,5 +1,8 @@
+//products.js
 import styles from "./Products.module.css";
-export const Products = () => {
+import { Product } from "./product";
+
+export const Products = ({products, setProducts}) => {
   //useEffect로 최초 1번만 쇼핑몰데이터 렌더링
   return (
     <>
@@ -10,6 +13,9 @@ export const Products = () => {
         <p>정렬기준 3</p>
       </div>
       <main className={styles.flex_wrap}>  
+        {products.map((product)=>{ //map을 이용하여 상품 갯수만큼 반복시키기
+          return <Product key={`key-${product.id}`} product={product} />;
+        })}
       </main>
     </>
       //map을 이용하여 상품 갯수만큼 반복시키기
