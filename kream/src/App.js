@@ -42,7 +42,7 @@ function App() {
   //
   return (
     <>
-      <TopNavBar />
+      <TopNavBar cart={cart} />
       <Routes>
         <Route exact={true} path="/"
           element={
