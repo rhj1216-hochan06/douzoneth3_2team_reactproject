@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./TopNavBar.module.css";
 
-export const TopNavBar = () => {
+export const TopNavBar = ({ cart }) => {
   return (
     <header>
       <nav className="navbar navbar-expand-xl nav_area sticky">
@@ -24,7 +24,17 @@ export const TopNavBar = () => {
                 <a className="nav-link" href="/login">LOGIN</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/cart">CART</a>
+                <div className={styles.shopping_cart}>
+                  <a className="nav-link" href="/cart">CART
+                    {cart.length >= 1  ? (
+                      <div className={styles.new_shopping_cart}>
+                        <p>{cart.length}</p>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </a>
+                </div>
               </li>
             </ul>
           </div>
