@@ -20,7 +20,7 @@ import { womenRecommend } from './components/recommend/womenRecommend';
 //남성 추천
 //import manRecommend from './pages/ManRecommend';
 import { manRecommend } from './components/recommend/manRecommend';
-import Basket from './pages/Basket';
+import Basket from './pages/Basket.js';
 function App() {
   //상품 변수 정의
   const [products, setProducts] = useState([]);

@@ -1,7 +1,6 @@
 //products.js
 import styles from "./Products.module.css";
 import { Product } from "./product";
-<<<<<<< HEAD
 import { useSelector, useDispatch } from 'react-redux';
 import store from '../../store/store';
 import { up } from '../../store/counterSlice';
@@ -13,10 +12,6 @@ export const Products = ({ products, setProducts, convertPrice}) => {
   const number = useSelector(state => {
     return state.counter.value;
   })
-=======
-import {useSelector,useDispatch} from 'react-redux';
-import {up} from '../../store/counterSlice';
->>>>>>> minseok
 
   return (
     <>
