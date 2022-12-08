@@ -74,7 +74,7 @@ function App() {
           path="/register" element={<Register
           />} />
         <Route
-          path="/cart" element={<Basket />}
+          path="/cart" element={<Basket cart={cart} setCart={setCart} convertPrice={convertPrice} />}
         />
         <Route path="/manRecommend"
           element={

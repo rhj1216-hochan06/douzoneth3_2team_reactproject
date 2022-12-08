@@ -22,9 +22,9 @@ export const Detail = ({ cart, setCart, convertPrice }) => {
     axios.get("/data/products.json").then((data) => {
       setProduct(data.data.products.find((product) => product.id === parseInt(id)));
     });
-  }, [id]);
+  }, [id, product.price]);
 
-  //장바구니 물건 중복된 물건
+  //장바구니 물건 중복된 물건 수량만 갱신해서 업데이트
   const setQuantity = (id, quantity) => {
     const found = cart.filter((el) => el.id === id)[0];
     const idx = cart.indexOf(found);
@@ -35,6 +35,7 @@ export const Detail = ({ cart, setCart, convertPrice }) => {
       image: product.image,
       price: product.price,
       category: product.category,
+      gender:product.gender,
       quantity: quantity,
     };
     //처음부터, idx까지, cartItem, 그리고 끝까지
@@ -48,6 +49,7 @@ export const Detail = ({ cart, setCart, convertPrice }) => {
       name: product.name,
       quantity: count,
       price: product.price,
+      gender:product.gender,
       provider: product.provider,
     };
     const found = cart.find((el) => el.id === cartItem.id);

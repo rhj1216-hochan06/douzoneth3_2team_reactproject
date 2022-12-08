@@ -24,17 +24,30 @@ export const TopNavBar = ({ cart }) => {
                 <a className="nav-link" href="/login">LOGIN</a>
               </li>
               <li className="nav-item">
+                {/*                   
                 <div className={styles.shopping_cart}>
-                  <a className="nav-link" href="/cart">CART
-                    {cart.length >= 1  ? (
+                <a className="nav-link" href="/cart">CART
+                {cart.length >= 1  ? (
+                  <div className={styles.new_shopping_cart}>
+                  <p>{cart.length}</p>
+                  </div>
+                  ) : (
+                    ""
+                    )}
+                  </a> 
+                  </div>*/}
+                <Link to="/cart">
+                  <div className={styles.shopping_cart}>
+                    CART
+                    {cart.length >= 1 ? (
                       <div className={styles.new_shopping_cart}>
                         <p>{cart.length}</p>
                       </div>
                     ) : (
                       ""
                     )}
-                  </a>
-                </div>
+                  </div>
+                </Link>
               </li>
             </ul>
           </div>
