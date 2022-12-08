@@ -42,7 +42,7 @@ export const Products = ({ products, setProducts, convertPrice }) => {
         <p onClick={() => sortProduct("recent")}>최신순</p>
         <p onClick={() => sortProduct("row")}>낮은 가격</p>
         <p onClick={() => sortProduct("high")}>높은 가격</p>
-      </div>
+       </div>
       <main className={styles.flex_wrap}>
         {products.map((product) => { //map을 이용하여 상품 갯수만큼 반복시키기
           return <Product key={`key-${product.id}`} product={product} convertPrice={convertPrice} />;

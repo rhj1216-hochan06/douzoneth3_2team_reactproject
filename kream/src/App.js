@@ -14,7 +14,7 @@ import { Detail } from './components/detail/Detail';
 //여성 추천
 import { womenRecommend } from './components/recommend/womenRecommend';
 //남성 추천
-import { manRecommend } from './components/recommend/manRecommend';
+import { Man } from './pages/Man';
 import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
 
@@ -24,7 +24,7 @@ function App() {
   const [cart, setCart] = useState([]);
   // 여성, 남성 추천
   const [womenRecommend, setWomenRecommend] = useState([]);
-  const [manRecommend, setManRecommend] = useState([]);
+  const [ManRecommend, setManRecommend] = useState([]);
   //useEffect로 최초 1번만 쇼핑몰데이터 렌더링
   //axios 문법
   useEffect(() => {
@@ -38,13 +38,6 @@ function App() {
   const convertPrice = (price) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
-
-  // 남성추천
-  useEffect(() => {
-    axios.get("/data/product.json").then((datafile) => {
-      setManRecommend(datafile.data.products);
-    })
-  }, [setManRecommend]);
 
   //
   return (
@@ -76,18 +69,18 @@ function App() {
         <Route
           path="/login" element={<Login
           />} />
+        <Route
+          path="/cart" element={<Basket />}
+        />
         <Route path="/manRecommend"
           element={
             <Provider store={store}>
-              <manRecommend
+              <Man
                 products={products}
                 setProducts={setProducts}
                 convertPrice={convertPrice}
               />
             </Provider>} />
-        <Route
-   path="/cart" element={<Basket />}
-        />
       </Routes>
     </>
   );
