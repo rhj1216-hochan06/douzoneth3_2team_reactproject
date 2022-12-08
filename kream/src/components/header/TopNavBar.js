@@ -7,7 +7,9 @@ export const TopNavBar = () => {
       <nav className="navbar navbar-expand-xl nav_area sticky">
         <div className="container">
           <div className={styles.logo}>
-            <img  className={styles.logoSize} src="/images/logo.jpg" alt="logo" />
+            <Link to="/">
+              <img className={styles.logoSize} src="/images/logo.jpg" alt="logo" />
+            </Link>
           </div>
           <div className={styles.input_wrap}>
             <input className={styles.search} type="text" placeholder="상품을 검색해보세요!" />&nbsp;
