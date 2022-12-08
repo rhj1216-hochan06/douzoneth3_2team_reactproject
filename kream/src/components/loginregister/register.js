@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import "./loginregister.css"
+import { Link } from 'react-router-dom';
 
 const Register=()=> {
   const [name, setName] = useState("")
@@ -31,13 +32,23 @@ const Register=()=> {
 
   return (
     <div class="loginregister"  >
+    <div  >
+
+<div className="logo">
+            <Link to="/">
+              <img className="logoSize" src="/images/logo.jpg" alt="logo" />
+            </Link>
+          </div>
+
       <form onSubmit={onSubmit}>
-          <div><input name="name" type="text" placeholder="이름" value={name} onChange={onNameHandler} class="loginregister__input"/></div>
-          <div><input name="email" type="email" placeholder="이메일" value={id} onChange={onIdHandler} class="loginregister__input"/></div>
-          <div><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input"/></div>
-          <div><input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler} class="loginregister__input"/></div>
+          <div><div className='gulza'>NAME</div><input name="name" type="text" placeholder="이름" value={name} onChange={onNameHandler} class="loginregister__input"/></div>
+          <div><div className='gulza'>EMAIL</div><input name="email" type="email" placeholder="이메일" value={id} onChange={onIdHandler} class="loginregister__input"/></div>
+          <div><div className='gulza'>PASSWORD</div><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input"/></div>
+          <div><div className='gulza'>PASSWORD CONFIRM</div><input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler} class="loginregister__input"/></div>
           <div><button type="submit" class="loginregister__button">계정 생성하기</button></div>
       </form>
+    </div>
+    
     </div>
   );
 }
