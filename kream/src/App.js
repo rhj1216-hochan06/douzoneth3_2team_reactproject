@@ -21,8 +21,14 @@ function App() {
     axios.get("/data/products.json").then((datafile) => {
       setProducts(datafile.data.products);
     });
-  });
+  }, [setProducts]);
   //
+
+  // 정규화식(가격 3자리씩 분리)
+  const convertPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   return (
     <>
       <TopNavBar />
@@ -32,6 +38,7 @@ function App() {
             <Home
               products={products}
               setProducts={setProducts}
+              convertPrice = {convertPrice}
             />
           } />
         <Route path="/products"
@@ -40,10 +47,12 @@ function App() {
               <Products
                 products={products}
                 setProducts={setProducts}
+                convertPrice = {convertPrice}
               />
             </Provider>} />
         <Route
           path="/products/:id" element={<DetailPage
+            convertPrice = {convertPrice}
           />} />
         <Route />
       </Routes>

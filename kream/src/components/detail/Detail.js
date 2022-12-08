@@ -3,7 +3,7 @@ import { useEffect , useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./detail.module.css";
 
-export const Detail = () => {
+export const Detail = ({convertPrice}) => {
   const {id} = useParams();
   const [product,setProduct] = useState({});
   const [count,setCount] = useState(1);
@@ -37,7 +37,8 @@ useEffect(()=>{
             <p className={styles.product_name}>{product.name}</p>
             <span className={styles.price}>
 
-              {product.price}
+              {convertPrice(product.price+"")}
+              
               
               <span className={styles.unit}>원</span>
             </span>
@@ -81,7 +82,7 @@ useEffect(()=>{
                 총 수량 <span className={styles.total_count}>{count}개</span>
               </span>
               <span className={styles.total_price}>
-               {product.price*count}
+               {convertPrice(product.price*count+"")}
                 <span className={styles.total_unit}>원</span>
               </span>
             </div>
