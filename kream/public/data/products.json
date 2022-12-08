@@ -7,7 +7,7 @@
       "price": 313000,
       "image": "/images/image001.png",
       "category": "의류",
-      "gender": "man"
+      "gender": 1
 
     },
     {
@@ -17,7 +17,7 @@
       "price": 840000,
       "image": "/images/image002.png",
       "category": "의류",
-      "gender": "man"
+      "gender": 1
 
     },
     {
@@ -27,7 +27,7 @@
       "price": 198000,
       "image": "/images/image003.png",
       "category": "패션잡화",
-      "gender": "women"
+      "gender": 1
     },
     {
       "id": 4,
@@ -36,7 +36,7 @@
       "price": 188000,
       "image": "/images/image004.png",
       "category": "패션잡화",
-      "gender": "women"
+      "gender": 1
     },
     {
       "id": 5,
@@ -45,7 +45,7 @@
       "price": 164000,
       "image": "/images/image005.png",
       "category": "의류",
-      "gender": "man"
+      "gender": 1
     },
     {
       "id": 6,
@@ -54,7 +54,7 @@
       "price": 1170000,
       "image": "/images/image006.png",
       "category": "의류",
-      "gender": "women"
+      "gender": 2
 
     },
     {
@@ -64,7 +64,7 @@
       "price": 1319000,
       "image": "/images/image007.png",
       "category": "테크",
-      "gender": "man"
+      "gender": 2
     },
     {
       "id": 8,
@@ -73,7 +73,7 @@
       "price": 280000,
       "image": "/images/image008.png",
       "category": "라이프",
-      "gender": "women"
+      "gender": 2
     }
   ]
 }
