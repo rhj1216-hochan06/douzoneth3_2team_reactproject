@@ -5,7 +5,7 @@ export const EventBanner = () => {
     <article
       className={styles.banner}
       style={{
-        backgroundImage: "url('/images/event.png')",
+        backgroundImage: "url('/images/event1.png')",
         backgroundSize: "100%",
       }}
     >
