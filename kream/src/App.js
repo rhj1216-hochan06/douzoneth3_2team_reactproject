@@ -38,6 +38,13 @@ function App() {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
+  // 남성추천
+  useEffect(() => {
+    axios.get("/data/product.json").then((datafile) => {
+      setManRecommend(datafile.data.products);
+    })
+  }, [setManRecommend]);
+
   //
   return (
     <>
@@ -48,7 +55,7 @@ function App() {
             <Home
               products={products}
               setProducts={setProducts}
-              convertPrice = {convertPrice}
+              convertPrice={convertPrice}
             />
           } />
         <Route path="/products"
@@ -57,18 +64,27 @@ function App() {
               <Products
                 products={products}
                 setProducts={setProducts}
-                convertPrice = {convertPrice}
+                convertPrice={convertPrice}
               />
             </Provider>} />
         <Route
           path="/products/:id" element={<DetailPage
-            convertPrice = {convertPrice}
+            convertPrice={convertPrice}
           />} />
         <Route />
         <Route
           path="/login" element={<Login
           />} />
-       
+        <Route path="/manRecommend"
+          element={
+            <Provider store={store}>
+              <manRecommend
+                products={products}
+                setProducts={setProducts}
+                convertPrice={convertPrice}
+              />
+            </Provider>} />
+
 
       </Routes>
     </>

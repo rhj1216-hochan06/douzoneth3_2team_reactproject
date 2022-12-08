@@ -19,7 +19,7 @@ export const TopNavBar = () => {
                 <a className="nav-link" href="">SHOP</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="">LOGIN</a>
+                <a className="nav-link" href="/login">LOGIN</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="">CART</a>
