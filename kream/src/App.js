@@ -15,15 +15,16 @@ import { Detail } from './components/detail/Detail';
 import { womenRecommend } from './components/recommend/womenRecommend';
 //남성 추천
 import { manRecommend } from './components/recommend/manRecommend';
+import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
 
 function App() {
   //상품 변수 정의
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
   // 여성, 남성 추천
   const [womenRecommend, setWomenRecommend] = useState([]);
   const [manRecommend, setManRecommend] = useState([]);
-
   //useEffect로 최초 1번만 쇼핑몰데이터 렌더링
   //axios 문법
   useEffect(() => {
@@ -69,7 +70,7 @@ function App() {
             </Provider>} />
         <Route
           path="/products/:id" element={<DetailPage
-            convertPrice={convertPrice}
+            convertPrice={convertPrice} cart={cart} setCart={setCart}
           />} />
         <Route />
         <Route
@@ -84,8 +85,9 @@ function App() {
                 convertPrice={convertPrice}
               />
             </Provider>} />
-
-
+        <Route
+   path="/cart" element={<Basket />}
+        />
       </Routes>
     </>
   );

@@ -7,7 +7,9 @@ export const TopNavBar = () => {
       <nav className="navbar navbar-expand-xl nav_area sticky">
         <div className="container">
           <div className={styles.logo}>
-            <img  className={styles.logoSize} src="/images/logo.jpg" alt="logo" />
+            <Link to="/">
+              <img className={styles.logoSize} src="/images/logo.jpg" alt="logo" />
+            </Link>
           </div>
           <div className={styles.input_wrap}>
             <input className={styles.search} type="text" placeholder="상품을 검색해보세요!" />&nbsp;
@@ -16,13 +18,13 @@ export const TopNavBar = () => {
           <div className=" " id="navbarNav">
             <ul className="navbar-nav ml-auto navbar-center main_menu onepage_nav">
               <li className="nav-item">
-                <a className="nav-link" href="">SHOP</a>
+                <a className="nav-link" href="#">SHOP</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/login">LOGIN</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="">CART</a>
+                <a className="nav-link" href="/cart">CART</a>
               </li>
             </ul>
           </div>
