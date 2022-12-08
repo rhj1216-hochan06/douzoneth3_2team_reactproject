@@ -23,7 +23,7 @@ export const TopNavBar = () => {
             <span>장바구니</span>
           </div>
         </Link>
-        <Link to="">
+        <Link to="/login">
           <div className={styles.mypage}>
             <img src="/images/icon-user.svg" alt="user" />
             <span>로그인</span>

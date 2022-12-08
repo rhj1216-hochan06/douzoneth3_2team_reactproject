@@ -10,6 +10,7 @@ import DetailPage from './pages/DetailPage';
 import { Detail } from './components/detail/Detail';
 import { Provider, useSelector } from 'react-redux';
 import store from './store/store';
+import Login from "./components/loginregister/Login"
 
 function App() {
   //상품 변수 정의
@@ -45,6 +46,11 @@ function App() {
           path="/products/:id" element={<DetailPage
           />} />
         <Route />
+        <Route
+          path="/login" element={<Login
+          />} />
+       
+
       </Routes>
     </>
   );
