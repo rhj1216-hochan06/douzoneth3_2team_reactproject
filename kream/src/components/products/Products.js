@@ -2,10 +2,8 @@
 import styles from "./Products.module.css";
 import { Product } from "./product";
 import { useSelector, useDispatch } from 'react-redux';
-import store from '../../store/store';
 import { up } from '../../store/counterSlice';
-import { getProducts } from "../../service/fetcher";
-import { useEffect } from "react";
+
 
 
 export const Products = ({ products, setProducts, convertPrice }) => {
@@ -24,12 +22,6 @@ export const Products = ({ products, setProducts, convertPrice }) => {
       setProducts(newProduct);
     }
   };
-
-  useEffect(() => {
-    getProducts().then((data) => {
-      setProducts(data.data.products);
-    });
-  }, [setProducts]);
 
   const dispatch = useDispatch(); //리덕스 함수를 사용할 곳에 위치
 
