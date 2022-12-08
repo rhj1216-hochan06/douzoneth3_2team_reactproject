@@ -1,13 +1,15 @@
 import { Button } from "react-bootstrap";
 import { Detail } from "../components/detail/Detail.js";
 
-const DetailPage = () => {
-  return (
-    <>
+const DetailPage = ({convertPrice}) => {
+
     
-    <Detail/>
-    </>
-    );
+      return <Detail 
+      convertPrice={convertPrice}
+      
+      />;
+    
+    
 };
 
 export default DetailPage;
