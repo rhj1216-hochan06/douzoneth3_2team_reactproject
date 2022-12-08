@@ -1,7 +1,6 @@
 import styles from "./cart.module.css";
 
 export const CartList = ({ cart , convertPrice , handleQuantity, handleRemove, handleCheckList, checkLists}) => {
-  console.log(cart);
   return(
     <section className={styles.cart_product_list}>
     <input

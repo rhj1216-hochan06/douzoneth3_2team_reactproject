@@ -7,7 +7,6 @@ import { useState } from "react";
 export const Cart = ({ cart, setCart, convertPrice }) => {
     const [checkLists, setCheckLists] = useState([]);
     const [total, setTotal] = useState([]);
-    console.log(checkLists.length);
     //전체선택되어있다면(길이가 같으므로)true
     const isAllChecked =
         cart.length === checkLists.length && checkLists.length !== 0;
@@ -58,6 +57,11 @@ export const Cart = ({ cart, setCart, convertPrice }) => {
         }
     };
     //전체선택기능끝
+
+    //총금액계산하기위한상품담기(cart랑 체크리스트 비교)
+    const found = checkLists.map((checkLists) => 
+        cart.filter((el) => el.id == checkLists)
+    );
     return (
         <>
             <header className={styles.cart_title_wrap}>
@@ -87,6 +91,11 @@ export const Cart = ({ cart, setCart, convertPrice }) => {
             )
             }
 
+            {cart.length === 0 ? "" : <TotalCart
+                cart={cart} total={total} setTotal={setTotal}
+                convertPrice={convertPrice}
+                found={found}
+            />}
 
 
         </>
