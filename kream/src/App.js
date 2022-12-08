@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import store from './store/store';
 import Login from "./components/loginregister/Login"
+import Register from "./components/loginregister/register"
 //디테일 페이지
 import DetailPage from './pages/DetailPage';
 import { Detail } from './components/detail/Detail';
@@ -75,6 +76,9 @@ function App() {
         <Route />
         <Route
           path="/login" element={<Login
+          />} />
+          <Route
+          path="/register" element={<Register
           />} />
         <Route path="/manRecommend"
           element={

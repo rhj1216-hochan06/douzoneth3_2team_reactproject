@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import "./loginRegister.css"
+import "./loginregister.css"
 
 const Register=()=> {
   const [name, setName] = useState("")
@@ -30,13 +30,13 @@ const Register=()=> {
   }
 
   return (
-    <div class="loginregister">
-      <form>
+    <div class="loginregister"  >
+      <form onSubmit={onSubmit}>
           <div><input name="name" type="text" placeholder="이름" value={name} onChange={onNameHandler} class="loginregister__input"/></div>
           <div><input name="email" type="email" placeholder="이메일" value={id} onChange={onIdHandler} class="loginregister__input"/></div>
           <div><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input"/></div>
           <div><input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler} class="loginregister__input"/></div>
-          <div><button type="submit" onSubmit={onSubmit} class="loginregister__button">계정 생성하기</button></div>
+          <div><button type="submit" class="loginregister__button">계정 생성하기</button></div>
       </form>
     </div>
   );
