@@ -7,7 +7,7 @@ export const EventBanner = () => {
   const [count, setCount] = useState(1);
   const changebanner = (type) => {
     if(type === "plus") {
-      if(count>2) {
+      if(count>3) {
         setCount(1);
         return;}
     setCount(count + 1);
