@@ -23,6 +23,7 @@ function App() {
   //상품 변수 정의
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+
   // 여성, 남성 추천
   const [womenRecommend, setWomenRecommend] = useState([]);
   const [ManRecommend, setManRecommend] = useState([]);
