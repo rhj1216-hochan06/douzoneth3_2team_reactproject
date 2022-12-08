@@ -16,13 +16,13 @@ export const TopNavBar = () => {
           <div className=" " id="navbarNav">
             <ul className="navbar-nav ml-auto navbar-center main_menu onepage_nav">
               <li className="nav-item">
-                <a className="nav-link" href="">SHOP</a>
+                <a className="nav-link" href="#">SHOP</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="">LOGIN</a>
+                <a className="nav-link" href="#">LOGIN</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="">CART</a>
+                <a className="nav-link" href="/cart">CART</a>
               </li>
             </ul>
           </div>
