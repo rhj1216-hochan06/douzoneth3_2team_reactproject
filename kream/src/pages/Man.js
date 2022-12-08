@@ -1,4 +1,4 @@
-import {ManRecommend} from "../components/recommend/ManRecommend.js";
+import {ManRecommend} from "../components/recommend/manRecommend.js";
 
 const Man = ({convertPrice, setProducts, products}) => {
 
