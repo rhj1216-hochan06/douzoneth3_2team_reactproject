@@ -10,9 +10,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Provider, useSelector } from 'react-redux';
 import store from './store/store';
-<<<<<<< HEAD
 import Login from "./components/loginregister/Login"
-=======
 //디테일 페이지
 import DetailPage from './pages/DetailPage';
 import { Detail } from './components/detail/Detail';
@@ -22,7 +20,9 @@ import { womenRecommend } from './components/recommend/womenRecommend';
 //남성 추천
 //import manRecommend from './pages/ManRecommend';
 import { manRecommend } from './components/recommend/manRecommend';
->>>>>>> sinhyung
+import { Provider, useSelector } from 'react-redux';
+import store from './store/store';
+import Login from "./components/loginregister/Login"
 
 function App() {
   //상품 변수 정의
@@ -39,21 +39,18 @@ function App() {
     });
   }, [setProducts]);
   //
-<<<<<<< HEAD
 
   // 정규화식(가격 3자리씩 분리)
   const convertPrice = (price) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
-=======
   useEffect(() => {
     axios.get("/data/products.json").then((datafile) => {
       setProducts(datafile.data.products);
     });
   });
   //
->>>>>>> sinhyung
   return (
     <>
       <TopNavBar />
