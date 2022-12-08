@@ -2,7 +2,6 @@
 import styles from "./Products.module.css";
 import { Product } from "./product";
 import {useSelector,useDispatch} from 'react-redux';
-import store from '../../store/store';
 import {up} from '../../store/counterSlice';
 
 export const Products = ({products, setProducts}) => {

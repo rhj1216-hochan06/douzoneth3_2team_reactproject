@@ -3,7 +3,7 @@ import { useEffect , useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./detail.module.css";
 
-export const Detail = () => {
+export const Detail = (cart, setCart) => {
   const {id} = useParams();
   const [product,setProduct] = useState({});
   const [count,setCount] = useState(1);
@@ -23,6 +23,20 @@ useEffect(()=>{
     });
   },[id]);
 
+  const handleCart = () => {
+    //id,이름,가격,수량...
+    const cartItem ={
+        id: product.id,
+        name: product.name,
+        provider: product.provider,
+        image: product.image,
+        price: product.price,
+        category:product.category,
+        quantity: count,
+    }
+    setCart([...cart, cartItem]);
+  };
+  console.log(cart);
   return (
     <>
       <main className={styles.main}>
@@ -89,7 +103,7 @@ useEffect(()=>{
 
           <div className={styles.btn}>
             <button className={styles.btn_buy}>바로 구매</button>
-            <button className={styles.btn_cart} >
+            <button className={styles.btn_cart} onClick={()=>handleCart()}>
               장바구니</button>
           </div>
         </section>
