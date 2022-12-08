@@ -17,11 +17,12 @@ function App() {
   const [products, setProducts] = useState([]);
 
   //useEffect로 최초 1번만 쇼핑몰데이터 렌더링
+  //axios 문법
   useEffect(() => {
-    axios.get("/data/products.json").then((data) => {
-      setProducts(data.data.products);
+    axios.get("/data/products.json").then((datafile) => {
+      setProducts(datafile.data.products);
     });
-  }, [setProducts]);
+  });
   //
   return (
     <>
