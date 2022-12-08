@@ -20,17 +20,14 @@ import { womenRecommend } from './components/recommend/womenRecommend';
 //남성 추천
 //import manRecommend from './pages/ManRecommend';
 import { manRecommend } from './components/recommend/manRecommend';
-import { Provider, useSelector } from 'react-redux';
-import store from './store/store';
-import Login from "./components/loginregister/Login"
-
+import Basket from './pages/Basket';
 function App() {
   //상품 변수 정의
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
   // 여성, 남성 추천
   const [womenRecommend, setWomenRecommend] = useState([]);
   const [manRecommend, setManRecommend] = useState([]);
-
   //useEffect로 최초 1번만 쇼핑몰데이터 렌더링
   //axios 문법
   useEffect(() => {
@@ -60,7 +57,7 @@ function App() {
             <Home
               products={products}
               setProducts={setProducts}
-              convertPrice = {convertPrice}
+              convertPrice={convertPrice}
             />
           } />
         <Route path="/products"
@@ -69,19 +66,20 @@ function App() {
               <Products
                 products={products}
                 setProducts={setProducts}
-                convertPrice = {convertPrice}
+                convertPrice={convertPrice}
               />
             </Provider>} />
         <Route
           path="/products/:id" element={<DetailPage
-            convertPrice = {convertPrice}
+            convertPrice={convertPrice} cart={cart} setCart={setCart}
           />} />
         <Route />
         <Route
           path="/login" element={<Login
           />} />
-       
-
+        <Route
+          path="/cart" element={<Basket />}
+        />
       </Routes>
     </>
   );
