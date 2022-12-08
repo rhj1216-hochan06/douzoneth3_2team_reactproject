@@ -15,7 +15,7 @@ export const EventBanner = () => {
     }
     else if(type ==="minus"){
       if(count<2) {
-        setCount(3);
+        setCount(4);
         return;}
       setCount(count - 1);
       return;
