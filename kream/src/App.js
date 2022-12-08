@@ -12,10 +12,8 @@ import Login from "./components/loginregister/Login"
 import DetailPage from './pages/DetailPage';
 import { Detail } from './components/detail/Detail';
 //여성 추천
-import womenRecommend from './pages/womenRecommend';
 import { womenRecommend } from './components/recommend/womenRecommend';
 //남성 추천
-import manRecommend from './pages/manRecommend';
 import { manRecommend } from './components/recommend/manRecommend';
 import { Provider, useSelector } from 'react-redux';
 
@@ -40,11 +38,6 @@ function App() {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
-  useEffect(() => {
-    axios.get("/data/products.json").then((datafile) => {
-      setProducts(datafile.data.products);
-    });
-  });
   //
   return (
     <>
