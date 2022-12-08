@@ -4,8 +4,8 @@ import { useEffect } from "react";
 export const TotalCart = ({ total, setTotal, cart, convertPrice, found }) => {
   useEffect(() => {
     if (found) { //만약에 값이 있다면 즉, 계산할 필요가 있다면
-    //   const temp = found.filter((item) => item.length !== 0);
-    const sum = found.map((item) => item[0].price * item[0].quantity);
+      const temp = found.filter((item) => item.length !== 0);
+    const sum = temp.map((item) => item[0].price * item[0].quantity);
       const reducer = (acc, cur) => acc + cur;
     //   sum 길이가 0이면 결과값은 0이다.
       if (sum.length === 0) {

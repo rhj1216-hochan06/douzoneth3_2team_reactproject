@@ -26,14 +26,14 @@ export const Cart = ({ cart, setCart, convertPrice }) => {
         if (quantity === 0) return; // 수량이 1 밑으로 가지 않도록 반환
         setCart([...cart.slice(0, idx), cartItem, ...cart.slice(idx + 1)]);
     };
-    //장바구니 수량 증감기능 끝
+
 
     //상품삭제기능 : cart에서 id값과 일치하는 내용을 필터링
     const handleRemove = (id) => {
         setCart(cart.filter((cart) => cart.id !== id));
-        // setCheckLists(checkLists.filter((check) => parseInt(check) !== id));
+        setCheckLists(checkLists.filter((check) => parseInt(check) !== id));
     };
-    //삭제함수 끝
+
 
     //체크리스트기능 : 체크되면 체크리스트에 id추가, 체크해제되면 id제거
     const handleCheckList = (checked, id) => {
@@ -44,7 +44,7 @@ export const Cart = ({ cart, setCart, convertPrice }) => {
             setCheckLists(checkLists.filter((check) => check !== id));
         }
     };
-    //체크리스트기능 끝
+
 
     //전체선택기능
     const handleCheckAll = (checked) => {
@@ -56,7 +56,7 @@ export const Cart = ({ cart, setCart, convertPrice }) => {
             setCheckLists([]);
         }
     };
-    //전체선택기능끝
+
 
     //총금액계산하기위한상품담기(cart랑 체크리스트 비교)
     const found = checkLists.map((checkLists) => 
