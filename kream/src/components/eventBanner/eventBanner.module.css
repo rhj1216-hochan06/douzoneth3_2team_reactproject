@@ -4,6 +4,7 @@
   height: 500px;
   background: #f2f2f2;
   margin-bottom: 80px;
+  justify-content: center;
 }
 
 .right {
@@ -33,4 +34,10 @@
 }
 .left:hover img {
   transform: scale(1.4);
+}
+
+.main {
+  width: 100%;
+  height: 500px;
+  text-align: center;
 }

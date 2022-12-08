@@ -24,6 +24,7 @@ export const EventBanner = () => {
 
 
   return (
+    <div className={styles.main}>
     <article
       className={styles.banner}
       style={{
@@ -40,6 +41,7 @@ export const EventBanner = () => {
           onClick={() => changebanner("minus")} />
       </div>
     </article>
+    </div>
    
  
  );
