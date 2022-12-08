@@ -6,7 +6,9 @@
       "provider": "Ader Error",
       "price": 313000,
       "image": "/images/image001.png",
-      "category": "의류"
+      "category": "의류",
+      "gender": "man"
+
     },
     {
       "id": 2,
@@ -14,7 +16,9 @@
       "provider": "Ten C",
       "price": 840000,
       "image": "/images/image002.png",
-      "category": "의류"
+      "category": "의류",
+      "gender": "man"
+
     },
     {
       "id": 3,
@@ -22,7 +26,8 @@
       "provider": "Numbering",
       "price": 198000,
       "image": "/images/image003.png",
-      "category": "패션잡화"
+      "category": "패션잡화",
+      "gender": "women"
     },
     {
       "id": 4,
@@ -30,7 +35,8 @@
       "provider": "Off-White",
       "price": 188000,
       "image": "/images/image004.png",
-      "category": "패션잡화"
+      "category": "패션잡화",
+      "gender": "women"
     },
     {
       "id": 5,
@@ -38,7 +44,8 @@
       "provider": "Polyteru",
       "price": 164000,
       "image": "/images/image005.png",
-      "category": "의류"
+      "category": "의류",
+      "gender": "man"
     },
     {
       "id": 6,
@@ -46,7 +53,8 @@
       "provider": "Allegri",
       "price": 1170000,
       "image": "/images/image006.png",
-      "category": "의류"
+      "category": "의류",
+      "gender": "women"
 
     },
     {
@@ -55,7 +63,8 @@
       "provider": "Kracker",
       "price": 1319000,
       "image": "/images/image007.png",
-      "category": "테크"
+      "category": "테크",
+      "gender": "man"
     },
     {
       "id": 8,
@@ -63,7 +72,8 @@
       "provider": "Ader Error",
       "price": 280000,
       "image": "/images/image008.png",
-      "category": "라이프"
+      "category": "라이프",
+      "gender": "women"
     }
   ]
 }
