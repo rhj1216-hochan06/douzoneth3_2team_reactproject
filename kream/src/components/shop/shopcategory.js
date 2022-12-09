@@ -38,8 +38,6 @@ export const ShopCategory = ({ products, setProducts, convertPrice, search}) => 
     <>
 
 <input type="text" value={search} />
-
-
       <br /><br /><br />
       <div className={styles.content}>
         <h2 className={styles.contentName1}>여성 추천 컬렉션</h2>

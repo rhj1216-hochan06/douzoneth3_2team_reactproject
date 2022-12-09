@@ -58,20 +58,12 @@ function App() {
       <Routes>
         <Route exact={true} path="/"
           element={
-            <Home
-              products={products}
-              setProducts={setProducts}
-              convertPrice={convertPrice}
-            />
+            <Home/>
           } />
         <Route path="/products"
           element={
             <Provider store={store}>
-              <Products
-                products={products}
-                setProducts={setProducts}
-                convertPrice={convertPrice}
-              />
+              <Products convertPrice={convertPrice}/>
             </Provider>} />
         <Route
           path="/products/:id" element={<DetailPage

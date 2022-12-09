@@ -1,7 +1,7 @@
 import { EventBanner } from "../components/eventBanner/eventBanner";
 import { Link } from 'react-router-dom';
 
-const Home = ({ products, setProducts }) => {
+const Home = () => {
   return (
     <>
     <EventBanner/>
