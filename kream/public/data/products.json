@@ -8,17 +8,15 @@
       "image": "/images/image001.png",
       "category": "의류",
       "gender": 1
-
     },
     {
       "id": 2,
-      "name": "텐씨 아틱 다운 파카 그레이",
-      "provider": "Ten C",
-      "price": 840000,
+      "name": "스투시 x 데님 티어스 타입 2 자켓 라이트 인디고",
+      "provider": "Stussy",
+      "price": 990000,
       "image": "/images/image002.png",
       "category": "의류",
       "gender": 1
-
     },
     {
       "id": 3,
@@ -55,7 +53,6 @@
       "image": "/images/image006.png",
       "category": "의류",
       "gender": 2
-
     },
     {
       "id": 7,
@@ -74,7 +71,8 @@
       "image": "/images/image008.png",
       "category": "라이프",
       "gender": 2
-    },{
+    },
+    {
       "id": 9,
       "name": "피어 오브 갓 베이스볼 후드 빈티지 블랙",
       "provider": "Fear of God",
@@ -82,7 +80,7 @@
       "image": "/images/image009.png",
       "category": "의류",
       "gender": 1
-    },   
+    },
     {
       "id": 10,
       "name": "텐씨 아틱 다운 파카 그레이",
@@ -127,7 +125,7 @@
       "image": "/images/image014.png",
       "category": "패션잡화",
       "gender": 1
-    },    
+    },
     {
       "id": 15,
       "name": "노스페이스 눕시 쇼트 자켓 블랙",
@@ -181,6 +179,186 @@
       "image": "/images/image020.png",
       "category": "패션잡화",
       "gender": 2
+    },
+    {
+      "id": 21,
+      "name": "딥티크 플레르 드 뽀 오 드 퍼퓸 75ml (국내 정식 발매 제품)",
+      "provider": "Diptyque",
+      "price": 227000,
+      "image": "/images/image021.png",
+      "category": "라이프",
+      "gender": 3
+    },
+    {
+      "id": 22,
+      "name": "딥티크 오르페옹 오 드 퍼퓸 75ml (국내 정식 발매 제품)",
+      "provider": "Diptyque",
+      "price": 215000,
+      "image": "/images/image022.png",
+      "category": "라이프",
+      "gender": 3
+    },
+    {
+      "id": 23,
+      "name": "케이스티파이 x 아더에러 아이폰 스티커 맥세이프 케이스 클리어",
+      "provider": "Casetify",
+      "price": 113000,
+      "image": "/images/image023.png",
+      "category": "라이프",
+      "gender": 3
+    },
+    {
+      "id": 24,
+      "name": "헬리녹스 택티컬 필드 터널 4.35 코요테 탄",
+      "provider": "Helinox",
+      "price": 4950000,
+      "image": "/images/image024.png",
+      "category": "라이프",
+      "gender": 3
+    },
+    {
+      "id": 25,
+      "name": "레고 빈센트 반 고흐 별이 빛나는 밤",
+      "provider": "Lego",
+      "price": 201000,
+      "image": "/images/image025.png",
+      "category": "라이프",
+      "gender": 3
+    },
+    {
+      "id": 26,
+      "name": "톰포드 오드 우드 오 드 퍼퓸 100ml (국내 정식 발매 제품)",
+      "provider": "Tom Ford",
+      "price": 338000,
+      "image": "/images/image026.png",
+      "category": "라이프",
+      "gender": 3
+    },
+    {
+      "id": 27,
+      "name": "포켓몬 카드 게임 소드&실드 하이클래스팩 브이맥스 클라이맥스 4박스 (총 40팩)",
+      "provider": "Pokemon",
+      "price": 375000,
+      "image": "/images/image027.png",
+      "category": "라이프",
+      "gender": 3
+    },
+    {
+      "id": 28,
+      "name": "오프화이트 x 아모레 퍼시픽 프로텍션 박스",
+      "provider": "Off-White",
+      "price": 34000,
+      "image": "/images/image028.png",
+      "category": "라이프",
+      "gender": 3
+    },
+    {
+      "id": 29,
+      "name": "레고 바라쿠다 해적들",
+      "provider": "Lego",
+      "price": 432000,
+      "image": "/images/image029.png",
+      "category": "라이프",
+      "gender": 3
+    },
+    {
+      "id": 30,
+      "name": "레고 대형 백화점",
+      "provider": "Lego",
+      "price": 481000,
+      "image": "/images/image030.png",
+      "category": "라이프",
+      "gender": 3
+    },
+    {
+      "id": 31,
+      "name": "애플 에어팟 맥스 실버 (국내 정식 발매 제품)",
+      "provider": "Apple",
+      "price": 693000,
+      "image": "/images/image031.png",
+      "category": "테크",
+      "gender": 3
+    },
+    {
+      "id": 32,
+      "name": "애플 에어팟 프로 2세대 (국내 정식 발매 제품)",
+      "provider": "Apple",
+      "price": 309000,
+      "image": "/images/image032.png",
+      "category": "테크",
+      "gender": 1
+    },
+    {
+      "id": 33,
+      "name": "마이크로소프트 엑스박스 시리즈 X (국내 정식 발매 제품)",
+      "provider": "Microsoft",
+      "price": 584000,
+      "image": "/images/image033.png",
+      "category": "테크",
+      "gender": 1
+    },
+    {
+      "id": 34,
+      "name": "애플 에어팟 프로 맥세이프 호환 (국내 정식 발매 제품)",
+      "provider": "Apple",
+      "price": 248000,
+      "image": "/images/image034.png",
+      "category": "테크",
+      "gender": 3
+    },
+    {
+      "id": 35,
+      "name": "애플 에어팟 맥스 스페이스 그레이 (국내 정식 발매 제품)",
+      "provider": "Apple",
+      "price": 681000,
+      "image": "/images/image035.png",
+      "category": "테크",
+      "gender": 3
+    },
+    {
+      "id": 36,
+      "name": "소니 플레이스테이션 5 블루레이 에디션 (국내 정식 발매 제품)",
+      "provider": "Sony",
+      "price": 713000,
+      "image": "/images/image036.png",
+      "category": "테크",
+      "gender": 3
+    },
+    {
+      "id": 37,
+      "name": "소니 플레이스테이션 5 디지털 에디션 (국내 정식 발매 제품)",
+      "provider": "Sony",
+      "price": 590000,
+      "image": "/images/image037.png",
+      "category": "테크",
+      "gender": 3
+    },
+    {
+      "id": 38,
+      "name": "애플 아이패드 에어 5세대 와이파이 64기가 스페이스 그레이 (국내 정식 발매 제품)",
+      "provider": "Apple",
+      "price": 728000,
+      "image": "/images/image038.png",
+      "category": "테크",
+      "gender": 2
+    },
+    {
+      "id": 39,
+      "name": "애플 아이폰 14 프로 128기가 스페이스 블랙 (국내 정식 발매 제품)",
+      "provider": "Apple",
+      "price": 1506000,
+      "image": "/images/image039.png",
+      "category": "테크",
+      "gender": 2
+    },
+    {
+      "id": 40,
+      "name": "애플 아이폰 14 프로 256기가 실버 (국내 정식 발매 제품)",
+      "provider": "Apple",
+      "price": 1609000,
+      "image": "/images/image040.png",
+      "category": "테크",
+      "gender": 1
     }
   ]
 }
