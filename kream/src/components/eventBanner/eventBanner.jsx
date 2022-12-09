@@ -1,48 +1,18 @@
-import styles from "./eventBanner.module.css";
-import { useState }  from 'react';
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper";
+import "./eventBanner.module.css";
 
 export const EventBanner = () => {
- 
-  const [count, setCount] = useState(1);
-  const changebanner = (type) => {
-    if(type === "plus") {
-      if(count>3) {
-        setCount(1);
-        return;}
-    setCount(count + 1);
-    return;
-    }
-    else if(type ==="minus"){
-      if(count<2) {
-        setCount(4);
-        return;}
-      setCount(count - 1);
-      return;
-    }
-  }
-
-
   return (
-    <div className={styles.main}>
-    <article
-      className={styles.banner}
-      style={{
-        backgroundImage: "url('/images/event"+`${count}`+".png')",
-        backgroundSize: "100%",
-      }}
-    >
-      <div className={styles.right}>
-        <img src="images/icon-swiper-2.svg" alt="right"
-          onClick={() => changebanner("plus")} />
-      </div>
-      <div className={styles.left}>
-        <img src="images/icon-swiper-1.svg" alt="left"
-          onClick={() => changebanner("minus")} />
-      </div>
-    </article>
-    </div>
-   
- 
- );
-};
+    <>
+    <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+      <SwiperSlide><img src="./images/event.png"/></SwiperSlide>
+      <SwiperSlide><img src="./images/event5.png"/></SwiperSlide>
+      <SwiperSlide><img src="./images/event6.png"/></SwiperSlide>
+      <SwiperSlide><img src="./images/event7.png"/></SwiperSlide>
+    </Swiper>
+    </>
+  );
+}
