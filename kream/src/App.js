@@ -21,7 +21,7 @@ import { Man } from './pages/Man';
 import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
 //shop
-import Shop from "./components/shop/shop"
+import {Shoppage} from "./pages/Shoppage";
 
 function App() {
   //상품 변수 정의
@@ -98,8 +98,9 @@ function App() {
             </Provider>} />
 
             <Route
-          path="/shop" element={<Provider store={store}>
-          <Shop
+          path="/shop" element={
+          <Provider store={store}>
+          <Shoppage
             products={products}
             setProducts={setProducts}
             convertPrice={convertPrice}

@@ -1,4 +1,4 @@
-//ManRecommend.js
+//WomenRecommend.js
 import styles from "./recommend.module.css";
 import { Product } from "../products/product";
 
