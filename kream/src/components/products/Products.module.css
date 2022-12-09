@@ -15,10 +15,10 @@
   }
   
   .flex_wrap {
-    max-width: 1540px;
+    max-width: 1600px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    place-items: center;
+    place-items: baseline;
     gap: 70px 20px;
     margin: 0 auto;
     margin-top: 35px;
