@@ -10,6 +10,7 @@ import axios from "axios";
 import store from './store/store';
 import Login from "./components/loginregister/Login"
 import Register from "./components/loginregister/register"
+
 //디테일 페이지
 import DetailPage from './pages/DetailPage';
 import { Detail } from './components/detail/Detail';
@@ -19,6 +20,8 @@ import { Women } from './pages/Women';
 import { Man } from './pages/Man';
 import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
+//shop
+import Shop from "./components/shop/shop"
 
 function App() {
   //상품 변수 정의
@@ -93,6 +96,10 @@ function App() {
                 convertPrice={convertPrice}
               />
             </Provider>} />
+
+            <Route
+          path="/shop" element={<Shop
+          />} />
       </Routes>
       <Footer/>
     </>

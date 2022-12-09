@@ -18,7 +18,7 @@ export const TopNavBar = ({ cart }) => {
           <div className=" " id="navbarNav">
             <ul className="navbar-nav ml-auto navbar-center main_menu onepage_nav">
               <li className="nav-item">
-                <a className="nav-link" href="#">SHOP</a>
+                <a className="nav-link" href="/shop">SHOP</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/login">LOGIN</a>
