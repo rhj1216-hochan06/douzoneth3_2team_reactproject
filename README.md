@@ -7,6 +7,7 @@ $ npm install react-router-dom@6
 $ npm install axios
 $ yarn add react-bootstrap bootstrap //$ npm install bootstrap bootstrap 으로는 주입이 안된다...yarn으로 연결하니 잘됨. 이유 몰루
 $ npm install styled-components 
+$ npm install swiper
 ```
 ---
 #### 깃 관련 당부
