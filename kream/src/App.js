@@ -13,7 +13,7 @@ import Register from "./components/loginregister/register"
 import DetailPage from './pages/DetailPage';
 import { Detail } from './components/detail/Detail';
 //여성 추천
-import { womenRecommend } from './components/recommend/womenRecommend';
+import { Women } from './pages/Women';
 //남성 추천
 import { Man } from './pages/Man';
 import Basket from './pages/Basket.js';
@@ -24,9 +24,6 @@ function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
-  // 여성, 남성 추천
-  const [womenRecommend, setWomenRecommend] = useState([]);
-  const [ManRecommend, setManRecommend] = useState([]);
   //useEffect로 최초 1번만 쇼핑몰데이터 렌더링
   //axios 문법
   useEffect(() => {
@@ -71,7 +68,7 @@ function App() {
         <Route
           path="/login" element={<Login
           />} />
-          <Route
+        <Route
           path="/register" element={<Register
           />} />
         <Route
@@ -81,6 +78,15 @@ function App() {
           element={
             <Provider store={store}>
               <Man
+                products={products}
+                setProducts={setProducts}
+                convertPrice={convertPrice}
+              />
+            </Provider>} />
+        <Route path="/womenRecommend"
+          element={
+            <Provider store={store}>
+              <Women
                 products={products}
                 setProducts={setProducts}
                 convertPrice={convertPrice}
