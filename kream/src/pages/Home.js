@@ -10,6 +10,10 @@ const Home = ({ products, setProducts }) => {
     <Link to="/womenRecommend"> 여성 추천</Link><br/>
     <Link to="/manRecommend"> 남성 추천</Link><br/>
     <Link to="/"> 이벤트</Link><br/>
+    <Link to="/cloth"> 전체 카테고리 (의류)</Link><br/>
+    <Link to="/accessorie"> 전체 카테고리 (패션잡화)</Link><br/>
+    <Link to="/tech"> 전체 카테고리 (테크)</Link><br/>
+    <Link to="/life"> 전체 카테고리 (라이프)</Link><br/>
    </>
   );
 };
