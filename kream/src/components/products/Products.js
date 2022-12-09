@@ -1,14 +1,37 @@
 //products.js
 import styles from "./Products.module.css";
-import { Product } from "./product";
+// import { Product } from "./product";
 import { useSelector, useDispatch } from 'react-redux';
 import { up } from '../../store/counterSlice';
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 export const Products = ({ products, setProducts, convertPrice }) => {
   const [scroll, setScroll] = useState(false);
+  const Product = ({ product, convertPrice }) => {
+    return (
+      <div className={styles.product}>
+        <Link to={`/products/${product.id}`}>
+          <div className={styles.product_image}>
+            <img src={product.image} alt="product" />
+          </div>
+        </Link>
+        <div className={styles.store}>
+          <span>{product.provider}</span>
+        </div>
 
+        <div className={styles.product_name}>
+          <span>{product.name}</span>
+        </div>
+
+        <div className={styles.product_price}>
+          <span className={styles.price}>{convertPrice(product.price)}</span>
+          <span className={styles.unit}>원</span>
+        </div>
+      </div>
+    );
+  };
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -55,7 +78,7 @@ export const Products = ({ products, setProducts, convertPrice }) => {
   return (
     <>
       Home에서 데이터를 받아 수십개의 상품들 나열
-
+ 
       <button onClick={() => {
         dispatch(up(3));   // action 값을 변화시킬 때
       }}>+</button> {number};
@@ -68,16 +91,15 @@ export const Products = ({ products, setProducts, convertPrice }) => {
 
 
       <main className={styles.flex_wrap}>
+        
         {products.map((product) => { //map을 이용하여 상품 갯수만큼 반복시키기
           return <Product key={`key-${product.id}`} product={product} convertPrice={convertPrice} />;
         })}
-      </main>
+        
+      </main> 
 
       <button onClick={() => console.log("더보기")}>더보기</button>
     </>
-
-
-
-    //map을 이용하여 상품 갯수만큼 반복시키기
   );
+
 };
