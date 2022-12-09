@@ -98,8 +98,13 @@ function App() {
             </Provider>} />
 
             <Route
-          path="/shop" element={<Shop
-          />} />
+          path="/shop" element={<Provider store={store}>
+          <Shop
+            products={products}
+            setProducts={setProducts}
+            convertPrice={convertPrice}
+          />
+        </Provider>} />
       </Routes>
       <Footer/>
     </>

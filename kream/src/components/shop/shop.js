@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import "./shop.css"
+import { Product } from "../products/product";
 
 
- const Shop = () => {
+ const Shop = ({ products, setProducts, convertPrice }) => {
 
 return (
     <div>
