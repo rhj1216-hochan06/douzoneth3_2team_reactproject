@@ -74,6 +74,113 @@
       "image": "/images/image008.png",
       "category": "라이프",
       "gender": 2
+    },{
+      "id": 9,
+      "name": "피어 오브 갓 베이스볼 후드 빈티지 블랙",
+      "provider": "Fear of God",
+      "price": 467000,
+      "image": "/images/image009.png",
+      "category": "의류",
+      "gender": 1
+    },   
+    {
+      "id": 10,
+      "name": "텐씨 아틱 다운 파카 그레이",
+      "provider": "TenC",
+      "price": 830000,
+      "image": "/images/image010.png",
+      "category": "의류",
+      "gender": 1
+    },
+    {
+      "id": 11,
+      "name": "언더마이카 리전.04 멀티 지퍼 배기 와이드 슬랙스 블랙",
+      "provider": "Undermycar",
+      "price": 189000,
+      "image": "/images/image011.png",
+      "category": "의류",
+      "gender": 1
+    },
+    {
+      "id": 12,
+      "name": "롤렉스 씨드웰러 126600",
+      "provider": "Rolex",
+      "price": 17600000,
+      "image": "/images/image012.png",
+      "category": "패션잡화",
+      "gender": 1
+    },
+    {
+      "id": 13,
+      "name": "슈프림 벨벳 패턴 트루퍼 라이트 블루 - 21FW",
+      "provider": "Supreme",
+      "price": 228000,
+      "image": "/images/image013.png",
+      "category": "패션잡화",
+      "gender": 1
+    },
+    {
+      "id": 14,
+      "name": "튜더 블랙 베이 크로노 MT5813 스틸 브레이슬릿 오팔린",
+      "provider": "Tudor",
+      "price": 5900000,
+      "image": "/images/image014.png",
+      "category": "패션잡화",
+      "gender": 1
+    },    
+    {
+      "id": 15,
+      "name": "노스페이스 눕시 쇼트 자켓 블랙",
+      "provider": "TheNorthFace",
+      "price": 649000,
+      "image": "/images/image015.png",
+      "category": "의류",
+      "gender": 2
+    },
+    {
+      "id": 16,
+      "name": "막스마라 루드밀라 아이콘 코트 토바코",
+      "provider": "MaxMara",
+      "price": 4150000,
+      "image": "/images/image016.png",
+      "category": "의류",
+      "gender": 2
+    },
+    {
+      "id": 17,
+      "name": "디젤 엠아리사 점퍼 자수 컷아웃 로고 니트 블랙",
+      "provider": "Diesel",
+      "price": 599000,
+      "image": "/images/image017.png",
+      "category": "의류",
+      "gender": 2
+    },
+    {
+      "id": 18,
+      "name": "비비안 웨스트우드 투 사이드 싱글 오브 스카프 카멜",
+      "provider": "Vivienne Westwood",
+      "price": 217000,
+      "image": "/images/image018.png",
+      "category": "패션잡화",
+      "gender": 2
+    },
+    {
+      "id": 19,
+      "name": "셀린느 트리옴페 캔버스 & 카프스킨 미디움 폴코백 탄",
+      "provider": "Celine",
+      "price": 2100000,
+      "image": "/images/image019.png",
+      "category": "패션잡화",
+      "gender": 2
+    },
+    {
+      "id": 20,
+      "name": "반 클리프 & 아펠 스위트 알함브라 펜던트 옐로우 골드 마더 오브 펄",
+      "provider": "Van Cleef & Arpels",
+      "price": 2110000,
+      "image": "/images/image020.png",
+      "category": "패션잡화",
+      "gender": 2
     }
   ]
 }
