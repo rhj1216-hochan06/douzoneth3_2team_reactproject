@@ -1,4 +1,4 @@
-import {Shop} from "../components/shop/shop.js";
+import { Shop } from "../components/shopper/shop.js";
 
 
 const Shoppage = ({ convertPrice, setProducts, products }) => {
