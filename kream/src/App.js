@@ -2,6 +2,7 @@ import './App.css';
 import { Button, Navbar, Container } from 'react-bootstrap';
 import { Route, Routes, Link } from 'react-router-dom';
 import { TopNavBar } from "./components/header/TopNavBar.js";
+import { Footer } from "./components/footer/Footer.js";
 import Home from "./pages/Home";
 import { Products } from "./components/products/Products";
 import { useState, useEffect } from "react";
@@ -93,6 +94,7 @@ function App() {
    path="/cart" element={<Basket />}
         />
       </Routes>
+      <Footer/>
     </>
   );
 }
