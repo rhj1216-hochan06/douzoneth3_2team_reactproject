@@ -35,6 +35,7 @@ function App() {
   //상품 변수 정의
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [search, setSearch] = useState([]);
 
   //useEffect로 최초 1번만 쇼핑몰데이터 렌더링
   //axios 문법
@@ -108,6 +109,7 @@ function App() {
           element={
             <Provider store={store}>
               <Shop
+              search ={search}
                 products={products}
                 setProducts={setProducts}
                 convertPrice={convertPrice}

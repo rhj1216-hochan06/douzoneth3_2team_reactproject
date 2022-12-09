@@ -35,9 +35,9 @@ const Login = () => {
           </div>
        
         <form onSubmit={onSubmit}>
-          <div><input name="id" type="id" placeholder="아이디" value={id} onChange={onIdHandler} class="loginregister__input" /></div>
-          <div><p className='gulza'>id</p><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input" /></div>
-          <div><h6 className='gulza'>password</h6><button type="submit" class="loginregister__button">로그인</button></div>
+          <div><p className='gulza'>id</p><input name="id" type="id" placeholder="아이디" value={id} onChange={onIdHandler} class="loginregister__input" /></div>
+          <div><h6 className='gulza'>password</h6><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input" /></div>
+          <div><button type="submit" class="loginregister__button">로그인</button></div>
 
         </form>
 

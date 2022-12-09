@@ -13,8 +13,8 @@ export const WomenRecommend = ({ products, setProducts, convertPrice }) => {
       </div><br />
       <main className={styles.flex_wrap}>
         {products.filter(item => item.gender === 2).map((product) => { //map을 이용하여 상품 갯수만큼 반복시키기
-            return <Product key={`key-${product.id}`} product={product} convertPrice={convertPrice} />;
-          })}
+          return <Product key={`key-${product.id}`} product={product} convertPrice={convertPrice} />;
+        })}
       </main>
     </>
   );

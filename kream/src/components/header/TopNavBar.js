@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import styles from "./TopNavBar.module.css";
+import { useEffect,useState } from "react";
 
 export const TopNavBar = ({ cart }) => {
+
+  const [search, setSearch] = useState("");
   return (
     <header>
       <nav className="navbar navbar-expand-xl nav_area sticky">
@@ -12,8 +15,10 @@ export const TopNavBar = ({ cart }) => {
             </Link>
           </div>
           <div className={styles.input_wrap}>
-            <input className={styles.search} type="text" placeholder="상품을 검색해보세요!" />&nbsp;
-            <img src="/images/icon-search.svg" alt="search" />
+            <input className={styles.search} type="text" placeholder="상품을 검색해보세요!"  />&nbsp;
+            <Link to="/shop" >
+            <img src="/images/icon-search.svg" alt="find" />
+            </Link>
           </div>
           <div className=" " id="navbarNav">
             <ul className="navbar-nav ml-auto navbar-center main_menu onepage_nav">
