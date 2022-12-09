@@ -3,10 +3,32 @@ import styles from "./Products.module.css";
 import { Product } from "./product";
 import { useSelector, useDispatch } from 'react-redux';
 import { up } from '../../store/counterSlice';
-
+import { useState, useEffect } from "react";
 
 
 export const Products = ({ products, setProducts, convertPrice }) => {
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll); //clean up
+    };
+  }, []);
+
+  const handleScroll = () => {
+    // 스크롤이 Top에서 5000px 이상 내려오면 true값을 useState에 넣어줌
+    if (window.scrollY >= 3000) {
+      setScroll(true);
+      console.log(scroll)
+    } else {
+      // 스크롤이 50px 미만일경우 false를 넣어줌
+      setScroll(false);
+    }
+
+  };
+
+
   const sortProduct = (type) => {
     if (type === "recent") {
       const newProduct = [...products];
@@ -42,13 +64,20 @@ export const Products = ({ products, setProducts, convertPrice }) => {
         <p onClick={() => sortProduct("recent")}>최신순</p>
         <p onClick={() => sortProduct("row")}>낮은 가격</p>
         <p onClick={() => sortProduct("high")}>높은 가격</p>
-       </div>
+      </div>
+
+
       <main className={styles.flex_wrap}>
         {products.map((product) => { //map을 이용하여 상품 갯수만큼 반복시키기
           return <Product key={`key-${product.id}`} product={product} convertPrice={convertPrice} />;
         })}
       </main>
+
+      <button onClick={() => console.log("더보기")}>더보기</button>
     </>
+
+
+
     //map을 이용하여 상품 갯수만큼 반복시키기
   );
 };
