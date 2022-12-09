@@ -18,6 +18,14 @@ import { Detail } from './components/detail/Detail';
 import { Women } from './pages/Women';
 //남성 추천
 import { Man } from './pages/Man';
+// 카테고리(의류)
+import { Cloth } from './pages/Cloth.js';
+// 카테고리(패션잡화)
+import { Accessorie } from './pages/Accessorie.js';
+// 카테고리(테크)
+import { Tech } from './pages/Tech.js';
+// 카테고리(라이프)
+import { Life } from './pages/Life.js';
 import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
 //shop
@@ -96,11 +104,46 @@ function App() {
                 convertPrice={convertPrice}
               />
             </Provider>} />
-
         <Route path="/shop"
           element={
             <Provider store={store}>
               <Shop
+                products={products}
+                setProducts={setProducts}
+                convertPrice={convertPrice}
+              />
+            </Provider>} />
+        <Route path="/cloth"
+          element={
+            <Provider store={store}>
+              <Cloth
+                products={products}
+                setProducts={setProducts}
+                convertPrice={convertPrice}
+              />
+            </Provider>} />
+        <Route path="/accessorie"
+          element={
+            <Provider store={store}>
+              <Accessorie
+                products={products}
+                setProducts={setProducts}
+                convertPrice={convertPrice}
+              />
+            </Provider>} />
+        <Route path="/tech"
+          element={
+            <Provider store={store}>
+              <Tech
+                products={products}
+                setProducts={setProducts}
+                convertPrice={convertPrice}
+              />
+            </Provider>} />
+        <Route path="/life"
+          element={
+            <Provider store={store}>
+              <Life
                 products={products}
                 setProducts={setProducts}
                 convertPrice={convertPrice}
