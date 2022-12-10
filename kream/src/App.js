@@ -59,7 +59,6 @@ function App() {
 
           <TopNavBar cart={cart} />
           <div class="main-content">
-            <Link to="/test"> 테스트 페이지</Link><br />
             <Routes>
               <Route exact={true} path="/"
                 element={
@@ -148,7 +147,6 @@ function App() {
                       convertPrice={convertPrice}
                     />
                   </Provider>} />
-              <Route path="/test" element={<Posttest />} />
             </Routes>
           </div>
           <footer1>
