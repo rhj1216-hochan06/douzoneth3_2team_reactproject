@@ -32,17 +32,17 @@ export const CartList = ({ cart , convertPrice , handleQuantity, handleRemove, h
             className={styles.minus} 
             src="/images/icon-minus-line.svg"
             alt="minus"
-            onClick={()=>handleQuantity(cart.id,"minus")}
+            onClick={()=>handleQuantity(cart.id,"minus",cart.cart_count)}
             />
 
         <div className={styles.count}>
-            <span>{cart.quantity}</span>
+            <span>{cart.cart_count}</span>
         </div>
         <img
             className={styles.plus}
             src="/images/icon-plus-line.svg"
             alt="plus"
-            onClick={()=>handleQuantity(cart.id,"plus")}
+            onClick={()=>handleQuantity(cart.id,"plus",cart.cart_count)}
         />
     </div>
 

@@ -11,6 +11,11 @@ export const Cart = ({ convertPrice }) => {
     const [cartLangth, setCartLangth] = useState([]); 
     const [cart, setCart] = useState([]);
 
+//전체선택되어있다면(길이가 같으므로)true
+const isAllChecked =
+    cartLangth === checkLists.length && checkLists.length !== 0;
+
+//장바구니 목록 상시 출력
         fetch("/api/cart", {
           method: "post",
           headers: {
@@ -26,17 +31,34 @@ export const Cart = ({ convertPrice }) => {
             setCartLangth(Object.keys(json).length);
           }
           );
+    
 
-    //전체선택되어있다면(길이가 같으므로)true
-    const isAllChecked =
-        cartLangth === checkLists.length && checkLists.length !== 0;
-    //장바구니 수량 증감 기능
-    const handleQuantity = (id, plus_minus) => {
 
+//장바구니 수량 증감 기능
+    const handleQuantity = (id, type,cart_count) => {
+        const cal = (count) => {
+            fetch("/api/cart/count",{
+                method:"post",
+                headers: {
+                    "Content-type":"application/json; charset=utf-8"
+                },
+                body: JSON.stringify({
+                    "userid": sessionStorage.getItem("loginId"),
+                    "pid": id,
+                    "cart_count": count,
+                })
+            }).then((res) => res.json())
+        };
+        if (type === "plus") cal(cart_count + 1);
+        else if (type === "minus") {
+          if (cart_count < 2) return;
+          cal(cart_count - 1);
+          return;
+        }
     };
 
 
-    //상품삭제기능 : cart에서 id값과 일치하는 내용을 필터링
+    //상품삭제기능 : id값이 일치하면 삭제
     const handleRemove = (id) => {
         setCart(cart.filter((cart) => cart.id !== id));
         setCheckLists(checkLists.filter((check) => parseInt(check) !== id));
