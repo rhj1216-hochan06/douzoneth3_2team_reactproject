@@ -6,7 +6,7 @@ export const TopNavBar = () => {
   const [count, setCount] = useState([]);
   const sessionStorage = window.sessionStorage;
 
-  useEffect(() => {
+
     fetch("/api/nav", {
       method: "post",
       headers: {
@@ -21,7 +21,7 @@ export const TopNavBar = () => {
         setCount(Object.keys(json).length);
       }
       );
-  }, []);
+
 
   return (
     // <header>

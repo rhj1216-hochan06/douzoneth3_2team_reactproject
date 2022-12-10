@@ -4,13 +4,30 @@ import { CartList } from "./cartList";
 import { TotalCart } from "./totalCart";
 import { useState } from "react";
 
-export const Cart = ({ cart, setCart, convertPrice }) => {
+export const Cart = ({ cart,setCart, convertPrice }) => {
     const [checkLists, setCheckLists] = useState([]);
     const [total, setTotal] = useState([]);
+    const sessionStorage = window.sessionStorage;
+    const [cartLangth, setCartLangth] = useState([]); 
 
-     const sessionStorage = window.sessionStorage;
+        fetch("/api/nav", {
+          method: "post",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify({
+            "id": sessionStorage.getItem("loginId"),
+          })
+        })
+          .then((res) => res.json())
+          .then(json => {
+            setCartLangth(Object.keys(json).length);
+          }
+          );
 
-     console.log('카트에 아이디 넘겨주기 되냐?'+sessionStorage.getItem("loginId"));
+        
+    console.log('카트에 아이디 넘겨주기 되냐?' + sessionStorage.getItem("loginId"));
+
     //전체선택되어있다면(길이가 같으므로)true
     const isAllChecked =
         cart.length === checkLists.length && checkLists.length !== 0;

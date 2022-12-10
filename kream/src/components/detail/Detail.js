@@ -115,7 +115,10 @@ export const Detail = ({ cart, setCart, convertPrice }) => {
 
           <div className={styles.btn}>
             <button className={styles.btn_buy}>바로 구매</button>
-            <button className={styles.btn_cart} onClick={() => handleCart()}>
+            <button className={styles.btn_cart} onClick={() => {
+              handleCart();
+              window.location.reload();
+              }}>
               장바구니</button>
           </div>
         </section>
