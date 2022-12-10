@@ -31,26 +31,26 @@ app.get('/api/products', (req, res) => {
     else res.send(err);
   })
 
-app.post('/api/text', (req,res)=>{
-  const id = req.body.inText;
-  console.log("post");
-  console.log(id);
-  maria.query("INSERT INTO TEST values(?)",[id]),
-  function(err,rows,fields){
-    if(err){
-      console.log("DB저장 실패");
-    }else{
-      console.log("DB저장 성공");
-    };
-  }
-})
-// app.post('/api/products', (req, res) => {
-//   console.log('products');
-//   maria.query("SELECT * FROM products", (err, data) => {
-//     console.log('success');
-//     if (!err) res.send({ products: data });
-//     else res.send(err);
-//   })
+  app.post('/api/text', (req, res) => {
+    const id = req.body.inText;
+    console.log("post");
+    console.log(id);
+    maria.query("INSERT INTO TEST values(?)", [id]),
+      function (err, rows, fields) {
+        if (err) {
+          console.log("DB저장 실패");
+        } else {
+          console.log("DB저장 성공");
+        };
+      }
+  })
+  // app.post('/api/products', (req, res) => {
+  //   console.log('products');
+  //   maria.query("SELECT * FROM products", (err, data) => {
+  //     console.log('success');
+  //     if (!err) res.send({ products: data });
+  //     else res.send(err);
+  //   })
   app.post("/data", (req, res) => {
     connection.query("SELECT * FROM products", function (err, rows, fields) {
       if (err) {

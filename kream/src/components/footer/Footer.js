@@ -4,6 +4,9 @@ import './Footer.css';
 
 export const Footer = () => {
     return (
+
+
+
         <div className='footer-container'>
             <section className="footer-subscription">
                 <p className="footer-subscription-heading">
@@ -14,9 +17,9 @@ export const Footer = () => {
                 </p>
                 <div className="input-areas">
                     <form>
-                        <input type="email" name = "email" readOnly value="whipping@google.com"
-                        className="footer-input"/>
-                       
+                        <input type="email" name="email" readOnly value="whipping@google.com"
+                            className="footer-input" />
+
                     </form>
                 </div>
             </section>
@@ -36,8 +39,8 @@ export const Footer = () => {
                         <Link to='/'>Destinations</Link>
                         <Link to='/'>Sponsorships</Link>
                     </div>
-                    </div>
-                    <div className='footer-link-wrapper'>
+                </div>
+                <div className='footer-link-wrapper'>
                     <div class='footer-link-items'>
                         <h3>Social Media</h3>
                         <Link to='/'>Instagram</Link>
@@ -56,39 +59,39 @@ export const Footer = () => {
                     <small className="website-rights">TRVL © 2020</small>
                     <div className="social-icons">
                         <Link className="social-icon-link facebook" to="/"
-                        target = "_blank"
-                        aria-label="Facebook"
+                            target="_blank"
+                            aria-label="Facebook"
                         >
                             <i className="fab fa-facebook-f"></i>
                         </Link>
                         <Link className="social-icon-link instagram" to="/"
-                        target = "_blank"
-                        aria-label="Instagram"
+                            target="_blank"
+                            aria-label="Instagram"
                         >
                             <i className="fab fa-instagram"></i>
                         </Link>
                         <Link class='social-icon-link youtube'
-                        to='/'
-                        target='_blank'
-                        aria-label='Youtube'
+                            to='/'
+                            target='_blank'
+                            aria-label='Youtube'
                         >
-                        <i class='fab fa-youtube' />
+                            <i class='fab fa-youtube' />
                         </Link>
                         <Link
-                        class='social-icon-link twitter'
-                        to='/'
-                        target='_blank'
-                        aria-label='Twitter'
+                            class='social-icon-link twitter'
+                            to='/'
+                            target='_blank'
+                            aria-label='Twitter'
                         >
-                        <i class='fab fa-twitter' />
+                            <i class='fab fa-twitter' />
                         </Link>
                         <Link
-                        class='social-icon-link twitter'
-                        to='/'
-                        target='_blank'
-                        aria-label='LinkedIn'
+                            class='social-icon-link twitter'
+                            to='/'
+                            target='_blank'
+                            aria-label='LinkedIn'
                         >
-                        <i class='fab fa-linkedin' />
+                            <i class='fab fa-linkedin' />
                         </Link>
                     </div>
                 </div>
