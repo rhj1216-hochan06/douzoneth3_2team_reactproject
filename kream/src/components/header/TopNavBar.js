@@ -95,7 +95,7 @@ export const TopNavBar = ({ cart }) => {
                 <a href="" className={styles.top_link}>마이페이지</a>
               </li>
               <li className={styles.top_item}>
-                <a href="" className={styles.top_link}>로그인</a>
+                <a href="/login" className={styles.top_link}>로그인</a>
               </li>
             </ul>
           </div>
