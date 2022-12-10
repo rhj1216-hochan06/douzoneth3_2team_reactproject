@@ -54,101 +54,110 @@ function App() {
 
   //
   return (
-    <>
-      <TopNavBar cart={cart} />
-      <Link to="/test"> 테스트 페이지</Link><br/>
-      <Routes>
-        <Route exact={true} path="/"
-          element={
-            <Home/>
-          } />
-        <Route path="/products"
-          element={
-            <Provider store={store}>
-              <Products convertPrice={convertPrice}/>
-            </Provider>} />
-        <Route
-          path="/products/:id" element={<DetailPage
-            convertPrice={convertPrice} cart={cart} setCart={setCart}
-          />} />
-        <Route />
-        <Route
-          path="/login" element={<Login
-          />} />
-        <Route
-          path="/register" element={<Register
-          />} />
-        <Route
-          path="/cart" element={<Basket cart={cart} setCart={setCart} convertPrice={convertPrice} />}
-        />
-        <Route path="/manRecommend"
-          element={
-            <Provider store={store}>
-              <Man
-                products={products}
-                setProducts={setProducts}
-                convertPrice={convertPrice}
+    <body>
+      <div class="wrapper1">
+        <>
+
+          <TopNavBar cart={cart} />
+          <div class="main-content">
+            <Link to="/test"> 테스트 페이지</Link><br />
+            <Routes>
+              <Route exact={true} path="/"
+                element={
+                  <Home />
+                } />
+              <Route path="/products"
+                element={
+                  <Provider store={store}>
+                    <Products convertPrice={convertPrice} />
+                  </Provider>} />
+              <Route
+                path="/products/:id" element={<DetailPage
+                  convertPrice={convertPrice} cart={cart} setCart={setCart}
+                />} />
+              <Route />
+              <Route
+                path="/login" element={<Login
+                />} />
+              <Route
+                path="/register" element={<Register
+                />} />
+              <Route
+                path="/cart" element={<Basket cart={cart} setCart={setCart} convertPrice={convertPrice} />}
               />
-            </Provider>} />
-        <Route path="/womenRecommend"
-          element={
-            <Provider store={store}>
-              <Women
-                products={products}
-                setProducts={setProducts}
-                convertPrice={convertPrice}
-              />
-            </Provider>} />
-        <Route path="/shop"
-          element={
-            <Provider store={store}>
-              <Shop
-              search ={search}
-                products={products}
-                setProducts={setProducts}
-                convertPrice={convertPrice}
-              />
-            </Provider>} />
-        <Route path="/cloth"
-          element={
-            <Provider store={store}>
-              <Cloth
-                products={products}
-                setProducts={setProducts}
-                convertPrice={convertPrice}
-              />
-            </Provider>} />
-        <Route path="/accessorie"
-          element={
-            <Provider store={store}>
-              <Accessorie
-                products={products}
-                setProducts={setProducts}
-                convertPrice={convertPrice}
-              />
-            </Provider>} />
-        <Route path="/tech"
-          element={
-            <Provider store={store}>
-              <Tech
-                products={products}
-                setProducts={setProducts}
-                convertPrice={convertPrice}
-              />
-            </Provider>} />
-        <Route path="/life"
-          element={
-            <Provider store={store}>
-              <Life
-                products={products}
-                setProducts={setProducts}
-                convertPrice={convertPrice}
-              />
-            </Provider>} />
-        <Route path="/test" element={<Posttest/>}/>
-      </Routes>
-      <Footer />
-    </>
+              <Route path="/manRecommend"
+                element={
+                  <Provider store={store}>
+                    <Man
+                      products={products}
+                      setProducts={setProducts}
+                      convertPrice={convertPrice}
+                    />
+                  </Provider>} />
+              <Route path="/womenRecommend"
+                element={
+                  <Provider store={store}>
+                    <Women
+                      products={products}
+                      setProducts={setProducts}
+                      convertPrice={convertPrice}
+                    />
+                  </Provider>} />
+              <Route path="/shop"
+                element={
+                  <Provider store={store}>
+                    <Shop
+                      search={search}
+                      products={products}
+                      setProducts={setProducts}
+                      convertPrice={convertPrice}
+                    />
+                  </Provider>} />
+              <Route path="/cloth"
+                element={
+                  <Provider store={store}>
+                    <Cloth
+                      products={products}
+                      setProducts={setProducts}
+                      convertPrice={convertPrice}
+                    />
+                  </Provider>} />
+              <Route path="/accessorie"
+                element={
+                  <Provider store={store}>
+                    <Accessorie
+                      products={products}
+                      setProducts={setProducts}
+                      convertPrice={convertPrice}
+                    />
+                  </Provider>} />
+              <Route path="/tech"
+                element={
+                  <Provider store={store}>
+                    <Tech
+                      products={products}
+                      setProducts={setProducts}
+                      convertPrice={convertPrice}
+                    />
+                  </Provider>} />
+              <Route path="/life"
+                element={
+                  <Provider store={store}>
+                    <Life
+                      products={products}
+                      setProducts={setProducts}
+                      convertPrice={convertPrice}
+                    />
+                  </Provider>} />
+              <Route path="/test" element={<Posttest />} />
+            </Routes>
+          </div>
+          <footer1>
+            <Footer />
+          </footer1>
+        </>
+      </div>
+    </body>
   );
 }
 

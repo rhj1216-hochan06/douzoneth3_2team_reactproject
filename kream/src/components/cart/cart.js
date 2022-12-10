@@ -59,45 +59,46 @@ export const Cart = ({ cart, setCart, convertPrice }) => {
 
 
     //총금액계산하기위한상품담기(cart랑 체크리스트 비교)
-    const found = checkLists.map((checkLists) => 
+    const found = checkLists.map((checkLists) =>
         cart.filter((el) => el.id == checkLists)
     );
     return (
-        <>
-            <header className={styles.cart_title_wrap}>
-                <h1>장바구니</h1>
-            </header>
-            <CartHeader handleCheckAll={handleCheckAll} isAllChecked={isAllChecked} />
-            {cart.length === 0 ? (
-                <div className={styles.not}>
-                    <h2>장바구니에 담긴 상품이 없습니다.</h2>
-                    <p>원하는 상품을 장바구니에 담아보세요!</p>
-                </div>
-            ) : (
-                cart.map((cart) => {
-                    return (
-                        <CartList
-                            key={`key-${cart.id}`}
-                            cart={cart}
-                            setCart={setCart}
-                            convertPrice={convertPrice}
-                            handleQuantity={handleQuantity}
-                            handleRemove={handleRemove}
-                            handleCheckList={handleCheckList}
-                            checkLists={checkLists}
-                        />
-                    );
-                })
-            )
-            }
+        <div class="wrapper">
+            <div class="main-content">
+                <header className={styles.cart_title_wrap}>
+                    <h1>장바구니</h1>
+                </header>
+                <CartHeader handleCheckAll={handleCheckAll} isAllChecked={isAllChecked} />
+                {cart.length === 0 ? (
+                    <div className={styles.not}>
+                        <h2>장바구니에 담긴 상품이 없습니다.</h2>
+                        <p>원하는 상품을 장바구니에 담아보세요!</p>
+                    </div>
+                ) : (
+                    cart.map((cart) => {
+                        return (
+                            <CartList
+                                key={`key-${cart.id}`}
+                                cart={cart}
+                                setCart={setCart}
+                                convertPrice={convertPrice}
+                                handleQuantity={handleQuantity}
+                                handleRemove={handleRemove}
+                                handleCheckList={handleCheckList}
+                                checkLists={checkLists}
+                            />
+                        );
+                    })
+                )
+                }
 
-            {cart.length === 0 ? "" : <TotalCart
-                cart={cart} total={total} setTotal={setTotal}
-                convertPrice={convertPrice}
-                found={found}
-            />}
+                {cart.length === 0 ? "" : <TotalCart
+                    cart={cart} total={total} setTotal={setTotal}
+                    convertPrice={convertPrice}
+                    found={found}
+                />}
 
-
-        </>
+            </div>
+        </div>
     );
 };
