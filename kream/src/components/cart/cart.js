@@ -58,10 +58,18 @@ const isAllChecked =
     };
 
 
-    //상품삭제기능 : id값이 일치하면 삭제
+    // 상품삭제기능 : id값이 일치하면 삭제
     const handleRemove = (id) => {
-        setCart(cart.filter((cart) => cart.id !== id));
-        setCheckLists(checkLists.filter((check) => parseInt(check) !== id));
+        fetch("/api/cart/delete",{
+            method:"post",
+            headers: {
+                "Content-type":"application/json; charset=utf-8"
+            },
+            body: JSON.stringify({
+                "userid": sessionStorage.getItem("loginId"),
+                "pid": id,
+            })
+        }).then((res) => res.json());
     };
 
 

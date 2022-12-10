@@ -51,7 +51,11 @@ export const CartList = ({ cart , convertPrice , handleQuantity, handleRemove, h
         <button className={styles.btn_submit}>주문하기</button>
     </div>
 
-    <div className={styles.product_remove} onClick={() => handleRemove(cart.id)}>
+    <div className={styles.product_remove} 
+    onClick={() => {
+        handleRemove(cart.id);
+    } 
+    }>
         <img src="/images/icon-delete.svg" alt="delete" />
     </div>
 </section>
