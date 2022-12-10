@@ -4,25 +4,19 @@ const bodyParser = require('body-parser')
 const path = require('path');
 const maria = require('./db/db');
 maria.connect();
-
-var router = express.Router();
-
-
-app.use(bodyParser.urlencoded({ extended: true }))
-
 //app.listen(포트번호)
 app.listen(8080, function () {
   console.log('listening on 8080');
 })
+app.use(bodyParser.urlencoded({ extended: true }))
+
 
 app.use(express.json());
 var cors = require('cors');
+const { Console } = require('console');
 app.use(cors());
 
 //app.get('경로',할일)
-app.get('/dog', function (req, res) {
-  res.send('데이터 전송입니다.')
-})
 app.get('/api/products', (req, res) => {
   console.log('products');
   maria.query("SELECT * FROM products " , (err, data) => {
@@ -30,45 +24,8 @@ app.get('/api/products', (req, res) => {
     if (!err) res.send({ products: data });
     else res.send(err);
   })
-
-  app.post('/api/text', (req, res) => {
-    const id = req.body.inText;
-    console.log("post");
-    console.log(id);
-    maria.query("INSERT INTO TEST values(?)", [id]),
-      function (err, rows, fields) {
-        if (err) {
-          console.log("DB저장 실패");
-        } else {
-          console.log("DB저장 성공");
-        };
-      }
-  })
-  // app.post('/api/products', (req, res) => {
-  //   console.log('products');
-  //   maria.query("SELECT * FROM products", (err, data) => {
-  //     console.log('success');
-  //     if (!err) res.send({ products: data });
-  //     else res.send(err);
-  //   })
-  app.post("/data", (req, res) => {
-    connection.query("SELECT * FROM products", function (err, rows, fields) {
-      if (err) {
-        console.log("데이터 가져오기 실패");
-      } else {
-        console.log(rows[0]);
-        res.send(rows[0]);
-      }
-    });
-  });
-
 })
-
-
-
 //react-app
-app.use('/react', express.static(path.join(__dirname, 'react-app/build')));
-
 app.use('/', express.static(path.join(__dirname, '../kream/build')));
 //* : 모든 페이지에서 다 들어오게하는 것
 app.get('/*', (req, res) => {
@@ -79,11 +36,6 @@ app.get('/*', (req, res) => {
 // app.get("/pasdmsa", function(요청,응답){
 //     응답.json({name  : 'black'})
 // })
-
-
-
-
-
 // app.listen(PORT, () => {
 //     console.log(`Server On : http://localhost:${PORT}/`);
 // })
@@ -105,5 +57,36 @@ app.post('/api/login', (req, res) => {
 
 })
 
+app.post('/api/detail', (req, res) => {
+  const CART_USERID = req.body.CART_USERID;
+  const CART_PRODUCTID = req.body.CART_PRODUCTID;
+  const CART_COUNT = req.body.CART_COUNT;
+  console.log(req.body);
+  maria.query("select * from cart where CART_USERID='"+CART_USERID
+  +"' and CART_PRODUCTID='"+CART_PRODUCTID+"'", (err, data, fields) => {
+    console.log('success!');
+    console.log(data);
+    console.log(data.length);
+    if(data.length != 0){//1. 데이터가 있다면 해당 count를 이곳의 count로 변경,
+      maria.query("update cart set CART_COUNT ="+CART_COUNT+
+      " where CART_USERID = '"+CART_USERID+"' and CART_PRODUCTID='"+CART_PRODUCTID+"'"
+      ,(err,data,fields) => {
+        console.log(data);
+        console.log("데이터있음")
+        if (!err) res.send({cart : data});
+        else res.send(err);
+      })
+    }else if(data.length == 0){//2. 데이터가 없다면, id,count,userid를 가져가서 insert를 실행
+      maria.query("insert into cart(CART_USERID,CART_PRODUCTID,CART_COUNT) values('"
+      +CART_USERID+"',"+CART_PRODUCTID+","+CART_COUNT+")",(err,data,fields) => {
+        console.log(data);
+        console.log("데이터없음")
+        if (!err) res.send({cart : data});
+        else res.send(err);
+      })
+    }
+    
+  })
 
+})
 

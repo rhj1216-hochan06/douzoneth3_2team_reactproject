@@ -83,7 +83,9 @@ CREATE TABLE `user` (
 	`userid` VARCHAR(50) NOT NULL,
 	`username` VARCHAR(50) NOT NULL,
 	`userpassword` VARCHAR(50) NOT NULL,
-	INDEX `userno` (`userno`)
+	INDEX `userno` (`userno`),
+	PRIMARY KEY (`userid`)
+
 )
 COLLATE='utf8_general_ci'
 ;
@@ -97,3 +99,32 @@ insert into user(userid,username,userpassword) values('hojjin','호진','3333333
 SELECT * FROM USER;
 
 COMMIT;
+
+---
+
+
+DROP TABLE cart cascade;
+
+CREATE table `CART` (
+	`CART_NO` INT NOT NULL AUTO_INCREMENT,
+	`CART_USERID` VARCHAR(50) NOT NULL,
+	`CART_PRODUCTID` INT(11) NOT NULL ,
+	`CART_COUNT` INT(10) DEFAULT 0,
+	PRIMARY KEY (CART_NO),
+	FOREIGN KEY (CART_USERID) REFERENCES USER(USERID),
+	FOREIGN KEY (CART_PRODUCTID) REFERENCES PRODUCTS(ID)
+);
+
+insert into cart(CART_USERID,CART_PRODUCTID) values('sinyeon',1);
+insert into cart(CART_USERID,CART_PRODUCTID) values('sinyeon',3);
+insert into cart(CART_USERID,CART_PRODUCTID) values('sinyeon',5);
+insert into cart(CART_USERID,CART_PRODUCTID) values('sinyeon',7);
+insert into cart(CART_USERID,CART_PRODUCTID) values('hojjin',2);
+insert into cart(CART_USERID,CART_PRODUCTID) values('hojjin',4);
+insert into cart(CART_USERID,CART_PRODUCTID) values('hojjin',6);
+insert into cart(CART_USERID,CART_PRODUCTID) values('kbm0225',8);
+insert into cart(CART_USERID,CART_PRODUCTID) values('kbm0225',9);
+insert into cart(CART_USERID,CART_PRODUCTID) values('kbm0225',10);
+
+SELECT * FROM cart;
+commit;

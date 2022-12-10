@@ -56,7 +56,6 @@ function App() {
     <body>
       <div class="wrapper1">
         <>
-
           <TopNavBar cart={cart} />
           <div class="main-content">
             <Routes>
