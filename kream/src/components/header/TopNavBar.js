@@ -2,9 +2,27 @@ import { Link } from "react-router-dom";
 import styles from "./TopNavBar.module.css";
 import { useEffect, useState } from "react";
 
-export const TopNavBar = ({ cart }) => {
+export const TopNavBar = () => {
+  const [count, setCount] = useState([]);
+  const sessionStorage = window.sessionStorage;
 
-  const [search, setSearch] = useState("");
+  useEffect(() => {
+    fetch("/api/nav", {
+      method: "post",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        "id": sessionStorage.getItem("loginId"),
+      })
+    })
+      .then((res) => res.json())
+      .then(json => {
+        setCount(Object.keys(json).length);
+      }
+      );
+  }, []);
+
   return (
     // <header>
     //   <nav className="navbar navbar-expand-xl nav_area sticky">
@@ -81,9 +99,9 @@ export const TopNavBar = ({ cart }) => {
                 <Link to="/cart">
                   <div className={styles.shopping_cart}>
                     CART
-                    {cart.length >= 1 ? (
+                    {count >= 1 ? (
                       <div className={styles.new_shopping_cart}>
-                        <p className={styles.cart_num}>{cart.length}</p>
+                        <p className={styles.cart_num}>{count}</p>
                       </div>
                     ) : (
                       ""

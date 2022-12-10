@@ -26,48 +26,25 @@ export const Detail = ({ cart, setCart, convertPrice }) => {
     });
   }, [id, product.price]);
 
-  //장바구니 물건 중복된 물건 수량만 갱신해서 업데이트
-  const setQuantity = (id, quantity) => {
-    const found = cart.filter((el) => el.id === id)[0];
-    const idx = cart.indexOf(found);
-    const cartItem = {
-      id: product.id,
-      name: product.name,
-      provider: product.provider,
-      image: product.image,
-      price: product.price,
-      category: product.category,
-      gender:product.gender,
-      quantity: quantity,
-    };
-    //처음부터, idx까지, cartItem, 그리고 끝까지
-    setCart([...cart.slice(0, idx), cartItem, ...cart.slice(idx + 1)]);
-  }
-
   const handleCart = () => {
     //민약 상품아이디와 유저아이디로 조회했을 떄, 
     //1. 데이터가 있다면 해당 count를 이곳의 count로 변경,
     //2. 데이터가 없다면, id,count,userid를 가져가서 insert를 실행
     fetch("/api/detail",{
-    
       method: "POST",
       headers: {
         "Content-Type":"application/json; charset=utf-8"
-
       },
       body: JSON.stringify({
         "CART_USERID" : sessionStorage.getItem("loginId"),
         "CART_PRODUCTID" : product.id,
         "CART_COUNT" : count
       })
-
     })
       .then((res) => res.json())
       .then(data => {
         console.log(data);
-        
       });
-      
   };
 
 
