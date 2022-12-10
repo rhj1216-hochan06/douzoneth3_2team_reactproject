@@ -7,6 +7,10 @@ import { useState } from "react";
 export const Cart = ({ cart, setCart, convertPrice }) => {
     const [checkLists, setCheckLists] = useState([]);
     const [total, setTotal] = useState([]);
+
+     const sessionStorage = window.sessionStorage;
+
+     console.log('카트에 아이디 넘겨주기 되냐?'+sessionStorage.getItem("loginId"));
     //전체선택되어있다면(길이가 같으므로)true
     const isAllChecked =
         cart.length === checkLists.length && checkLists.length !== 0;
