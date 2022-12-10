@@ -28,7 +28,7 @@ const isAllChecked =
           .then((res) => res.json())
           .then(json => {
             setCart(json.cart);
-            setCartLangth(Object.keys(json).length);
+            setCartLangth(Object.keys(json.cart).length);
           }
           );
     
@@ -104,7 +104,6 @@ const isAllChecked =
         <div class="wrapper">
             <div class="main-content">
                 <header className={styles.cart_title_wrap}>
-                    <h1>장바구니</h1>
                 </header>
                 <CartHeader handleCheckAll={handleCheckAll} isAllChecked={isAllChecked} />
                 {cart.length === 0 ? (
