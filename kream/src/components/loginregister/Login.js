@@ -1,19 +1,26 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import "./loginregister.css"
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 const Login = () => {
   const [userid, setId] = useState("");
   const [userpassword, setPassword] = useState("");
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
+
   const onIdHandler = (event) => {
     setId(event.currentTarget.value);
   }
 
+  
   const onPasswordHandler = (event) => {
     setPassword(event.currentTarget.value)
   }
-
+  
   const onSubmit = (event) => {
     console.log(userid);
     console.log(userpassword);
@@ -33,22 +40,18 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then(data => {
-        console.log(data)
+        console.log(data);
+        
+      if(data.user.length!=0) {
+        console.log('sucessss');
+        return navigate('/')
+      }
+      else if(data.user.length==0){
+        console.log('not sucessss');
+        return alert('로그인 실패! 아이디와 비밀번호를 확인하세요')};
       });
 
   }
-
-  
-
-
-
-
-
-  
-  
-
-
-
 
   return (
 
