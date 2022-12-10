@@ -96,9 +96,11 @@ app.post('/api/login', (req, res) => {
   console.log(req.body);
   maria.query("select * from user where userid='"+userId+"' and userpassword='"+userPw+"'", (err, data, fields) => {
     console.log('success');
-    if (!err) res.send({ user: data });
-    else res.send(err);
+    console.log(data);
+    if (!err) res.send({user : data});
     
+    else res.send(err);
+    console.log(data);
   })
 
 })
