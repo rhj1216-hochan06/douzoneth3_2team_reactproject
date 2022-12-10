@@ -5,10 +5,24 @@ $ npm install @reduxjs/toolkit
 $ npm install react-redux redux
 $ npm install react-router-dom@6
 $ npm install axios
-$ yarn add react-bootstrap bootstrap //$ npm install bootstrap bootstrap 으로는 주입이 안된다...yarn으로 연결하니 잘됨. 이유 몰루
+$ yarn add react-bootstrap bootstrap 
+// $ npm install bootstrap bootstrap 으로는 버전이 달라 주입이 안된다...yarn으로 연결하니 잘됨. 이유는 yarn의 독자적 설치 방식덕분 
 $ npm install styled-components 
-$ npm install swiper
+$ npm install swiper // 배너 스와이프 기능
+$ npm i -g nodemon //서버 재실행 자동화 설치
 ```
+---
+
+#### DB(임시,테이블이름,컬럼,구조 상의 필요)
+
+`DB연결 및 실행방법(mariaDB)`
+kream폴더로 이동, npm run build
+server/db/db.js 파일을 본인의 db정보로 수정 
+server폴더로 이동, nodemon server.js
+local 8080으로 접속
+
+> DDL위치는 db폴더 안 DDL.md 파일 참조.
+
 ---
 #### 깃 관련 당부
 
