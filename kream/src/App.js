@@ -30,7 +30,6 @@ import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
 //shop
 import { Shop } from "./pages/Shop";
-import { Posttest } from './Posttest';
 
 function App() {
   //상품 변수 정의
@@ -56,7 +55,6 @@ function App() {
   return (
     <>
       <TopNavBar cart={cart} />
-      <Link to="/test"> 테스트 페이지</Link><br/>
       <Routes>
         <Route exact={true} path="/"
           element={
@@ -145,7 +143,6 @@ function App() {
                 convertPrice={convertPrice}
               />
             </Provider>} />
-        <Route path="/test" element={<Posttest/>}/>
       </Routes>
       <Footer />
     </>
