@@ -1,4 +1,4 @@
-DROP TABLE REPORTP CASCADE;
+DROP TABLE products CASCADE;
 
 ---
 
@@ -29,3 +29,21 @@ SELECT MIN(price) AS max_price FROM products;
 commit;
 
 ---
+
+
+DROP TABLE user CASCADE;
+
+
+CREATE TABLE `user` (
+	`userno` INT(11) NOT NULL AUTO_INCREMENT,
+	`userid` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+	`username` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+	`userpassword` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci'
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+insert into products(userid,username,userpassword) values('kbm0225','bomin','alwlqhals);
+insert into products(userid,username,userpassword) values('sinyeon','신형','12341234');
+insert into products(userid,username,userpassword) values('hojjin','호진','33333333);

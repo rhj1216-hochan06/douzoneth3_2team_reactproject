@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import "./loginregister.css"
 
 const Login = () => {
-  const [id, setId] = useState("");
-
-  const [password, setPassword] = useState("");
-
+  const [userid, setId] = useState("");
+  const [userpassword, setPassword] = useState("");
+  const [data, setData] = useState([]);
   const onIdHandler = (event) => {
     setId(event.currentTarget.value);
   }
@@ -16,9 +15,40 @@ const Login = () => {
   }
 
   const onSubmit = (event) => {
+    console.log(userid);
+    console.log(userpassword);
     event.preventDefault();
+    fetch("/api/login",{
+    
+      method: "POST",
+      headers: {
+        "Content-Type":"application/json; charset=utf-8"
+
+      },
+      body: JSON.stringify({
+        "id" : userid,
+        "pw" : userpassword
+      })
+
+    })
+      .then((res) => res.json())
+      .then(data => {
+        console.log(data)
+      });
 
   }
+
+  
+
+
+
+
+
+  
+  
+
+
+
 
   return (
 
@@ -26,7 +56,7 @@ const Login = () => {
 
     <div className='loginregister'>
 
-<div  >
+<div >
 
       <div className="logo">
             <Link to="/">
@@ -35,8 +65,8 @@ const Login = () => {
           </div>
        
         <form onSubmit={onSubmit}>
-          <div><p className='gulza'>id</p><input name="id" type="id" placeholder="아이디" value={id} onChange={onIdHandler} class="loginregister__input" /></div>
-          <div><h6 className='gulza'>password</h6><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input" /></div>
+          <div><p className='gulza'>id</p><input name="userid" type="id" placeholder="아이디" value={userid} onChange={onIdHandler} class="loginregister__input" /></div>
+          <div><h6 className='gulza'>password</h6><input name="userpassword" type="password" placeholder="비밀번호" value={userpassword} onChange={onPasswordHandler} class="loginregister__input" /></div>
           <div><button type="submit" class="loginregister__button">로그인</button></div>
 
         </form>

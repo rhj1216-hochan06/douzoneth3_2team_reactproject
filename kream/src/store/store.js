@@ -4,7 +4,7 @@ import counterSlice from './counterSlice';
 const store = configureStore({
   reducer:{
     counter:counterSlice.reducer
-    // ,product:productSlice.reducer
+   // product:productSlice.reducer
   }
 });
 export default store;

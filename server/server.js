@@ -25,7 +25,7 @@ app.get('/dog', function (req, res) {
 })
 app.get('/api/products', (req, res) => {
   console.log('products');
-  maria.query("SELECT * FROM products", (err, data) => {
+  maria.query("SELECT * FROM products " , (err, data) => {
     console.log('success');
     if (!err) res.send({ products: data });
     else res.send(err);
@@ -50,6 +50,8 @@ app.get('/api/products', (req, res) => {
 
 })
 
+
+
 //react-app
 app.use('/react', express.static(path.join(__dirname, 'react-app/build')));
 
@@ -71,4 +73,21 @@ app.get('/*', (req, res) => {
 // app.listen(PORT, () => {
 //     console.log(`Server On : http://localhost:${PORT}/`);
 // })
+
+app.post('/api/login', (req, res) => {
+  console.log('login');
+  const userId = req.body.id;
+  const userPw = req.body.pw;
+  console.log(req.body);
+  console.log(req.body);
+  maria.query("select * from user where userid='"+userId+"' and userpassword='"+userPw+"'", (err, data, fields) => {
+    console.log('success');
+    if (!err) res.send({ user: data });
+    else res.send(err);
+    
+  })
+
+})
+
+
 
