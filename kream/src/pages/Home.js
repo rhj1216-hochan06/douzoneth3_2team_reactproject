@@ -6,8 +6,9 @@ const Home = () => {
     <>
       <EventBanner />
       <Link to="/"> 홈페이지</Link><br />
-      <Link to="/womenRecommend"> 여성 추천</Link><br />
-      <Link to="/manRecommend"> 남성 추천</Link><br />
+      <div className="women">
+        <Link to="/womenRecommend"> <img src=" /images/recomendwoman.jpg" />여성 추천</Link></div><br />
+      <Link to="/manRecommend">남성 추천</Link><br />
       <Link to="/"> 이벤트</Link><br />
       <Link to="/products"> 전체 카테고리 목록 보기</Link><br />
       <Link to="/cloth"> 카테고리 (의류)</Link><br />
