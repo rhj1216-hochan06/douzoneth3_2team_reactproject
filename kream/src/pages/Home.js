@@ -14,6 +14,7 @@ const Home = () => {
       <Link to="/accessorie"> 카테고리 (패션잡화)</Link><br />
       <Link to="/tech"> 카테고리 (테크)</Link><br />
       <Link to="/life"> 카테고리 (라이프)</Link><br />
+      <Link to="/mainCategory"> 전체 카테고리</Link><br />
     </>
   );
 };

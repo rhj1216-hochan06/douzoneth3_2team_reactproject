@@ -26,6 +26,9 @@ import { Accessorie } from './pages/Accessorie.js';
 import { Tech } from './pages/Tech.js';
 // 카테고리(라이프)
 import { Life } from './pages/Life.js';
+// 메인 카테고리
+import { Main } from './pages/Main.js';
+
 import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
 //shop
@@ -141,6 +144,15 @@ function App() {
                 element={
                   <Provider store={store}>
                     <Life
+                      products={products}
+                      setProducts={setProducts}
+                      convertPrice={convertPrice}
+                    />
+                  </Provider>} />
+              <Route path="/mainCategory"
+                element={
+                  <Provider store={store}>
+                    <Main
                       products={products}
                       setProducts={setProducts}
                       convertPrice={convertPrice}

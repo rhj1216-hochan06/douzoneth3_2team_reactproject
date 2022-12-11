@@ -5,8 +5,6 @@ import { up } from '../../store/counterSlice';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-
-
 export const Products = ({ convertPrice }) => {
   //----------------------------------------페이징 처리를 위한 카운트
   const [count, setCount] = useState(1);
@@ -129,3 +127,4 @@ export const Products = ({ convertPrice }) => {
   );
 
 };
+
