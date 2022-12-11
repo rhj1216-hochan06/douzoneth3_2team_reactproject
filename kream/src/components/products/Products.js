@@ -130,7 +130,6 @@ export const Products = ({ convertPrice }) => {
           </div>
         })}
       </main>
-      <button onClick={() => console.log("더보기")}>더보기</button>
     </>
   );
 
