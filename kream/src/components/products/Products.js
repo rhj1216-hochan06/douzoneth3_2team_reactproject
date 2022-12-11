@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { up } from '../../store/counterSlice';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import AOS from "aos";
 
 
 export const Products = ({ convertPrice }) => {
@@ -39,6 +39,9 @@ export const Products = ({ convertPrice }) => {
   //--------------------------------------------------------끝
 
   useEffect(() => {
+    AOS.init({
+      duration: 1200,
+    })
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll); //clean up
@@ -84,6 +87,8 @@ export const Products = ({ convertPrice }) => {
 
   return (
     <>
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       Home에서 데이터를 받아 수십개의 상품들 나열
 
       <button onClick={() => {
@@ -103,23 +108,24 @@ export const Products = ({ convertPrice }) => {
           if (!state.products) return 'no data';
           //product
           return <div className={styles.product}>
-
-            <Link to={`/products/${product.id}`}>
-              <div className={styles.product_image}>
-                <img src={product.image} alt="product" />
+            <div class="item" data-aos="slide-up">
+              <Link to={`/products/${product.id}`}>
+                <div className={styles.product_image}>
+                  <img src={product.image} alt="product" />
+                </div>
+              </Link>
+              <div className={styles.store}>
+                <span>{product.provider}</span>
               </div>
-            </Link>
-            <div className={styles.store}>
-              <span>{product.provider}</span>
-            </div>
 
-            <div className={styles.product_name}>
-              <span>{product.name}</span>
-            </div>
+              <div className={styles.product_name}>
+                <span>{product.name}</span>
+              </div>
 
-            <div className={styles.product_price}>
-              <span className={styles.price}>{convertPrice(product.price)}</span>
-              <span className={styles.unit}>원</span>
+              <div className={styles.product_price}>
+                <span className={styles.price}>{convertPrice(product.price)}</span>
+                <span className={styles.unit}>원</span>
+              </div>
             </div>
           </div>
         })}
