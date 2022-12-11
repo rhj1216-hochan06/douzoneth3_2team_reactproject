@@ -110,6 +110,44 @@ app.get('/*', (req, res) => {
       })
       
     })
+
+
+        
+    app.post('/api/idcheck', (req, res) => {
+      console.log('idcheck');
+      const userId = req.body.id;
+      
+      console.log(req.body);
+   
+      maria.query("select * from user where userid='"+userId+"'", (err, data, fields) => {
+        console.log('success');
+        console.log(data);
+        if (!err) res.send({user : data});
+        
+        else res.send(err);
+        console.log(data);
+      })
+      
+    })
+
+
+    app.post('/api/register', (req, res) => {
+      console.log('login');
+      const userId = req.body.userid;
+      const userName = req.body.username;
+      const userPw = req.body.userpw;
+      console.log(req.body);
+      console.log(req.body);
+      maria.query("insert into user(userid,username,userpassword) values('"+userId+"','"+userName+"','"+userPw+"')", (err, data, fields) => {
+        console.log('register sucess');
+        console.log(data);
+        if (!err) res.send({user : data});
+        
+        else res.send(err);
+        console.log(data);
+      })
+      
+    })
     
     app.post('/api/detail', (req, res) => {
       const CART_USERID = req.body.CART_USERID;
