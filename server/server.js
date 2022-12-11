@@ -25,7 +25,60 @@ app.get('/api/products', (req, res) => {
     else res.send(err);
   })
 })
-
+//여성추천
+app.get('/api/womenRecommend', (req, res) => {
+  console.log('womenRecommend');
+  maria.query("SELECT * FROM products WHERE gender=2 " , (err, data) => {
+    console.log('success');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+  })
+})
+//남성추천
+app.get('/api/manRecommend', (req, res) => {
+  console.log('manRecommend');
+  maria.query("SELECT * FROM products WHERE gender=1 " , (err, data) => {
+    console.log('success');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+  })
+})
+//패션잡화 카테고리
+app.get('/api/accessorieCategory', (req, res) => {
+  console.log('accessorieCategory');
+  maria.query("SELECT * FROM products WHERE category='패션잡화' " , (err, data) => {
+    console.log('success');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+  })
+})
+//의류 카테고리
+app.get('/api/clothCategory', (req, res) => {
+  console.log('clothCategory');
+  maria.query("SELECT * FROM products WHERE category='의류' " , (err, data) => {
+    console.log('success');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+  })
+})
+//라이프 카테고리
+app.get('/api/lifeCategory', (req, res) => {
+  console.log('lifeCategory');
+  maria.query("SELECT * FROM products WHERE category='라이프' " , (err, data) => {
+    console.log('success');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+  })
+})
+//테크 카테고리
+app.get('/api/techCategory', (req, res) => {
+  console.log('techCategory');
+  maria.query("SELECT * FROM products WHERE category='테크' " , (err, data) => {
+    console.log('success');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+  })
+})
 //react-app
 app.use('/', express.static(path.join(__dirname, '../kream/build')));
 //* : 모든 페이지에서 다 들어오게하는 것
@@ -130,3 +183,14 @@ app.get('/*', (req, res) => {
         }
       })
     })
+
+    // app.get('/api/womenRecommend', (req, res) => {
+    //   console.log('womanRecommand');
+    //   maria.query("SELECT * FROM products WHERE gender=2" , (err, data) => {
+    //     console.log('여성추천 받아오나요?');
+    //     if (!err) res.send({ products: data });
+    //     else res.send(err);
+    //   })
+    // })
+    //app.get('경로',할일)
+ 
