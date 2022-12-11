@@ -79,6 +79,7 @@ app.get('/api/techCategory', (req, res) => {
     else res.send(err);
   })
 })
+
 //react-app
 app.use('/', express.static(path.join(__dirname, '../kream/build')));
 //* : 모든 페이지에서 다 들어오게하는 것
