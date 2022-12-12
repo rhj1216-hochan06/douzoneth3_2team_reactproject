@@ -17,90 +17,90 @@ const { Console } = require('console');
 app.use(cors());
 
 // detail --- 구매 부분
-app.post('/api/perchase', (req,res)=>{
+app.post('/api/perchase', (req, res) => {
   const id = req.body.id;
   console.log("post");
   console.log(id);
-   
-  maria.query("SELECT categorydetail FROM products WHERE id = ?" ,[id],
-  function(err, data){
-    
-    if (!err) res.send({data});
-  
-    else{
-      console.log("DB저장 성공");
-    };
-  })
 
-  
+  maria.query("SELECT categorydetail FROM products WHERE id = ?", [id],
+    function (err, data) {
+
+      if (!err) res.send({ data });
+
+      else {
+        console.log("DB저장 성공");
+      };
+    })
+
+
 })
 
-app.post('/api/perchase/threesize', (req,res)=>{
+app.post('/api/perchase/threesize', (req, res) => {
   const id = req.body.id;
   console.log("post");
   console.log(id);
-   
-  maria.query("SELECT XS,S,M,L,XL FROM stock WHERE id = ?" ,[id],
-  function(err, data){
-    
-    if (!err) res.send({data});
-  
-    else{
-      console.log("DB저장 성공");
-    };
-  })
+
+  maria.query("SELECT XS,S,M,L,XL FROM stock WHERE id = ?", [id],
+    function (err, data) {
+
+      if (!err) res.send({ data });
+
+      else {
+        console.log("DB저장 성공");
+      };
+    })
 })
 
-app.post('/api/perchase/onesize', (req,res)=>{
+app.post('/api/perchase/onesize', (req, res) => {
   const id = req.body.id;
   console.log("post");
   console.log(id);
-   
-  maria.query("SELECT onesize FROM stock WHERE id = ?" ,[id],
-  function(err, data){
-    
-    if (!err) res.send({data});
-  
-    else{
-      console.log("DB저장 성공");
-    };
-  })
+
+  maria.query("SELECT onesize FROM stock WHERE id = ?", [id],
+    function (err, data) {
+
+      if (!err) res.send({ data });
+
+      else {
+        console.log("DB저장 성공");
+      };
+    })
 })
 
-app.post('/api/perchase/perfume', (req,res)=>{
+app.post('/api/perchase/perfume', (req, res) => {
   const id = req.body.id;
   console.log("post");
   console.log(id);
-   
-  maria.query("SELECT size_30ml,size_100ml FROM stock WHERE id = ?" ,[id],
-  function(err, data){
-    
-    if (!err) res.send({data});
-  
-    else{
-      console.log("DB저장 성공");
-    };
-  })
 
-  
+  maria.query("SELECT size_30ml,size_100ml FROM stock WHERE id = ?", [id],
+    function (err, data) {
+
+      if (!err) res.send({ data });
+
+      else {
+        console.log("DB저장 성공");
+      };
+    })
+
+
 })
 
-app.post('/api/perchase/shoe', (req,res)=>{
+app.post('/api/perchase/shoe', (req, res) => {
   const id = req.body.id;
   console.log("post");
   console.log(id);
-   
-  maria.query("SELECT size_225,size_230,size_235,size_240,size_245,size_250,size_255,size_260,size_265,size_270,size_275,size_280,size_285,size_290,size_295,size_300 FROM stock WHERE id = ?" ,[id],
-  function(err, data){
-    
-    if (!err) res.send({data});
-  
-    else{
-      console.log("DB저장 성공");
-    };
-  })
 
-  
+  maria.query("SELECT size_225,size_230,size_235,size_240,size_245,size_250,size_255,size_260,size_265,size_270,size_275,size_280,size_285,size_290,size_295,size_300 FROM stock WHERE id = ?", [id],
+    function (err, data) {
+
+      if (!err) res.send({ data });
+
+      else {
+        console.log("DB저장 성공");
+      };
+    })
+
+
 })
 //------------------------------------------------------------------
 
@@ -122,17 +122,6 @@ app.get('/api/womenRecommend', (req, res) => {
     else res.send(err);
   })
 })
-
-// 메인페이지 신상품
-app.get('/api/', (req, res) => {
-  console.log('home');
-  maria.query("SELECT * FROM products WHERE id < 5 ", (err, data) => {
-    console.log('신상품');
-    if (!err) res.send({ products: data });
-    else res.send(err);
-  })
-})
-
 //남성추천
 app.get('/api/manRecommend', (req, res) => {
   console.log('manRecommend');
@@ -188,7 +177,16 @@ app.get('/api/winter', (req, res) => {
     else res.send(err);
   })
 })
-//전체 카테고리 
+
+// 메인페이지 신상품
+app.get('/api/', (req, res) => {
+  console.log('home');
+  maria.query("SELECT * FROM products WHERE id < 5 ", (err, data) => {
+    console.log('신상품');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+  })
+})
 
 //react-app
 app.use('/', express.static(path.join(__dirname, '../kream/build')));
@@ -284,7 +282,6 @@ app.post('/api/register', (req, res) => {
   console.log(req.body);
 
   maria.query("insert into user(userid,username,userpassword,useremail,userphonenumber,useraddress) values('" + userId + "','" + userName + "','" + userPw + "','" + userEmail + "','" + userPhonenumber + "','" + userAddress + "')", (err, data, fields) => {
-  maria.query("insert into user(userid,username,userpassword,useremail,userphonenumber,useraddress) values('" + userId + "','" + userName + "','" + userPw + "','" + userEmail + "','" + userPhonenumber + "','" + userAddress + "')", (err, data, fields) => {
     console.log('register success');
     console.log(data);
     if (!err) res.send({ user: data });
@@ -368,49 +365,45 @@ app.post('/api/cart/delete', (req, res) => {
     })
 })
 
-    // app.get('/api/womenRecommend', (req, res) => {
-    //   console.log('womanRecommand');
-    //   maria.query("SELECT * FROM products WHERE gender=2" , (err, data) => {
-    //     console.log('여성추천 받아오나요?');
-    //     if (!err) res.send({ products: data });
-    //     else res.send(err);
-    //   })
-    // })
-    //app.get('경로',할일)
+// app.get('/api/womenRecommend', (req, res) => {
+//   console.log('womanRecommand');
+//   maria.query("SELECT * FROM products WHERE gender=2" , (err, data) => {
+//     console.log('여성추천 받아오나요?');
+//     if (!err) res.send({ products: data });
+//     else res.send(err);
+//   })
+// })
+//app.get('경로',할일)
 
 
 //검색하기
 app.post('/api/search', (req, res) => {
-//검색하기
-app.post('/api/search', (req, res) => {
 
-      const search = req.body.search;
-      
-      console.log('search!!!!');
-      maria.query("SELECT * FROM products WHERE name like '%"+search+"%' OR provider like'%" +search+"%' or category like'%"+search+"%'", (err, data,fields) => {
-        console.log('success');
-        if (!err) res.send({ products: data });
-        else res.send(err);
-        console.log(data);
-      })
-    })
+  const search = req.body.search;
 
-    //마이페이지
-    app.post('/api/mypage', (req, res) => {
-      console.log('login');
-      const userId = req.body.id;
-      const userPw = req.body.pw;
-      console.log(req.body);
-      console.log(req.body);
-      maria.query("select * from user where userid='" + userId+ "'", (err, data, fields) => {
-        console.log('success');
-        console.log(data);
-        if (!err) res.send({ user: data });
-    
-        else res.send(err);
-        console.log(data);
-      })
-    
-    })
+  console.log('search!!!!');
+  maria.query("SELECT * FROM products WHERE name like '%" + search + "%' OR provider like'%" + search + "%' or category like'%" + search + "%'", (err, data, fields) => {
+    console.log('success');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+    console.log(data);
+  })
+})
+
+//마이페이지
+app.post('/api/mypage', (req, res) => {
+  console.log('login');
+  const userId = req.body.id;
+  const userPw = req.body.pw;
+  console.log(req.body);
+  console.log(req.body);
+  maria.query("select * from user where userid='" + userId + "'", (err, data, fields) => {
+    console.log('success');
+    console.log(data);
+    if (!err) res.send({ user: data });
+
+    else res.send(err);
+    console.log(data);
+  })
 
 })
