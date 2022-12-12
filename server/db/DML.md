@@ -1,5 +1,5 @@
 
-## PRODUCT
+## PRODUCTS
 
 insert into products(name,provider,price,image,category,gender,categorydetail) values('아더에러 x 자라 패치워크 오버사이즈 니트 스웨터 멀티컬러','Ader Error','313000','/images/image001.png','의류','1','3사이즈 ');
 insert into products(name,provider,price,image,category,gender,categorydetail) values('스투시 x 데님 티어스 타입 2 자켓 라이트 인디고','Stussy','990000','/images/image002.png','의류','1','3사이즈 ');
@@ -45,6 +45,8 @@ insert into products(name,provider,price,image,category,gender,categorydetail) v
 insert into products(name,provider,price,image,category,gender,categorydetail) values('아디다스 퍼피렛 오프 화이트','Adidas','125000','/images/image041.png','패션잡화','1','신발');
 insert into products(name,provider,price,image,category,gender,categorydetail) values('아워레가시 카미온 부츠 블랙','OurLegacy','483000','/images/image042.png','패션잡화','2','신발');
 insert into products(name,provider,price,image,category,gender,categorydetail) values('어그 코케트 슬리퍼 그레이','UGG','122000','/images/image043.png','패션잡화','3','신발');
+
+SELECT * FROM PRODUCTS;
 commit;
 
 ---
@@ -58,7 +60,6 @@ insert into user(userid,username,userpassword) values('hojjin','호진','3333333
 insert into user(userid,username,userpassword,useremail,userphonenumber,useraddress) values('kkbm0225','보민','alwlqhals','kbm0225@naver.com','010-5285-6697','서울특별시 종로구 혜화동');
 
 SELECT * FROM USER;
-
 COMMIT;
 
 ---
@@ -85,7 +86,32 @@ commit;
 
 ## SALE
 
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'sinyeon',300000,'M');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'kbm0225',280000,'S');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'kbm0225',290000,'M');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'hojjin',310000,'L');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(3,'sinyeon',190000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(4,'sinyeon',160000,'S');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(4,'kbm0225',170000,'M');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(4,'kbm0225',180000,'L');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(4,'hojjin',190000,'L');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(4,'hojjin',180000,'L');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(7,'sinyeon',1300000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(8,'sinyeon',260000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(8,'kbm0225',270000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(8,'sinyeon',270000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(15,'sinyeon',640000,'L');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(21,'sinyeon',210000,'size_30ml');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(21,'kbm0225',200000,'size_30ml');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(26,'hojjin',315000,'size_100ml');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(26,'sinyeon',320000,'size_100ml');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(41,'sinyeon',120000,'size_240');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'hojjin',480000,'size_270');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'sinyeon',450000,'size_230');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'kbm0225',451000,'size_230');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'kbm0225',460000,'size_240');
 
-
+SELECT  * FROM sale;
+commit;
 
 ---
