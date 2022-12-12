@@ -80,19 +80,17 @@ a {
 }
 
 .shopping_cart .new_shopping_cart p {
-  position: relative !important;
+  position: initial !important;
   top: 50% !important;
   left: 45% !important;
-  transform: translate(-10%, -45%) !important;
+  transform: translate(-25%, -6%) !important;
   background: transparent !important;
   font-size: 12px !important;
-  margin-left: -10px;
+  margin-left: 0px;
   margin-top: -1px;
   color: black !important;
 }
 
 .welcome {
   font-size: 12px;
-  
 }
-
