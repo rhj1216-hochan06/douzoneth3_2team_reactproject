@@ -101,7 +101,7 @@ export const Cart = ({ convertPrice }) => {
         cart.filter((el) => el.id == checkLists)
     );
     return (
-        <div class={styles.wrapper1}>
+
             <div class={styles.main_content}>
                 <header className={styles.cart_title_wrap}>
                 </header>
@@ -128,17 +128,17 @@ export const Cart = ({ convertPrice }) => {
                     })
                 )
                 }
-            </div>
 
-            <div class={styles.main_content}>
+
                 {cart.length === 0 ? "" : <TotalCart
                     cart={cart} total={total} setTotal={setTotal}
                     convertPrice={convertPrice}
                     found={found}
                 />}
+
+
             </div>
 
-        </div>
     );
 };
 
