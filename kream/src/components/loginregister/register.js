@@ -42,13 +42,13 @@ const onIdcheck = (event) =>{
     .then(data => {
       console.log(data);
       
-    if(data.user.length!=0) {
+    if(data.user.length!==0) {
      
       console.log('아이디확인실패');
       return alert('중복 아이디 입니다. 다시 입력하세요');
       
     }
-    else if(data.user.length==0){
+    else if(data.user.length===0){
       console.log('아이디중복확인 sucessss');
       setIdcheck(1);
       return alert('사용가능한 아이디 입니다.');
@@ -109,8 +109,8 @@ const onIdcheck = (event) =>{
 
       <form onSubmit={onSubmit}>
           <div><div className='gulza'>NAME</div><input name="name" type="text" placeholder="이름" value={name} onChange={onNameHandler} class="loginregister__input"/></div>
-          <div><div className='gulza'>id</div><input name="id" type="id" placeholder="아이디" value={id} onChange={onIdHandler} class="loginregister__input"/></div>
-          <div><button type="button" class="loginregister__button" onClick={onIdcheck}>아이디 확인하기</button></div>
+          <div><div className='gulza'>id</div><input name="id" type="id" placeholder="아이디" value={id} onChange={onIdHandler} class="loginregister__input2"/><button type="button" class="loginregister__button2" onClick={onIdcheck}>중복확인</button></div>
+          
           <div><div className='gulza'>PASSWORD</div><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input"/></div>
           <div><div className='gulza'>PASSWORD CONFIRM</div><input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler} class="loginregister__input"/></div>
           <div><button type="submit" class="loginregister__button">계정 생성하기</button></div>

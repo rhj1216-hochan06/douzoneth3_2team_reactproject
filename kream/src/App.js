@@ -32,13 +32,13 @@ import { Main } from './pages/Main.js';
 import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
 //shop
-import { Shop } from "./pages/Shop";
+import { Search } from "./pages/Search";
 
 function App() {
   //상품 변수 정의
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  const [search, setSearch] = useState([]);
+  
 
   //useEffect로 최초 1번만 쇼핑몰데이터 렌더링
   //axios 문법
@@ -104,11 +104,11 @@ function App() {
                       convertPrice={convertPrice}
                     />
                   </Provider>} />
-              <Route path="/shop"
+              <Route path="/search"
                 element={
                   <Provider store={store}>
-                    <Shop
-                      search={search}
+                    <Search
+                     
                       products={products}
                       setProducts={setProducts}
                       convertPrice={convertPrice}

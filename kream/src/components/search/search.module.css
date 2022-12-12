@@ -54,3 +54,22 @@
 .contentName2 {
     color: #7c7c7c;
 }  
+
+.search {
+  width: 400px;
+  height: 50px;
+  font-size: 20px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 20px;
+  background-color: rgb(233, 233, 233);
+  
+  align-items: center;
+ 
+}
+
+.amuguna {
+
+  text-align: center;
+}
