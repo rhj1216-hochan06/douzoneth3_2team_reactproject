@@ -56,7 +56,8 @@
 
 
   .product {
-    display: inline;
+    text-align: center;
+    display: grid;
     margin: 8px;
     vertical-align: middle;
     flex-direction: column;
