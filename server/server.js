@@ -263,3 +263,21 @@ app.post('/api/cart/delete', (req, res) => {
         console.log(data);
       })
     })
+
+    //마이페이지
+    app.post('/api/mypage', (req, res) => {
+      console.log('login');
+      const userId = req.body.id;
+      const userPw = req.body.pw;
+      console.log(req.body);
+      console.log(req.body);
+      maria.query("select * from user where userid='" + userId+ "'", (err, data, fields) => {
+        console.log('success');
+        console.log(data);
+        if (!err) res.send({ user: data });
+    
+        else res.send(err);
+        console.log(data);
+      })
+    
+    })
