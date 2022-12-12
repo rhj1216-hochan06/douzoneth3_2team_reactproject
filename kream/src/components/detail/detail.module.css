@@ -154,7 +154,7 @@
 .sum .total_count {
   font-size: 18px;
   line-height: 23px;
-  color: #19ce60;
+  color: #BF3393;
 }
 
 .sum .total_count::after {
@@ -168,7 +168,7 @@
 .sum .total_price {
   font-size: 36px;
   line-height: 45px;
-  color: #19ce60;
+  color: #BF3393;
 }
 
 .sum .total_unit {
