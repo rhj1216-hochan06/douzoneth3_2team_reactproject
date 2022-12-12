@@ -132,7 +132,9 @@ product
     .product_name span {
       font-size: 12px;
     }
-
     
   }
   
+  .newProducts {
+    text-align: center;
+  }
