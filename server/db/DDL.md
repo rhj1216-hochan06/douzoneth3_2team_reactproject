@@ -83,22 +83,28 @@ commit;
 DROP TABLE user CASCADE;
 
 CREATE TABLE `user` (
-	`userno` INT NOT NULL AUTO_INCREMENT,
-	`userid` VARCHAR(50) NOT NULL,
-	`username` VARCHAR(50) NOT NULL,
-	`userpassword` VARCHAR(50) NOT NULL,
-	INDEX `userno` (`userno`),
-	PRIMARY KEY (`userid`)
-
+	`userno` INT(11) NOT NULL AUTO_INCREMENT,
+	`userid` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+	`username` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+	`userpassword` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+	`useremail` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`userphonenumber` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`useraddress` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	PRIMARY KEY (`userid`) USING BTREE,
+	INDEX `userno` (`userno`) USING BTREE
 )
 COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=16
 ;
+
 
 
 
 insert into user(userid,username,userpassword) values('kbm0225','bomin','alwlqhals');
 insert into user(userid,username,userpassword) values('sinyeon','신형','12341234');
 insert into user(userid,username,userpassword) values('hojjin','호진','33333333');
+insert into user(userid,username,userpassword,useremail,userphonenumber,useraddress) values('kkbm0225','보민','alwlqhals','kbm0225@naver.com','010-5285-6697','서울특별시 종로구 혜화동');
 
 SELECT * FROM USER;
 
