@@ -5,7 +5,8 @@ const Main = () => {
 
     return (
         <>
-            <MainCategory />
+            <MainCategory>
+            </MainCategory>
         </>
     );
 

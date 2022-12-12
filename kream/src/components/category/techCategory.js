@@ -14,7 +14,7 @@ export const TechCategory = ({ products, setProducts, convertPrice }) => {
   //---------------------------------------------------DAO 시작
   const [state, setState] = useState([]);
 
-  fetch("/api/techCategory", {
+  fetch("/api/main/techCategory", {
     method: "get",
     headers: {
       "content-type": "application/json",

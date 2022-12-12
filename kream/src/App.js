@@ -1,19 +1,4 @@
 import './App.css';
-import { Button, Navbar, Container } from 'react-bootstrap';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import { TopNavBar } from "./components/header/TopNavBar.js";
-import { Footer } from "./components/footer/Footer.js";
-import Home from "./pages/Home";
-import { Products } from "./components/products/Products";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import store from './store/store';
-import Login from "./components/loginregister/Login"
-import Register from "./components/loginregister/register"
-
-//디테일 페이지
-import DetailPage from './pages/DetailPage';
-import { Detail } from './components/detail/Detail';
 //여성 추천
 import { Women } from './pages/Women';
 //남성 추천
@@ -27,14 +12,28 @@ import { Tech } from './pages/Tech.js';
 // 카테고리(라이프)
 import { Life } from './pages/Life.js';
 // 메인 카테고리
-import { Main } from './pages/Main.js';
+//import { Main } from './pages/Main.js';
+import { Main } from "./components/category/main.js";
+
+import { Route, Routes } from 'react-router-dom';
+import { TopNavBar } from "./components/header/TopNavBar.js";
+import { Footer } from "./components/footer/Footer.js";
+import Home from "./pages/Home";
+import { Products } from "./components/products/Products";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import store from './store/store';
+import Login from "./components/loginregister/Login"
+import Register from "./components/loginregister/register"
+
+//디테일 페이지
+import DetailPage from './pages/DetailPage';
+import { Detail } from './components/detail/Detail';
 
 import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
 //shop
 import { Shop } from "./pages/Shop";
-
-import { MainCategory } from './components/category/main';
 
 function App() {
   //상품 변수 정의
@@ -115,34 +114,18 @@ function App() {
                       convertPrice={convertPrice}
                     />
                   </Provider>} />
-              {/* <Route>
-                <Route exact path="/mainCategory" element={<Main />} />
-                <Route path="/cloth" element={
-                  <Provider store={store}> <Shop search={search} products={products}
-                    setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
-                <Route path="/accessorie" element={
-                  <Provider store={store}> <Shop search={search} products={products}
-                    setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
-                <Route path="/tech" element={
-                  <Provider store={store}> <Shop search={search} products={products}
-                    setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
-                <Route path="/life" element={
-                  <Provider store={store}> <Shop search={search} products={products}
-                    setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
-              </Route> */}
-              <Route>
-                <Route exact path="/mainCategory" element={<Main />} />
+              <Route exact path="/main" element={<Main />}>
                 <Route path="cloth" element={
-                  <Provider store={store}> <Shop search={search} products={products}
+                  <Provider store={store}> <Cloth search={search} products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
                 <Route path="accessorie" element={
-                  <Provider store={store}> <Shop search={search} products={products}
+                  <Provider store={store}> <Accessorie search={search} products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
                 <Route path="tech" element={
-                  <Provider store={store}> <Shop search={search} products={products}
+                  <Provider store={store}> <Tech search={search} products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
                 <Route path="life" element={
-                  <Provider store={store}> <Shop search={search} products={products}
+                  <Provider store={store}> <Life search={search} products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               </Route>
             </Routes>
