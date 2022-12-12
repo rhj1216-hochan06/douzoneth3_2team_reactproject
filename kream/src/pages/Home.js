@@ -21,11 +21,11 @@ const Home = () => {
           </Link> <br />
           <Link to="/"> 이벤트 </Link><br />
           <Link to="/products"> 전체 카테고리 목록 보기 </Link><br />
-          <Link to="/cloth"> 카테고리 (의류) </Link><br />
-          <Link to="/accessorie"> 카테고리 (패션잡화) </Link><br />
-          <Link to="/tech"> 카테고리 (테크) </Link><br />
-          <Link to="/life"> 카테고리 (라이프) </Link><br />
-          <Link to="/mainCategory"> 전체 카테고리 </Link><br />
+          <Link to="/main/cloth"> 카테고리 (의류) </Link><br />
+          <Link to="/main/accessorie"> 카테고리 (패션잡화) </Link><br />
+          <Link to="/main/tech"> 카테고리 (테크) </Link><br />
+          <Link to="/main/life"> 카테고리 (라이프) </Link><br />
+          <Link to="/main"> 전체 카테고리 </Link><br />
         </div>
       </main>
     </>
