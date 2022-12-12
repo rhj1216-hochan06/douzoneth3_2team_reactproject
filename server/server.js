@@ -370,13 +370,31 @@ app.post('/api/cart/delete', (req, res) => {
 //검색하기
 app.post('/api/search', (req, res) => {
 
-  const search = req.body.search;
+      const search = req.body.search;
+      
+      console.log('search!!!!');
+      maria.query("SELECT * FROM products WHERE name like '%"+search+"%' OR provider like'%" +search+"%' or category like'%"+search+"%'", (err, data,fields) => {
+        console.log('success');
+        if (!err) res.send({ products: data });
+        else res.send(err);
+        console.log(data);
+      })
+    })
 
-  console.log('search!!!!');
-  maria.query("SELECT * FROM products WHERE name like '%" + search + "%' OR provider like'%" + search + "%' or category like'%" + search + "%'", (err, data, fields) => {
-    console.log('success');
-    if (!err) res.send({ products: data });
-    else res.send(err);
-    console.log(data);
-  })
-})
+    //마이페이지
+    app.post('/api/mypage', (req, res) => {
+      console.log('login');
+      const userId = req.body.id;
+      const userPw = req.body.pw;
+      console.log(req.body);
+      console.log(req.body);
+      maria.query("select * from user where userid='" + userId+ "'", (err, data, fields) => {
+        console.log('success');
+        console.log(data);
+        if (!err) res.send({ user: data });
+    
+        else res.send(err);
+        console.log(data);
+      })
+    
+    })
