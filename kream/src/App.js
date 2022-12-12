@@ -34,6 +34,8 @@ import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
 //shop
 import { Search } from "./pages/Search";
+import {Mypagepage} from './pages/Mypagepage';
+import {Mypage} from './components/mypage/mypage';
 
 function App() {
   //상품 변수 정의
@@ -83,6 +85,7 @@ function App() {
               <Route
                 path="/register" element={<Register
                 />} />
+                
               <Route
                 path="/cart" element={<Basket cart={cart} setCart={setCart} convertPrice={convertPrice} />}
               />
@@ -128,6 +131,10 @@ function App() {
                   <Provider store={store}> <Life products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               </Route>
+
+              <Route
+                path="/mypage" element={<Mypage
+                />} />
             </Routes>
           </div>
           <footer1 >
