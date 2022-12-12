@@ -135,6 +135,7 @@ product
   }
 
 }
+
 .content {
   text-align: center;
 }
@@ -145,4 +146,20 @@ product
 
 .contentName2 {
   color: #7c7c7c;
+}
+
+/* ----------------- */
+.shop {
+  text-align: center;
+}
+
+.category {
+  text-align: center;
+  padding-left: 0px;
+  margin-left: auto;
+}
+
+.category1 {
+  font-size: 18px;
+  margin-left: 20px;
 }
