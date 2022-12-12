@@ -8,39 +8,39 @@ export const Cart = ({ convertPrice }) => {
     const [checkLists, setCheckLists] = useState([]);
     const [total, setTotal] = useState([]);
     const sessionStorage = window.sessionStorage;
-    const [cartLangth, setCartLangth] = useState([]); 
+    const [cartLangth, setCartLangth] = useState([]);
     const [cart, setCart] = useState([]);
 
-//전체선택되어있다면(길이가 같으므로)true
-const isAllChecked =
-    cartLangth === checkLists.length && checkLists.length !== 0;
+    //전체선택되어있다면(길이가 같으므로)true
+    const isAllChecked =
+        cartLangth === checkLists.length && checkLists.length !== 0;
 
-//장바구니 목록 상시 출력
-        fetch("/api/cart", {
-          method: "post",
-          headers: {
+    //장바구니 목록 상시 출력
+    fetch("/api/cart", {
+        method: "post",
+        headers: {
             "content-type": "application/json"
-          },
-          body: JSON.stringify({
+        },
+        body: JSON.stringify({
             "id": sessionStorage.getItem("loginId"),
-          })
         })
-          .then((res) => res.json())
-          .then(json => {
+    })
+        .then((res) => res.json())
+        .then(json => {
             setCart(json.cart);
             setCartLangth(Object.keys(json.cart).length);
-          }
-          );
-    
+        }
+        );
 
 
-//장바구니 수량 증감 기능
-    const handleQuantity = (id, type,cart_count) => {
+
+    //장바구니 수량 증감 기능
+    const handleQuantity = (id, type, cart_count) => {
         const cal = (count) => {
-            fetch("/api/cart/count",{
-                method:"post",
+            fetch("/api/cart/count", {
+                method: "post",
                 headers: {
-                    "Content-type":"application/json; charset=utf-8"
+                    "Content-type": "application/json; charset=utf-8"
                 },
                 body: JSON.stringify({
                     "userid": sessionStorage.getItem("loginId"),
@@ -51,19 +51,19 @@ const isAllChecked =
         };
         if (type === "plus") cal(cart_count + 1);
         else if (type === "minus") {
-          if (cart_count < 2) return;
-          cal(cart_count - 1);
-          return;
+            if (cart_count < 2) return;
+            cal(cart_count - 1);
+            return;
         }
     };
 
 
     // 상품삭제기능 : id값이 일치하면 삭제
     const handleRemove = (id) => {
-        fetch("/api/cart/delete",{
-            method:"post",
+        fetch("/api/cart/delete", {
+            method: "post",
             headers: {
-                "Content-type":"application/json; charset=utf-8"
+                "Content-type": "application/json; charset=utf-8"
             },
             body: JSON.stringify({
                 "userid": sessionStorage.getItem("loginId"),
@@ -101,8 +101,8 @@ const isAllChecked =
         cart.filter((el) => el.id == checkLists)
     );
     return (
-        <div class="wrapper">
-            <div class="main-content">
+        <div class={styles.wrapper1}>
+            <div class={styles.main_content}>
                 <header className={styles.cart_title_wrap}>
                 </header>
                 <CartHeader handleCheckAll={handleCheckAll} isAllChecked={isAllChecked} />
@@ -201,7 +201,7 @@ const isAllChecked =
 
 
 //     //총금액계산하기위한상품담기(cart랑 체크리스트 비교)
-//     const found = checkLists.map((checkLists) => 
+//     const found = checkLists.map((checkLists) =>
 //         cart.filter((el) => el.id == checkLists)
 //     );
 //     return (
