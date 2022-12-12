@@ -8,6 +8,9 @@ const Register=()=> {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+  const [phonenumber, setPhonenumber] = useState("")
+  const [address, setAddress] = useState("")
+  const [email, setEmail] = useState("")
   const [idcheck, setIdcheck] = useState(0)
   const navigate = useNavigate();
   const onNameHandler = (event) => {
@@ -24,6 +27,18 @@ const Register=()=> {
   const onConfirmPasswordHandler = (event) => {
       setConfirmPassword(event.currentTarget.value)
   }
+
+  const onPhonenumberHandler = (event) => {
+    setPhonenumber(event.currentTarget.value)
+}
+
+const onAddressHandler = (event) => {
+  setAddress(event.currentTarget.value)
+}
+
+const onEmailHandler = (event) => {
+  setEmail(event.currentTarget.value)
+}
 const onIdcheck = (event) =>{
   event.preventDefault()
   fetch("/api/idcheck",{
@@ -109,10 +124,13 @@ const onIdcheck = (event) =>{
 
       <form onSubmit={onSubmit}>
           <div><div className='gulza'>NAME</div><input name="name" type="text" placeholder="이름" value={name} onChange={onNameHandler} class="loginregister__input"/></div>
-          <div><div className='gulza'>id</div><input name="id" type="id" placeholder="아이디" value={id} onChange={onIdHandler} class="loginregister__input2"/><button type="button" class="loginregister__button2" onClick={onIdcheck}>중복확인</button></div>
+          <div><div className='gulza'>ID</div><input name="id" type="id" placeholder="아이디" value={id} onChange={onIdHandler} class="loginregister__input2"/><button type="button" class="loginregister__button2" onClick={onIdcheck}>중복확인</button></div>
           
           <div><div className='gulza'>PASSWORD</div><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input"/></div>
           <div><div className='gulza'>PASSWORD CONFIRM</div><input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler} class="loginregister__input"/></div>
+          <div><div className='gulza'>EMAIL</div><input name="email" type="email" placeholder="이메일주소" value={email} onChange={onEmailHandler} class="loginregister__input"/></div>
+          <div><div className='gulza'>PHONENUMBER</div><input name="phonenumber" type="text" placeholder="전화번호" value={phonenumber} onChange={onPhonenumberHandler} class="loginregister__input"/></div>
+          <div><div className='gulza'>Address</div><input name="address" type="text" placeholder="주소" value={address} onChange={onAddressHandler} class="loginregister__input"/></div>
           <div><button type="submit" class="loginregister__button">계정 생성하기</button></div>
       </form>
     </div>
