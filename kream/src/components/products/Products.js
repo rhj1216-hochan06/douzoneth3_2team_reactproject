@@ -37,6 +37,34 @@ export const Products = ({ convertPrice }) => {
     .then((res) => res.json())
     .then(json => setState(json));
   //--------------------------------------------------------끝
+  //----------------------------------------정렬
+  fetch("/api/products/id", {
+    method: "get",
+    headers: {
+      "content-type": "application/json"
+    },
+  })
+    .then((res) => res.json())
+    .then(json => setState(json));
+
+  fetch("/api/products/pricelow", {
+    method: "get",
+    headers: {
+      "content-type": "application/json"
+    },
+  })
+    .then((res) => res.json())
+    .then(json => setState(json));
+
+  fetch("/api/products/pricehigh", {
+    method: "get",
+    headers: {
+      "content-type": "application/json"
+    },
+  })
+    .then((res) => res.json())
+    .then(json => setState(json));
+  //--------------------------------------------------------끝
 
   useEffect(() => {
     AOS.init({
