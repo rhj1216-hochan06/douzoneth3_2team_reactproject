@@ -12,7 +12,7 @@ const Login = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const sessionStorage = window.sessionStorage;
-
+  
   const onIdHandler = (event) => {
     setId(event.currentTarget.value);
   }
@@ -43,13 +43,13 @@ const Login = () => {
       .then(data => {
         console.log(data);
         
-      if(data.user.length!=0) {
+      if(data.user.length!==0) {
         console.log('sucessss');
         sessionStorage.setItem("loginId", data.user[0].userid);
         console.log('되냐?'+sessionStorage.getItem("loginId"));
         return navigate('/')
       }
-      else if(data.user.length==0){
+      else if(data.user.length===0){
         console.log('not sucessss');
         return alert('로그인 실패! 아이디와 비밀번호를 확인하세요')};
       });
