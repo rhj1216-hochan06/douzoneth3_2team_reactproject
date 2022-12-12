@@ -4,48 +4,6 @@ import { useState, useEffect } from "react";
 
 export const Main = () => {
 
-    const [state, setState] = useState([]);
-
-    fetch("/api/main/accessorieCategory", {
-        method: "get",
-        headers: {
-            "content-type": "application/json",
-            Accept: "application / json",
-        },
-    })
-        .then((res) => res.json())
-        .then(json => setState(json));
-
-    fetch("/api/main/clothCategory", {
-        method: "get",
-        headers: {
-            "content-type": "application/json",
-            Accept: "application / json",
-        },
-    })
-        .then((res) => res.json())
-        .then(json => setState(json));
-
-    fetch("/api/main/lifeCategory", {
-        method: "get",
-        headers: {
-            "content-type": "application/json",
-            Accept: "application / json",
-        },
-    })
-        .then((res) => res.json())
-        .then(json => setState(json));
-
-    fetch("/api/main/techCategory", {
-        method: "get",
-        headers: {
-            "content-type": "application/json",
-            Accept: "application / json",
-        },
-    })
-        .then((res) => res.json())
-        .then(json => setState(json));
-
     return (
         <>
             <div>
@@ -53,16 +11,16 @@ export const Main = () => {
                     <ul>
                         <h1>전체 카테고리</h1>
                         <li>
-                            <Link to="/main/accrssorieCategory">패션잡화</Link>
+                            <Link to="/main/accessorie">패션잡화</Link>
                         </li>
                         <li>
-                            <Link to="/main/techCategory">의류</Link>
+                            <Link to="/main/tech">테크</Link>
                         </li>
                         <li>
-                            <Link to="/main/clothCategory">테크</Link>
+                            <Link to="/main/cloth">의류</Link>
                         </li>
                         <li>
-                            <Link to="/main/lifeCategory">라이프</Link>
+                            <Link to="/main/life">라이프</Link>
                         </li>
                     </ul>
                 </header>
