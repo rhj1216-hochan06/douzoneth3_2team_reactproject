@@ -39,7 +39,7 @@ function App() {
   //상품 변수 정의
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  
+
 
   //useEffect로 최초 1번만 쇼핑몰데이터 렌더링
   //axios 문법
@@ -58,7 +58,7 @@ function App() {
   //
   return (
     <body>
-      <div class="wrapper1">
+      <div class=" wrapper1 ">
         <>
           <TopNavBar cart={cart} />
           <div class="main-content">
@@ -108,7 +108,7 @@ function App() {
                 element={
                   <Provider store={store}>
                     <Search
-                     
+
                       products={products}
                       setProducts={setProducts}
                       convertPrice={convertPrice}
@@ -116,13 +116,13 @@ function App() {
                   </Provider>} />
               <Route exact path="/main" element={<Main />}>
                 <Route path="cloth" element={
-                  <Provider store={store}> <Cloth  products={products}
+                  <Provider store={store}> <Cloth products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
                 <Route path="accessorie" element={
-                  <Provider store={store}> <Accessorie  products={products}
+                  <Provider store={store}> <Accessorie products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
                 <Route path="tech" element={
-                  <Provider store={store}> <Tech  products={products}
+                  <Provider store={store}> <Tech products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
                 <Route path="life" element={
                   <Provider store={store}> <Life products={products}
@@ -130,9 +130,9 @@ function App() {
               </Route>
             </Routes>
           </div>
-          <footer1>
+          <footer1 >
             <Footer />
-          </footer1>
+          </footer1 >
         </>
       </div>
     </body >
