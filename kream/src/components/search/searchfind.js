@@ -16,6 +16,9 @@ export const Searchfind = ({ products, setProducts, convertPrice }) => {
   const [state, setState] = useState([]);
 
   const [search, setSearch] = useState("");
+  const [plength, setPLength] = useState("");
+  const [find, setFind] = useState("");
+
 
   const onSearchHandler = (event) => {
     setSearch(event.currentTarget.value)
@@ -39,7 +42,12 @@ export const Searchfind = ({ products, setProducts, convertPrice }) => {
 
     })
       .then((res) => res.json())
-      .then(json => setState(json));
+      .then(json => {
+        setState(json);
+
+      setPLength(json.products.length);
+      setFind(search);
+       });
 
   }
 
@@ -61,13 +69,18 @@ export const Searchfind = ({ products, setProducts, convertPrice }) => {
         <div className={styles.amuguna}>
           <input className={styles.search} type="text" value={search} placeholder="상품명, 브랜드, 카테고리 검색" onChange={onSearchHandler}  onKeyPress={handleOnKeyPress} />&nbsp;
 
-          <img src="/images/search-icon.svg" alt="find" onClick={onSearch} />
+          <img className={styles.searchicon} src="/images/search-icon.svg" alt="find" onClick={onSearch} />
         {/* </div> */}
       </div>
-      <br /><br /><br />
+      <br /><br />
       <div className={styles.content}>
 
-        <h2 className={styles.contentName1}>검색결과</h2>
+        <h3 className={styles.contentName1}>WHIPPING</h3> <br/><br/><br/>
+        {plength !=="" ? (
+                      <h3>{find}(으)로 검색된 상품 총 {plength}건</h3>
+                    ) : (
+                     <></>
+                    )} 
         
       </div><br />
       <main className={styles.flex_wrap}>
