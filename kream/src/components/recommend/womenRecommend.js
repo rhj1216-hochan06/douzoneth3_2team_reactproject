@@ -1,10 +1,16 @@
 //WomenRecommend.js
 import styles from "./recommend.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+
 
 export const WomenRecommend = ({ products, setProducts, convertPrice }) => {
 
+  //--aos
+  useEffect(() => {
+    AOS.init();
+  })
   //---------------------------------------------------DAO 시작
   const [state, setState] = useState([]);
 
@@ -20,6 +26,8 @@ export const WomenRecommend = ({ products, setProducts, convertPrice }) => {
   //--------------------------------------------------------끝
   return (
     <>
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       <br /><br /><br />
       <div className={styles.content}>
         <h2 className={styles.contentName1}>여성 추천 컬렉션</h2>
@@ -30,24 +38,25 @@ export const WomenRecommend = ({ products, setProducts, convertPrice }) => {
           if (!state.products) return 'no data';
           //  return <Product key={`key-${product.id}`} product={product} convertPrice={convertPrice} />;
           return <div className={styles.product}>
-
-            <Link to={`/products/${product.id}`}>
-              <div className={styles.product_image}>
-                <img src={product.image} alt="product" />
+            <div class="item" data-aos="slide-up">
+              <Link to={`/products/${product.id}`}>
+                <div className={styles.product_image}>
+                  <img src={product.image} alt="product" />
+                </div>
+              </Link>
+              <div className={styles.store}>
+                <span>{product.provider}</span>
               </div>
-            </Link>
-            <div className={styles.store}>
-              <span>{product.provider}</span>
-            </div>
 
-            <div className={styles.product_name}>
-              <span>{product.name}</span>
-            </div>
+              <div className={styles.product_name}>
+                <span>{product.name}</span>
+              </div>
 
-            <div className={styles.product_price}>
-              <span className={styles.price}>{convertPrice(product.price)}</span>
-              <span className={styles.unit}>원</span>
-            </div><br/><br/><br/>
+              <div className={styles.product_price}>
+                <span className={styles.price}>{convertPrice(product.price)}</span>
+                <span className={styles.unit}>원</span>
+              </div><br /><br /><br />
+            </div>
           </div>
         })}
       </main>

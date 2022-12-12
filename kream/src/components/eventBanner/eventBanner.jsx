@@ -4,6 +4,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper";
 import "./eventBanner.module.css";
 import { Link } from 'react-router-dom';
+
 export const EventBanner = () => {
   return (
     <>
