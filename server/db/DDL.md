@@ -79,7 +79,7 @@ commit;
 
 ---
 
-git 
+
 DROP TABLE user CASCADE;
 
 CREATE TABLE `user` (
