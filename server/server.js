@@ -34,6 +34,17 @@ app.get('/api/womenRecommend', (req, res) => {
     else res.send(err);
   })
 })
+
+// 메인페이지 신상품
+app.get('/api/', (req, res) => {
+  console.log('home');
+  maria.query("SELECT * FROM products WHERE id < 5 ", (err, data) => {
+    console.log('신상품');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+  })
+})
+
 //남성추천
 app.get('/api/manRecommend', (req, res) => {
   console.log('manRecommend');
@@ -155,7 +166,7 @@ app.post('/api/register', (req, res) => {
   const userAddress = req.body.useraddress;
   console.log(req.body);
 
-  maria.query("insert into user(userid,username,userpassword,useremail,userphonenumber,useraddress) values('" + userId + "','" + userName + "','" + userPw + "','" +userEmail+"','"+userPhonenumber+"','"+userAddress+"')", (err, data, fields) => {
+  maria.query("insert into user(userid,username,userpassword,useremail,userphonenumber,useraddress) values('" + userId + "','" + userName + "','" + userPw + "','" + userEmail + "','" + userPhonenumber + "','" + userAddress + "')", (err, data, fields) => {
     console.log('register success');
     console.log(data);
     if (!err) res.send({ user: data });
@@ -239,27 +250,17 @@ app.post('/api/cart/delete', (req, res) => {
     })
 })
 
-    // app.get('/api/womenRecommend', (req, res) => {
-    //   console.log('womanRecommand');
-    //   maria.query("SELECT * FROM products WHERE gender=2" , (err, data) => {
-    //     console.log('여성추천 받아오나요?');
-    //     if (!err) res.send({ products: data });
-    //     else res.send(err);
-    //   })
-    // })
-    //app.get('경로',할일)
 
+//검색하기
+app.post('/api/search', (req, res) => {
 
-    //검색하기
-    app.post('/api/search', (req, res) => {
+  const search = req.body.search;
 
-      const search = req.body.search;
-      
-      console.log('search!!!!');
-      maria.query("SELECT * FROM products WHERE name like '%"+search+"%' OR provider like'%" +search+"%' or category like'%"+search+"%'", (err, data,fields) => {
-        console.log('success');
-        if (!err) res.send({ products: data });
-        else res.send(err);
-        console.log(data);
-      })
-    })
+  console.log('search!!!!');
+  maria.query("SELECT * FROM products WHERE name like '%" + search + "%' OR provider like'%" + search + "%' or category like'%" + search + "%'", (err, data, fields) => {
+    console.log('success');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+    console.log(data);
+  })
+})

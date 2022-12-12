@@ -20,7 +20,7 @@ import { Winter } from './pages/Winter.js';
 import { Route, Routes } from 'react-router-dom';
 import { TopNavBar } from "./components/header/TopNavBar.js";
 import { Footer } from "./components/footer/Footer.js";
-import Home from "./pages/Home";
+import { Home } from "./pages/Home";
 import { Products } from "./components/products/Products";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -69,8 +69,8 @@ function App() {
             <Routes>
               <Route exact={true} path="/"
                 element={
-                  <Home />
-                } />
+                  <Provider store={store}> <Home products={products}
+                    setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route path="/products"
                 element={
                   <Provider store={store}>
