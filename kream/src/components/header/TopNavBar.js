@@ -48,9 +48,9 @@ const onLogout = (event) =>{
               </li>
               <li className={styles.top_item}>
               {sessionStorage.getItem("loginId") !== "" && sessionStorage.getItem("loginId") !== null ? (
-                      <a>{sessionStorage.getItem("loginId")}</a>
+                      <a>{sessionStorage.getItem("loginId")}님 환영합니다!</a>
                     ) : (
-                      <a>환영합니다</a>
+                      <a></a>
                     )}
                 </li>
               <li className={styles.top_item}>
@@ -79,7 +79,7 @@ const onLogout = (event) =>{
               <nav className={styles.gnb}>
                 <ul className={styles.gnb_list}>
                   <li className={styles.gnb_item}>
-                    <a href="/" className={styles.gnb_link}>SHOP</a>
+                    <a href="/main" className={styles.gnb_link}>SHOP</a>
                   </li>
                   <li className={styles.search_btn}>
                     <Link to="/search" >
