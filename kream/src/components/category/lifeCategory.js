@@ -14,7 +14,7 @@ export const LifeCategory = ({ products, setProducts, convertPrice }) => {
   //---------------------------------------------------DAO 시작
   const [state, setState] = useState([]);
 
-  fetch("/api/lifeCategory", {
+  fetch("/api/main/lifeCategory", {
     method: "get",
     headers: {
       "content-type": "application/json",

@@ -44,7 +44,7 @@ app.get('/api/manRecommend', (req, res) => {
   })
 })
 //패션잡화 카테고리
-app.get('/api/accessorieCategory', (req, res) => {
+app.get('/api/main/accessorieCategory', (req, res) => {
   console.log('accessorieCategory');
   maria.query("SELECT * FROM products WHERE category='패션잡화' " , (err, data) => {
     console.log('success');
@@ -53,7 +53,7 @@ app.get('/api/accessorieCategory', (req, res) => {
   })
 })
 //의류 카테고리
-app.get('/api/clothCategory', (req, res) => {
+app.get('/api/main/clothCategory', (req, res) => {
   console.log('clothCategory');
   maria.query("SELECT * FROM products WHERE category='의류' " , (err, data) => {
     console.log('success');
@@ -62,7 +62,7 @@ app.get('/api/clothCategory', (req, res) => {
   })
 })
 //라이프 카테고리
-app.get('/api/lifeCategory', (req, res) => {
+app.get('/api/main/lifeCategory', (req, res) => {
   console.log('lifeCategory');
   maria.query("SELECT * FROM products WHERE category='라이프' " , (err, data) => {
     console.log('success');
@@ -71,7 +71,7 @@ app.get('/api/lifeCategory', (req, res) => {
   })
 })
 //테크 카테고리
-app.get('/api/techCategory', (req, res) => {
+app.get('/api/main/techCategory', (req, res) => {
   console.log('techCategory');
   maria.query("SELECT * FROM products WHERE category='테크' " , (err, data) => {
     console.log('success');
