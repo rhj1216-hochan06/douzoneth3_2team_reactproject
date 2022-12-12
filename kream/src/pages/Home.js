@@ -28,7 +28,7 @@ const Home = () => {
             </Link> <br />
           </div>
           <div className={styles.sort}>
-            <Link to="/event">
+            <Link to="/winter">
               <img className={styles.product_image} src=" /images/winter.jpg" />
               <div className={styles.product_name}>한파특가</div>
             </Link> <br />

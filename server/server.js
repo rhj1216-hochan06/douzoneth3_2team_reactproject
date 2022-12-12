@@ -80,6 +80,15 @@ app.get('/api/main/techCategory', (req, res) => {
   })
 })
 
+//한파 특가 이벤트
+app.get('/api/winter', (req, res) => {
+  console.log('winter');
+  maria.query("SELECT * FROM products WHERE category='의류' ", (err, data) => {
+    console.log('success');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+  })
+})
 //전체 카테고리 
 
 //react-app
