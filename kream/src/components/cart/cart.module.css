@@ -451,14 +451,11 @@
 html,body{
 	width: 100%; height:100%;
 }
-.wrapper{
+.wrapper1{
 	display:flex;
 	flex-direction: column;
-	height: 100%;
+	height: 100vh;
 }
-.main-content{
+.main_content{
 	flex:1;
-}
-footer{
-	height:60px;
 }
