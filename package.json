@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/rhj1216-hochan06/douzoneth3_2team_reactproject/issues"
   },
-  "homepage": "https://github.com/rhj1216-hochan06/douzoneth3_2team_reactproject#readme"
+  "homepage": "https://github.com/rhj1216-hochan06/douzoneth3_2team_reactproject#readme",
+  "dependencies": {
+    "jquery": "^3.6.1"
+  }
 }
