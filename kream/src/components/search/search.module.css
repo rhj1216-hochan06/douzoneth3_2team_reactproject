@@ -140,6 +140,7 @@ product
 
 .contentName1 {
   font-weight: bold;
+  display:inline;
 }
 
 .contentName2 {
@@ -160,4 +161,9 @@ product
   padding-left: 20px;
   background-color: rgb(233, 233, 233);
   /* margin-left: 150px; */
+}
+.searchicon {
+  width: 33px;
+  height: auto;
+  margin-left: 10px;
 }
