@@ -79,10 +79,10 @@ const onLogout = (event) =>{
               <nav className={styles.gnb}>
                 <ul className={styles.gnb_list}>
                   <li className={styles.gnb_item}>
-                    <a href="" className={styles.gnb_link}>SHOP</a>
+                    <a href="/" className={styles.gnb_link}>SHOP</a>
                   </li>
                   <li className={styles.search_btn}>
-                    <Link to="/shop" >
+                    <Link to="/search" >
                       <img src="/images/search-icon.svg" alt="find" className={styles.search} />
                     </Link>
                   </li>

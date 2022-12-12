@@ -33,13 +33,13 @@ import { Detail } from './components/detail/Detail';
 import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
 //shop
-import { Shop } from "./pages/Shop";
+import { Search } from "./pages/Search";
 
 function App() {
   //상품 변수 정의
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  const [search, setSearch] = useState([]);
+  
 
   //useEffect로 최초 1번만 쇼핑몰데이터 렌더링
   //axios 문법
@@ -104,11 +104,11 @@ function App() {
                       convertPrice={convertPrice}
                     />
                   </Provider>} />
-              <Route path="/shop"
+              <Route path="/search"
                 element={
                   <Provider store={store}>
-                    <Shop
-                      search={search}
+                    <Search
+                     
                       products={products}
                       setProducts={setProducts}
                       convertPrice={convertPrice}
@@ -116,16 +116,16 @@ function App() {
                   </Provider>} />
               <Route exact path="/main" element={<Main />}>
                 <Route path="cloth" element={
-                  <Provider store={store}> <Cloth search={search} products={products}
+                  <Provider store={store}> <Cloth  products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
                 <Route path="accessorie" element={
-                  <Provider store={store}> <Accessorie search={search} products={products}
+                  <Provider store={store}> <Accessorie  products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
                 <Route path="tech" element={
-                  <Provider store={store}> <Tech search={search} products={products}
+                  <Provider store={store}> <Tech  products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
                 <Route path="life" element={
-                  <Provider store={store}> <Life search={search} products={products}
+                  <Provider store={store}> <Life products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               </Route>
             </Routes>
