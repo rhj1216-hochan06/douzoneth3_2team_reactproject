@@ -128,14 +128,16 @@ export const Cart = ({ convertPrice }) => {
                     })
                 )
                 }
+            </div>
 
+            <div class={styles.main_content}>
                 {cart.length === 0 ? "" : <TotalCart
                     cart={cart} total={total} setTotal={setTotal}
                     convertPrice={convertPrice}
                     found={found}
                 />}
-
             </div>
+
         </div>
     );
 };
