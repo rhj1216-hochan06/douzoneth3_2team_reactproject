@@ -9,7 +9,6 @@ export const Detail = ({ cart, setCart, convertPrice }) => {
   const [count, setCount] = useState(1);
   const sessionStorage = window.sessionStorage;
 
-  console.log('카트에 아이디 넘겨주기 되냐?'+sessionStorage.getItem("loginId"));
   //갯수 증감 함수
   const handleQuantity = (type) => {
     if (type === "plus") setCount(count + 1);
