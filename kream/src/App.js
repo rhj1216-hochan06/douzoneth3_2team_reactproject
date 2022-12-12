@@ -12,8 +12,10 @@ import { Tech } from './pages/Tech.js';
 // 카테고리(라이프)
 import { Life } from './pages/Life.js';
 // 메인 카테고리
-//import { Main } from './pages/Main.js';
 import { Main } from "./components/category/main.js";
+// 한파 특가
+// 카테고리(라이프)
+import { Winter } from './pages/Winter.js';
 
 import { Route, Routes } from 'react-router-dom';
 import { TopNavBar } from "./components/header/TopNavBar.js";
@@ -34,8 +36,8 @@ import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
 //shop
 import { Search } from "./pages/Search";
-import {Mypagepage} from './pages/Mypagepage';
-import {Mypage} from './components/mypage/mypage';
+import { Mypagepage } from './pages/Mypagepage';
+import { Mypage } from './components/mypage/mypage';
 
 function App() {
   //상품 변수 정의
@@ -85,7 +87,7 @@ function App() {
               <Route
                 path="/register" element={<Register
                 />} />
-                
+
               <Route
                 path="/cart" element={<Basket cart={cart} setCart={setCart} convertPrice={convertPrice} />}
               />
@@ -131,7 +133,9 @@ function App() {
                   <Provider store={store}> <Life products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               </Route>
-
+              <Route path="/winter" element={
+                <Provider store={store}> <Winter products={products}
+                  setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route
                 path="/mypage" element={<Mypage
                 />} />
