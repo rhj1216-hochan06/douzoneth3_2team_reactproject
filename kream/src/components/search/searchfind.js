@@ -21,6 +21,11 @@ export const Searchfind = ({ products, setProducts, convertPrice }) => {
     setSearch(event.currentTarget.value)
   }
 
+  const handleOnKeyPress = e => {
+    if (e.key === 'Enter') {
+      onSearch(); // Enter 입력이 되면 클릭 이벤트 실행
+    }
+  };
   const onSearch = (event) => {
     fetch("/api/search", {
       method: "post",
@@ -54,16 +59,16 @@ export const Searchfind = ({ products, setProducts, convertPrice }) => {
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       {/* <div className={styles.input_wrap}> */}
         <div className={styles.amuguna}>
-          <input className={styles.search} type="text" value={search} placeholder="상품명, 브랜드, 카테고리 검색" onChange={onSearchHandler} />&nbsp;
+          <input className={styles.search} type="text" value={search} placeholder="상품명, 브랜드, 카테고리 검색" onChange={onSearchHandler}  onKeyPress={handleOnKeyPress} />&nbsp;
 
-          <img src="/images/icon-search.svg" alt="find" onClick={onSearch} />
+          <img src="/images/search-icon.svg" alt="find" onClick={onSearch} />
         {/* </div> */}
       </div>
       <br /><br /><br />
       <div className={styles.content}>
 
-        <h2 className={styles.contentName1}>패션잡화</h2>
-        <h5 className={styles.contentName2}>WIPPING에서 추천하는 인기 상품</h5>
+        <h2 className={styles.contentName1}>검색결과</h2>
+        
       </div><br />
       <main className={styles.flex_wrap}>
         {state.products && state.products.map((product) => { //map을 이용하여 상품 갯수만큼 반복시키기

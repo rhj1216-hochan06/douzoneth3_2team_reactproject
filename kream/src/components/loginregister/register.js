@@ -91,7 +91,10 @@ const onIdcheck = (event) =>{
         body: JSON.stringify({
           "userid" : id,
           "username" : name,
-          "userpw" :password
+          "userpw" :password,
+          "useremail" :email,
+          "userphonenumber" : phonenumber,
+          "useraddress" : address
         })
   
       })
