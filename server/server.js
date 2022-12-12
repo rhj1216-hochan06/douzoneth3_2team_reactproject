@@ -141,10 +141,13 @@ app.post('/api/register', (req, res) => {
   const userId = req.body.userid;
   const userName = req.body.username;
   const userPw = req.body.userpw;
+  const userEmail = req.body.useremail;
+  const userPhonenumber = req.body.userphonenumber;
+  const userAddress = req.body.useraddress;
   console.log(req.body);
-  console.log(req.body);
-  maria.query("insert into user(userid,username,userpassword) values('" + userId + "','" + userName + "','" + userPw + "')", (err, data, fields) => {
-    console.log('register sucess');
+
+  maria.query("insert into user(userid,username,userpassword,useremail,userphonenumber,useraddress) values('" + userId + "','" + userName + "','" + userPw + "','" +userEmail+"','"+userPhonenumber+"','"+userAddress+"')", (err, data, fields) => {
+    console.log('register success');
     console.log(data);
     if (!err) res.send({ user: data });
 

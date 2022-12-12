@@ -12,9 +12,10 @@ CREATE TABLE `products` (
    `image` VARCHAR(200) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
    `category` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
    `gender` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+   `categorydetail` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
    PRIMARY KEY (`id`)
 )
-COMMENT='id, name, provider, price, img, category,gender'
+COMMENT='id, name, provider, price, img, category,gender,categorydetail'
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
@@ -22,15 +23,19 @@ ENGINE=InnoDB
 ---
 
 CREATE TABLE `user` (
-	`userno` INT NOT NULL AUTO_INCREMENT,
-	`userid` VARCHAR(50) NOT NULL,
-	`username` VARCHAR(50) NOT NULL,
-	`userpassword` VARCHAR(50) NOT NULL,
-	INDEX `userno` (`userno`),
-	PRIMARY KEY (`userid`)
-
+	`userno` INT(11) NOT NULL AUTO_INCREMENT,
+	`userid` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+	`username` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+	`userpassword` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+	`useremail` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`userphonenumber` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`useraddress` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	PRIMARY KEY (`userid`) USING BTREE,
+	INDEX `userno` (`userno`) USING BTREE
 )
 COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=16
 ;
 
 ---

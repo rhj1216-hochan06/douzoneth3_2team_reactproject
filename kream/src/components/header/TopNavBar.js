@@ -54,7 +54,7 @@ const onLogout = (event) =>{
                     )}
                 </li>
               <li className={styles.top_item}>
-                <a href="" className={styles.top_link}>마이페이지</a>
+                <a href="/mypage" className={styles.top_link}>마이페이지</a>
               </li>
               <li className={styles.top_item}>
               {sessionStorage.getItem("loginId") !== null && sessionStorage.getItem("loginId") !== ""  ? (
