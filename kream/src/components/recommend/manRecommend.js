@@ -6,11 +6,13 @@ import AOS from "aos";
 
 export const ManRecommend = ({ products, setProducts, convertPrice }) => {
 
-  //---------------------------------------------------DAO 시작
-  const [state, setState] = useState([]);
+  //--aos
   useEffect(() => {
     AOS.init();
   })
+
+  //---------------------------------------------------DAO 시작
+  const [state, setState] = useState([]);
   fetch("/api/manRecommend", {
     method: "get",
     headers: {

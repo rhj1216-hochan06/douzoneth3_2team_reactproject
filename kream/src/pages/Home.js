@@ -1,5 +1,6 @@
 import { EventBanner } from "../components/eventBanner/eventBanner";
 import { Link } from 'react-router-dom';
+import styles from "../components/home1/Home.module.css";
 
 const Home = () => {
   return (
@@ -7,7 +8,7 @@ const Home = () => {
       <EventBanner />
       <Link to="/"> 홈페이지</Link><br />
       <div className="women">
-        <Link to="/womenRecommend"> <img src=" /images/recomendwoman.jpg" />여성 추천</Link></div><br />
+        <Link to="/womenRecommend"> < img className={styles.eventimg} src=" /images/recomendwoman.jpg" />여성 추천</Link></div><br />
       <Link to="/manRecommend">남성 추천</Link><br />
       <Link to="/"> 이벤트</Link><br />
       <Link to="/products"> 전체 카테고리 목록 보기</Link><br />
