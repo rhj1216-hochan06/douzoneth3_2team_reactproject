@@ -11,6 +11,7 @@ $ npm install styled-components
 $ npm install swiper // 배너 스와이프 기능
 $ npm i -g nodemon //서버 재실행 자동화 설치
 $ npm install aos --save // 애니메이션 효과
+npm install jquery --save // jquery 추가
 ```
 ---
 

@@ -16,6 +16,94 @@ var cors = require('cors');
 const { Console } = require('console');
 app.use(cors());
 
+// detail --- 구매 부분
+app.post('/api/perchase', (req,res)=>{
+  const id = req.body.id;
+  console.log("post");
+  console.log(id);
+   
+  maria.query("SELECT categorydetail FROM products WHERE id = ?" ,[id],
+  function(err, data){
+    
+    if (!err) res.send({data});
+  
+    else{
+      console.log("DB저장 성공");
+    };
+  })
+
+  
+})
+
+app.post('/api/perchase/threesize', (req,res)=>{
+  const id = req.body.id;
+  console.log("post");
+  console.log(id);
+   
+  maria.query("SELECT XS,S,M,L,XL FROM stock WHERE id = ?" ,[id],
+  function(err, data){
+    
+    if (!err) res.send({data});
+  
+    else{
+      console.log("DB저장 성공");
+    };
+  })
+})
+
+app.post('/api/perchase/onesize', (req,res)=>{
+  const id = req.body.id;
+  console.log("post");
+  console.log(id);
+   
+  maria.query("SELECT onesize FROM stock WHERE id = ?" ,[id],
+  function(err, data){
+    
+    if (!err) res.send({data});
+  
+    else{
+      console.log("DB저장 성공");
+    };
+  })
+})
+
+app.post('/api/perchase/perfume', (req,res)=>{
+  const id = req.body.id;
+  console.log("post");
+  console.log(id);
+   
+  maria.query("SELECT size_30ml,size_100ml FROM stock WHERE id = ?" ,[id],
+  function(err, data){
+    
+    if (!err) res.send({data});
+  
+    else{
+      console.log("DB저장 성공");
+    };
+  })
+
+  
+})
+
+app.post('/api/perchase/shoe', (req,res)=>{
+  const id = req.body.id;
+  console.log("post");
+  console.log(id);
+   
+  maria.query("SELECT size_225,size_230,size_235,size_240,size_245,size_250,size_255,size_260,size_265,size_270,size_275,size_280,size_285,size_290,size_295,size_300 FROM stock WHERE id = ?" ,[id],
+  function(err, data){
+    
+    if (!err) res.send({data});
+  
+    else{
+      console.log("DB저장 성공");
+    };
+  })
+
+  
+})
+//------------------------------------------------------------------
+
 //app.get('경로',할일)
 app.get('/api/products', (req, res) => {
   console.log('products');
