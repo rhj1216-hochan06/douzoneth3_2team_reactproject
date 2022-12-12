@@ -80,6 +80,8 @@ app.get('/api/techCategory', (req, res) => {
   })
 })
 
+//전체 카테고리 
+
 //react-app
 app.use('/', express.static(path.join(__dirname, '../kream/build')));
 //* : 모든 페이지에서 다 들어오게하는 것
@@ -222,14 +224,3 @@ app.get('/*', (req, res) => {
         }
       })
     })
-
-    // app.get('/api/womenRecommend', (req, res) => {
-    //   console.log('womanRecommand');
-    //   maria.query("SELECT * FROM products WHERE gender=2" , (err, data) => {
-    //     console.log('여성추천 받아오나요?');
-    //     if (!err) res.send({ products: data });
-    //     else res.send(err);
-    //   })
-    // })
-    //app.get('경로',할일)
- 

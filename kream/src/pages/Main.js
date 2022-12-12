@@ -1,12 +1,13 @@
+import { Outlet } from "react-router-dom";
 import { MainCategory } from "../components/category/main.js";
 
-const Main = ({ convertPrice, setProducts, products }) => {
+const Main = () => {
 
-    return <MainCategory
-        convertPrice={convertPrice}
-        setProducts={setProducts}
-        products={products}
-    />;
+    return (
+        <>
+            <MainCategory />
+        </>
+    );
 
 };
 
