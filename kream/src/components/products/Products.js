@@ -36,7 +36,7 @@ export const Products = ({ convertPrice }) => {
         "Content-Type": "application/json; charset=utf-8",
         Accept: "application / json",
       }, body: JSON.stringify({
-        "word": "id",
+        "word": "id desc",
 
       })
     })
@@ -103,6 +103,7 @@ export const Products = ({ convertPrice }) => {
     AOS.init({
       duration: 1200,
     })
+    onA();
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll); //clean up
@@ -152,8 +153,8 @@ export const Products = ({ convertPrice }) => {
 
 
       <div className={styles.filter}>
-        <p onClick={onA}  >최신순</p>
-        <p onClick={Orderwordid}  >최신순</p>
+        <p onClick={onA} > 상품</p>
+        <p onClick={Orderwordid}  >신상품</p>
         <p onClick={Orderwordprice}>낮은 가격</p>
         <p onClick={Orderwordpricedesc}>높은 가격</p>
       </div>
