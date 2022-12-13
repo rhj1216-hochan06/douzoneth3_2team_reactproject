@@ -11,16 +11,13 @@ export const Products = ({ convertPrice }) => {
   const [count1, setCount1] = useState(1);
   const [start, setstart] = useState(1);
   const [end, setend] = useState(12);
-  const [plength, setPLength] = useState(0);
-  const upCount = (event) => {
-    setCount1(count1 + 1);
-  }
+  const [plength, setPLength] = useState(12);
 
 
   const Countdown = (event) => {
     if (start < 12) return Initcount();
     setstart(start - 12);
-    setCount1(count1 - 12);
+    setCount1(count1 - 1);
     setend(end - 12);
     console.log(start);
     console.log(end);
@@ -29,7 +26,7 @@ export const Products = ({ convertPrice }) => {
   const Countup = (event) => {
     if (plength < end) return Initcount();
     setstart(start + 12);
-    setCount1(count1 + 12);
+    setCount1(count1 + 1);
     setend(end + 12);
     console.log(start);
     console.log(end);
@@ -241,6 +238,7 @@ export const Products = ({ convertPrice }) => {
         )}
         <div >
           <a href="#top"><button onClick={Countdown}> 이전 페이지 </button></a>
+          <h1>{count1}</h1>
           <a href="#top"><button onClick={Countup}> 다음 페이지 </button></a>
         </div>
       </main>
