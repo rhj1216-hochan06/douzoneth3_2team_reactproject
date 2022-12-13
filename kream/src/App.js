@@ -17,6 +17,8 @@ import { Main } from "./components/category/main.js";
 import { Winter } from './pages/Winter.js';
 //크리스마스 특가
 import { Christmas } from './pages/Christmas';
+//더미 페이지
+import {Dummy} from './components/dummy/dummy.js'
 
 import { Route, Routes } from 'react-router-dom';
 import { TopNavBar } from "./components/header/TopNavBar.js";
@@ -142,6 +144,9 @@ function App() {
                   setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route
                 path="/mypage" element={<Mypage
+                />} />
+                <Route
+                path="/dummy" element={<Dummy
                 />} />
             </Routes>
           </div>
