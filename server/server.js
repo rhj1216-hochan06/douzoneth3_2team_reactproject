@@ -349,19 +349,19 @@ app.post('/api/inputsale', (req, res) => {
 
   console.log(req.body);
   maria.query("insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(" + SALE_PRODUCTID
-    + ",'"+SALE_USERID+"',"+SALE_PRICE+",'"+SALE_SIZE+"')", (err, data, fields) => {
+    + ",'" + SALE_USERID + "'," + SALE_PRICE + ",'" + SALE_SIZE + "')", (err, data, fields) => {
       console.log('success!');
       console.log(data);
       if (!err) res.send({ sale: data });
     })
-  })
+})
 //단어로 정렬 (단어는 : id,price,price desc)
 app.post('/api/word', (req, res) => {
 
   const word = req.body.word;
 
   console.log('word');
-  maria.query("SELECT * FROM products order by " + word, (err, data, fields) => {
+  maria.query("SELECT @ROWNUM:=@ROWNUM+1 AS rownum ,id,name,provider,price,image,category,gender,categorydetail FROM products WHERE (SELECT @ROWNUM:=0)=0 order by " + word, (err, data, fields) => {
     console.log('success');
     if (!err) res.send({ products: data });
     else res.send(err);
