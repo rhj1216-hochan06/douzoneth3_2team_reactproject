@@ -32,23 +32,13 @@ export const Products = ({ convertPrice }) => {
   //----------------------------------------정렬
 
   const Orderwordid = () => {
-    setWord("id")
-  }
-  const Orderwordprice = () => {
-    setWord("price")
-  }
-  const Orderwordpricedesc = () => {
-    setWord("price desc")
-  }
-
-  const onword = (event) => {
     fetch("/api/word", {
       method: "post",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Accept: "application / json",
       }, body: JSON.stringify({
-        "word": word,
+        "word": "id",
 
       })
     })
@@ -56,8 +46,59 @@ export const Products = ({ convertPrice }) => {
       .then(json => {
         setState(json);
       });
-
   }
+  const Orderwordprice = () => {
+    console.log("price");
+    fetch("/api/word", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Accept: "application / json",
+      }, body: JSON.stringify({
+        "word": "price",
+
+      })
+    })
+      .then((res) => res.json())
+      .then(json => {
+        setState(json);
+      });
+  }
+  const Orderwordpricedesc = () => {
+    console.log("pricedesc");
+    fetch("/api/word", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Accept: "application / json",
+      }, body: JSON.stringify({
+        "word": "price desc",
+
+      })
+    })
+      .then((res) => res.json())
+      .then(json => {
+        setState(json);
+      });
+  }
+
+  // const onword = (event) => {
+  //   fetch("/api/word", {
+  //     method: "post",
+  //     headers: {
+  //       "Content-Type": "application/json; charset=utf-8",
+  //       Accept: "application / json",
+  //     }, body: JSON.stringify({
+  //       "word": word,
+
+  //     })
+  //   })
+  //     .then((res) => res.json())
+  //     .then(json => {
+  //       setState(json);
+  //     });
+
+  // }
   //--------------------------------------------------------끝
 
   useEffect(() => {
@@ -113,21 +154,10 @@ export const Products = ({ convertPrice }) => {
 
 
       <div className={styles.filter}>
-        <p onClick={() => {
-          onA()
-        }}  >최신순</p>
-        <p onClick={() => {
-          Orderwordid()
-          onword()
-        }}  >최신순</p>
-        <p onClick={() => {
-          Orderwordprice()
-          onword()
-        }}>낮은 가격</p>
-        <p onClick={() => {
-          Orderwordpricedesc()
-          onword()
-        }}>높은 가격</p>
+        <p onClick={onA}  >최신순</p>
+        <p onClick={Orderwordid}  >최신순</p>
+        <p onClick={Orderwordprice}>낮은 가격</p>
+        <p onClick={Orderwordpricedesc}>높은 가격</p>
       </div>
 
       <main className={styles.flex_wrap}>
