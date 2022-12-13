@@ -368,3 +368,18 @@ app.post('/api/word', (req, res) => {
     console.log(data);
   })
 })
+//내 판매목록 보기
+app.post('/api/mypageshop', (req, res) => {
+  console.log('mypageshop');
+  const id = req.body.id;
+  maria.query("SELECT * FROM sale WHERE sale_userid='"+id+"' ", (err, data) => {
+    console.log('success');
+    if (!err) {res.send({ sale: data });
+    
+    console.log('mypageshop2');
+    }
+
+    else res.send(err);
+    
+  })
+})

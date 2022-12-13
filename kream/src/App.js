@@ -18,7 +18,7 @@ import { Winter } from './pages/Winter.js';
 //크리스마스 특가
 import { Christmas } from './pages/Christmas';
 //더미 페이지
-import {Dummy} from './components/dummy/dummy.js'
+import { Dummy } from './components/dummy/dummy.js'
 
 import { Route, Routes } from 'react-router-dom';
 import { TopNavBar } from "./components/header/TopNavBar.js";
@@ -41,6 +41,8 @@ import { Provider, useSelector } from 'react-redux';
 import { Search } from "./pages/Search";
 import { Mypagepage } from './pages/Mypagepage';
 import { Mypage } from './components/mypage/mypage';
+import { Mysale } from './components/mypage/mysalelist';
+import { Myprofile } from './components/mypage/myprofile';
 
 function App() {
   //상품 변수 정의
@@ -81,7 +83,7 @@ function App() {
                   </Provider>} />
               <Route
                 path="/products/:id" element={<DetailPage
-                  convertPrice={convertPrice} 
+                  convertPrice={convertPrice}
                 />} />
               <Route />
               <Route
@@ -144,10 +146,13 @@ function App() {
                   setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route
                 path="/mypage" element={<Mypage
-                />} />
-                <Route
+                />}><Route path="/mypage/salelist" element={
+                  <Provider store={store}> <Mysale  convertPrice={convertPrice} /></Provider>} />
+                <Route path='/mypage/profile' element={<Myprofile />} /> </Route>
+              <Route
                 path="/dummy" element={<Dummy
                 />} />
+              
             </Routes>
           </div>
           <footer1 >

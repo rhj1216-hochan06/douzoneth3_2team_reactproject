@@ -64,9 +64,10 @@ commit;
 
 ## USER
 
-insert into user(userid,username,userpassword) values('kbm0225','bomin','alwlqhals');
-insert into user(userid,username,userpassword) values('sinyeon','신형','12341234');
-insert into user(userid,username,userpassword) values('hojjin','호진','33333333');
+insert into user(userid,username,userpassword,useremail,userphonenumber,useraddress) values('sinyeon','신형','12345678','brandnew@naver.com','010-1321-3433','서울특별시 종로구 혜화동');
+insert into user(userid,username,userpassword,useremail,userphonenumber,useraddress) values('hojjin','호진','11111111','rhjhojin@naver.com','010-5565-4343','서울특별시 종로구 혜화동');
+insert into user(userid,username,userpassword,useremail,userphonenumber,useraddress) values('kbm0225','보민','33333333','kkbm0225@naver.com','010-2589-6783','서울특별시 종로구 혜화동');
+
 insert into user(userid,username,userpassword,useremail,userphonenumber,useraddress) values('kkbm0225','보민','alwlqhals','kbm0225@naver.com','010-5285-6697','서울특별시 종로구 혜화동');
 
 SELECT * FROM USER;
