@@ -178,6 +178,16 @@ app.get('/api/winter', (req, res) => {
   })
 })
 
+//크리스마스 추천
+app.get('/api/christmas', (req, res) => {
+  console.log('christmas');
+  maria.query("SELECT * FROM products WHERE category='크리스마스추천' ", (err, data) => {
+    console.log('success');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+  })
+})
+
 // 메인페이지 신상품 : 가장 최근 추가된 데이터 중 4개의 값만 가져오기
 app.get('/api/', (req, res) => {
   console.log('home');

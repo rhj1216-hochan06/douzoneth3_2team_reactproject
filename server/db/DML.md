@@ -46,7 +46,16 @@ insert into products(name,provider,price,image,category,gender,categorydetail) v
 insert into products(name,provider,price,image,category,gender,categorydetail) values('아디다스 퍼피렛 오프 화이트','Adidas','125000','/images/image041.png','패션잡화','1','신발');
 insert into products(name,provider,price,image,category,gender,categorydetail) values('아워레가시 카미온 부츠 블랙','OurLegacy','483000','/images/image042.png','패션잡화','2','신발');
 insert into products(name,provider,price,image,category,gender,categorydetail) values('어그 코케트 슬리퍼 그레이','UGG','122000','/images/image043.png','패션잡화','3','신발');
+insert into products(name,provider,price,image,category,gender) values('레고 크리스마스 화환 2-in-1','Lego','59000','/images/image044.png','크리스마스추천','3');
+insert into products(name,provider,price,image,category,gender) values('넘버링 5400 체인 오픈 링 골드','Numbering','126000','/images/image045.png','크리스마스추천','3');
+insert into products(name,provider,price,image,category,gender) values('슈프림 크리스마스 트리 토퍼 골드 - 21FW','Supreme','166000','/images/image046.png','크리스마스추천','3');
+insert into products(name,provider,price,image,category,gender) values('티파니 앤 코 리턴 투 티파니 블루 더블 하트 태그 펜던트 미니 실버','Tiffany & Co.','418000','/images/image047.png','크리스마스추천','3');
+insert into products(name,provider,price,image,category,gender) values('레고 크리스마스 트리','Lego','95000','/images/image048.png','크리스마스추천','3');
+insert into products(name,provider,price,image,category,gender) values('샤넬 넘버5 오 드 빠르펭 100ml (국내 정식 발매 제품)','Chanel','217000','/images/image049.png','크리스마스추천','3');
+insert into products(name,provider,price,image,category,gender) values('플레이모빌 산타 XXL','Playmobil','131000','/images/image050.png','크리스마스추천','3');
+insert into products(name,provider,price,image,category,gender) values('(W) 샤넬 이어링 메탈 디아만테 & 골드 크리스탈','Chanel','1040000','/images/image051.png','크리스마스추천','3');
 
+SELECT * FROM PRODUCTS ORDER BY id DESC LIMIT 4;
 SELECT * FROM PRODUCTS;
 commit;
 
