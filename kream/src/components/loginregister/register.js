@@ -121,12 +121,12 @@ const Register = () => {
     <div class="loginregister2"  >
       <div className="allRegister">
         <div className="box" >
-          <br /><br /><br /><br /><br /><br /><br />
           <div className="logo">
             <Link to="/">
               <img className="logoSize" src="/images/logo2.jpg" alt="logo" />
             </Link>
           </div><br />
+          <h2 className="register">REGISTER</h2><br />
           <form onSubmit={onSubmit}>
             <div className="size">
               <div className='gulza'><font color="red" className="point">*</font>NAME</div>
@@ -160,7 +160,7 @@ const Register = () => {
             <div className="size2">
               <button type="submit" className="loginregister__button">계정 생성하기</button>
             </div>
-          </form><br/><br/><br/>
+          </form>
         </div>
       </div>
     </div>

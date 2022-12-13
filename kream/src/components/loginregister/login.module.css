@@ -10,12 +10,12 @@
   display: flex;
   /* align-items: center; */
   justify-content: center;
-  height: 1300px;
+  height: 100vh;
 
 }
 
 .loginregister__input {
-  width: 400px;
+  width: 350px;
   height: 40px;
   padding-left: 10px;
   border-color: transparent transparent #e9e8e8 transparent;
@@ -43,6 +43,14 @@
   height: 48px;
   margin-top: 10px;
   width: 350px;
+}
+
+.loginregister__button2 {
+  background-color: rgba( 255, 255, 255, 0.5 );
+  border: 0px;
+  font-size: 18px;
+  margin-left: 10px;
+  font-weight: revert;
 }
 
 
@@ -116,5 +124,9 @@ p {
 }
 
 .register {
+  text-align: center;
+}
+
+.registerCheck {
   text-align: center;
 }
