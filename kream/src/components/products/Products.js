@@ -13,7 +13,6 @@ export const Products = ({ convertPrice }) => {
   const [end, setend] = useState(12);
   const [plength, setPLength] = useState(12);
 
-
   const Countdown = (event) => {
     if (start < 12) return Initcount();
     setstart(start - 12);
@@ -31,6 +30,7 @@ export const Products = ({ convertPrice }) => {
     console.log(start);
     console.log(end);
 
+
   }
   const Initcount = (event) => {
     setstart(1);
@@ -38,7 +38,6 @@ export const Products = ({ convertPrice }) => {
     setend(12);
     console.log(start);
     console.log(end);
-
   }
 
   //---------------------------------------------------DAO 시작
@@ -53,7 +52,6 @@ export const Products = ({ convertPrice }) => {
         Accept: "application / json",
       }, body: JSON.stringify({
         "word": "id",
-
       })
     })
       .then((res) => res.json())
@@ -236,10 +234,21 @@ export const Products = ({ convertPrice }) => {
 
         }
         )}
-        <div >
-          <a href="#top"><button onClick={Countdown}> 이전 페이지 </button></a>
-          <h1>{count1}</h1>
-          <a href="#top"><button onClick={Countup}> 다음 페이지 </button></a>
+      </main>
+      <br/>
+      <main className={styles.flex_wrap2}>
+        <div className={styles.page1}>
+          <Link to="/#top">
+            <img className={styles.pagenationImg} src="/images/arrow1.png" alt="countdown" onClick={Countdown} />
+          </Link>
+        </div>
+        <div className={styles.page1}>
+          <p className={styles.pagenationImg2}>{count1} / {Math.ceil(plength / 12)} </p>
+        </div>
+        <div className={styles.page1}>
+          <Link to="/#top">
+            <img className={styles.pagenationImg} src="/images/arrow2.png" alt="countdown" onClick={Countup} />
+          </Link>
         </div>
       </main>
     </>
