@@ -6,7 +6,7 @@ import { Mypage } from "../components/mypage/mypage.js";
 const Mypagepage = () => {
   return (
   <>
-  <Mypage></Mypage>;
+  <Mypage></Mypage>
   </>
  ) }
   export  {Mypagepage};
