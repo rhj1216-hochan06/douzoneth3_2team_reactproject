@@ -163,3 +163,56 @@
     font-size: 18px;
     margin-left: 20px;
   }
+  .line {
+    width: 60vw;
+    height: 3px;
+    margin-left: 450px;
+    margin-right: 50px;;
+    border: 0;
+    background: rgb(0, 0, 0);
+  
+  }
+
+  .line2 {
+    width: 30vw;
+    height: 1px;
+    margin-left: 450px;
+    margin-right: 50px;;
+    border: 0;
+    background: rgb(0, 0, 0);
+  
+  }
+
+  .line3 {
+    width: 30vw;
+    height: 1px;
+    margin-left: 450px;
+    margin-right: 50px;;
+    border: 0;
+    background: rgb(0, 0, 0);
+    border-style: dashed;
+  }
+  .contentName1 {
+    font-weight: bold;
+   margin-left :500px;
+    text-align: left;
+  }
+
+  .contentName2 {
+    font-weight: bold;
+   margin-left :450px;
+    text-align: left;
+  }
+  
+  .contentName3 {
+    font-weight: 200;
+   margin-left :450px;
+    text-align: left;
+  }
+  
+  .contentName4{
+    font-weight: bold;
+    font-size: 20px;
+    margin-left :450px;
+     text-align: left;
+  }
