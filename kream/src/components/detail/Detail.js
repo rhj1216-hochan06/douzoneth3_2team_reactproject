@@ -572,6 +572,7 @@ const handleShow = () => {
 
   useEffect(() => {
     axios.get("/data/products.json").then((data) => {
+      console.log(data.data.products.price);
       setProduct(data.data.products.find((product) => product.id === parseInt(id)));
     });
   }, [id, product.price]);
