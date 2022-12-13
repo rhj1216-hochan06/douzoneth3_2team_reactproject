@@ -178,10 +178,10 @@ app.get('/api/winter', (req, res) => {
   })
 })
 
-// 메인페이지 신상품
+// 메인페이지 신상품 : 가장 최근 추가된 데이터 중 4개의 값만 가져오기
 app.get('/api/', (req, res) => {
   console.log('home');
-  maria.query("SELECT * FROM products WHERE id < 5 ", (err, data) => {
+  maria.query("select * from products order by id DESC LIMIT 4;", (err, data) => {
     console.log('신상품');
     if (!err) res.send({ products: data });
     else res.send(err);
