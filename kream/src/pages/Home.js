@@ -11,7 +11,7 @@ export const Home = ({ convertPrice, setProducts, products }) => {
       <main className={styles.flex_wrap}>
         <div className={styles.product}>
           <div className={styles.sort}>
-            <Link to="/event">
+            <Link to="/christmas">
               <img className={styles.product_image} src=" /images/christmas.jpg" />
               <div className={styles.product_name}>크리스마스</div>
             </Link> <br />
