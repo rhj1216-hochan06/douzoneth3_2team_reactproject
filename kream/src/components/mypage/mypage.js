@@ -32,7 +32,7 @@ const [useraddress, setAddress] = useState("");
   
       })
         .then((res) => res.json())
-        .then(data => {setState(json)
+        .then(data => {
             setUsername(data.user[0].username);
             setUserid(data.user[0].userid);
             setUserphonenumber(data.user[0].userphonenumber);

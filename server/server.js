@@ -147,6 +147,16 @@ app.get('/api/winter', (req, res) => {
   })
 })
 
+//크리스마스 추천
+app.get('/api/christmas', (req, res) => {
+  console.log('christmas');
+  maria.query("SELECT * FROM products WHERE category='크리스마스추천' ", (err, data) => {
+    console.log('success');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+  })
+})
+
 // 메인페이지 신상품 : 가장 최근 추가된 데이터 중 4개의 값만 가져오기
 app.get('/api/', (req, res) => {
   maria.query("select * from products order by id DESC LIMIT 4;", (err, data) => {
@@ -329,37 +339,8 @@ app.post('/api/mypage', (req, res) => {
     if (!err) res.send({ user: data });
     else res.send(err);
   })
-
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//sale테이블 값 추가기능 
 app.post('/api/inputsale', (req, res) => {
   const SALE_USERID = req.body.SALE_USERID;
   const SALE_PRODUCTID = req.body.SALE_PRODUCTID;
@@ -373,4 +354,17 @@ app.post('/api/inputsale', (req, res) => {
       console.log(data);
       if (!err) res.send({ sale: data });
     })
+  })
+//단어로 정렬 (단어는 : id,price,price desc)
+app.post('/api/word', (req, res) => {
+
+  const word = req.body.word;
+
+  console.log('word');
+  maria.query("SELECT * FROM products order by " + word, (err, data, fields) => {
+    console.log('success');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+    console.log(data);
+  })
 })

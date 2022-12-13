@@ -14,8 +14,9 @@ import { Life } from './pages/Life.js';
 // 메인 카테고리
 import { Main } from "./components/category/main.js";
 // 한파 특가
-// 카테고리(라이프)
 import { Winter } from './pages/Winter.js';
+//크리스마스 특가
+import { Christmas } from './pages/Christmas';
 
 import { Route, Routes } from 'react-router-dom';
 import { TopNavBar } from "./components/header/TopNavBar.js";
@@ -135,6 +136,9 @@ function App() {
               </Route>
               <Route path="/winter" element={
                 <Provider store={store}> <Winter products={products}
+                  setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
+              <Route path="/christmas" element={
+                <Provider store={store}> <Christmas products={products}
                   setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route
                 path="/mypage" element={<Mypage

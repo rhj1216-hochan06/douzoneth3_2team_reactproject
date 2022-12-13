@@ -8,21 +8,95 @@ import AOS from "aos";
 
 
 export const Products = ({ convertPrice }) => {
+  //정렬 변수 
+  const [word, setWord] = useState("id");
+
 
   //---------------------------------------------------DAO 시작
   const [state, setState] = useState([]);
 
-  fetch("/api/products", {
-    method: "get",
-    headers: {
-      "content-type": "application/json"
-    },
-  })
-    .then((res) => res.json())
-    .then(json => setState(json));
+  const onA = (event) => {
+    fetch("/api/products", {
+      method: "get",
+      headers: {
+        "content-type": "application/json"
+      },
+    })
+      .then((res) => res.json())
+      .then(json => setState(json));
+  }
+
   //--------------------------------------------------------끝
   //----------------------------------------정렬
 
+  const Orderwordid = () => {
+    fetch("/api/word", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Accept: "application / json",
+      }, body: JSON.stringify({
+        "word": "id",
+
+      })
+    })
+      .then((res) => res.json())
+      .then(json => {
+        setState(json);
+      });
+  }
+  const Orderwordprice = () => {
+    console.log("price");
+    fetch("/api/word", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Accept: "application / json",
+      }, body: JSON.stringify({
+        "word": "price",
+
+      })
+    })
+      .then((res) => res.json())
+      .then(json => {
+        setState(json);
+      });
+  }
+  const Orderwordpricedesc = () => {
+    console.log("pricedesc");
+    fetch("/api/word", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Accept: "application / json",
+      }, body: JSON.stringify({
+        "word": "price desc",
+
+      })
+    })
+      .then((res) => res.json())
+      .then(json => {
+        setState(json);
+      });
+  }
+
+  // const onword = (event) => {
+  //   fetch("/api/word", {
+  //     method: "post",
+  //     headers: {
+  //       "Content-Type": "application/json; charset=utf-8",
+  //       Accept: "application / json",
+  //     }, body: JSON.stringify({
+  //       "word": word,
+
+  //     })
+  //   })
+  //     .then((res) => res.json())
+  //     .then(json => {
+  //       setState(json);
+  //     });
+
+  // }
   //--------------------------------------------------------끝
 
   useEffect(() => {
@@ -75,16 +149,14 @@ export const Products = ({ convertPrice }) => {
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       Home에서 데이터를 받아 수십개의 상품들 나열
 
-      <button onClick={() => {
-        dispatch(up(3));   // action 값을 변화시킬 때
-      }}>+</button> {number};
+
 
       <div className={styles.filter}>
-        {/* <p onClick={() => sortProduct("recent")}>최신순</p>
-        <p onClick={() => sortProduct("row")}>낮은 가격</p>
-        <p onClick={() => sortProduct("high")}>높은 가격</p> */}
+        <p onClick={onA}  >최신순</p>
+        <p onClick={Orderwordid}  >최신순</p>
+        <p onClick={Orderwordprice}>낮은 가격</p>
+        <p onClick={Orderwordpricedesc}>높은 가격</p>
       </div>
-
 
       <main className={styles.flex_wrap}>
 
