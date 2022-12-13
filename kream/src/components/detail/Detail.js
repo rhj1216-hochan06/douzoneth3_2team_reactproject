@@ -25,6 +25,7 @@ export const Detail = ({ convertPrice }) => {
   const [lgShow, setLgShow] = useState(false);
   const [count, setCount] = useState(1);
   const sessionStorage = window.sessionStorage;
+  const [sale, setSale] = useState({});
 // ------ test--------------
 const [show, setShow] = useState(false);
   
@@ -586,11 +587,21 @@ const handleShow = () => {
           setProduct(data);
         });
 
-    },[id]);
 
-
-  console.log("product의 값은?" + product.category);
-  console.log("까지");
+        fetch("/api/sale",{
+          method: "POST",
+          headers: {
+            "Content-Type":"application/json; charset=utf-8"
+          },
+          body: JSON.stringify({
+          })
+        })
+          .then((res) => res.json())
+          .then(data => {
+            setSale(data);
+          });
+        },[id]);
+console.log(sale);
   const handleCart = () => {
     //장바구니 추가 기능, 민약 상품아이디와 유저아이디로 조회했을 떄, 
     //1. 데이터가 있다면 해당 count를 이곳의 count로 변경,
