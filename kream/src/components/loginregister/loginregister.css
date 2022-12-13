@@ -1,98 +1,116 @@
 .loginregister {
-    display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    height: 70vh;
-   
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  height: 70vh;
+
 }
+
 .loginregister2 {
   display: flex;
   /* align-items: center; */
   justify-content: center;
   height: 100vh;
- 
-}
-.loginregister__input {
-    width: 300px;
-    height: 50px;
-    padding-left: 10px;
-    /* margin: 10px;
-    margin-top: 0px; */
 
 }
+
+.loginregister__input {
+  width: 400px;
+  height: 40px;
+  padding-left: 10px;
+  border-color: transparent transparent #e9e8e8 transparent;
+  font-size: 13px;
+}
+
 .loginregister__input2 {
-  width: 240px;
-  height: 50px;
+  width: 300px;
+  height: 40px;
   padding-left: 10px;
   float: left;
   margin-right: 7px;
+  border-color: transparent transparent #e9e8e8 transparent;
+  font-size: 13px;
+  margin-bottom: 10px;
 }
+
 .loginregister__button {
-    background-color: rgb(68, 68, 68);
-    color: rgb(255, 255, 255);
-    font-weight: 700;
-    width: 100%;
-    border-radius: 5px;
-    border-color:  rgb(68, 68, 68);
-    height: 48px;
-    margin-top: 10px;
+  background-color: rgb(68, 68, 68);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  width: 100%;
+  border-radius: 5px;
+  border-color: rgb(68, 68, 68);
+  height: 48px;
+  margin-top: 10px;
+  width: 350px;
 }
 
 
-.loginregister__button2 {
-  align-self: center;
-  background-color: #5285d2;
-  border-color: #818181;
-  border-radius: 5px;
-  border-style: none;
-  color: #ffffff;
-  font-size: 7px;
-  font-weight: 700;
-  height: 50px;
-  /* margin-left: 10px; */
-  margin-top: 0;
-  width: 50px;
-  display: flex;
-  align-items: center;
-  align-content: text;
+.btn btn-outline-dark {
   justify-content: center;
 }
-.logoSize {
-    width: 180px;
-    height: 30px;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .logo {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 50px;
 
-  }
-  .gulza{
-    margin-top: 5px;
-    margin-left: 2px;
-    
-    margin-bottom: 5px;
-    
-    color: grey;
-    font-size:12px;
-  }
-  p {
-    margin-top: 0;
-    margin-bottom: 0rem;
+.logoSize {
+  width: 250px;
+  height: auto;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+
+}
+
+.gulza {
+  margin-top: 5px;
+  margin-left: 2px;
+  margin-bottom: 0px;
+  color: black;
+  font-size: 15px;
+  text-shadow: 0 0 black;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0rem;
 }
 
 .box {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 3%;
-  padding: 30px;
+  padding: 60px;
 }
-.padd {
-  /* padding: 10px; */
+
+.point {
+  margin-right: 4px;
+}
+
+.size {
+  margin-top: 10px;
+}
+
+.allRegister {
+  align-self: center;
+}
+
+.size2 {
+  text-align: center;
+  margin: 20px;
+}
+
+.gulza2 {
+  margin-top: 5px;
+  margin-left: 2px;
+  margin-bottom: 0px;
+  color: black;
+  font-size: 15px;
+  text-shadow: 0 0 black;
 }
