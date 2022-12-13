@@ -19,10 +19,20 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   place-items: baseline;
-  gap: 0px 20px;
-  margin: 0 auto;
+  gap: 30px 50px;
+  margin: 0px auto 0;
   margin-top: 35px;
   max-width: min-content;
+}
+
+.flex_wrap2 {
+  display: flex;
+  place-items: baseline;
+  gap: 30px 50px;
+  margin: 0px auto 0;
+  margin-top: 35px;
+  max-width: min-content;
+
 }
 
 @media (max-width: 1440px) {
@@ -165,4 +175,21 @@ product
 .category1 {
   font-size: 18px;
   margin-left: 20px;
+}
+
+.pagenationImg {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  margin: 0px 5px 5px 5px;
+}
+
+.pagenationImg2 {
+  width: 8vh;
+  font-size: 28px;
+  text-align-last: center;
+}
+
+.page1 {
+  float: left;
 }

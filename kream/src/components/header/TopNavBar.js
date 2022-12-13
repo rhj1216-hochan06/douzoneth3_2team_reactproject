@@ -6,7 +6,7 @@ export const TopNavBar = () => {
   const [count, setCount] = useState([]);
   const sessionStorage = window.sessionStorage;
   // const [userid, setUserid] = useState("환영합니다");
- // setUserid(sessionStorage.getItem("loginId"));
+  // setUserid(sessionStorage.getItem("loginId"));
   fetch("/api/nav", {
     method: "post",
     headers: {
@@ -21,9 +21,9 @@ export const TopNavBar = () => {
       setCount(Object.keys(json).length);
     }
     );
-const onLogout = (event) =>{
-  sessionStorage.setItem("loginId","");
-}
+  const onLogout = (event) => {
+    sessionStorage.setItem("loginId", "");
+  }
 
   return (
     <header>
@@ -47,23 +47,23 @@ const onLogout = (event) =>{
                 </Link>
               </li>
               <li className={styles.top_item}>
-              {sessionStorage.getItem("loginId") !== "" && sessionStorage.getItem("loginId") !== null ? (
-                      <a>{sessionStorage.getItem("loginId")}님 환영합니다!</a>
-                    ) : (
-                      <a></a>
-                    )}
-                </li>
+                {sessionStorage.getItem("loginId") !== "" && sessionStorage.getItem("loginId") !== null ? (
+                  <a>{sessionStorage.getItem("loginId")}님 환영합니다!</a>
+                ) : (
+                  <a></a>
+                )}
+              </li>
               <li className={styles.top_item}>
                 <Link to="/mypage" className={styles.top_link}>마이페이지</Link>
               </li>
               <li className={styles.top_item}>
-              {sessionStorage.getItem("loginId") !== null && sessionStorage.getItem("loginId") !== ""  ? (
-                      <a href="/" onClick={onLogout}>로그아웃</a>
-                    ) : (
-                      <a href="/login" className={styles.top_link}>로그인</a>
-                    )}
+                {sessionStorage.getItem("loginId") !== null && sessionStorage.getItem("loginId") !== "" ? (
+                  <a href="/" onClick={onLogout}>로그아웃</a>
+                ) : (
+                  <a href="/login" className={styles.top_link}>로그인</a>
+                )}
 
-               
+
               </li>
             </ul>
           </div>
@@ -79,7 +79,9 @@ const onLogout = (event) =>{
               <nav className={styles.gnb}>
                 <ul className={styles.gnb_list}>
                   <li className={styles.gnb_item}>
-                    <a href="/main" className={styles.gnb_link}>SHOP</a>
+                    <Link to="/main/products" >
+                      <a className={styles.gnb_link}>SHOP</a>
+                    </Link>
                   </li>
                   <li className={styles.search_btn}>
                     <Link to="/search" >

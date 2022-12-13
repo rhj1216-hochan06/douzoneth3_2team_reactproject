@@ -150,6 +150,9 @@ function App() {
               <Route
                 path="/mypage" element={<Mypage
                 />} />
+              <Route path="cloth" element={
+                <Provider store={store}> <Cloth products={products}
+                  setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route
                 path="/dummy" element={<Dummy
                 />} />

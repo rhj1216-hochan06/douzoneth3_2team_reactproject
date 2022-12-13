@@ -13,7 +13,6 @@ export const Products = ({ convertPrice }) => {
   const [end, setend] = useState(12);
   const [plength, setPLength] = useState(12);
 
-
   const Countdown = (event) => {
     if (start < 12) return Initcount();
     setstart(start - 12);
@@ -31,6 +30,7 @@ export const Products = ({ convertPrice }) => {
     console.log(start);
     console.log(end);
 
+
   }
   const Initcount = (event) => {
     setstart(1);
@@ -38,7 +38,6 @@ export const Products = ({ convertPrice }) => {
     setend(12);
     console.log(start);
     console.log(end);
-
   }
 
   //---------------------------------------------------DAO 시작
@@ -53,7 +52,6 @@ export const Products = ({ convertPrice }) => {
         Accept: "application / json",
       }, body: JSON.stringify({
         "word": "id",
-
       })
     })
       .then((res) => res.json())
@@ -123,62 +121,12 @@ export const Products = ({ convertPrice }) => {
       });
   }
 
-  // const onword = (event) => {
-  //   fetch("/api/word", {
-  //     method: "post",
-  //     headers: {
-  //       "Content-Type": "application/json; charset=utf-8",
-  //       Accept: "application / json",
-  //     }, body: JSON.stringify({
-  //       "word": word,
-
-  //     })
-  //   })
-  //     .then((res) => res.json())
-  //     .then(json => {
-  //       setState(json);
-  //     });
-
-  // }
-  //--------------------------------------------------------끝
-
   useEffect(() => {
     AOS.init({
       duration: 1200,
     })
     onA();
-
-    // window.addEventListener('scroll', handleScroll);
-    // return () => {
-    //   window.removeEventListener('scroll', handleScroll); //clean up
-    // };
   }, []);
-
-  // const handleScroll = () => {
-  //   console.log(window.scrollY);
-  //   if (window.scrollY >= 400)
-  //     UP
-  //   else {
-  //     console.log(count);
-  //   }
-  // };
-
-  //json 버전 정렬
-  // const sortProduct = (type) => {
-  //   if (type === "recent") {
-  //     const newProduct = [...products];
-  //     newProduct.sort((a, b) => a.id - b.id);
-  //     setProducts(newProduct);
-  //   } else if (type === "row") {
-  //     const newProduct = [...products];
-  //     newProduct.sort((a, b) => a.price - b.price);
-  //     setProducts(newProduct);
-  //   } else if (type === "high") {
-  //     const newProduct = [...products];
-  //     newProduct.sort((a, b) => b.price - a.price);
-  //     setProducts(newProduct);
-  //   }
-  // };
 
   const dispatch = useDispatch(); //리덕스 함수를 사용할 곳에 위치
 
@@ -191,12 +139,8 @@ export const Products = ({ convertPrice }) => {
     <>
       <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-      Home에서 데이터를 받아 수십개의 상품들 나열
-
-
-
+      
       <div className={styles.filter}>
-        <p onClick={onA} > 상품</p>
         <p onClick={Orderwordid}  >신상품</p>
         <p onClick={Orderwordprice}>낮은 가격</p>
         <p onClick={Orderwordpricedesc}>높은 가격</p>
@@ -236,10 +180,21 @@ export const Products = ({ convertPrice }) => {
 
         }
         )}
-        <div >
-          <a href="#top"><button onClick={Countdown}> 이전 페이지 </button></a>
-          <h1>{count1}</h1>
-          <a href="#top"><button onClick={Countup}> 다음 페이지 </button></a>
+      </main>
+      <br/>
+      <main className={styles.flex_wrap2}>
+        <div className={styles.page1}>
+        <a href="#top">
+            <img className={styles.pagenationImg} src="/images/arrow1.png" alt="countdown" onClick={Countdown} />
+          </a>
+        </div>
+        <div className={styles.page1}>
+          <p className={styles.pagenationImg2}>{count1} / {Math.ceil(plength / 12)} </p>
+        </div>
+        <div className={styles.page1}>
+        <a href="#top">
+            <img className={styles.pagenationImg} src="/images/arrow2.png" alt="countdown" onClick={Countup} />
+          </a>
         </div>
       </main>
     </>
