@@ -81,5 +81,20 @@
 }
 
 .newProducts {
-  text-align: center;
+  margin-right: 820px;
+}
+
+.newIn {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.ment {
+  font-size: 13px;
+}
+
+.line {
+  border: thin solid #e8e8e8;
+  width: 1300px;
+  margin-left: 215px;
 }
