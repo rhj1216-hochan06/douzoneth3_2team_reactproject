@@ -8,8 +8,11 @@ export const Main = () => {
         <>
             <div>
                 <br /><br /><br />
-                <h1 className={styles.shop}>SHOP</h1><br/>
+                <h1 className={styles.shop}>SHOP</h1><br />
                 <ul className={styles.category}>
+                    <li>
+                        <Link to="/main/products" className={styles.category1}>전체목록</Link>
+                    </li>
                     <li>
                         <Link to="/main/accessorie" className={styles.category1}>패션잡화</Link>
                     </li>

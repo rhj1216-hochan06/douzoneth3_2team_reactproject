@@ -4,6 +4,8 @@ import { Women } from './pages/Women';
 //남성 추천
 import { Man } from './pages/Man';
 // 카테고리(의류)
+import { Products3 } from './pages/Products2.js';
+// 카테고리(의류)
 import { Cloth } from './pages/Cloth.js';
 // 카테고리(패션잡화)
 import { Accessorie } from './pages/Accessorie.js';
@@ -18,7 +20,7 @@ import { Winter } from './pages/Winter.js';
 //크리스마스 특가
 import { Christmas } from './pages/Christmas';
 //더미 페이지
-import {Dummy} from './components/dummy/dummy.js'
+import { Dummy } from './components/dummy/dummy.js'
 
 import { Route, Routes } from 'react-router-dom';
 import { TopNavBar } from "./components/header/TopNavBar.js";
@@ -81,7 +83,7 @@ function App() {
                   </Provider>} />
               <Route
                 path="/products/:id" element={<DetailPage
-                  convertPrice={convertPrice} 
+                  convertPrice={convertPrice}
                 />} />
               <Route />
               <Route
@@ -123,6 +125,9 @@ function App() {
                     />
                   </Provider>} />
               <Route exact path="/main" element={<Main />}>
+                <Route path="products" element={
+                  <Provider store={store}> <Products3 products={products}
+                    setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
                 <Route path="cloth" element={
                   <Provider store={store}> <Cloth products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
@@ -145,7 +150,7 @@ function App() {
               <Route
                 path="/mypage" element={<Mypage
                 />} />
-                <Route
+              <Route
                 path="/dummy" element={<Dummy
                 />} />
             </Routes>
