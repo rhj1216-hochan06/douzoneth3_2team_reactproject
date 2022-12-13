@@ -1,7 +1,6 @@
 //products.js
 import styles from "./Products.module.css";
 import { useSelector, useDispatch } from 'react-redux';
-import { up } from '../../store/counterSlice';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
@@ -9,27 +8,69 @@ import AOS from "aos";
 
 export const Products = ({ convertPrice }) => {
   //정렬 변수 
-  const [word, setWord] = useState("id");
+  const [count1, setCount1] = useState(1);
+  const [start, setstart] = useState(1);
+  const [end, setend] = useState(12);
+  const [plength, setPLength] = useState(0);
+  const upCount = (event) => {
+    setCount1(count1 + 1);
+  }
 
+
+  const Countdown = (event) => {
+    if (start < 12) return Initcount();
+    setstart(start - 12);
+    setCount1(count1 - 12);
+    setend(end - 12);
+    console.log(start);
+    console.log(end);
+
+  }
+  const Countup = (event) => {
+    if (plength < end) return Initcount();
+    setstart(start + 12);
+    setCount1(count1 + 12);
+    setend(end + 12);
+    console.log(start);
+    console.log(end);
+
+  }
+  const Initcount = (event) => {
+    setstart(1);
+    setCount1(1);
+    setend(12);
+    console.log(start);
+    console.log(end);
+
+  }
 
   //---------------------------------------------------DAO 시작
   const [state, setState] = useState([]);
 
   const onA = (event) => {
-    fetch("/api/products", {
-      method: "get",
+    Initcount();
+    fetch("/api/word", {
+      method: "post",
       headers: {
-        "content-type": "application/json"
-      },
+        "Content-Type": "application/json; charset=utf-8",
+        Accept: "application / json",
+      }, body: JSON.stringify({
+        "word": "id",
+
+      })
     })
       .then((res) => res.json())
-      .then(json => setState(json));
+      .then(json => {
+        setState(json);
+        setPLength(json.products.length);
+      });
   }
 
   //--------------------------------------------------------끝
   //----------------------------------------정렬
 
   const Orderwordid = () => {
+    Initcount();
     fetch("/api/word", {
       method: "post",
       headers: {
@@ -43,9 +84,11 @@ export const Products = ({ convertPrice }) => {
       .then((res) => res.json())
       .then(json => {
         setState(json);
+        setPLength(json.products.length);
       });
   }
   const Orderwordprice = () => {
+    Initcount();
     console.log("price");
     fetch("/api/word", {
       method: "post",
@@ -60,9 +103,11 @@ export const Products = ({ convertPrice }) => {
       .then((res) => res.json())
       .then(json => {
         setState(json);
+        setPLength(json.products.length);
       });
   }
   const Orderwordpricedesc = () => {
+    Initcount();
     console.log("pricedesc");
     fetch("/api/word", {
       method: "post",
@@ -77,6 +122,7 @@ export const Products = ({ convertPrice }) => {
       .then((res) => res.json())
       .then(json => {
         setState(json);
+        setPLength(json.products.length);
       });
   }
 
@@ -104,21 +150,21 @@ export const Products = ({ convertPrice }) => {
       duration: 1200,
     })
     onA();
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll); //clean up
-    };
+
+    // window.addEventListener('scroll', handleScroll);
+    // return () => {
+    //   window.removeEventListener('scroll', handleScroll); //clean up
+    // };
   }, []);
 
-  const handleScroll = () => {
-    // console.log(window.scrollY)
-    // // 스크롤이 Top에서 5000px 이상 내려오면 true값을 useState에 넣어줌
-    // if (window.scrollY >= 3000) {
-    // } else {
-    //   // 스크롤이 50px 미만일경우 false를 넣어줌
-    // }
-
-  };
+  // const handleScroll = () => {
+  //   console.log(window.scrollY);
+  //   if (window.scrollY >= 400)
+  //     UP
+  //   else {
+  //     console.log(count);
+  //   }
+  // };
 
   //json 버전 정렬
   // const sortProduct = (type) => {
@@ -162,30 +208,41 @@ export const Products = ({ convertPrice }) => {
       <main className={styles.flex_wrap}>
 
         {state.products && state.products.map((product) => { //map을 이용하여 상품 갯수만큼 반복시키기
-          if (!state.products) return 'no data';
+          if (!state.products) {
+            return 'no data';
+          }
           //product
-          return <div className={styles.product}>
-            <div class="item" data-aos="slide-up">
-              <Link to={`/products/${product.id}`}>
-                <div className={styles.product_image}>
-                  <img src={product.image} alt="product" />
+          else
+            if (start <= product.rownum && product.rownum <= end) {
+              return <div className={styles.product}>
+                <div class="item" data-aos="slide-up">
+                  <Link to={`/products/${product.id}`}>
+                    <div className={styles.product_image}>
+                      <img src={product.image} alt="product" />
+                    </div>
+                  </Link>
+                  <div className={styles.store}>
+                    <span>{product.provider}</span>
+                  </div>
+
+                  <div className={styles.product_name}>
+                    <span>{product.name}</span>
+                  </div>
+
+                  <div className={styles.product_price}>
+                    <span className={styles.price}>{convertPrice(product.price)}</span>
+                    <span className={styles.unit}>원</span>
+                  </div>
                 </div>
-              </Link>
-              <div className={styles.store}>
-                <span>{product.provider}</span>
               </div>
+            }
 
-              <div className={styles.product_name}>
-                <span>{product.name}</span>
-              </div>
-
-              <div className={styles.product_price}>
-                <span className={styles.price}>{convertPrice(product.price)}</span>
-                <span className={styles.unit}>원</span>
-              </div>
-            </div>
-          </div>
-        })}
+        }
+        )}
+        <div >
+          <a href="#top"><button onClick={Countdown}> 이전 페이지 </button></a>
+          <a href="#top"><button onClick={Countup}> 다음 페이지 </button></a>
+        </div>
       </main>
     </>
   );
