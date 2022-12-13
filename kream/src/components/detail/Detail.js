@@ -42,7 +42,6 @@ const handleShow = () => {
       "id" : id,
      
     })
-
   })
     .then((res) => res.json())
     .then(json => {
@@ -578,7 +577,7 @@ const handleShow = () => {
   }, [id, product.price]);
 
   const handleCart = () => {
-    //민약 상품아이디와 유저아이디로 조회했을 떄, 
+    //장바구니 추가 기능, 민약 상품아이디와 유저아이디로 조회했을 떄, 
     //1. 데이터가 있다면 해당 count를 이곳의 count로 변경,
     //2. 데이터가 없다면, id,count,userid를 가져가서 insert를 실행
     fetch("/api/detail",{
@@ -600,6 +599,30 @@ const handleShow = () => {
       });
   };
 
+  const inputSale = (price,size) => {
+    // SALE 추가 기능, 판매할 가격(price)과 size가 입력되면 
+    // 현재 페이지의 product.id와 함께
+    //현재 세션에 있는 id를 함께 가져와서 
+    // insert(pid,userId,price,size)를 한다.
+    console.log("price :" + price + " and size : " + size);
+    fetch("/api/inputsale",{
+      method: "POST",
+      headers: {
+        "Content-Type":"application/json; charset=utf-8"
+      },
+      body: JSON.stringify({
+        "SALE_USERID" : sessionStorage.getItem("loginId"),
+        "SALE_PRODUCTID" : product.id,
+        "SALE_PRICE" : price,
+        "SALE_SIZE" : size,
+      })
+    })
+      .then((res) => res.json())
+      .then(data => {
+        console.log(data);
+      });
+
+  }
 
   return (
     <>
@@ -679,7 +702,6 @@ const handleShow = () => {
           onHide={handleClose}
           backdrop="static"
           keyboard={false}
-         
         >
           <Modal.Header closeButton>
             <Modal.Title>Size</Modal.Title>
@@ -706,11 +728,15 @@ const handleShow = () => {
             <Button variant="primary">Understood</Button>
           </Modal.Footer>
         </Modal>
-            <Button className={styles.btn_cart} onClick={() => {
+            {/* <Button className={styles.btn_cart} onClick={() => {
               handleCart();
               window.location.reload();
               }}>
-              장바구니</Button>
+              장바구니</Button> */}
+            <Button className={styles.btn_cart} onClick={() => {
+              inputSale(300000,"L");
+              }}>
+              테스트</Button>
           </div>
         </section>
       </main>
