@@ -5,7 +5,7 @@
     justify-content: flex-end;
   }
   
-  .filter > p:not(:last-child)::after {
+  .filter>p:not(:last-child)::after {
     content: "|";
     padding: 10px;
   }
@@ -41,13 +41,13 @@
       font-size: 12px;
     }
   }
-
-/*
-products 
---------------------------------------------- 
-product
-*/
-
+  
+  /*
+  products 
+  --------------------------------------------- 
+  product
+  */
+  
   .product {
     display: flex;
     flex-direction: column;
@@ -105,6 +105,7 @@ product
       width: 220px;
       height: 220px;
     }
+  
     .product_name span {
       font-size: 14px;
     }
@@ -132,9 +133,33 @@ product
     .product_name span {
       font-size: 12px;
     }
-    
+  
   }
   
-  .newProducts {
+  .content {
     text-align: center;
+  }
+  
+  .contentName1 {
+    font-weight: bold;
+  }
+  
+  .contentName2 {
+    color: #7c7c7c;
+  }
+  
+  /* ----------------- */
+  .shop {
+    text-align: center;
+  }
+  
+  .category {
+    text-align: center;
+    padding-left: 0px;
+    margin-left: auto;
+  }
+  
+  .category1 {
+    font-size: 18px;
+    margin-left: 20px;
   }

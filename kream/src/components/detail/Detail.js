@@ -595,6 +595,8 @@ const handleShow = () => {
       .then((res) => res.json())
       .then(data => {
         console.log(data);
+        console.log(data.user.username);
+        
       });
   };
 
@@ -665,10 +667,10 @@ const handleShow = () => {
           </div>
 
           <div className={styles.btn}>
-          <button className={styles.btn_buy} data-bs-toggle={"modal"} data-bs-target={"#exampleModal"} data-bs-whatever={"@mdo"}>바로 구매</button>
+          <Button className={styles.btn_buy} data-bs-toggle={"modal"} data-bs-target={"#exampleModal"} data-bs-whatever={"@mdo"}>바로 구매</Button>
         
-        <Button variant="primary" onClick={handleShow}>
-            Launch static backdrop modal
+        <Button variant="primary" className={styles.btn_modal} onClick={handleShow}>
+            판매
         </Button>
 
         <Modal
@@ -704,11 +706,11 @@ const handleShow = () => {
             <Button variant="primary">Understood</Button>
           </Modal.Footer>
         </Modal>
-            <button className={styles.btn_cart} onClick={() => {
+            <Button className={styles.btn_cart} onClick={() => {
               handleCart();
               window.location.reload();
               }}>
-              장바구니</button>
+              장바구니</Button>
           </div>
         </section>
       </main>

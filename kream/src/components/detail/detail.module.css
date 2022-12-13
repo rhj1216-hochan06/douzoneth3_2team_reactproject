@@ -174,11 +174,10 @@
 .sum .total_unit {
   font-size: 18px;
   line-height: 23px;
-  color: #19ce60;
+  color: #BF3393;
 }
-
-.btn .btn_buy {
-  width: 416px;
+.btn .btn_modal{
+  width: 95%;
   height: 60px;
   border-radius: 5px;
   background: #333333;
@@ -188,20 +187,32 @@
   font-weight: bold;
   line-height: 22px;
   color: #ffffff;
-  margin-right: 44px;
+}
+.btn .btn_buy {
+  width: 95%;
+  height: 60px;
+  border-radius: 5px;
+  background: #333333;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 22px;
+  color: #ffffff;
 }
 
 .btn {
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: space-between;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .btn .btn_cart {
-  width: 200px;
+  width: 95%;
   height: 60px;
   border-radius: 5px;
-  background: #767676;
+  background: #333333;
   border: none;
   cursor: pointer;
   font-size: 18px;
@@ -237,12 +248,9 @@
   .btn {
     justify-content: center;
   }
-  .btn .btn_buy {
-    width: 70%;
-  }
 
   .btn .btn_cart {
-    width: 30%;
+    width: 100%;
   }
 
   .line {
@@ -271,3 +279,4 @@
     display: block;
   }
 }
+

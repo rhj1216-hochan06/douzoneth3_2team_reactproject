@@ -14,13 +14,14 @@ import { Life } from './pages/Life.js';
 // 메인 카테고리
 import { Main } from "./components/category/main.js";
 // 한파 특가
-// 카테고리(라이프)
 import { Winter } from './pages/Winter.js';
+//크리스마스 특가
+import { Christmas } from './pages/Christmas';
 
 import { Route, Routes } from 'react-router-dom';
 import { TopNavBar } from "./components/header/TopNavBar.js";
 import { Footer } from "./components/footer/Footer.js";
-import Home from "./pages/Home";
+import { Home } from "./pages/Home";
 import { Products } from "./components/products/Products";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -69,8 +70,8 @@ function App() {
             <Routes>
               <Route exact={true} path="/"
                 element={
-                  <Home />
-                } />
+                  <Provider store={store}> <Home products={products}
+                    setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route path="/products"
                 element={
                   <Provider store={store}>
@@ -135,6 +136,9 @@ function App() {
               </Route>
               <Route path="/winter" element={
                 <Provider store={store}> <Winter products={products}
+                  setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
+              <Route path="/christmas" element={
+                <Provider store={store}> <Christmas products={products}
                   setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route
                 path="/mypage" element={<Mypage

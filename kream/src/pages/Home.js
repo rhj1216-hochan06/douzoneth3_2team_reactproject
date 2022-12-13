@@ -1,16 +1,17 @@
+import { NewProducts } from "../components/products/NewProducts";
 import { EventBanner } from "../components/eventBanner/eventBanner";
 import { Link } from 'react-router-dom';
 import styles from "../components/home1/Home.module.css";
 
-const Home = () => {
+
+export const Home = ({ convertPrice, setProducts, products }) => {
   return (
     <>
       <EventBanner />
-
       <main className={styles.flex_wrap}>
         <div className={styles.product}>
           <div className={styles.sort}>
-            <Link to="/event">
+            <Link to="/christmas">
               <img className={styles.product_image} src=" /images/christmas.jpg" />
               <div className={styles.product_name}>크리스마스</div>
             </Link> <br />
@@ -35,8 +36,15 @@ const Home = () => {
           </div>
         </div>
       </main>
+      <div>
+      <h4 className={styles.newProducts}>신상품</h4>
+        <NewProducts
+          convertPrice={convertPrice}
+          setProducts={setProducts}
+          products={products}
+        />
+      </div>
     </>
+
   );
 };
-
-export default Home;
