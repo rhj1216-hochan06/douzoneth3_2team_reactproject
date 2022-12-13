@@ -186,21 +186,19 @@ export const Products2 = ({ convertPrice }) => {
       <br />
       <main className={styles.flex_wrap2}>
         <div className={styles.page1}>
-          <Link to="/#top">
+          <a href="#top">
             <img className={styles.pagenationImg} src="/images/arrow1.png" alt="countdown" onClick={Countdown} />
-          </Link>
+          </a>
         </div>
         <div className={styles.page1}>
           <p className={styles.pagenationImg2}>{count1} / {Math.ceil(plength / 12)} </p>
         </div>
         <div className={styles.page1}>
-          <Link to="/#top">
+          <a href="#top">
             <img className={styles.pagenationImg} src="/images/arrow2.png" alt="countdown" onClick={Countup} />
-          </Link>
+          </a>
         </div>
       </main>
     </>
   );
-
 };
-
