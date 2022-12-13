@@ -26,8 +26,6 @@ export const Products = ({ convertPrice }) => {
       .then(json => setState(json));
   }
 
-
-
   //--------------------------------------------------------끝
   //----------------------------------------정렬
 
@@ -116,10 +114,10 @@ export const Products = ({ convertPrice }) => {
         <p onClick={() => {
           onA()
         }}  >최신순</p>
-        <p onClick={() => {
+        <button onClick={() => {
           Orderwordid()
           onword()
-        }}  >최신순</p>
+        }}  >최신순</button>
         <p onClick={() => {
           Orderwordprice()
           onword()
