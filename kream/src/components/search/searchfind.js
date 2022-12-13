@@ -80,7 +80,7 @@ export const Searchfind = ({ products, setProducts, convertPrice }) => {
 
         <h4 className={styles.contentName1}>WHIPPING</h4> <br/>
         {plength !=="" ? (
-                      <h6 className={styles.searchresult}>{find}(으)로 검색된 상품 총 {plength}건</h6>
+                      <h6 className={styles.searchresult}>{find}(으)로 검색된 상품 총 {plength}건입니다.</h6>
                     ) : (
                      <></>
                     )} 
