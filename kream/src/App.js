@@ -43,6 +43,8 @@ import { Provider, useSelector } from 'react-redux';
 import { Search } from "./pages/Search";
 import { Mypagepage } from './pages/Mypagepage';
 import { Mypage } from './components/mypage/mypage';
+import { Mysale } from './components/mypage/mysalelist';
+import { Myprofile } from './components/mypage/myprofile';
 
 function App() {
   //상품 변수 정의
@@ -149,13 +151,20 @@ function App() {
                   setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route
                 path="/mypage" element={<Mypage
+<<<<<<< HEAD
                 />} />
               <Route path="cloth" element={
                 <Provider store={store}> <Cloth products={products}
                   setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
+=======
+                />}><Route path="/mypage/salelist" element={
+                  <Provider store={store}> <Mysale  convertPrice={convertPrice} /></Provider>} />
+                <Route path='/mypage/profile' element={<Myprofile />} /> </Route>
+>>>>>>> bomin
               <Route
                 path="/dummy" element={<Dummy
                 />} />
+              
             </Routes>
           </div>
           <footer1 >
