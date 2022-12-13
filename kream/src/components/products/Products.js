@@ -26,8 +26,6 @@ export const Products = ({ convertPrice }) => {
       .then(json => setState(json));
   }
 
-
-
   //--------------------------------------------------------끝
   //----------------------------------------정렬
 
@@ -154,10 +152,28 @@ export const Products = ({ convertPrice }) => {
 
 
       <div className={styles.filter}>
+<<<<<<< HEAD
         <p onClick={onA}  >최신순</p>
         <p onClick={Orderwordid}  >최신순</p>
         <p onClick={Orderwordprice}>낮은 가격</p>
         <p onClick={Orderwordpricedesc}>높은 가격</p>
+=======
+        <p onClick={() => {
+          onA()
+        }}  >최신순</p>
+        <button onClick={() => {
+          Orderwordid()
+          onword()
+        }}  >최신순</button>
+        <p onClick={() => {
+          Orderwordprice()
+          onword()
+        }}>낮은 가격</p>
+        <p onClick={() => {
+          Orderwordpricedesc()
+          onword()
+        }}>높은 가격</p>
+>>>>>>> 69b1cfbf5946ca25fd9f076754e7170ee8c10cc6
       </div>
 
       <main className={styles.flex_wrap}>
