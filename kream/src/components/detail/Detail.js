@@ -923,23 +923,40 @@ export const Detail = ({ convertPrice }) => {
               window.location.reload();
             }}>
               장바구니</Button>
-            <Button className={styles.btn_cart} onClick={() => {
+            {/* <Button className={styles.btn_cart} onClick={() => {
               inputSale(300000, "L");
             }}>
-              테스트</Button>
+              테스트</Button> */}
           </div>
+          <br/><br/>
+          <span className={styles.recent}>최근 거래 가격</span> <br/>
+          <table>
+            <thead>
+              <tr>
+                <th>등록번호</th>
+                <th>사이즈</th>
+                <th>가격</th>
+                <th>날짜</th>
+              </tr>
+            </thead>
+          </table>
           {
             sale.sale && sale.sale.map((data) => {
-                // if(!sale.sale){
-                //   return 'no data';
-                // }
-                return <div>
-                  <span>{data.SALE_SIZE}</span> // 
-                  <span>{data.SALE_PRICE}</span>//
-                  <span>{data.SALE_DATE.substring(0,10)}</span>
-                  <br/>
-                </div>
-                
+              // if(!sale.sale){
+              //   return 'no data';
+              // }
+              return <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>{data.SALE_NO}</td>
+                      <td>{data.SALE_SIZE}</td>
+                      <td>{data.SALE_PRICE}</td>
+                      <td>{data.SALE_DATE.substring(0, 10)}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             }
             )
           }

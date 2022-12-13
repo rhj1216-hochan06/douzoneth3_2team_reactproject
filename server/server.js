@@ -393,7 +393,7 @@ app.post('/api/word', (req, res) => {
 })
 
 app.post('/api/sale', (req, res) => {
-  maria.query("SELECT SALE_SIZE,SALE_PRICE,SALE_DATE from SALE WHERE SALE_CHECK = 1 ORDER BY SALE_DATE", (err, data, fields) => {
+  maria.query("SELECT SALE_NO,SALE_SIZE,SALE_PRICE,SALE_DATE from SALE WHERE SALE_CHECK = 1 ORDER BY SALE_NO DESC", (err, data, fields) => {
     console.log('success');
     if (!err) res.send({ sale: data });
     else res.send(err);
