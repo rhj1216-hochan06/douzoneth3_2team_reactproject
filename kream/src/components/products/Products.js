@@ -121,62 +121,12 @@ export const Products = ({ convertPrice }) => {
       });
   }
 
-  // const onword = (event) => {
-  //   fetch("/api/word", {
-  //     method: "post",
-  //     headers: {
-  //       "Content-Type": "application/json; charset=utf-8",
-  //       Accept: "application / json",
-  //     }, body: JSON.stringify({
-  //       "word": word,
-
-  //     })
-  //   })
-  //     .then((res) => res.json())
-  //     .then(json => {
-  //       setState(json);
-  //     });
-
-  // }
-  //--------------------------------------------------------끝
-
   useEffect(() => {
     AOS.init({
       duration: 1200,
     })
     onA();
-
-    // window.addEventListener('scroll', handleScroll);
-    // return () => {
-    //   window.removeEventListener('scroll', handleScroll); //clean up
-    // };
   }, []);
-
-  // const handleScroll = () => {
-  //   console.log(window.scrollY);
-  //   if (window.scrollY >= 400)
-  //     UP
-  //   else {
-  //     console.log(count);
-  //   }
-  // };
-
-  //json 버전 정렬
-  // const sortProduct = (type) => {
-  //   if (type === "recent") {
-  //     const newProduct = [...products];
-  //     newProduct.sort((a, b) => a.id - b.id);
-  //     setProducts(newProduct);
-  //   } else if (type === "row") {
-  //     const newProduct = [...products];
-  //     newProduct.sort((a, b) => a.price - b.price);
-  //     setProducts(newProduct);
-  //   } else if (type === "high") {
-  //     const newProduct = [...products];
-  //     newProduct.sort((a, b) => b.price - a.price);
-  //     setProducts(newProduct);
-  //   }
-  // };
 
   const dispatch = useDispatch(); //리덕스 함수를 사용할 곳에 위치
 
@@ -189,12 +139,8 @@ export const Products = ({ convertPrice }) => {
     <>
       <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-      Home에서 데이터를 받아 수십개의 상품들 나열
-
-
-
+      
       <div className={styles.filter}>
-        <p onClick={onA} > 상품</p>
         <p onClick={Orderwordid}  >신상품</p>
         <p onClick={Orderwordprice}>낮은 가격</p>
         <p onClick={Orderwordpricedesc}>높은 가격</p>
