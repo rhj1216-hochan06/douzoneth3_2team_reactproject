@@ -407,3 +407,17 @@ app.post('/api/mypage', (req, res) => {
   })
 
 })
+
+//단어로 정렬 (단어는 : id,price,price desc)
+app.post('/api/word', (req, res) => {
+
+  const word = req.body.word;
+
+  console.log('word');
+  maria.query("SELECT * FROM products order by " + word, (err, data, fields) => {
+    console.log('success');
+    if (!err) res.send({ products: data });
+    else res.send(err);
+    console.log(data);
+  })
+})
