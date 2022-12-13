@@ -47,13 +47,29 @@ export const Mypage = () => {
   }
 
   return (
-    <><h3> mypage</h3>
-   
-      <p>{username}</p>
-      <p>{userid}</p>
-      <p>{useremail}</p>
-      <p>{userphonenumber}</p>
-      <p>{useraddress}</p>
+    <>
+    <h3 className={styles.contentName1}> 프로필 정보</h3>
+    <br/>
+   <hr className={styles.line}/>
+   <p className={styles.contentName4}>로그인 정보</p>
+   <hr className={styles.line2}  />
+    <p className={styles.contentName2}>아이디</p>
+      <p className={styles.contentName3}>{userid}</p>
+<br/><br/>
+      <p className={styles.contentName4}>개인 정보</p>
+      <hr className={styles.line2}  />
+      <p className={styles.contentName2}>이름</p>
+      <p className={styles.contentName3}>{username}</p>
+      <hr className={styles.line3}  />  <br/>
+      <p className={styles.contentName2}>이메일</p>
+      <p className={styles.contentName3}>{useremail}</p>
+      <hr className={styles.line3}  /><br/>
+      <p className={styles.contentName2}>전화번호</p>
+      <p className={styles.contentName3}>{userphonenumber}</p>
+      <hr className={styles.line3}  /><br/>
+      <p className={styles.contentName2}>주소</p>
+      <p className={styles.contentName3}>{useraddress}</p>
+      <hr className={styles.line3}  />
     </>
   )
 

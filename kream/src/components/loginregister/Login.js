@@ -47,7 +47,7 @@ const Login = () => {
         console.log('sucessss');
         sessionStorage.setItem("loginId", data.user[0].userid);
         console.log('되냐?'+sessionStorage.getItem("loginId"));
-        return navigate('/')
+        return navigate('/dummy')
       }
       else if(data.user.length===0){
         console.log('not sucessss');
