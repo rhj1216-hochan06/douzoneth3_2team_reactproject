@@ -44,6 +44,7 @@ app.post('/api/perchase/threesize', (req, res) => {
     })
 })
 
+
 app.post('/api/perchase/onesize', (req, res) => {
   const id = req.body.id;
   maria.query("SELECT onesize FROM stock WHERE id = ?", [id],
@@ -54,6 +55,7 @@ app.post('/api/perchase/onesize', (req, res) => {
       };
     })
 })
+
 
 app.post('/api/perchase/perfume', (req, res) => {
   const id = req.body.id;
@@ -79,6 +81,16 @@ app.post('/api/perchase/shoe', (req, res) => {
     })
 
 
+})
+app.post('/api/perchase/size/price', (req, res) => {
+  const id = req.body.id;
+  maria.query("SELECT MIN(sale_price) AS sale_price ,SALE_SIZE FROM sale WHERE sale_productid = ? group by sale_size", [id],
+    function (err, data) {
+      if (!err) res.send({ data });
+      else {
+        console.log("DB저장 성공");
+      };
+    })
 })
 //------------------------------------------------------------------
 
