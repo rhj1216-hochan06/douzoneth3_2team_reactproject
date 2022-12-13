@@ -85,14 +85,14 @@ const handleShow = () => {
                 {
                   $('#row1').append("<div class='col-md-4 col-6'>"
                   +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' >"
-                  +"<label id = 'XS' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>XS<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<label id = 'XS' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>XS<br><span id='tag1' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row1').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' disable>"
-                  +"<label id = 'XS' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>XS<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' disabled>"
+                  +"<label id = 'XS' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>XS<br><span id='tag1' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
 
@@ -100,15 +100,15 @@ const handleShow = () => {
                 {
                   $('#row1').append("<div class='col-md-4 col-6'>"
                   +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-2' value = '2' >"
-                  +"<label id = 'S' tabindex='0' for='tag-radio-2' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>S<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<label id = 'S' tabindex='0' for='tag-radio-2' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>S<br><span id='tag2' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else
                 {
                   $('#row1').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-2' value = '2' disable>"
-                  +"<label id = 'S' tabindex='0' for='tag-radio-2' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>S<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-2' value = '2' disabled>"
+                  +"<label id = 'S' tabindex='0' for='tag-radio-2' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>S<br><span id='tag2' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 
                 }
@@ -117,15 +117,15 @@ const handleShow = () => {
                 {
                   $('#row1').append("<div class='col-md-4 col-6'>"
                   +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-3' value = '3' >"
-                  +"<label id = 'M' tabindex='0' for='tag-radio-3' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>M<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<label id = 'M' tabindex='0' for='tag-radio-3' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>M<br><span id='tag3' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else
                 {
                   $('#row1').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-3' value = '3' disable>"
-                  +"<label id = 'M' tabindex='0' for='tag-radio-3' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>M<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-3' value = '3' disabled>"
+                  +"<label id = 'M' tabindex='0' for='tag-radio-3' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>M<br><span id='tag3' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 
                 }
@@ -133,31 +133,76 @@ const handleShow = () => {
                 {
                   $('#row2').append("<div class='col-md-4 col-6'>"
                   +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-4' value = '4' >"
-                  +"<label id = 'L' tabindex='0' for='tag-radio-4' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>L<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<label id = 'L' tabindex='0' for='tag-radio-4' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>L<br><span id='tag4' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row2').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-4' value = '4' disable>"
-                  +"<label id = 'L' tabindex='0' for='tag-radio-4' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>L<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-4' value = '4' disabled>"
+                  +"<label id = 'L' tabindex='0' for='tag-radio-4' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>L<br><span id='tag4' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].XL > 0)
                 {
                   $('#row2').append("<div class='col-md-4 col-6'>"
                   +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-5' value = '5' >"
-                  +"<label id = 'XL' tabindex='0' for='tag-radio-5' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>XL<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<label id = 'XL' tabindex='0' for='tag-radio-5' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>XL<br><span id='tag5' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row2').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-5' value = '5' disable>"
-                  +"<label id = 'XL' tabindex='0' for='tag-radio-5' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>XL<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-5' value = '5' disabled>"
+                  +"<label id = 'XL' tabindex='0' for='tag-radio-5' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>XL<br><span id='tag5' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
-              
+                fetch("/api/perchase/size/price",{
+      
+                  method: "POST",
+                  headers: {
+                    "Content-Type":"application/json; charset=utf-8"
+            
+                  },
+                  body: JSON.stringify({
+                    "id" : id,
+                  
+                  })
+            
+                })
+                  .then((res) => res.json())
+                  .then(json => {
+                   json.data.map((temp,i)=>{
+                    console.log(temp.SALE_SIZE)
+                    console.log(temp.sale_price)
+                    let convertpricetext = convertPrice(temp.sale_price);
+                    if(temp.SALE_SIZE == "XS"){
+                       $("#tag1").text(convertpricetext);
+                       $("#tag-radio-1").attr("value",temp.sale_price)
+                    }
+                    else if(temp.SALE_SIZE == "S"){
+                      $("#tag2").text(convertpricetext);
+                       $("#tag-radio-2").attr("value",temp.sale_price)
+                    }
+                    else if(temp.SALE_SIZE == "M"){
+                      $("#tag3").text(convertpricetext);
+                      $("#tag-radio-3").attr("value",temp.sale_price)
+                    }
+                    else if(temp.SALE_SIZE == "L"){
+                      $("#tag4").text(convertpricetext);
+                      $("#tag-radio-4").attr("value",temp.sale_price)
+                    }
+                    else if(temp.SALE_SIZE == "XL"){
+                      $("#tag5").text(convertpricetext);
+                      $("#tag-radio-5").attr("value",temp.sale_price)
+                    }
+                   })
+                   //const element = document.getElementById('tag1');
+                   //let convertpricetext = convertPrice(json.data[0].sale_price);
+                  // $("#tag1").text(convertpricetext);
+                  // $("#tag-radio-1").attr("value",json.data[0].sale_price)
+                  // console.log(convertpricetext)
+                  })
 
             })
 
@@ -198,21 +243,42 @@ const handleShow = () => {
                {
                  $('#row1').append("<div class='col-md-4 col-6'>"
                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' >"
-                 +"<label id = 'onesize' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>onesize<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                 +"<label id = 'onesize' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>onesize<br><span id='tag1' value=''  style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                  +"</div>");
                
                }
                else{
                  $('#row1').append("<div class='col-md-4 col-6'>"
-                 +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' disable>"
-                 +"<label id = 'onesize' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>onesize<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                 +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' disabled>"
+                 +"<label id = 'onesize' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>onesize<br><span id='tag1' value='' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                  +"</div>");
                }
+               fetch("/api/perchase/size/price",{
+      
+                method: "POST",
+                headers: {
+                  "Content-Type":"application/json; charset=utf-8"
+          
+                },
+                body: JSON.stringify({
+                  "id" : id,
+                
+                })
+          
+              })
+                .then((res) => res.json())
+                .then(json => {
+                 console.log(json.data[0].sale_price)
+                 const element = document.getElementById('tag1');
+                 let convertpricetext = convertPrice(json.data[0].sale_price);
+                 $("#tag1").text(convertpricetext);
+                 $("#tag-radio-1").attr("value",json.data[0].sale_price)
+                 console.log(convertpricetext)
+                })
 
            })
 
-           //  const element = document.getElementById('sizeRB');
-         //  element.innerText += '<div>InnerText<div>';
+          
  
    }
 
@@ -253,31 +319,68 @@ const handleShow = () => {
              }
              else{
                $('#row1').append("<div class='col-md-4 col-6'>"
-               +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' disable>"
+               +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' disabled>"
                +"<label id = 'size_30ml' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>30ml<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                +"</div>");
              }
              if(json.data[0].size_100ml > 0)
              {
                $('#row1').append("<div class='col-md-4 col-6'>"
-               +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '2' >"
-               +"<label id = 'size_100ml' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>100ml<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+               +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-2' value = '2' >"
+               +"<label id = 'size_100ml' tabindex='0' for='tag-radio-2' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>100ml<br><span id = 'tag1'style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                +"</div>");
              
              }
              else{
                $('#row1').append("<div class='col-md-4 col-6'>"
-               +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '2' disable>"
-               +"<label id = 'size_100ml' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>100ml<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+               +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-2' value = '2' disabled>"
+               +"<label id = 'size_100ml' tabindex='0' for='tag-radio-2' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>100ml<br><span id = 'tag2' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                +"</div>");
              }
 
-         })
+             fetch("/api/perchase/size/price",{
+      
+              method: "POST",
+              headers: {
+                "Content-Type":"application/json; charset=utf-8"
+        
+              },
+              body: JSON.stringify({
+                "id" : id,
+              
+              })
+        
+            })
+              .then((res) => res.json())
+              .then(json => {
+                json.data.map((temp,i)=>{
+                  console.log(temp.SALE_SIZE)
+                  console.log(temp.sale_price)
+                  let convertpricetext = convertPrice(temp.sale_price);
+                 
+                  if(temp.SALE_SIZE == "size_30ml"){
+                    $("#tag1").text(convertpricetext);
+                     $("#tag-radio-1").attr("value",temp.sale_price)
+                  }
+                  else if(temp.SALE_SIZE == "size_100ml"){
+                    $("#tag2").text(convertpricetext);
+                    $("#tag-radio-2").attr("value",temp.sale_price)
+                  }
+                 
+            })
+
+          })}
+            
+)}
+
+         
+          
+         
 
          //  const element = document.getElementById('sizeRB');
        //  element.innerText += '<div>InnerText<div>';
 
- }
+ 
 
 
  //----------------------------------------------- 신발 -----------------------------------------------------------
@@ -324,227 +427,315 @@ const handleShow = () => {
                 {
                   $('#row1').append("<div class='col-md-4 col-6'>"
                   +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' >"
-                  +"<label id = 'size_225' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>225<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<label id = 'size_225' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>225<br><span id ='tag1' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row1').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' disable>"
-                  +"<label id = 'size_225' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>225<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' disabled>"
+                  +"<label id = 'size_225' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>225<br><span id ='tag1' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
 
                 if(json.data[0].size_230 > 0)
                 {
                   $('#row1').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '2' >"
-                  +"<label id = 'size_230' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>230<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-2' value = '2' >"
+                  +"<label id = 'size_230' tabindex='0' for='tag-radio-2' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>230<br><span id ='tag2' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row1').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '2' disable>"
-                  +"<label id = 'size_230' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>230<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-2' value = '2' disabled>"
+                  +"<label id = 'size_230' tabindex='0' for='tag-radio-2' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>230<br><span id ='tag2' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_235 > 0)
                 {
                   $('#row1').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '3' >"
-                  +"<label id = 'size_235' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>235<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-3' value = '3' >"
+                  +"<label id = 'size_235' tabindex='0' for='tag-radio-3' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>235<br><span id ='tag3'style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row1').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '3' disable>"
-                  +"<label id = 'size_235' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>235<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-3' value = '3' disabled>"
+                  +"<label id = 'size_235' tabindex='0' for='tag-radio-3' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>235<br><span id ='tag3'style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_240 > 0)
                 {
                   $('#row2').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '4' >"
-                  +"<label id = 'size_240' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>240<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-4' value = '4' >"
+                  +"<label id = 'size_240' tabindex='0' for='tag-radio-4' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>240<br><span id ='tag4'style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row2').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '4' disable>"
-                  +"<label id = 'size_240' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>240<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-4' value = '4' disabled>"
+                  +"<label id = 'size_240' tabindex='0' for='tag-radio-4' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>240<br><span id ='tag4'style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_245 > 0)
                 {
                   $('#row2').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '5' >"
-                  +"<label id = 'size_245' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>245<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-5' value = '5' >"
+                  +"<label id = 'size_245' tabindex='0' for='tag-radio-5' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>245<br><span id ='tag5' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row2').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '5' disable>"
-                  +"<label id = 'size_245' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>245<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-5' value = '5' disabled>"
+                  +"<label id = 'size_245' tabindex='0' for='tag-radio-5' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>245<br><span id ='tag5'style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_250 > 0)
                 {
                   $('#row2').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '6' >"
-                  +"<label id = 'size_250' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>250<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-6' value = '6' >"
+                  +"<label id = 'size_250' tabindex='0' for='tag-radio-6' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>250<br><span id ='tag6'style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row2').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '6' disable>"
-                  +"<label id = 'size_250' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>250<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-6' value = '6' disabled>"
+                  +"<label id = 'size_250' tabindex='0' for='tag-radio-6' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>250<br><span id ='tag6'style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_255 > 0)
                 {
                   $('#row3').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '7' >"
-                  +"<label id = 'size_255' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>255<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-7' value = '7' >"
+                  +"<label id = 'size_255' tabindex='0' for='tag-radio-7' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>255<br><span id ='tag7'style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row3').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '7' disable>"
-                  +"<label id = 'size_255' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>255<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-7' value = '7' disabled>"
+                  +"<label id = 'size_255' tabindex='0' for='tag-radio-7' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>255<br><span id ='tag7'style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_260 > 0)
                 {
                   $('#row3').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '8' >"
-                  +"<label id = 'size_260' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>260<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-8' value = '8' >"
+                  +"<label id = 'size_260' tabindex='0' for='tag-radio-8' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>260<br><span id ='tag8'style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row3').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '8' disable>"
-                  +"<label id = 'size_260' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>260<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-8' value = '8' disabled>"
+                  +"<label id = 'size_260' tabindex='0' for='tag-radio-8' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>260<br><span id ='tag8'style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_265 > 0)
                 {
                   $('#row3').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '9' >"
-                  +"<label id = 'size_265' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>265<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-9' value = '9' >"
+                  +"<label id = 'size_265' tabindex='0' for='tag-radio-9' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>265<br><span id ='tag9'style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row3').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '9' disable>"
-                  +"<label id = 'size_265' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>265<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-9' value = '9' disabled>"
+                  +"<label id = 'size_265' tabindex='0' for='tag-radio-9' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>265<br><span id ='tag9'style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_270 > 0)
                 {
                   $('#row4').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '10' >"
-                  +"<label id = 'size_270' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>270<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-10' value = '10' >"
+                  +"<label id = 'size_270' tabindex='0' for='tag-radio-10' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>270<br><span id ='tag10' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row4').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '10' disable>"
-                  +"<label id = 'size_270' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>270<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '10' disabled>"
+                  +"<label id = 'size_270' tabindex='0' for='tag-radio-10' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>270<br><span id ='tag10' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_275 > 0)
                 {
                   $('#row4').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '11' >"
-                  +"<label id = 'size_275' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>275<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-11' value = '11' >"
+                  +"<label id = 'size_275' tabindex='0' for='tag-radio-11' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>275<br><span id ='tag11' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row4').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '11' disable>"
-                  +"<label id = 'size_275' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>275<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-11' value = '11' disabled>"
+                  +"<label id = 'size_275' tabindex='0' for='tag-radio-11' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>275<br><span id ='tag11' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_280 > 0)
                 {
                   $('#row4').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '12' >"
-                  +"<label id = 'size_280' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>280<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-12' value = '12' >"
+                  +"<label id = 'size_280' tabindex='0' for='tag-radio-12' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>280<br><span id ='tag12' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row4').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '12' disable>"
-                  +"<label id = 'size_280' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>280<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-12' value = '12' disabled>"
+                  +"<label id = 'size_280' tabindex='0' for='tag-radio-12' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>280<br><span id ='tag12' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_285 > 0)
                 {
                   $('#row5').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '13' >"
-                  +"<label id = 'size_285' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>285<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-13' value = '13' >"
+                  +"<label id = 'size_285' tabindex='0' for='tag-radio-13' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>285<br><span id ='tag13' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row5').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '13' disable>"
-                  +"<label id = 'size_285' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>285<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-13' value = '13' disabled>"
+                  +"<label id = 'size_285' tabindex='0' for='tag-radio-13' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>285<br><span id ='tag13' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_290 > 0)
                 {
                   $('#row5').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '14' >"
-                  +"<label id = 'size_290' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>290<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-14' value = '14' >"
+                  +"<label id = 'size_290' tabindex='0' for='tag-radio-14' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>290<br><span id ='tag14' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row5').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '14' disable>"
-                  +"<label id = 'size_290' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>290<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-14' value = '14' disabled>"
+                  +"<label id = 'size_290' tabindex='0' for='tag-radio-14' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>290<br><span id ='tag14' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_295 > 0)
                 {
                   $('#row5').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '15' >"
-                  +"<label id = 'size_295' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>295<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-15' value = '15' >"
+                  +"<label id = 'size_295' tabindex='0' for='tag-radio-15' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>295<br><span id ='tag15' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row5').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '15' disable>"
-                  +"<label id = 'size_295' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>295<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-15' value = '15' disabled>"
+                  +"<label id = 'size_295' tabindex='0' for='tag-radio-15' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>295<br><span id ='tag15' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
                 if(json.data[0].size_300 > 0)
                 {
                   $('#row6').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '16' >"
-                  +"<label id = 'size_300' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>300<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-15' value = '16' >"
+                  +"<label id = 'size_300' tabindex='0' for='tag-radio-15' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>300<br><span id ='tag16' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   +"</div>");
                 
                 }
                 else{
                   $('#row6').append("<div class='col-md-4 col-6'>"
-                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '16' disable>"
-                  +"<label id = 'size_300' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>300<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  +"<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-16' value = '16' disabled>"
+                  +"<label id = 'size_300' tabindex='0' for='tag-radio-16' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>300<br><span id ='tag16' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   +"</div>");
                 }
+                fetch("/api/perchase/size/price",{
+      
+                  method: "POST",
+                  headers: {
+                    "Content-Type":"application/json; charset=utf-8"
+            
+                  },
+                  body: JSON.stringify({
+                    "id" : id,
+                  
+                  })
+            
+                })
+                  .then((res) => res.json())
+                  .then(json => {
+                    json.data.map((temp,i)=>{
+                      console.log(temp.SALE_SIZE)
+                      console.log(temp.sale_price)
+                      let convertpricetext = convertPrice(temp.sale_price);
+                     
+                      if(temp.SALE_SIZE == "size_225"){
+                        $("#tag1").text(convertpricetext);
+                         $("#tag-radio-1").attr("value",temp.sale_price)
+                      }
+                      else if(temp.SALE_SIZE == "size_230"){
+                        $("#tag2").text(convertpricetext);
+                        $("#tag-radio-2").attr("value",temp.sale_price)
+                      }
+                      if(temp.SALE_SIZE == "size_235"){
+                        $("#tag3").text(convertpricetext);
+                         $("#tag-radio-3").attr("value",temp.sale_price)
+                      }
+                      else if(temp.SALE_SIZE == "size_240"){
+                        $("#tag4").text(convertpricetext);
+                        $("#tag-radio-4").attr("value",temp.sale_price)
+                      }
+                      if(temp.SALE_SIZE == "size_245"){
+                        $("#tag5").text(convertpricetext);
+                         $("#tag-radio-5").attr("value",temp.sale_price)
+                      }
+                      else if(temp.SALE_SIZE == "size_250"){
+                        $("#tag6").text(convertpricetext);
+                        $("#tag-radio-6").attr("value",temp.sale_price)
+                      }
+                      if(temp.SALE_SIZE == "size_255"){
+                        $("#tag7").text(convertpricetext);
+                         $("#tag-radio-7").attr("value",temp.sale_price)
+                      }
+                      else if(temp.SALE_SIZE == "size_260"){
+                        $("#tag8").text(convertpricetext);
+                        $("#tag-radio-8").attr("value",temp.sale_price)
+                      }
+                      if(temp.SALE_SIZE == "size_265"){
+                        $("#tag9").text(convertpricetext);
+                         $("#tag-radio-9").attr("value",temp.sale_price)
+                      }
+                      else if(temp.SALE_SIZE == "size_270"){
+                        $("#tag10").text(convertpricetext);
+                        $("#tag-radio-10").attr("value",temp.sale_price)
+                      }
+                      if(temp.SALE_SIZE == "size_275"){
+                        $("#tag11").text(convertpricetext);
+                         $("#tag-radio-11").attr("value",temp.sale_price)
+                      }
+                      else if(temp.SALE_SIZE == "size_280"){
+                        $("#tag12").text(convertpricetext);
+                        $("#tag-radio-12").attr("value",temp.sale_price)
+                      }
+                      if(temp.SALE_SIZE == "size_285"){
+                        $("#tag13").text(convertpricetext);
+                         $("#tag-radio-13").attr("value",temp.sale_price)
+                      }
+                      else if(temp.SALE_SIZE == "size_290"){
+                        $("#tag14").text(convertpricetext);
+                        $("#tag-radio-14").attr("value",temp.sale_price)
+                      }
+                      if(temp.SALE_SIZE == "size_295"){
+                        $("#tag15").text(convertpricetext);
+                         $("#tag-radio-15").attr("value",temp.sale_price)
+                      }
+                      else if(temp.SALE_SIZE == "size_300"){
+                        $("#tag16").text(convertpricetext);
+                        $("#tag-radio-16").attr("value",temp.sale_price)
+                      }
+                     
+                })
+    
+              })
 
                
             })
@@ -707,7 +898,7 @@ const handleShow = () => {
             <Modal.Title>Size</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-           
+      
             
             {/* <ToggleButtonGroup id = 'sizeRB' type='radio' name='options' defaultValue={1}>
          
