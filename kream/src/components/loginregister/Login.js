@@ -63,7 +63,8 @@ const Login = () => {
     <div className='loginregister'>
 
 <div >
-
+<br/><br/>
+<div className="box">
       <div className="logo">
             <Link to="/">
               <img className="logoSize" src="/images/logo.jpg" alt="logo" />
@@ -82,7 +83,7 @@ const Login = () => {
         </Link>
 
     </div>
-
+    </div>
     </div>
 
   );

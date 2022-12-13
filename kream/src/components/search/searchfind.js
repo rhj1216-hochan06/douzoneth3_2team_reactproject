@@ -72,12 +72,15 @@ export const Searchfind = ({ products, setProducts, convertPrice }) => {
           <img className={styles.searchicon} src="/images/search-icon.svg" alt="find" onClick={onSearch} />
         {/* </div> */}
       </div>
-      <br /><br />
+     
+      <br />
+      <hr className={styles.line}/>
+      <br />
       <div className={styles.content}>
 
-        <h3 className={styles.contentName1}>WHIPPING</h3> <br/><br/><br/>
+        <h4 className={styles.contentName1}>WHIPPING</h4> <br/>
         {plength !=="" ? (
-                      <h3>{find}(으)로 검색된 상품 총 {plength}건</h3>
+                      <h6 className={styles.searchresult}>{find}(으)로 검색된 상품 총 {plength}건</h6>
                     ) : (
                      <></>
                     )} 
