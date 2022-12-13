@@ -13,15 +13,8 @@ export const Footer = () => {
                     Join the Shopping newsletter to receive our best deals
                 </p>
                 <p className="footer-subscription-text">
-                    You can unsubscribe at any time.
+                    whipping@google.com
                 </p>
-                <div className="input-areas">
-                    <form>
-                        <input type="email" name="email" readOnly value="whipping@google.com"
-                            className="footer-input" />
-
-                    </form>
-                </div>
             </section>
             <div class='footer-links'>
                 <div className='footer-link-wrapper'>
@@ -37,7 +30,6 @@ export const Footer = () => {
                         <Link to='/'>Contact</Link>
                         <Link to='/'>Support</Link>
                         <Link to='/'>Destinations</Link>
-                        <Link to='/'>Sponsorships</Link>
                     </div>
                 </div>
                 <div className='footer-link-wrapper'>
@@ -56,7 +48,7 @@ export const Footer = () => {
                             WHIPPING <i className="fab fa-typo3"></i>
                         </Link>
                     </div>
-                    <small className="website-rights">TRVL © 2020</small>
+                    <small className="website-rights">TRVL © 2022</small>
                     <div className="social-icons">
                         <Link className="social-icon-link facebook" to="/"
                             target="_blank"
