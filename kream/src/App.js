@@ -17,6 +17,8 @@ import { Main } from "./components/category/main.js";
 import { Winter } from './pages/Winter.js';
 //크리스마스 특가
 import { Christmas } from './pages/Christmas';
+//더미 페이지
+import {Dummy} from './components/dummy/dummy.js'
 
 import { Route, Routes } from 'react-router-dom';
 import { TopNavBar } from "./components/header/TopNavBar.js";
@@ -43,7 +45,7 @@ import { Mypage } from './components/mypage/mypage';
 function App() {
   //상품 변수 정의
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+
 
 
   //useEffect로 최초 1번만 쇼핑몰데이터 렌더링
@@ -65,7 +67,7 @@ function App() {
     <body>
       <div class=" wrapper1 ">
         <>
-          <TopNavBar cart={cart} />
+          <TopNavBar />
           <div class="main-content">
             <Routes>
               <Route exact={true} path="/"
@@ -79,7 +81,7 @@ function App() {
                   </Provider>} />
               <Route
                 path="/products/:id" element={<DetailPage
-                  convertPrice={convertPrice} cart={cart} setCart={setCart}
+                  convertPrice={convertPrice} 
                 />} />
               <Route />
               <Route
@@ -90,7 +92,7 @@ function App() {
                 />} />
 
               <Route
-                path="/cart" element={<Basket cart={cart} setCart={setCart} convertPrice={convertPrice} />}
+                path="/cart" element={<Basket convertPrice={convertPrice} />}
               />
               <Route path="/manRecommend"
                 element={
@@ -142,6 +144,9 @@ function App() {
                   setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route
                 path="/mypage" element={<Mypage
+                />} />
+                <Route
+                path="/dummy" element={<Dummy
                 />} />
             </Routes>
           </div>
