@@ -94,3 +94,8 @@ a {
 .welcome {
   font-size: 12px;
 }
+Link {
+  display: inline;
+  margin: 8px;
+  vertical-align: middle;
+}

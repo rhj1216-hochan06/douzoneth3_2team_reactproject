@@ -30,6 +30,7 @@ export const ChristmasRecommend = ({ products, setProducts, convertPrice }) => {
       <br /><br /><br />
       <div className={styles.content}>
         <h2 className={styles.contentName1}>Merry Christmas</h2>
+        <h5 className={styles.contentName2}>설레임 가득한 연말 준비</h5>
       </div><br />
       <main className={styles.flex_wrap}>
         {state.products && state.products.map((product) => { //map을 이용하여 상품 갯수만큼 반복시키기

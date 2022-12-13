@@ -140,7 +140,8 @@ product
 
 .contentName1 {
   font-weight: bold;
-  display:inline;
+ margin-left :120px;
+  text-align: left;
 }
 
 .contentName2 {
@@ -167,4 +168,19 @@ product
   height: auto;
   margin-left: 10px;
   cursor: pointer;
+}
+
+.line {
+  width: 80vw;
+  height: 2px;
+  margin: 0 auto;
+  border: 0;
+  background: rgb(0, 0, 0);
+
+}
+
+.searchresult {
+  margin-left :120px;
+  text-align: left;
+
 }

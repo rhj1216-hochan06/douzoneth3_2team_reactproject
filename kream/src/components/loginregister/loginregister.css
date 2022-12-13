@@ -2,7 +2,15 @@
     display: flex;
     /* align-items: center; */
     justify-content: center;
-    height: 100vh;
+    height: 70vh;
+   
+}
+.loginregister2 {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  height: 100vh;
+ 
 }
 .loginregister__input {
     width: 300px;
@@ -16,6 +24,8 @@
   width: 240px;
   height: 50px;
   padding-left: 10px;
+  float: left;
+  margin-right: 7px;
 }
 .loginregister__button {
     background-color: rgb(68, 68, 68);
@@ -38,10 +48,14 @@
   color: #ffffff;
   font-size: 7px;
   font-weight: 700;
-  height: 45px;
-  margin-left: 10px;
+  height: 50px;
+  /* margin-left: 10px; */
   margin-top: 0;
   width: 50px;
+  display: flex;
+  align-items: center;
+  align-content: text;
+  justify-content: center;
 }
 .logoSize {
     width: 180px;
@@ -74,3 +88,11 @@
     margin-bottom: 0rem;
 }
 
+.box {
+  border: 1px solid black;
+  border-radius: 3%;
+  padding: 30px;
+}
+.padd {
+  /* padding: 10px; */
+}

@@ -116,8 +116,9 @@ const onIdcheck = (event) =>{
   
 
   return (
-    <div class="loginregister"  >
-    <div  >
+    <div class="loginregister2"  >
+      <div>
+    <div className="box" >
 
 <div className="logo">
             <Link to="/">
@@ -127,7 +128,7 @@ const onIdcheck = (event) =>{
 
       <form onSubmit={onSubmit}>
           <div><div className='gulza'>NAME</div><input name="name" type="text" placeholder="이름" value={name} onChange={onNameHandler} class="loginregister__input"/></div>
-          <div><div className='gulza'>ID</div><input name="id" type="id" placeholder="아이디" value={id} onChange={onIdHandler} class="loginregister__input2"/><button type="button" class="loginregister__button2" onClick={onIdcheck}>중복확인</button></div>
+          <div className='gulza'>ID</div><div><input name="id" type="id" placeholder="아이디" value={id} onChange={onIdHandler} class="loginregister__input2"/><button type="button" class="loginregister__button2" onClick={onIdcheck}>중복확인</button></div>
           
           <div><div className='gulza'>PASSWORD</div><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input"/></div>
           <div><div className='gulza'>PASSWORD CONFIRM</div><input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler} class="loginregister__input"/></div>
@@ -138,7 +139,9 @@ const onIdcheck = (event) =>{
       </form>
     </div>
     
+    </div> 
     </div>
+    
   );
 }
 export default Register;
