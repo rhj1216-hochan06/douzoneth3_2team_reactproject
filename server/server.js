@@ -16,6 +16,18 @@ var cors = require('cors');
 const { Console } = require('console');
 app.use(cors());
 
+// detail 가져오기
+app.post('/api/detail', (req, res) => {
+  const id = req.body.productId;
+  maria.query("SELECT * FROM products WHERE ID=" + id , (err, data) => {
+    if (!err) {
+      console.log("성공, 값은 : "+ data[0]);
+      res.send(data[0]);
+    }
+  })
+})
+
+
 // detail --- 구매 부분
 app.post('/api/perchase', (req, res) => {
   const id = req.body.id;
@@ -244,7 +256,7 @@ app.post('/api/register', (req, res) => {
 
 })
 
-app.post('/api/detail', (req, res) => {
+app.post('/api/cartinsert', (req, res) => {
   const CART_USERID = req.body.CART_USERID;
   const CART_PRODUCTID = req.body.CART_PRODUCTID;
   const CART_COUNT = req.body.CART_COUNT;

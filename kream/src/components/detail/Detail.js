@@ -15,10 +15,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import $ from 'jquery';
+import { applyMiddleware } from "redux";
 
 export const Detail = ({ convertPrice }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const [product2, setProduct2] = useState({});
   const [size, setSize] = useState([]);
   const [lgShow, setLgShow] = useState(false);
   const [count, setCount] = useState(1);
@@ -32,15 +34,12 @@ const handleShow = () => {
   
   setLgShow(true);
   fetch("/api/perchase",{
-  
     method: "POST",
     headers: {
       "Content-Type":"application/json; charset=utf-8"
-
     },
     body: JSON.stringify({
       "id" : id,
-     
     })
   })
     .then((res) => res.json())
@@ -571,17 +570,32 @@ const handleShow = () => {
   }
 
   useEffect(() => {
-    axios.get("/data/products.json").then((data) => {
-      console.log(data.data.products.price);
-      setProduct(data.data.products.find((product) => product.id === parseInt(id)));
-    });
-  }, [id, product.price]);
+    // axios.get("/data/products.json").then((data) => {
+    //   setProduct(data.data.products.find((product) => product.id === parseInt(id)));
+      fetch("/api/detail",{
+        method: "POST",
+        headers: {
+          "Content-Type":"application/json; charset=utf-8"
+        },
+        body: JSON.stringify({
+          "productId" : id,
+        })
+      })
+        .then((res) => res.json())
+        .then(data => {
+          setProduct(data);
+        });
 
+    },[id]);
+
+
+  console.log("product의 값은?" + product.category);
+  console.log("까지");
   const handleCart = () => {
     //장바구니 추가 기능, 민약 상품아이디와 유저아이디로 조회했을 떄, 
     //1. 데이터가 있다면 해당 count를 이곳의 count로 변경,
     //2. 데이터가 없다면, id,count,userid를 가져가서 insert를 실행
-    fetch("/api/detail",{
+    fetch("/api/cartinsert",{
       method: "POST",
       headers: {
         "Content-Type":"application/json; charset=utf-8"
@@ -729,11 +743,11 @@ const handleShow = () => {
             <Button variant="primary">Understood</Button>
           </Modal.Footer>
         </Modal>
-            {/* <Button className={styles.btn_cart} onClick={() => {
+            <Button className={styles.btn_cart} onClick={() => {
               handleCart();
               window.location.reload();
               }}>
-              장바구니</Button> */}
+              장바구니</Button>
             <Button className={styles.btn_cart} onClick={() => {
               inputSale(300000,"L");
               }}>
