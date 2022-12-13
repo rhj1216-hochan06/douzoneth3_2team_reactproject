@@ -18,8 +18,8 @@
 .sort {
   float: left;
   width: 23vh;
-  height: 20vh;
-  margin: 0px 10px 20px 10px;
+  height: 15vh;
+  margin: 0px 10px 0px;
 }
 
 .product_image {
@@ -78,4 +78,8 @@
     font-size: 12px;
   }
 
+}
+
+.newProducts {
+  text-align: center;
 }
