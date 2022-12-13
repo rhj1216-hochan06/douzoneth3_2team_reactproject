@@ -21,7 +21,6 @@ app.post('/api/detail', (req, res) => {
   const id = req.body.productId;
   maria.query("SELECT * FROM products WHERE ID=" + id , (err, data) => {
     if (!err) {
-      console.log("성공, 값은 : "+ data[0]);
       res.send(data[0]);
     }
   })
