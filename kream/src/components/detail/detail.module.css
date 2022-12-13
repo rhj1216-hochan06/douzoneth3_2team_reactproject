@@ -180,7 +180,7 @@
 .recent{
   font-size: 18px;
   font-weight: 500;
-  line-height: 23px;
+  line-height: 3px;
   color: #000000;
 }
 
@@ -341,4 +341,11 @@ tr:last-child td:first-child {
 tr:last-child td:last-child {
   border-bottom-right-radius: 6px;
   border-right: 1px solid #c6c9cc;
+}
+.timer{
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 23px;
+  color: red;
+  text-align: right;
 }

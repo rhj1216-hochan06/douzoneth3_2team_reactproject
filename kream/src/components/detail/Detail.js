@@ -26,6 +26,7 @@ export const Detail = ({ convertPrice }) => {
   const [count, setCount] = useState(1);
   const sessionStorage = window.sessionStorage;
   const [sale, setSale] = useState({});
+  const [timer, setTimer] = useState("00:00:00");
   // ------ test--------------
   const [show, setShow] = useState(false);
 
@@ -758,6 +759,7 @@ export const Detail = ({ convertPrice }) => {
         "Content-Type": "application/json; charset=utf-8"
       },
       body: JSON.stringify({
+        "pid": id,
       })
     })
       .then((res) => res.json())
@@ -765,7 +767,23 @@ export const Detail = ({ convertPrice }) => {
         setSale(data);
       });
   }, [id]);
-  console.log(sale.sale);
+
+
+  const currentTimer = () => {
+    const date = new Date();
+    const month = String(date.getMonth());
+    const day = String(date.getDate());
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2,"0");
+    const seconds = String(date.getSeconds()).padStart(2,"0");
+    setTimer(`${month}월 ${day}일 ${hours}:${minutes}:${seconds}`)
+  }
+
+const startTimer = () => {
+  setInterval(currentTimer,1000);
+}
+startTimer();
+
   const handleCart = () => {
     //장바구니 추가 기능, 민약 상품아이디와 유저아이디로 조회했을 떄, 
     //1. 데이터가 있다면 해당 count를 이곳의 count로 변경,
@@ -811,7 +829,6 @@ export const Detail = ({ convertPrice }) => {
       .then(data => {
         console.log(data);
       });
-
   }
 
   return (
@@ -930,10 +947,10 @@ export const Detail = ({ convertPrice }) => {
           </div>
           <br/><br/>
           <span className={styles.recent}>최근 거래 가격</span> <br/>
+          <span className={styles.timer}>서버 시간 : {timer}</span>
           <table>
             <thead>
               <tr>
-                <th>등록번호</th>
                 <th>사이즈</th>
                 <th>가격</th>
                 <th>날짜</th>
@@ -949,7 +966,6 @@ export const Detail = ({ convertPrice }) => {
                 <table>
                   <tbody>
                     <tr>
-                      <td>{data.SALE_NO}</td>
                       <td>{data.SALE_SIZE}</td>
                       <td>{data.SALE_PRICE}</td>
                       <td>{data.SALE_DATE.substring(0, 10)}</td>
