@@ -32,18 +32,24 @@ export const Home = ({ convertPrice, setProducts, products }) => {
             <Link to="/winter">
               <img className={styles.product_image} src=" /images/winter.jpg" />
               <div className={styles.product_name}>한파특가</div>
-            </Link> <br />
+            </Link>
           </div>
         </div>
+      </main><br/>
+      <div className={styles.line}></div>
+      <main className={styles.flex_wrap}>
+        <div>
+          <div className={styles.newProducts}>
+            <h4 className={styles.newIn}>New In</h4>
+            <h6 className={styles.ment}>신규 등록 상품</h6>
+          </div>
+          <NewProducts
+            convertPrice={convertPrice}
+            setProducts={setProducts}
+            products={products}
+          />
+        </div>
       </main>
-      <div>
-      <h4 className={styles.newProducts}>신상품</h4>
-        <NewProducts
-          convertPrice={convertPrice}
-          setProducts={setProducts}
-          products={products}
-        />
-      </div>
     </>
 
   );
