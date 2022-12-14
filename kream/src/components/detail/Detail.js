@@ -1727,23 +1727,6 @@ export const Detail = ({ convertPrice }) => {
   }
 
   // ----------------------------모달 창 안의 구매버튼 클릭
-  const buyPageShow = () => {
-    setBuyShow(true);
-    fetch("/api/purchase/buy", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8"
-      },
-      body: JSON.stringify({
-        "SALE_USERID": sessionStorage.getItem("loginId"),
-      })
-    })
-      .then((res) => res.json())
-      .then(json => {
-        console.log(json);
-      })
-  };
-
 
   return (
 
