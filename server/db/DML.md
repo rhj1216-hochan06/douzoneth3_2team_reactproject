@@ -74,27 +74,6 @@ SELECT * FROM USER;
 COMMIT;
 
 ---
-
-## CART
-
-
-insert into cart(CART_USERID,CART_PRODUCTID) values('sinyeon',1);
-insert into cart(CART_USERID,CART_PRODUCTID) values('sinyeon',3);
-insert into cart(CART_USERID,CART_PRODUCTID) values('sinyeon',5);
-insert into cart(CART_USERID,CART_PRODUCTID) values('sinyeon',7);
-insert into cart(CART_USERID,CART_PRODUCTID) values('hojjin',2);
-insert into cart(CART_USERID,CART_PRODUCTID) values('hojjin',4);
-insert into cart(CART_USERID,CART_PRODUCTID) values('hojjin',6);
-insert into cart(CART_USERID,CART_PRODUCTID) values('kbm0225',8);
-insert into cart(CART_USERID,CART_PRODUCTID) values('kbm0225',9);
-insert into cart(CART_USERID,CART_PRODUCTID) values('kbm0225',10);
-
-SELECT * FROM cart;
-commit;
-
-
----
-
 ## SALE
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'sinyeon',300000,'M');
@@ -263,6 +242,20 @@ insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'sin
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'kbm0225',450000,'size_295');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'kbm0225',430000,'size_300');
 
+
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'hojjin',480000,'size_230');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'hojjin',490000,'size_235');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'sinyeon',630000,'size_240');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'kbm0225',600000,'size_245');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'sinyeon',650000,'size_250');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'kbm0225',700000,'size_255');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'kbm0225',550000,'size_265');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'hojjin',500000,'size_280');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'sinyeon',510000,'size_285');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'kbm0225',450000,'size_295');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'kbm0225',430000,'size_300');
+
+
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'hojjin',122000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(44,'sinyeon',59000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(45,'kbm0225',126000,'onesize');
@@ -290,6 +283,24 @@ insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE,SALE_CHECK) val
 
 SELECT SALE_SIZE,SALE_PRICE,SALE_DATE from SALE WHERE SALE_CHECK = 1 ORDER BY SALE_DATE;
 SELECT  * FROM sale;
+commit;
+
+---
+
+## Cart
+
+insert into cart(CART_USERID,CART_SALENO) values('sinyeon',1);
+insert into cart(CART_USERID,CART_SALENO) values('sinyeon',3);
+insert into cart(CART_USERID,CART_SALENO) values('sinyeon',5);
+insert into cart(CART_USERID,CART_SALENO) values('sinyeon',7);
+insert into cart(CART_USERID,CART_SALENO) values('hojjin',2);
+insert into cart(CART_USERID,CART_SALENO) values('hojjin',4);
+insert into cart(CART_USERID,CART_SALENO) values('hojjin',6);
+insert into cart(CART_USERID,CART_SALENO) values('kbm0225',8);
+insert into cart(CART_USERID,CART_SALENO) values('kbm0225',9);
+insert into cart(CART_USERID,CART_SALENO) values('kbm0225',10);
+
+SELECT * FROM cart;
 commit;
 
 ---
@@ -336,9 +347,9 @@ INSERT INTO stock VALUES (37,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1);
 INSERT INTO stock VALUES (38,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1);
 INSERT INTO stock VALUES (39,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1);
 INSERT INTO stock VALUES (40,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1);
-INSERT INTO stock VALUES (41,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO stock VALUES (42,0,0,0,0,0,1,1,0,0,1,0,1,0,1,0,0,1,1,0,0,0,0,0,0);
-INSERT INTO stock VALUES (43,0,0,0,0,0,0,1,0,0,0,1,1,0,1,0,0,1,1,0,1,1,0,0,0);
+INSERT INTO stock VALUES (41,0,0,0,0,0,1,1,0,0,1,0,1,0,1,0,0,1,1,0,0,0,0,0,0);
+INSERT INTO stock VALUES (42,0,0,0,0,0,0,1,0,0,0,1,1,0,1,0,0,1,1,0,1,1,0,0,0);
+INSERT INTO stock VALUES (43,0,0,0,0,0,0,1,1,1,1,1,1,0,1,0,0,1,1,0,1,1,0,0,0);
 INSERT INTO stock VALUES (44,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1);
 INSERT INTO stock VALUES (45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1);
 INSERT INTO stock VALUES (46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1);
@@ -350,6 +361,5 @@ INSERT INTO stock VALUES (51,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1);
 
 SELECT  * FROM stock;
 commit;
-
 
 ------
