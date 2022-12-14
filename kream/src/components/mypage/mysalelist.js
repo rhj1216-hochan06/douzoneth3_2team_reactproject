@@ -10,15 +10,15 @@ import Login from '../loginregister/Login.js';
 
 export const Mysale = (convertPrice) => {
 
-    console.log('sale information0');
-const [productid, setProductid] = useState("");
-const [price, setPrice] = useState();
-const [sixe, setSize] = useState("");
-const [date, setDate] = useState("");
-const [state, setState] = useState([]);
-const [userid, setUserid] = useState("");
+  console.log('sale information0');
+  const [productid, setProductid] = useState("");
+  const [price, setPrice] = useState();
+  const [sixe, setSize] = useState("");
+  const [date, setDate] = useState("");
+  const [state, setState] = useState([]);
+  const [userid, setUserid] = useState("");
 
-fetch("/api/mypageshop", {
+  fetch("/api/mypageshop", {
 
     method: "POST",
     headers: {
@@ -33,61 +33,99 @@ fetch("/api/mypageshop", {
   })
     .then((res) => res.json())
     .then(json => {
-       
-       setState(json);
-       
+
+      setState(json);
+
     })
-     
+
+
+
+  return (
+    <>
+      {/* <table class="type10">
+  <thead>
+  <tr>
+    <th scope="cols">상품</th>
+    <th scope="cols">상품번호</th>
+    <th scope="cols">이름</th>
+    <th scope="cols">사이즈</th>
+    <th scope="cols">가격</th>
+    <th scope="cols">날짜</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
    
-
-    return (
-<>  
-
- 
-<h3 className={styles.contentName1}> 내가 판매중인 상품</h3>
-    <hr className={styles.line} /><br />
+    <td>내용이 들어갑니다.</td>
+  </tr>
+  <tr>
     
-    <p className={styles.contentName4}>상품 정보</p>
-    <hr className={styles.line2} />
-    <p className={styles.contentName4}>상품 사진&nbsp;&nbsp;&nbsp;이름&nbsp;&nbsp;&nbsp;상품번호 &nbsp;&nbsp;&nbsp; 사이즈 &nbsp;&nbsp;&nbsp; 가격 &nbsp;&nbsp;&nbsp; 날짜</p>
+    <td class="even">내용이 들어갑니다.</td>
+  </tr>
+  <tr>
+   
+    <td>내용이 들어갑니다.</td>
+  </tr>
+  </tbody>
+</table> */}
 
-{state.sale && state.sale.map((product) => { //map을 이용하여 상품 갯수만큼 반복시키기
-            console.log(product)
-            if (!state.sale) return 'no data';
-            //  return <Product key={`key-${product.id}`} product={product} convertPrice={convertPrice} />;
-            return <div className={styles.product}>
-              <div class="item" data-aos="slide-up">
-                 <Link to={`/products/${product.SALE_PRODUCTID}`}>
-                  <div className={styles.product_image}>
-                    <img src={product.image} alt="product" />
-                  </div>
-</Link> 
-                <div className={styles.store}>
-                  <span>{product.SALE_PRODUCTID}</span>
-                </div>
-                <div className={styles.store}>
-                  <span>{product.SALE_SIZE}</span>
-                </div>
-  
-                <div className={styles.product_name}>
-                  <span>{product.name}</span>
-                </div>
-                
-  
-                <div className={styles.product_price}>
-                <span className={styles.price}>{product.SALE_PRICE}</span> 
-                  <span className={styles.unit}>원</span>
-                </div>
-                
-                <div className={styles.product_name}>
-                  <span>{product.DATE}</span>
-                </div>
-                <br /><br /><br />
-              </div>
-            </div>
-          })}
-</>
-    )
+
+      <div className={styles.contenttt}>
+        <div className={styles.main_content}>
+
+          <div className={styles.contentcenter}>
+            <h3 className={styles.contentName1}> &nbsp;&nbsp;&nbsp; 나의 판매중인 상품</h3><br />
+            <hr className={styles.line} /><br />
+
+            
+            <table class="type10">
+              <thead>
+                <tr>
+                  <th  className={styles.jb_th_1} scope="cols">상품</th>
+                  <th scope="cols">상품번호</th>
+                  <th className={styles.jb_th_3} scope="cols">이름</th>
+                  <th scope="cols">사이즈</th>
+                  <th scope="cols">가격</th>
+                  <th scope="cols">등록날짜</th>
+                </tr>
+              </thead>
+              <tbody>
+                {state.sale && state.sale.map((product) => { //map을 이용하여 상품 갯수만큼 반복시키기
+                  console.log(product)
+                  if (!state.sale) return 'no data';
+                  //  return <Product key={`key-${product.id}`} product={product} convertPrice={convertPrice} />;
+                  return <tr>
+                      <td>
+                        <Link to={`/products/${product.SALE_PRODUCTID}`}>
+                          <div className={styles.product_image}>
+                            <img src={product.image} alt="product" />
+                          </div>
+                        </Link></td>
+                   
+                      <td>{product.SALE_PRODUCTID}</td>
+                   
+                      <td>{product.name}</td>
+
+                      <td>{product.SALE_SIZE}</td>
+                    
+                      <td>{product.SALE_PRICE}원</td>
+                    
+                      <td>{product.DATE}</td>
+                    </tr>
+
+                  
+
+
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+    </>
+  )
 }
 
 
