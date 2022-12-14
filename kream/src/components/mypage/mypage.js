@@ -27,7 +27,7 @@ export const Mypage = () => {
 
   if (sessionStorage.getItem("loginId") === "" || sessionStorage.getItem("loginId") === null) {
     alert("로그인이 필요한 서비스 입니다.")
-    return window.location = '/login';
+     window.location ='/login';
   } else {
 
 
