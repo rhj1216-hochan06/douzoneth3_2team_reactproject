@@ -8,7 +8,7 @@ import Login from '../loginregister/Login.js';
 
 
 
-export const Mysale = (convertPrice) => {
+export const Mybuy = (convertPrice) => {
 
     console.log('sale information0');
 const [productid, setProductid] = useState("");
@@ -18,7 +18,7 @@ const [date, setDate] = useState("");
 const [state, setState] = useState([]);
 const [userid, setUserid] = useState("");
 
-fetch("/api/mypageshop", {
+fetch("/api/mypagebuy", {
 
     method: "POST",
     headers: {
@@ -44,13 +44,12 @@ fetch("/api/mypageshop", {
 <>  
 
  
-<h3 className={styles.contentName1}> 내가 판매중인 상품</h3>
+<h3 className={styles.contentName1}> 내가 구매한 상품</h3>
     <hr className={styles.line} /><br />
     
     <p className={styles.contentName4}>상품 정보</p>
     <hr className={styles.line2} />
     <p className={styles.contentName4}>상품 사진&nbsp;&nbsp;&nbsp;이름&nbsp;&nbsp;&nbsp;상품번호 &nbsp;&nbsp;&nbsp; 사이즈 &nbsp;&nbsp;&nbsp; 가격 &nbsp;&nbsp;&nbsp; 날짜</p>
-
 {state.sale && state.sale.map((product) => { //map을 이용하여 상품 갯수만큼 반복시키기
             console.log(product)
             if (!state.sale) return 'no data';

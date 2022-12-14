@@ -45,9 +45,7 @@ export const Myprofile = () => {
     )
 return(
     <>
-    console.log('profile information2');
-    <h3>sdas</h3>
-    
+  
 
 <h3 className={styles.contentName1}> 프로필 정보</h3>
     <hr className={styles.line} /><br />
