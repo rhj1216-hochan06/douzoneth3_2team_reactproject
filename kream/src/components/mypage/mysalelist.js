@@ -40,6 +40,9 @@ fetch("/api/mypageshop", {
 
       setState(json);
 
+
+      setState(json);
+
     })
      
   }

@@ -47,15 +47,14 @@ app.post('/api/purchase', (req, res) => {
 app.post('/api/purchase/buy', (req, res) => {
   console.log('buyPay');
   const id = req.body.id;
-  console.log(id);
-  maria.query("select * from products where id=?",[id],
-  function (err, data) {
-    console.log('success');
-    if (!err) {
-      res.send({ data });
-    }
-    else res.send(err);
-  });
+  maria.query("select * from products where id=42",
+    function (err, data) {
+      console.log('success');
+      if (!err) {
+        res.send({ data });
+      }
+      else res.send(err);
+    });
 })
 
 app.post('/api/purchase/threesize', (req, res) => {
@@ -110,6 +109,19 @@ app.post('/api/purchase/shoe', (req, res) => {
 app.post('/api/purchase/size/price', (req, res) => {
   const id = req.body.id;
   maria.query("SELECT MIN(sale_price) AS sale_price ,SALE_SIZE FROM sale WHERE sale_productid = ? group by sale_size", [id],
+    function (err, data) {
+      if (!err) res.send({ data });
+      else {
+        console.log("DB저장 성공");
+      };
+    })
+})
+
+app.post('/api/saleno', (req, res) => {
+  const id = req.body.id;
+  const size = req.body.size;
+  const price = req.body.price;
+  maria.query("select SALE_NO FROM sale WHERE SALE_PRICE = ? and SALE_PRODUCTID = ? and SALE_SIZE = ?  and SALE_CHECK = 0 order by SALE_NO;", [price, id, size],
     function (err, data) {
       if (!err) res.send({ data });
       else {
