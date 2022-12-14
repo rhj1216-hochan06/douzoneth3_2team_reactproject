@@ -14,8 +14,8 @@ export const CartHeader = ({ isAllChecked, handleCheckAll }) => {
             onChange={(e) => handleCheckAll(e.target.checked)}
           />
           <span>상품정보</span>
-          <span>수량</span>
-          <span>상품금액</span>
+          <span>사이즈</span>
+          <span>주문하기</span>
 
           <p>전체선택</p>
         </div>

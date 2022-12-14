@@ -32,34 +32,32 @@ export const Cart = ({ convertPrice }) => {
         }
         );
 
-
-
     //장바구니 수량 증감 기능
-    const handleQuantity = (id, type, cart_count) => {
-        const cal = (count) => {
-            fetch("/api/cart/count", {
-                method: "post",
-                headers: {
-                    "Content-type": "application/json; charset=utf-8"
-                },
-                body: JSON.stringify({
-                    "userid": sessionStorage.getItem("loginId"),
-                    "pid": id,
-                    "cart_count": count,
-                })
-            }).then((res) => res.json())
-        };
-        if (type === "plus") cal(cart_count + 1);
-        else if (type === "minus") {
-            if (cart_count < 2) return;
-            cal(cart_count - 1);
-            return;
-        }
-    };
+    // const handleQuantity = (id, type, cart_count) => {
+    //     const cal = (count) => {
+    //         fetch("/api/cart/count", {
+    //             method: "post",
+    //             headers: {
+    //                 "Content-type": "application/json; charset=utf-8"
+    //             },
+    //             body: JSON.stringify({
+    //                 "userid": sessionStorage.getItem("loginId"),
+    //                 "pid": id,
+    //                 "cart_count": count,
+    //             })
+    //         }).then((res) => res.json())
+    //     };
+    //     if (type === "plus") cal(cart_count + 1);
+    //     else if (type === "minus") {
+    //         if (cart_count < 2) return;
+    //         cal(cart_count - 1);
+    //         return;
+    //     }
+    // };
 
 
     // 상품삭제기능 : id값이 일치하면 삭제
-    const handleRemove = (id) => {
+    const handleRemove = (saleno) => {
         fetch("/api/cart/delete", {
             method: "post",
             headers: {
@@ -67,19 +65,19 @@ export const Cart = ({ convertPrice }) => {
             },
             body: JSON.stringify({
                 "userid": sessionStorage.getItem("loginId"),
-                "pid": id,
+                "cart_saleno": saleno,
             })
         }).then((res) => res.json());
     };
 
 
     //체크리스트기능 : 체크되면 체크리스트에 id추가, 체크해제되면 id제거
-    const handleCheckList = (checked, id) => {
+    const handleCheckList = (checked, cart_saleno) => {
         if (checked) {
-            setCheckLists([...checkLists, id]);
+            setCheckLists([...checkLists, cart_saleno]);
             //체크리스트에 기존의 값은 유지하고 아이디값만 담는다
         } else {
-            setCheckLists(checkLists.filter((check) => check !== id));
+            setCheckLists(checkLists.filter((check) => check !== cart_saleno));
         }
     };
 
@@ -88,7 +86,7 @@ export const Cart = ({ convertPrice }) => {
     const handleCheckAll = (checked) => {
         if (checked) {
             const checkItems = [];
-            cart.map((cart) => checkItems.push(`${cart.id}`));
+            cart.map((cart) => checkItems.push(`${cart.cart_saleno}`));
             setCheckLists(checkItems);
         } else {
             setCheckLists([]);
@@ -98,7 +96,7 @@ export const Cart = ({ convertPrice }) => {
 
     //총금액계산하기위한상품담기(cart랑 체크리스트 비교)
     const found = checkLists.map((checkLists) =>
-        cart.filter((el) => el.id == checkLists)
+        cart.filter((el) => el.cart_saleno == checkLists)
     );
     return (
 
@@ -116,11 +114,11 @@ export const Cart = ({ convertPrice }) => {
                     cart.map((cart) => {
                         return (
                             <CartList
-                                key={`key-${cart.id}`}
+                                key={`key-${cart.cart_saleno}`}
                                 cart={cart}
                                 setCart={setCart}
                                 convertPrice={convertPrice}
-                                handleQuantity={handleQuantity}
+                                // handleQuantity={handleQuantity}
                                 handleRemove={handleRemove}
                                 handleCheckList={handleCheckList}
                                 checkLists={checkLists}
