@@ -6,6 +6,16 @@ import { Detail } from "../../components/detail/Detail.js"
 
 export const BuyPay = (convertPrice) => {
     console.log('구매페이지');
+    
+    const SalesloginCheck = () => {
+        //로그인했는지 확인하기
+        if (sessionStorage.getItem("loginId") === "" || sessionStorage.getItem("loginId") === null) {
+          console.log('로그인 안됨');
+          alert("로그인이 필요한 서비스 입니다.")
+          window.location = '/login';
+        }
+      }
+    
     const [productid, setProductid] = useState("");
     const [price, setPrice] = useState();
     const [size, setSize] = useState("");
@@ -31,6 +41,7 @@ export const BuyPay = (convertPrice) => {
     };
 
     useEffect(() => {
+        SalesloginCheck();
         const jquery = document.createElement("script");
         jquery.src = "https://code.jquery.com/jquery-1.12.4.min.js";
         const iamport = document.createElement("script");
@@ -92,9 +103,9 @@ export const BuyPay = (convertPrice) => {
         <>
             <h3> 주문 상품 </h3>
             <p >상품 정보</p>
-            <p >상품 사진 / 이름 / 상품번호 /사이즈 / 가격 / 날짜</p>
+            <p >상품 사진 / 이름 / 상품번호 / 사이즈 / 가격 / 날짜</p>
             <div >
-                <span>상품 사이즈 : {Detail.setSize}</span>
+                <span>상품 사이즈 : {Detail.size}</span>
             </div>
 
             {/* {state.sale && state.sale.map((product) => {
