@@ -81,7 +81,7 @@
   width: 100%;
   height: 2px;
   background: #c4c4c4;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .amount {
@@ -248,6 +248,22 @@
   height: 60px;
 }
 .footer_purchase_btn_text{
+  font-size: 20px;
+  font-weight: bold;
+}
+.footer_cart_btn{
+  width: 200px;
+  height: 60px;
+}
+.footer_cart_btn_text{
+  font-size: 20px;
+  font-weight: bold;
+}
+.footer_sale_btn{
+  width: 200px;
+  height: 60px;
+}
+.footer_sale_btn_text{
   font-size: 20px;
   font-weight: bold;
 }
