@@ -1814,7 +1814,6 @@ export const Detail = ({ convertPrice }) => {
 
   const handleCart = () => {
     console.log(saleno.SALE_NO);
-    console.log("handlecart안");
     const number = saleno.SALE_NO;
     // 장바구니 추가 기능, 민약 상품아이디와 유저아이디로 조회했을 떄, 
     // 1. 데이터가 있다면 해당 count를 이곳의 xcount로 변경,
@@ -1830,9 +1829,11 @@ export const Detail = ({ convertPrice }) => {
         "CART_SALENO": number,
       })
     })
-      .then((res) => res.json())
+      .then((res) => {
+        res.json()
+      })
       .then(data => {
-        console.log(data);
+        // console.log(data);
         // CarthandleClose();
         window.location.reload();
       });

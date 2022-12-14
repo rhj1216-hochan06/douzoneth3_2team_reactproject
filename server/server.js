@@ -297,10 +297,17 @@ app.post('/api/cartinsert', (req, res) => {
   const CART_USERID = req.body.CART_USERID;
   const CART_SALENO = req.body.CART_SALENO;
   console.log(CART_USERID + "/" + CART_SALENO);
-  maria.query("INSERT INTO CART(CART_USERID,CART_SALENO) values('" + CART_USERID + "'," + CART_SALENO+")", (err, data, fields) => {
-    if (!err) res.send({ cart: data });
-    else res.send(err);
-    })
+  maria.query("select * from cart where cart_saleno = " + CART_SALENO + " and cart_userid = '" + CART_USERID + "'", (err, data) => {
+    console.log(data);
+    console.log(data.length);
+    if (data.length > 0) res.send(err);
+    else {
+      maria.query("INSERT INTO CART(CART_USERID,CART_SALENO) values('" + CART_USERID + "'," + CART_SALENO + ")", (err, data, fields) => {
+        if (!err) res.send({ cart: data });
+        else res.send(err);
+      })
+    }
+  })
 })
 
 app.post('/api/nav', (req, res) => {
