@@ -14,6 +14,52 @@ export const Cart = ({ convertPrice }) => {
     //전체선택되어있다면(길이가 같으므로)true
     const isAllChecked =
         cartLangth === checkLists.length && checkLists.length !== 0;
+        console.log('로그인 안됨?');
+    //로그인했는지 확인하기
+    if (sessionStorage.getItem("loginId") === "" || sessionStorage.getItem("loginId") === null) {
+        console.log('로그인 안됨');
+        alert("로그인이 필요한 서비스 입니다.")
+        return window.location = '/login';
+    } 
+        //장바구니 목록 상시 출력
+        fetch("/api/cart", {
+            method: "post",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                "id": sessionStorage.getItem("loginId"),
+            })
+        })
+            .then((res) => res.json())
+            .then(json => {
+                setCart(json.cart);
+                setCartLangth(Object.keys(json.cart).length);
+            }
+            );
+
+        //장바구니 수량 증감 기능
+        // const handleQuantity = (id, type, cart_count) => {
+        //     const cal = (count) => {
+        //         fetch("/api/cart/count", {
+        //             method: "post",
+        //             headers: {
+        //                 "Content-type": "application/json; charset=utf-8"
+        //             },
+        //             body: JSON.stringify({
+        //                 "userid": sessionStorage.getItem("loginId"),
+        //                 "pid": id,
+        //                 "cart_count": count,
+        //             })
+        //         }).then((res) => res.json())
+        //     };
+        //     if (type === "plus") cal(cart_count + 1);
+        //     else if (type === "minus") {
+        //         if (cart_count < 2) return;
+        //         cal(cart_count - 1);
+        //         return;
+        //     }
+        // };
 
     //장바구니 목록 상시 출력
     useEffect(() => {
@@ -76,34 +122,34 @@ export const Cart = ({ convertPrice }) => {
     };
 
 
-    //체크리스트기능 : 체크되면 체크리스트에 id추가, 체크해제되면 id제거
-    const handleCheckList = (checked, cart_saleno) => {
-        if (checked) {
-            setCheckLists([...checkLists, cart_saleno]);
-            //체크리스트에 기존의 값은 유지하고 아이디값만 담는다
-        } else {
-            setCheckLists(checkLists.filter((check) => check !== cart_saleno));
-        }
-    };
+        //체크리스트기능 : 체크되면 체크리스트에 id추가, 체크해제되면 id제거
+        const handleCheckList = (checked, cart_saleno) => {
+            if (checked) {
+                setCheckLists([...checkLists, cart_saleno]);
+                //체크리스트에 기존의 값은 유지하고 아이디값만 담는다
+            } else {
+                setCheckLists(checkLists.filter((check) => check !== cart_saleno));
+            }
+        };
 
 
-    //전체선택기능
-    const handleCheckAll = (checked) => {
-        if (checked) {
-            const checkItems = [];
-            cart.map((cart) => checkItems.push(`${cart.cart_saleno}`));
-            setCheckLists(checkItems);
-        } else {
-            setCheckLists([]);
-        }
-    };
+        //전체선택기능
+        const handleCheckAll = (checked) => {
+            if (checked) {
+                const checkItems = [];
+                cart.map((cart) => checkItems.push(`${cart.cart_saleno}`));
+                setCheckLists(checkItems);
+            } else {
+                setCheckLists([]);
+            }
+        };
 
 
-    //총금액계산하기위한상품담기(cart랑 체크리스트 비교)
-    const found = checkLists.map((checkLists) =>
-        cart.filter((el) => el.cart_saleno == checkLists)
-    );
-    return (
+        //총금액계산하기위한상품담기(cart랑 체크리스트 비교)
+        const found = checkLists.map((checkLists) =>
+            cart.filter((el) => el.cart_saleno == checkLists)
+        );
+        return (
 
         <div class={styles.main_content}>
             <header className={styles.cart_title_wrap}>
@@ -143,8 +189,8 @@ export const Cart = ({ convertPrice }) => {
 
         </div>
 
-    );
-};
+        );
+    };
 
 // import styles from "./cart.module.css";
 // import { CartHeader } from "./cartHeader";
