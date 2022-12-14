@@ -24,23 +24,47 @@ export const Detail = ({ convertPrice }) => {
   const sessionStorage = window.sessionStorage;
   const [sale, setSale] = useState({});
   const [timer, setTimer] = useState("00:00:00");
+
   let size = "";
   let price = "";
+  var sales_no = "";
 
-  // ------ size--------------------------------------------------------
+  // ------ test--------------------------------------------------------
   const [PurchaseShow, setPurchaseShow] = useState(false);
   const [SaleShow, setSaleShow] = useState(false);
   const [CartShow, setCartShow] = useState(false);
-  const [Size, setSize] = useState('');
-  const [Price, setPrice] = useState();
-
+  const [Size, setSize] = useState({});
+  const [Price, setPrice] = useState({});
   const PurchasehandleClose = () => setPurchaseShow(false);
   const SalehandleClose = () => setSaleShow(false);
   const CarthandleClose = () => setCartShow(false);
-  const CarthandleShow = () => { setCartShow(true); };
+
+
+
+  const SetSalesNo = (size, price) => {
+
+    fetch("/api/saleno", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      body: JSON.stringify({
+        "id": id,
+        "size": size,
+        "price": price
+      })
+    })
+      .then((res) => res.json())
+      .then(json => {
+        sales_no = json.data[0].SALE_NO;
+        var link= '/purchase/buy/' + sales_no;
+        $('#salesnobtn').attr('href',link);
+      })
+  }
+
   // ----------------- 구매 modal show function------------------------------------------------------------------------------------------------------------------------
   const PurchasehandleShow = (e) => {
-    console.log(e.target.id)
+
 
     if (e.target.id == "purchasebtn") {
       setPurchaseShow(true);
@@ -63,9 +87,6 @@ export const Detail = ({ convertPrice }) => {
     })
       .then((res) => res.json())
       .then(json => {
-        console.log(json);
-        console.log(json.data[0].categorydetail);
-
 
 
         //-----------------------------------------------------3사이즈-------------------------------------------------------------------------
@@ -209,22 +230,37 @@ export const Detail = ({ convertPrice }) => {
                   })
 
                   $('#tag-radio-1').on('click', () => {
+                    size = 'XS';
+                    price = $('#tag-radio-1').val();
+                    SetSalesNo(size, price);
                     $('#selectsize').text('XS');
                     $('#selectprice').text(convertPrice($('#tag-radio-1').val()));
                   })
                   $('#tag-radio-2').on('click', () => {
+                    size = 'S';
+                    price = $('#tag-radio-2').val();
+                    SetSalesNo(size, price);
                     $('#selectsize').text('S');
                     $('#selectprice').text(convertPrice($('#tag-radio-2').val()));
                   })
                   $('#tag-radio-3').on('click', () => {
+                    size = 'M';
+                    price = $('#tag-radio-3').val();
+                    SetSalesNo(size, price);
                     $('#selectsize').text('M');
                     $('#selectprice').text(convertPrice($('#tag-radio-3').val()));
                   })
                   $('#tag-radio-4').on('click', () => {
+                    size = 'L';
+                    price = $('#tag-radio-4').val();
+                    SetSalesNo(size, price);
                     $('#selectsize').text('L');
                     $('#selectprice').text(convertPrice($('#tag-radio-4').val()));
                   })
                   $('#tag-radio-5').on('click', () => {
+                    size = 'XL';
+                    price = $('#tag-radio-5').val();
+                    SetSalesNo(size, price);
                     $('#selectsize').text('XL');
                     $('#selectprice').text(convertPrice($('#tag-radio-5').val()));
                   })
@@ -290,7 +326,7 @@ export const Detail = ({ convertPrice }) => {
               })
                 .then((res) => res.json())
                 .then(json => {
-                  console.log(json.data[0].sale_price)
+
                   const element = document.getElementById('tag1');
                   let convertpricetext = convertPrice(json.data[0].sale_price);
                   $("#tag1").text(convertpricetext);
@@ -299,6 +335,9 @@ export const Detail = ({ convertPrice }) => {
                 })
 
               $('#tag-radio-1').on('click', () => {
+                size = 'onesize';
+                price = $('#tag-radio-1').val();
+                SetSalesNo(size, price);
                 $('#selectsize').text('onesize');
                 $('#selectprice').text(convertPrice($('#tag-radio-1').val()));
               })
@@ -329,7 +368,7 @@ export const Detail = ({ convertPrice }) => {
           })
             .then((res) => res.json())
             .then(json => {
-              console.log(json.data[0].size_30ml)
+
 
 
               $('#sizeRB').append("<div id='row1' class='row' style='margin-bottom:10px;'>"
@@ -380,8 +419,7 @@ export const Detail = ({ convertPrice }) => {
                 .then((res) => res.json())
                 .then(json => {
                   json.data.map((temp, i) => {
-                    console.log(temp.SALE_SIZE)
-                    console.log(temp.sale_price)
+
                     let convertpricetext = convertPrice(temp.sale_price);
 
                     if (temp.SALE_SIZE == "size_30ml") {
@@ -395,11 +433,17 @@ export const Detail = ({ convertPrice }) => {
 
                   })
                   $('#tag-radio-1').on('click', () => {
-                    $('#selectsize').text('size_30ml');
+                    size = 'size_30ml';
+                    price = $('#tag-radio-1').val();
+                    SetSalesNo(size, price);
+                    $('#selectsize').text('30ml');
                     $('#selectprice').text(convertPrice($('#tag-radio-1').val()));
                   })
                   $('#tag-radio-2').on('click', () => {
-                    $('#selectsize').text('size_100ml');
+                    size = 'size_100ml';
+                    price = $('#tag-radio-2').val();
+                    SetSalesNo(size, price);
+                    $('#selectsize').text('100ml');
                     $('#selectprice').text(convertPrice($('#tag-radio-2').val()));
                   })
 
@@ -427,7 +471,7 @@ export const Detail = ({ convertPrice }) => {
           })
             .then((res) => res.json())
             .then(json => {
-              console.log(json.data[0].S)
+
 
 
               $('#sizeRB').append("<div id='row1' class='row' style='margin-bottom:10px;'>"
@@ -673,175 +717,188 @@ export const Detail = ({ convertPrice }) => {
                 .then((res) => res.json())
                 .then(json => {
                   json.data.map((temp, i) => {
-                    console.log(temp.SALE_SIZE)
-                    console.log(temp.sale_price)
+
                     let convertpricetext = convertPrice(temp.sale_price);
 
                     if (temp.SALE_SIZE == "size_225") {
                       $("#tag1").text(convertpricetext);
                       $("#tag-radio-1").attr("value", temp.sale_price)
                       $('#tag-radio-1').on('click', () => {
-                        $('#selectsize').text('size_225');
+                        size = 'size_225';
+                        price = $('#tag-radio-1').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('225');
                         $('#selectprice').text(convertPrice($('#tag-radio-1').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-1').val()
-                        
-                      
                       })
                     }
                     else if (temp.SALE_SIZE == "size_230") {
                       $("#tag2").text(convertpricetext);
                       $("#tag-radio-2").attr("value", temp.sale_price)
+
                       $('#tag-radio-2').on('click', () => {
-                        $('#selectsize').text('size_230');
+                        size = 'size_230';
+                        price = $('#tag-radio-2').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('230');
                         $('#selectprice').text(convertPrice($('#tag-radio-2').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-2').val()
-                        console.log(size);
                       })
                     }
                     if (temp.SALE_SIZE == "size_235") {
                       $("#tag3").text(convertpricetext);
                       $("#tag-radio-3").attr("value", temp.sale_price)
                       $('#tag-radio-3').on('click', () => {
-                        $('#selectsize').text('size_235');
+                        size = 'size_235';
+                        price = $('#tag-radio-3').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('235');
                         $('#selectprice').text(convertPrice($('#tag-radio-3').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-3').val()
                       })
                     }
                     else if (temp.SALE_SIZE == "size_240") {
                       $("#tag4").text(convertpricetext);
                       $("#tag-radio-4").attr("value", temp.sale_price)
                       $('#tag-radio-4').on('click', () => {
-                        $('#selectsize').text('size_240');
+                        size = 'size_240';
+                        price = $('#tag-radio-4').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('240');
                         $('#selectprice').text(convertPrice($('#tag-radio-4').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-4').val()
                       })
                     }
                     if (temp.SALE_SIZE == "size_245") {
                       $("#tag5").text(convertpricetext);
                       $("#tag-radio-5").attr("value", temp.sale_price)
                       $('#tag-radio-5').on('click', () => {
-                        $('#selectsize').text('size_245');
+                        size = 'size_245';
+                        price = $('#tag-radio-5').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('245');
                         $('#selectprice').text(convertPrice($('#tag-radio-5').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-5').val()
                       })
                     }
                     else if (temp.SALE_SIZE == "size_250") {
                       $("#tag6").text(convertpricetext);
                       $("#tag-radio-6").attr("value", temp.sale_price)
                       $('#tag-radio-6').on('click', () => {
-                        $('#selectsize').text('size_250');
+                        size = 'size_250';
+                        price = $('#tag-radio-6').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('250');
                         $('#selectprice').text(convertPrice($('#tag-radio-6').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-6').val()
                       })
                     }
                     if (temp.SALE_SIZE == "size_255") {
                       $("#tag7").text(convertpricetext);
                       $("#tag-radio-7").attr("value", temp.sale_price)
                       $('#tag-radio-7').on('click', () => {
-                        $('#selectsize').text('size_255');
+                        size = 'size_255';
+                        price = $('#tag-radio-7').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('255');
                         $('#selectprice').text(convertPrice($('#tag-radio-7').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-7').val()
                       })
                     }
                     else if (temp.SALE_SIZE == "size_260") {
                       $("#tag8").text(convertpricetext);
                       $("#tag-radio-8").attr("value", temp.sale_price)
                       $('#tag-radio-8').on('click', () => {
-                        $('#selectsize').text('size_260');
+                        size = 'size_260';
+                        price = $('#tag-radio-8').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('260');
                         $('#selectprice').text(convertPrice($('#tag-radio-8').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-8').val()
                       })
                     }
                     if (temp.SALE_SIZE == "size_265") {
                       $("#tag9").text(convertpricetext);
                       $("#tag-radio-9").attr("value", temp.sale_price)
                       $('#tag-radio-9').on('click', () => {
-                        $('#selectsize').text('size_265');
+                        size = 'size_265';
+                        price = $('#tag-radio-9').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('265');
                         $('#selectprice').text(convertPrice($('#tag-radio-9').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-9').val()
                       })
                     }
                     else if (temp.SALE_SIZE == "size_270") {
                       $("#tag10").text(convertpricetext);
                       $("#tag-radio-10").attr("value", temp.sale_price)
                       $('#tag-radio-10').on('click', () => {
-                        $('#selectsize').text('size_270');
+                        size = 'size_270';
+                        price = $('#tag-radio-10').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('270');
                         $('#selectprice').text(convertPrice($('#tag-radio-10').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-10').val()
                       })
                     }
                     if (temp.SALE_SIZE == "size_275") {
                       $("#tag11").text(convertpricetext);
                       $("#tag-radio-11").attr("value", temp.sale_price)
                       $('#tag-radio-11').on('click', () => {
-                        $('#selectsize').text('size_275');
+                        size = 'size_275';
+                        price = $('#tag-radio-11').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('275');
                         $('#selectprice').text(convertPrice($('#tag-radio-11').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-11').val()
                       })
                     }
                     else if (temp.SALE_SIZE == "size_280") {
                       $("#tag12").text(convertpricetext);
                       $("#tag-radio-12").attr("value", temp.sale_price)
                       $('#tag-radio-12').on('click', () => {
-                        $('#selectsize').text('size_280');
+                        size = 'size_280';
+                        price = $('#tag-radio-12').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('280');
                         $('#selectprice').text(convertPrice($('#tag-radio-12').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-12').val()
                       })
                     }
                     if (temp.SALE_SIZE == "size_285") {
                       $("#tag13").text(convertpricetext);
                       $("#tag-radio-13").attr("value", temp.sale_price)
                       $('#tag-radio-13').on('click', () => {
-                        $('#selectsize').text('size_285');
+                        size = 'size_285';
+                        price = $('#tag-radio-13').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('285');
                         $('#selectprice').text(convertPrice($('#tag-radio-13').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-13').val()
                       })
                     }
                     else if (temp.SALE_SIZE == "size_290") {
                       $("#tag14").text(convertpricetext);
                       $("#tag-radio-14").attr("value", temp.sale_price)
                       $('#tag-radio-14').on('click', () => {
-                        $('#selectsize').text('size_290');
+                        size = 'size_290';
+                        price = $('#tag-radio-14').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('290');
                         $('#selectprice').text(convertPrice($('#tag-radio-14').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-14').val()
-
                       })
                     }
                     if (temp.SALE_SIZE == "size_295") {
                       $("#tag15").text(convertpricetext);
                       $("#tag-radio-15").attr("value", temp.sale_price)
                       $('#tag-radio-15').on('click', () => {
-                        $('#selectsize').text('size_295');
+                        size = 'size_295';
+                        price = $('#tag-radio-15').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('295');
                         $('#selectprice').text(convertPrice($('#tag-radio-15').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-15').val()
                       })
                     }
                     else if (temp.SALE_SIZE == "size_300") {
                       $("#tag16").text(convertpricetext);
                       $("#tag-radio-16").attr("value", temp.sale_price)
                       $('#tag-radio-16').on('click', () => {
-                        $('#selectsize').text('size_300');
+                        size = 'size_300';
+                        price = $('#tag-radio-16').val();
+                        SetSalesNo(size, price);
+                        $('#selectsize').text('300');
                         $('#selectprice').text(convertPrice($('#tag-radio-16').val()));
-                        size = temp.SALE_SIZE; 
-                        price = $('#tag-radio-16').val()
                       })
 
                     }
+
 
                   })
 
@@ -859,6 +916,7 @@ export const Detail = ({ convertPrice }) => {
   // ----------------- 판매 modal show function--------------------------------------------------------------------------------------------------------------------------------------------
   const SalehandleShow = () => {
 
+
     setSaleShow(true);
     fetch("/api/purchase", {
       method: "POST",
@@ -872,7 +930,7 @@ export const Detail = ({ convertPrice }) => {
       .then((res) => res.json())
       .then(json => {
 
-        console.log(json.data[0].categorydetail);
+
 
 
 
@@ -995,8 +1053,7 @@ export const Detail = ({ convertPrice }) => {
                 .then((res) => res.json())
                 .then(json => {
                   json.data.map((temp, i) => {
-                    console.log(temp.SALE_SIZE)
-                    console.log(temp.sale_price)
+
                     let convertpricetext = convertPrice(temp.sale_price);
                     if (temp.SALE_SIZE == "XS") {
                       $("#tag1").text(convertpricetext);
@@ -1104,12 +1161,12 @@ export const Detail = ({ convertPrice }) => {
               })
                 .then((res) => res.json())
                 .then(json => {
-                  console.log(json.data[0].sale_price)
+
                   const element = document.getElementById('tag1');
                   let convertpricetext = convertPrice(json.data[0].sale_price);
                   $("#tag1").text(convertpricetext);
                   $("#tag-radio-1").attr("value", json.data[0].sale_price)
-                  console.log(convertpricetext)
+
                 })
 
               $('#tag-radio-1').on('click', () => {
@@ -1907,8 +1964,7 @@ export const Detail = ({ convertPrice }) => {
                   <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
                   <span>&nbsp;&nbsp;</span>
                 </div>
-                <Button href='/purchase/buy/42' variant="primary" className={styles.footer_purchase_btn}><span className={styles.footer_purchase_btn_text}>즉시 구매</span></Button>
-              </Modal.Footer>
+                <Button id='salesnobtn' href={`/purchase/buy/1`} variant="primary" className={styles.footer_purchase_btn} ><span className={styles.footer_purchase_btn_text} >즉시 구매</span></Button>          </Modal.Footer>
             </Modal>
 
 

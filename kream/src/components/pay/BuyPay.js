@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
-
+import { Detail } from "../../components/detail/Detail.js"
 
 
 export const BuyPay = (convertPrice) => {
     console.log('구매페이지');
-    const { id } = useParams();
+    const [productid, setProductid] = useState("");
+    const [price, setPrice] = useState();
+    const [size, setSize] = useState("");
+    const [date, setDate] = useState("");
     const [state, setState] = useState([]);
+    const [userid, setUserid] = useState("");
+    const { id } = useParams();
     const [product, setProduct] = useState({});
 
     // -------------------------------------카카오
@@ -75,8 +80,7 @@ export const BuyPay = (convertPrice) => {
             "Content-Type": "application/json; charset=utf-8"
         },
         body: JSON.stringify({
-            // "id": sessionStorage.getItem("loginId"),
-            "ID": id,
+            "id": sessionStorage.getItem("loginId"),
         })
     })
         .then((res) => res.json())
@@ -90,25 +94,23 @@ export const BuyPay = (convertPrice) => {
             <p >상품 정보</p>
             <p >상품 사진 / 이름 / 상품번호 /사이즈 / 가격 / 날짜</p>
             <div >
-                <span>{product.size}</span>
+                <span>상품 사이즈 : {Detail.setSize}</span>
             </div>
 
-            {state.sale && state.sale.map((product) => {
+            {/* {state.sale && state.sale.map((product) => {
                 console.log("구매 들어오나요");
                 return <div >
-                    <div class="item" data-aos="slide-up">
-                        <Link to={`/products/${product.ID}`}>
-                            <div >
-                                <img src={product.image} alt="product" />
-                            </div>
-                        </Link>
+                    <div data-aos="slide-up">
                         <div >
-                            <span>{product.ID}</span>
+                            <span>상품 사이즈 : {product.setSize}</span>
+                        </div>
+                        <div >
+                             <span>상품 가격 : {product.price}</span> 
                         </div>
                         <br /><br /><br />
-                    </div>
+                    </div>0
                 </div>
-            })}
+            })} */}
 
             <input className="set" type="text" value={search} placeholder="상품명, 브랜드, 카테고리 검색" onChange={onSearchHandler} onKeyPress={handleOnKeyPress} ></input>
             <button onClick={onClickPayment}>결제하기</button>
