@@ -79,37 +79,37 @@ COMMIT;
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'sinyeon',300000,'M');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'kbm0225',280000,'S');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'kbm0225',290000,'M');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'hojjin',310000,'L');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'hojin',310000,'L');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(2,'kbm0225',140000,'XS');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(2,'hojjin',160000,'M');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(2,'hojin',160000,'M');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(2,'kbm0225',320000,'L');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(2,'hojjin',310000,'L');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(2,'hojin',310000,'L');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(3,'sinyeon',400000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(3,'kbm0225',420000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(3,'hojjin',500000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(3,'hojin',500000,'onesize');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(4,'sinyeon',1000000,'XS');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(4,'kbm0225',1100000,'S');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(4,'hojjin',1200000,'S');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(4,'hojin',1200000,'S');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(4,'kbm0225',1500000,'L');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(4,'hojjin',1550000,'XL');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(4,'hojin',1550000,'XL');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(5,'sinyeon',100000,'XS');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(5,'kbm0225',110000,'S');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(5,'hojjin',130000,'S');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(5,'hojin',130000,'S');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(5,'kbm0225',210000,'M');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(5,'hojjin',250000,'XL');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(5,'hojin',250000,'XL');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(6,'sinyeon',800000,'XS');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(6,'kbm0225',910000,'S');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(6,'hojjin',920000,'M');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(6,'hojin',920000,'M');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(6,'kbm0225',950000,'M');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(6,'hojjin',1000000,'XL');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(6,'hojin',1000000,'XL');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(7,'sinyeon',1300000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(7,'hojjin',1400000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(7,'hojin',1400000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(7,'kbm0225',1550000,'onesize');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(8,'sinyeon',260000,'onesize');
@@ -118,69 +118,69 @@ insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(8,'siny
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(9,'sinyeon',370000,'XS');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(9,'kbm0225',360000,'S');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(9,'hojjin',380000,'S');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(9,'hojin',380000,'S');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(9,'kbm0225',410000,'L');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(9,'hojjin',390000,'XL');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(9,'hojin',390000,'XL');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(10,'sinyeon',900000,'XS');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(10,'kbm0225',1000000,'S');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(10,'hojjin',1200000,'M');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(10,'hojin',1200000,'M');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(10,'kbm0225',1500000,'M');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(10,'hojjin',1300000,'XL');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(10,'hojin',1300000,'XL');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(11,'sinyeon',110000,'XS');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(11,'kbm0225',210000,'S');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(11,'hojjin',230000,'M');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(11,'hojin',230000,'M');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(11,'kbm0225',250000,'L');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(11,'hojjin',370000,'XL');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(11,'hojin',370000,'XL');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(12,'sinyeon',19000000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(12,'kbm0225',20000000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(12,'hojjin',22000000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(12,'hojin',22000000,'onesize');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(13,'sinyeon',890000,'XS');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(13,'kbm0225',950000,'S');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(13,'hojjin',1000000,'M');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(13,'hojin',1000000,'M');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(13,'kbm0225',1005000,'L');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(13,'hojjin',1300000,'XL');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(13,'hojin',1300000,'XL');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(13,'kbm0225',1400000,'XL');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(14,'sinyeon',450000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(14,'kbm0225',500000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(14,'hojjin',520000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(14,'hojin',520000,'onesize');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(15,'sinyeon',450000,'XS');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(15,'kbm0225',460000,'S');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(15,'hojjin',500000,'M');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(15,'hojin',500000,'M');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(15,'kbm0225',550000,'L');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(15,'hojjin',570000,'XL');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(15,'hojin',570000,'XL');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(15,'kbm0225',590000,'XL');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(16,'sinyeon',4150000,'XS');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(16,'kbm0225',4200000,'S');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(16,'hojjin',4200000,'M');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(16,'hojin',4200000,'M');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(16,'kbm0225',4500000,'L');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(16,'hojjin',4500000,'L');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(16,'hojin',4500000,'L');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(16,'kbm0225',4800000,'XL');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(17,'sinyeon',600000,'XS');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(17,'kbm0225',620000,'S');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(17,'hojjin',650000,'M');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(17,'hojin',650000,'M');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(17,'kbm0225',670000,'L');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(17,'hojjin',670000,'XL');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(17,'hojin',670000,'XL');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(17,'kbm0225',690000,'XL');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(18,'sinyeon',210000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(18,'kbm0225',220000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(18,'hojjin',250000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(18,'hojin',250000,'onesize');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(19,'sinyeon',2100000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(19,'kbm0225',2200000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(19,'hojjin',2300000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(19,'hojin',2300000,'onesize');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(20,'sinyeon',450000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(20,'kbm0225',500000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(20,'hojjin',520000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(20,'hojin',520000,'onesize');
 
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(21,'sinyeon',217000,'size_30ml');
@@ -195,76 +195,76 @@ insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(22,'kbm
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(23,'sinyeon',113000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(23,'kbm0225',115000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(23,'hojjin',118000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(23,'hojin',118000,'onesize');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(24,'sinyeon',4950000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(24,'kbm0225',5000000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(24,'hojjin',5100000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(24,'hojin',5100000,'onesize');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(25,'sinyeon',201000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(25,'kbm0225',210000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(25,'hojjin',220000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(25,'hojin',220000,'onesize');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(26,'sinyeon',205000,'size_30ml');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(26,'kbm0225',210000,'size_30ml');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(26,'hojjin',315000,'size_100ml');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(26,'hojin',315000,'size_100ml');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(26,'sinyeon',320000,'size_100ml');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(27,'sinyeon',375000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(28,'kbm0225',34000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(29,'hojjin',432000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(29,'hojin',432000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(30,'sinyeon',481000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(31,'kbm0225',693000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(32,'hojjin',309000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(32,'hojin',309000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(33,'sinyeon',584000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(34,'kbm0225',248000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(35,'hojjin',681000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(35,'hojin',681000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(36,'kbm0225',713000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(37,'hojjin',590000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(37,'hojin',590000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(38,'sinyeon',728000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(39,'kbm0225',1506000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(40,'hojjin',1609000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(40,'hojin',1609000,'onesize');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(41,'sinyeon',120000,'size_225');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(41,'kbm0225',140000,'size_230');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(41,'hojjin',210000,'size_245');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(41,'hojin',210000,'size_245');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(41,'kbm0225',300000,'size_255');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(41,'sinyeon',250000,'size_265');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(41,'hojjin',150000,'size_280');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(41,'hojin',150000,'size_280');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(41,'sinyeon',170000,'size_285');
 
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'hojjin',480000,'size_230');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'hojin',480000,'size_230');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'sinyeon',650000,'size_250');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'kbm0225',700000,'size_255');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'kbm0225',550000,'size_265');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'hojjin',500000,'size_280');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'hojin',500000,'size_280');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'sinyeon',510000,'size_285');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'kbm0225',450000,'size_295');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(42,'kbm0225',430000,'size_300');
 
 
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'hojjin',480000,'size_230');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'hojjin',490000,'size_235');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'hojin',480000,'size_230');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'hojin',490000,'size_235');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'sinyeon',630000,'size_240');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'kbm0225',600000,'size_245');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'sinyeon',650000,'size_250');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'kbm0225',700000,'size_255');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'kbm0225',550000,'size_265');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'hojjin',500000,'size_280');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'hojin',500000,'size_280');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'sinyeon',510000,'size_285');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'kbm0225',450000,'size_295');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'kbm0225',430000,'size_300');
 
 
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'hojjin',122000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(43,'hojin',122000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(44,'sinyeon',59000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(45,'kbm0225',126000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(46,'hojjin',166000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(46,'hojin',166000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(47,'kbm0225',418000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(48,'hojjin',95000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(48,'hojin',95000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(49,'sinyeon',217000,'onesize');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(50,'kbm0225',131000,'onesize');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(51,'hojjin',1040000,'onesize');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(51,'hojin',1040000,'onesize');
 
 
 --- 
@@ -272,14 +272,14 @@ insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(51,'hoj
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'sinyeon',300000,'L');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'kbm0225',282000,'L');
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'kbm0225',293000,'L');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'hojjin',310000,'L');
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'hojjin',315000,'L');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'hojin',310000,'L');
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(1,'hojin',315000,'L');
 
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE,SALE_CHECK) values(1,'sinyeon',300000,'L',1);
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE,SALE_CHECK) values(1,'kbm0225',282000,'L',1);
 insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE,SALE_CHECK) values(1,'kbm0225',293000,'L',1);
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE,SALE_CHECK) values(1,'hojjin',310000,'L',1);
-insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE,SALE_CHECK) values(1,'hojjin',315000,'L',1);
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE,SALE_CHECK) values(1,'hojin',310000,'L',1);
+insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE,SALE_CHECK) values(1,'hojin',315000,'L',1);
 
 SELECT SALE_SIZE,SALE_PRICE,SALE_DATE from SALE WHERE SALE_CHECK = 1 ORDER BY SALE_DATE;
 SELECT  * FROM sale;
@@ -293,9 +293,9 @@ insert into cart(CART_USERID,CART_SALENO) values('sinyeon',1);
 insert into cart(CART_USERID,CART_SALENO) values('sinyeon',3);
 insert into cart(CART_USERID,CART_SALENO) values('sinyeon',5);
 insert into cart(CART_USERID,CART_SALENO) values('sinyeon',7);
-insert into cart(CART_USERID,CART_SALENO) values('hojjin',2);
-insert into cart(CART_USERID,CART_SALENO) values('hojjin',4);
-insert into cart(CART_USERID,CART_SALENO) values('hojjin',6);
+insert into cart(CART_USERID,CART_SALENO) values('hojin',2);
+insert into cart(CART_USERID,CART_SALENO) values('hojin',4);
+insert into cart(CART_USERID,CART_SALENO) values('hojin',6);
 insert into cart(CART_USERID,CART_SALENO) values('kbm0225',8);
 insert into cart(CART_USERID,CART_SALENO) values('kbm0225',9);
 insert into cart(CART_USERID,CART_SALENO) values('kbm0225',10);
