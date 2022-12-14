@@ -58,6 +58,7 @@ export const Cart = ({ convertPrice }) => {
 
     // 상품삭제기능 : id값이 일치하면 삭제
     const handleRemove = (saleno) => {
+        console.log("클릭한 상품의 saleno : " + saleno);
         fetch("/api/cart/delete", {
             method: "post",
             headers: {

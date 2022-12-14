@@ -340,7 +340,7 @@ app.post('/api/cart/delete', (req, res) => {
   const userid = req.body.userid;
   const cart_saleno = req.body.cart_saleno;
   maria.query("delete from cart where CART_USERID='" + userid +
-    "' and CART_PRODUCTID = " + cart_saleno, (err, data) => {
+    "' and CART_SALENO = " + cart_saleno, (err, data) => {
       if (!err) {
         res.send({ cart: data });
       }
