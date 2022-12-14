@@ -37,8 +37,11 @@ import Register from "./components/loginregister/register"
 import DetailPage from './pages/DetailPage';
 import { Detail } from './components/detail/Detail';
 
-import Buy from './pages/Buy';
-import Sell from './pages/Sell';
+//구매 판매페이지
+import { Buy } from './pages/Buy';
+// import Sell from './pages/Sell';
+// import { Buy } from './components/pay/BuyPay';
+// import { Sell } from './components/pay/SellPay';
 
 import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
@@ -158,14 +161,16 @@ function App() {
                 <Provider store={store}> <Cloth products={products}
                   setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route path="/mypage" element={<Mypage />} >
-              <Route path="/mypage/salelist" element={
-                <Provider store={store}> <Mysale convertPrice={convertPrice} /></Provider>} />
-                   <Route path="/mypage/buylist" element={
-                  <Provider store={store}> <Mybuy  convertPrice={convertPrice} /></Provider>} />
-              <Route path='/mypage/profile' element={<Myprofile />} /> </Route>
+                <Route path="/mypage/salelist" element={
+                  <Provider store={store}> <Mysale convertPrice={convertPrice} /></Provider>} />
+                <Route path="/mypage/buylist" element={
+                  <Provider store={store}> <Mybuy convertPrice={convertPrice} /></Provider>} />
+                <Route path='/mypage/profile' element={<Myprofile />} /> </Route>
               <Route path="/dummy" element={<Dummy />} />
-              <Route path="/buy" element={<Buy />} />
-              <Route path="/sell" element={<Sell />} />
+              <Route path="/purchase/buy" element={
+                  <Provider store={store}> <Buy products={products}
+                    setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
+              {/* <Route path="/sell" element={<Sell />} /> */}
             </Routes>
           </div>
           <footer1 >
