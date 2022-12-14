@@ -5,20 +5,15 @@ import { Link } from 'react-router-dom';
 
 export const BuyPay = (convertPrice) => {
     console.log('구매페이지');
-    const [productid, setProductid] = useState("");
-    const [price, setPrice] = useState();
-    const [sixe, setSize] = useState("");
-    const [date, setDate] = useState("");
     const [state, setState] = useState([]);
-    const [userid, setUserid] = useState("");
-
+    const [product, setProduct] = useState({});
     fetch("/api/purchase/buy", {
         method: "POST",
         headers: {
             "Content-Type": "application/json; charset=utf-8"
         },
         body: JSON.stringify({
-            "id": sessionStorage.getItem("loginId")
+            "ID": product.id,
         })
     })
         .then((res) => res.json())
@@ -32,7 +27,7 @@ export const BuyPay = (convertPrice) => {
             <p >상품 정보</p>
             <p >상품 사진 / 이름 / 상품번호 /사이즈 / 가격 / 날짜</p>
             {state.sale && state.sale.map((product) => {
-                if (!state.sale) return 'no data';
+                console.log("구매 들어오나요");
                 return <div >
                     <div class="item" data-aos="slide-up">
                         <Link to={`/products/${product.SALE_PRODUCTID}`}>

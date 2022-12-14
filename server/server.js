@@ -46,13 +46,12 @@ app.post('/api/purchase', (req, res) => {
 //구매페이지
 app.post('/api/purchase/buy', (req, res) => {
   console.log('buyPay');
-  let SALE_PRODUCTID = "";
-  const id = req.body.id;
+  const id = req.body.ID;
+  console.log(id);
   maria.query("select * from products where id='" + id + "'", (err, data) => {
     console.log('success');
     if (!err) {
       res.send({ sale: data });
-      SALE_PRODUCTID = data.SALE_PRODUCTID;
     }
     else res.send(err);
   });
