@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect} from 'react'
 import styles from "./mypage.module.css";
 import { json, Link, Outlet  } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { render } from "react-dom";
 
 import Login from '../loginregister/Login.js';
-
+import {Myprofile} from './myprofile';
 
 
 
@@ -18,7 +18,11 @@ export const Mypage = () => {
   const [useremail, setUseremail] = useState("");
   const [userphonenumber, setUserphonenumber] = useState("");
   const [useraddress, setAddress] = useState("");
-
+  
+  useEffect(() => {
+    <Myprofile/>
+  
+  }, []);
 
 
   if (sessionStorage.getItem("loginId") === "" || sessionStorage.getItem("loginId") === null) {
@@ -29,15 +33,15 @@ export const Mypage = () => {
 
       return (
         <><br/>
-          <ul>
-            <li>
-              <Link to="/mypage/profile">내 프로필</Link>
+          <ul >
+            <li >
+              <Link className={styles.linklist} to="/mypage/profile">내 프로필</Link>
             </li>
             <li>
-              <Link to="/mypage/salelist">내가 판매중인 상품</Link>
+              <Link className={styles.linklist} to="/mypage/salelist">내가 판매중인 상품</Link>
             </li>
             <li>
-              <Link to="/mypage/buylist">내가 구매한 상품</Link>
+              <Link className={styles.linklist} to="/mypage/buylist">내가 구매한 상품</Link>
             </li>
           </ul>
           <Outlet />    

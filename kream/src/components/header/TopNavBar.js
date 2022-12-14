@@ -54,7 +54,7 @@ export const TopNavBar = () => {
                 )}
               </li>
               <li className={styles.top_item}>
-                <Link to="/mypage" className={styles.top_link}>마이페이지</Link>
+                <Link to="/mypage/profile" className={styles.top_link}>마이페이지</Link>
               </li>
               <li className={styles.top_item}>
                 {sessionStorage.getItem("loginId") !== null && sessionStorage.getItem("loginId") !== "" ? (
