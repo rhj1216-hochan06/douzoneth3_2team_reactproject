@@ -229,7 +229,28 @@
   line-height: 22px;
   color: #ffffff;
 }
-
+.header_text_title{
+  font-size: 25px;
+  font-weight: bold;
+  color:orangered;
+}
+.footer_text_title{
+  font-size: 25px;
+  font-weight: bold;
+}
+.footer_text_content{
+  font-size: 25px;
+  font-weight: bold;
+  color:orangered;
+}
+.footer_purchase_btn{
+  width: 200px;
+  height: 60px;
+}
+.footer_purchase_btn_text{
+  font-size: 20px;
+  font-weight: bold;
+}
 .desc {
   margin-top: 140px;
 }

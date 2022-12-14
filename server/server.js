@@ -28,7 +28,7 @@ app.post('/api/detail', (req, res) => {
 
 
 // detail --- 구매 부분
-app.post('/api/perchase', (req, res) => {
+app.post('/api/purchase', (req, res) => {
   const id = req.body.id;
 
   maria.query("SELECT categorydetail FROM products WHERE id = ?", [id],
@@ -44,7 +44,7 @@ app.post('/api/perchase', (req, res) => {
 
 })
 
-app.post('/api/perchase/threesize', (req, res) => {
+app.post('/api/purchase/threesize', (req, res) => {
   const id = req.body.id;
   maria.query("SELECT XS,S,M,L,XL FROM stock WHERE id = ?", [id],
     function (err, data) {
@@ -56,7 +56,7 @@ app.post('/api/perchase/threesize', (req, res) => {
 })
 
 
-app.post('/api/perchase/onesize', (req, res) => {
+app.post('/api/purchase/onesize', (req, res) => {
   const id = req.body.id;
   maria.query("SELECT onesize FROM stock WHERE id = ?", [id],
     function (err, data) {
@@ -68,7 +68,7 @@ app.post('/api/perchase/onesize', (req, res) => {
 })
 
 
-app.post('/api/perchase/perfume', (req, res) => {
+app.post('/api/purchase/perfume', (req, res) => {
   const id = req.body.id;
   maria.query("SELECT size_30ml,size_100ml FROM stock WHERE id = ?", [id],
     function (err, data) {
@@ -81,7 +81,7 @@ app.post('/api/perchase/perfume', (req, res) => {
 
 })
 
-app.post('/api/perchase/shoe', (req, res) => {
+app.post('/api/purchase/shoe', (req, res) => {
   const id = req.body.id;
   maria.query("SELECT size_225,size_230,size_235,size_240,size_245,size_250,size_255,size_260,size_265,size_270,size_275,size_280,size_285,size_290,size_295,size_300 FROM stock WHERE id = ?", [id],
     function (err, data) {
@@ -93,7 +93,7 @@ app.post('/api/perchase/shoe', (req, res) => {
 
 
 })
-app.post('/api/perchase/size/price', (req, res) => {
+app.post('/api/purchase/size/price', (req, res) => {
   const id = req.body.id;
   maria.query("SELECT MIN(sale_price) AS sale_price ,SALE_SIZE FROM sale WHERE sale_productid = ? group by sale_size", [id],
     function (err, data) {
