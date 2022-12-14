@@ -697,6 +697,7 @@ export const Detail = ({ convertPrice }) => {
                         $('#selectprice').text(convertPrice($('#tag-radio-2').val()));
                         size = temp.SALE_SIZE; 
                         price = $('#tag-radio-2').val()
+                        console.log(size);
                       })
                     }
                     if (temp.SALE_SIZE == "size_235") {
@@ -817,6 +818,7 @@ export const Detail = ({ convertPrice }) => {
                         $('#selectprice').text(convertPrice($('#tag-radio-14').val()));
                         size = temp.SALE_SIZE; 
                         price = $('#tag-radio-14').val()
+
                       })
                     }
                     if (temp.SALE_SIZE == "size_295") {

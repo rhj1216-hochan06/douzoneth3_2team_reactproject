@@ -175,10 +175,6 @@ function App() {
                   <Provider store={store}> <Buy products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               {/* <Route path="/sell" element={<Sell />} /> */}
-
-
-
-
               <Route path="/kakao" element={<Kakao />} />
             </Routes>
           </div>

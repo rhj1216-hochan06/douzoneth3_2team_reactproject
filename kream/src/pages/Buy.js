@@ -1,11 +1,8 @@
 import { BuyPay } from "../components/pay/BuyPay.js";
 
-const Buy = ({convertPrice, setProducts, products}) => {
+const Buy = () => {
   return (
     <BuyPay
-      convertPrice={convertPrice}
-      setProducts={setProducts}
-      products={products}
     />
   )
 }
