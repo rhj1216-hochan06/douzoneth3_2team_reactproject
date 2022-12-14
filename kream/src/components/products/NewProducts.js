@@ -18,7 +18,11 @@ export const NewProducts = ({ convertPrice }) => {
         },
     })
         .then((res) => res.json())
-        .then(json => setState(json));
+        .then(json => {
+            setState(json);
+            
+        });
+
     //--------------------------------------------------------끝
 
     useEffect(() => {
