@@ -316,7 +316,7 @@ app.post('/api/nav', (req, res) => {
 })
 
 app.post('/api/cart', (req, res) => {
-  maria.query("SELECT id,name,provider,price,image,category,cart_count from products p INNER JOIN cart ON id = CART_PRODUCTID where cart_USERID = '"
+  maria.query("SELECT c.cart_userid,c.cart_saleno,p.name,p.provider,p.image,s.sale_price,s.sale_check,s.sale_size from products p INNER JOIN SALE s ON id = SALE_PRODUCTID INNER JOIN CART c ON CART_SALENO = SALE_NO where CART_USERID = '"
     + req.body.id + "'", (err, data) => {
       if (!err) {
         res.send({ cart: data });
@@ -338,9 +338,9 @@ app.post('/api/cart/count', (req, res) => {
 
 app.post('/api/cart/delete', (req, res) => {
   const userid = req.body.userid;
-  const product_id = req.body.pid;
+  const cart_saleno = req.body.cart_saleno;
   maria.query("delete from cart where CART_USERID='" + userid +
-    "' and CART_PRODUCTID = " + product_id, (err, data) => {
+    "' and CART_PRODUCTID = " + cart_saleno, (err, data) => {
       if (!err) {
         res.send({ cart: data });
       }
