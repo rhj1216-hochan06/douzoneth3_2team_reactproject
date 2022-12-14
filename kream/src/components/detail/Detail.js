@@ -6,9 +6,7 @@ import styles from "./detail.module.css";
 //-----------구매 function import-------------------
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-
 import Row from 'react-bootstrap/Row';
-
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -898,7 +896,7 @@ startTimer();
 
           <div className={styles.btn}>
             <Button className={styles.btn_buy} data-bs-toggle={"modal"} data-bs-target={"#exampleModal"} data-bs-whatever={"@mdo"}>바로 구매</Button>
-
+            
             <Button variant="primary" className={styles.btn_modal} onClick={handleShow}>
               판매
             </Button>

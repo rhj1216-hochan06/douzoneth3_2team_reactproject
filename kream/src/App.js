@@ -155,11 +155,12 @@ function App() {
               <Route path="cloth" element={
                 <Provider store={store}> <Cloth products={products}
                   setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
-
               <Route path="/mypage/salelist" element={
                 <Provider store={store}> <Mysale convertPrice={convertPrice} /></Provider>} />
               <Route path='/mypage/profile' element={<Myprofile />} />
               <Route path="/dummy" element={<Dummy />} />
+              <Route path="/buy" element={<Buy />} />
+              <Route path="/sell" element={<Sell />} />
             </Routes>
           </div>
           <footer1 >

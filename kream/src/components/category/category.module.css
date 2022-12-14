@@ -164,18 +164,16 @@ product
 /* ----------------- */
 .shop {
   text-align: center;
+  font-weight: 600;
 }
 
 .category {
   text-align: center;
   padding-left: 0px;
   margin-left: auto;
+  margin-top: 5px;
 }
 
-.category1 {
-  font-size: 18px;
-  margin-left: 20px;
-}
 
 .pagenationImg {
   width: 40px;
@@ -192,4 +190,39 @@ product
 
 .page1 {
   float: left;
+}
+
+.img {
+  width: 70px;
+  height: 70px;
+  margin: 0px 25px 0px 20px;
+}
+
+.Categoryimg {
+  text-align-last: center;
+}
+
+.category1 {
+  font-size: 18px;
+  margin-left: 30px;
+}
+
+.category3 {
+  font-size: 18px;
+  margin-left: 30px;
+}
+
+.category4 {
+  font-size: 18px;
+  margin-left: 45px;
+}
+
+.category5 {
+  font-size: 18px;
+  margin-left: 60px;
+}
+
+.category6 {
+  font-size: 18px;
+  margin-left: 50px;
 }

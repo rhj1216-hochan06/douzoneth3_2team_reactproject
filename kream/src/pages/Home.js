@@ -35,8 +35,10 @@ export const Home = ({ convertPrice, setProducts, products }) => {
             </Link>
           </div>
         </div>
-      </main><br/>
-      <div className={styles.line}></div>
+      </main><br />
+      <main className={styles.flex_wrap}>
+        <div className={styles.line}></div>
+      </main>
       <main className={styles.flex_wrap}>
         <div>
           <div className={styles.newProducts}>
