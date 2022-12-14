@@ -37,6 +37,9 @@ import Register from "./components/loginregister/register"
 import DetailPage from './pages/DetailPage';
 import { Detail } from './components/detail/Detail';
 
+import Buy from './pages/Buy';
+import Sell from './pages/Sell';
+
 import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
 //shop
