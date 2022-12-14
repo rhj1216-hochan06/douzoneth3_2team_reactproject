@@ -1,0 +1,69 @@
+import React, { useEffect, useState } from 'react';
+
+export const Payment = (effect, deps) => {
+    const [search, setSearch] = useState("");
+
+    const onSearchHandler = (event) => {
+        setSearch(event.currentTarget.value)
+    }
+
+    const handleOnKeyPress = e => {
+        if (e.key === 'Enter') {
+            console.log(search)
+            onClickPayment();
+            //   onSearch(); // Enter 입력이 되면 클릭 이벤트 실행
+        }
+    };
+
+
+
+    useEffect(() => {
+        const jquery = document.createElement("script");
+        jquery.src = "https://code.jquery.com/jquery-1.12.4.min.js";
+        const iamport = document.createElement("script");
+        iamport.src = "https://cdn.iamport.kr/js/iamport.payment-1.1.7.js";
+        document.head.appendChild(jquery);
+        document.head.appendChild(iamport);
+        return () => {
+            document.head.removeChild(jquery);
+            document.head.removeChild(iamport);
+        }
+    }, []);
+
+    const onClickPayment = () => {
+        const { IMP } = window;
+        IMP.init("imp54465658"); // 결제 데이터 정의
+        const data = {
+            pg: 'kakaopay.TC0ONETIME', // PG사 (필수항목)
+            pay_method: 'card', // 결제수단 (필수항목)
+            merchant_uid: `mid_${new Date().getTime()}`, // 결제금액 (필수항목)
+            name: '결제 테스트', // 주문명 (필수항목)
+            amount: `${search}`, // 금액 (필수항목)
+            // custom_data: { name: '부가정보', desc: '세부 부가정보' },
+            // buyer_name: ["asd"], // 구매자 이름
+            // buyer_tel: ["01083259911"], // 구매자 전화번호 (필수항목)
+            // buyer_email: ["rdfdfa@asda.com"], // 구매자 이메일
+            // buyer_addr: ["주소"],
+            // buyer_postalcode: ["우편번호"]
+        };
+        IMP.request_pay(data, callback);
+    }
+
+    const callback = (response) => {
+        const { success, error_msg, imp_uid, merchant_uid, pay_method, paid_amount, status } = response;
+        if (success) {
+            alert('결제 성공');
+            window.location.href = "/"
+        } else {
+            alert(`결제 실패 : ${error_msg}`);
+            window.location.href = "/products"
+        }
+    }
+
+    return (
+        <>
+            <input className="set" type="text" value={search} placeholder="상품명, 브랜드, 카테고리 검색" onChange={onSearchHandler} onKeyPress={handleOnKeyPress} ></input>
+            <button onClick={onClickPayment}>결제하기</button>
+        </>
+    );
+}

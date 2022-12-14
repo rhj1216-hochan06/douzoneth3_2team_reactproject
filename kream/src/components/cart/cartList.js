@@ -1,16 +1,21 @@
 import styles from "./cart.module.css";
 
-export const CartList = ({ cart , convertPrice , handleQuantity, handleRemove, handleCheckList, checkLists}) => {
+export const CartList = ({ cart 
+                        , convertPrice 
+                        // , handleQuantity
+                        , handleRemove
+                        , handleCheckList
+                        , checkLists}) => {
   return(
     <section className={styles.cart_product_list}>
     <input
         type="checkbox"
-        id={cart.id}
+        id={cart.cart_saleno}
         onChange={(e) =>{
-          handleCheckList(e.currentTarget.checked, `${cart.id}`);
+          handleCheckList(e.currentTarget.checked, `${cart.cart_saleno}`);
           //체크되면 현재체크리스트에 해당 id를 추가하고, 체크해제면 현재 체크리스트에서 id제거
         }}
-        checked={checkLists.includes(`${cart.id}`) ? true : false}
+        checked={checkLists.includes(`${cart.cart_saleno}`) ? true : false}
         //체크리스트에 없으면 false 있으면 true
       />
       
@@ -22,12 +27,12 @@ export const CartList = ({ cart , convertPrice , handleQuantity, handleRemove, h
         <div className={styles.cart_product_info}>
             <p className={styles.seller_store}>{cart.provider}</p>
             <p className={styles.product_name}>{cart.name}</p>
-            <p className={styles.price}>{convertPrice(cart.price)}원</p>
+            <p className={styles.price}>{convertPrice(cart.sale_price)}원</p>
             <p className={styles.delivery}>택배배송 / 무료배송</p>
         </div>
     </div>
 
-    <div className={styles.cart_product_count}>
+    {/* <div className={styles.cart_product_count}>
         <img
             className={styles.minus} 
             src="/images/icon-minus-line.svg"
@@ -44,8 +49,10 @@ export const CartList = ({ cart , convertPrice , handleQuantity, handleRemove, h
             alt="plus"
             onClick={()=>handleQuantity(cart.id,"plus",cart.cart_count)}
         />
+    </div> */}
+    <div>
+        {cart.sale_size}
     </div>
-
     <div className={styles.cart_product_price}>
         <p className={styles.total_price}></p>
         <button className={styles.btn_submit}>주문하기</button>
@@ -53,7 +60,7 @@ export const CartList = ({ cart , convertPrice , handleQuantity, handleRemove, h
 
     <div className={styles.product_remove} 
     onClick={() => {
-        handleRemove(cart.id);
+        handleRemove(cart.cart_saleno);
     } 
     }>
         <img src="/images/icon-delete.svg" alt="delete" />
