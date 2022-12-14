@@ -54,6 +54,10 @@ import { Mysale } from './components/mypage/mysalelist';
 import { Mybuy } from './components/mypage/mybuylist';
 import { Myprofile } from './components/mypage/myprofile';
 
+//결제
+import { Kakao } from './pages/Kakao'
+
+
 function App() {
   //상품 변수 정의
   const [products, setProducts] = useState([]);
@@ -168,9 +172,14 @@ function App() {
                 <Route path='/mypage/profile' element={<Myprofile />} /> </Route>
               <Route path="/dummy" element={<Dummy />} />
               <Route path="/purchase/buy" element={
-                  <Provider store={store}> <Buy products={products}
-                    setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
+                <Provider store={store}> <Buy products={products}
+                  setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               {/* <Route path="/sell" element={<Sell />} /> */}
+
+
+
+
+              <Route path="/kakao" element={<Kakao />} />
             </Routes>
           </div>
           <footer1 >
