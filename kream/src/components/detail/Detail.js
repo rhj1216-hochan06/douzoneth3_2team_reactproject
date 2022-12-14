@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "./detail.module.css";
 
 //-----------구매 function import--------------------------------------------------------------------------------------------------------------
@@ -40,6 +40,12 @@ export const Detail = ({ convertPrice }) => {
   const CarthandleClose = () => setCartShow(false);
   const [saleno,setSaleno] = useState([]);
 
+ 
+    //sessionStorage.setItem("sales_no", "숫자");
+    //sessionStorage.getItem("loginId")
+
+
+  ///////////////////////////////////////////////////////////
 
   const SetSalesNo = (size, price) => {
 
@@ -58,8 +64,9 @@ export const Detail = ({ convertPrice }) => {
       .then(json => {
         setSaleno(json.data[0]);
         sales_no = json.data[0].SALE_NO;
-        var link= '/purchase/buy/' + sales_no;
-        $('#salesnobtn').attr('href',link);
+        sessionStorage.setItem("sales_no",sales_no);
+        var link = '/purchase/buy/' + sales_no;
+        $('#salesnobtn').attr('href', link);
       })
   }
 
@@ -1968,7 +1975,13 @@ export const Detail = ({ convertPrice }) => {
                   <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
                   <span>&nbsp;&nbsp;</span>
                 </div>
-                <Button id='salesnobtn' href={`/purchase/buy/1`} variant="primary" className={styles.footer_purchase_btn} ><span className={styles.footer_purchase_btn_text} >즉시 구매</span></Button>          </Modal.Footer>
+                
+                <Button  id='salesnobtn' href={`/purchase/buy/1`} variant="primary" className={styles.footer_purchase_btn} ><span className={styles.footer_purchase_btn_text} >즉시 구매</span></Button>
+                {/* <Link to="/purchase/buy/1">
+                  <input type="button" id='salesnobtn' variant="primary" className={styles.footer_purchase_btn} />
+                  <span className={styles.footer_purchase_btn_text} >즉시 구매</span>
+                </Link> */}
+              </Modal.Footer>
             </Modal>
 
 
