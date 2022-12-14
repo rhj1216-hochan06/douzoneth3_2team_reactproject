@@ -5,9 +5,7 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 
 export const ManRecommend = ({ products, setProducts, convertPrice }) => {
-
-  //--aos
-  useEffect(() => {
+  const onA = (event) => {
     AOS.init();
     fetch("/api/manRecommend", {
       method: "get",
@@ -19,12 +17,17 @@ export const ManRecommend = ({ products, setProducts, convertPrice }) => {
       .then((res) => res.json())
       .then(json => setState(json));
 
-  },[])
+  }
+
+  //--aos
+  useEffect(() => {
+    onA();
+  }, [])
 
   //---------------------------------------------------DAO 시작
   const [state, setState] = useState([]);
 
-  
+
   //--------------------------------------------------------끝
 
   return (
