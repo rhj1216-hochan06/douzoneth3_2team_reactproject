@@ -149,17 +149,16 @@ function App() {
               <Route path="/christmas" element={
                 <Provider store={store}> <Christmas products={products}
                   setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
-              <Route
-                path="/mypage" element={<Mypage
-                />} />
-              <Route path="cloth" element={
+              <Route path="/cloth" element={
                 <Provider store={store}> <Cloth products={products}
                   setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
-
-              <Route path="/mypage/salelist" element={
-                <Provider store={store}> <Mysale convertPrice={convertPrice} /></Provider>} />
-              <Route path='/mypage/profile' element={<Myprofile />} />
-              <Route path="/dummy" element={<Dummy />} />
+              <Route path="/mypage" element={<Mypage />}>
+                <Route path="/mypage/salelist" element={
+                  <Provider store={store}> <Mysale convertPrice={convertPrice} /></Provider>} />
+                <Route path='/mypage/profile' element={<Myprofile />} /> </Route>
+              <Route
+                path="/dummy" element={<Dummy
+                />} />
             </Routes>
           </div>
           <footer1 >
