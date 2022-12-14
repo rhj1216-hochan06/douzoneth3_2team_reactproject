@@ -41,9 +41,11 @@ import Basket from './pages/Basket.js';
 import { Provider, useSelector } from 'react-redux';
 //shop
 import { Search } from "./pages/Search";
+//mypage
 import { Mypagepage } from './pages/Mypagepage';
 import { Mypage } from './components/mypage/mypage';
 import { Mysale } from './components/mypage/mysalelist';
+import { Mybuy } from './components/mypage/mybuylist';
 import { Myprofile } from './components/mypage/myprofile';
 
 function App() {
@@ -151,16 +153,11 @@ function App() {
                   setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route
                 path="/mypage" element={<Mypage
-<<<<<<< HEAD
-                />} />
-              <Route path="cloth" element={
-                <Provider store={store}> <Cloth products={products}
-                  setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
-=======
                 />}><Route path="/mypage/salelist" element={
                   <Provider store={store}> <Mysale  convertPrice={convertPrice} /></Provider>} />
+                  <Route path="/mypage/buylist" element={
+                  <Provider store={store}> <Mybuy  convertPrice={convertPrice} /></Provider>} />
                 <Route path='/mypage/profile' element={<Myprofile />} /> </Route>
->>>>>>> bomin
               <Route
                 path="/dummy" element={<Dummy
                 />} />

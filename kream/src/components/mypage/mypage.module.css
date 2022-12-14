@@ -51,6 +51,7 @@
   .product {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
   
   .product_image {
@@ -279,6 +280,7 @@
     height: 270px;
     border-radius: 10px;
     margin-bottom: 5px;
+    float: left;
   }
   
   .product_image img {
@@ -290,6 +292,7 @@
   
   .store {
     margin-bottom: 5px;
+    float: left;
   }
   
   .store span {
@@ -302,6 +305,7 @@
   
   .product_name {
     margin-bottom: 0px;
+    float: left;
   }
   
   .product_name span {

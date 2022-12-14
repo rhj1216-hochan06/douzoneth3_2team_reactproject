@@ -28,13 +28,16 @@ export const Mypage = () => {
 
 
       return (
-        <>
+        <><br/>
           <ul>
             <li>
-              <Link to="/mypage/profile">mypageprofile</Link>
+              <Link to="/mypage/profile">내 프로필</Link>
             </li>
             <li>
-              <Link to="/mypage/salelist">mypagesale</Link>
+              <Link to="/mypage/salelist">내가 판매중인 상품</Link>
+            </li>
+            <li>
+              <Link to="/mypage/buylist">내가 구매한 상품</Link>
             </li>
           </ul>
           <Outlet />    
