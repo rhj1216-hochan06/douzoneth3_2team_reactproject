@@ -1533,6 +1533,7 @@ const SalehandleShow = () => {
                     $('#tag-radio-1').on('click', () => { 
                     $('#selectsize').text('size_225');
                     $('#selectprice').text(convertPrice($('#tag-radio-1').val()));})
+
                     $('#tag-radio-2').on('click', () => { 
                     $('#selectsize').text('size_230');
                     $('#selectprice').text(convertPrice($('#tag-radio-2').val()));})
@@ -1544,39 +1545,51 @@ const SalehandleShow = () => {
                     $('#tag-radio-4').on('click', () => { 
                     $('#selectsize').text('size_240');
                     $('#selectprice').text(convertPrice($('#tag-radio-4').val()));})
+
                     $('#tag-radio-5').on('click', () => { 
                     $('#selectsize').text('size_245');
                     $('#selectprice').text(convertPrice($('#tag-radio-5').val()));})
+
                     $('#tag-radio-6').on('click', () => { 
                     $('#selectsize').text('size_250');
                     $('#selectprice').text(convertPrice($('#tag-radio-6').val()));})
+
                     $('#tag-radio-7').on('click', () => { 
                     $('#selectsize').text('size_255');
                     $('#selectprice').text(convertPrice($('#tag-radio-7').val()));})
+
                     $('#tag-radio-8').on('click', () => { 
                     $('#selectsize').text('size_260');
                     $('#selectprice').text(convertPrice($('#tag-radio-8').val()));})
+
                     $('#tag-radio-9').on('click', () => { 
                     $('#selectsize').text('size_265');
                     $('#selectprice').text(convertPrice($('#tag-radio-9').val()));})
+
                     $('#tag-radio-10').on('click', () => { 
                     $('#selectsize').text('size_270');
                     $('#selectprice').text(convertPrice($('#tag-radio-10').val()));})
+
                     $('#tag-radio-11').on('click', () => { 
                     $('#selectsize').text('size_275');
                     $('#selectprice').text(convertPrice($('#tag-radio-11').val()));})
+
                     $('#tag-radio-12').on('click', () => { 
                     $('#selectsize').text('size_280');
                     $('#selectprice').text(convertPrice($('#tag-radio-12').val()));})
+
                     $('#tag-radio-13').on('click', () => { 
                     $('#selectsize').text('size_285');
                     $('#selectprice').text(convertPrice($('#tag-radio-13').val()));})
+
                     $('#tag-radio-14').on('click', () => { 
                     $('#selectsize').text('size_290');
                     $('#selectprice').text(convertPrice($('#tag-radio-14').val()));})
+
                     $('#tag-radio-15').on('click', () => { 
                     $('#selectsize').text('size_295');
                     $('#selectprice').text(convertPrice($('#tag-radio-15').val()));})
+
                     $('#tag-radio-16').on('click', () => { 
                     $('#selectsize').text('size_300');
                     $('#selectprice').text(convertPrice($('#tag-radio-16').val()));})
@@ -1585,123 +1598,77 @@ const SalehandleShow = () => {
                       let convertpricetext = convertPrice(temp.sale_price);
                       if(temp.SALE_SIZE == "size_225"){ 
                          $("#tag-radio-1").attr("value",temp.sale_price)
+                         $("#tag1").text(convertpricetext);
                       }
                       
                       else if(temp.SALE_SIZE == "size_230"){
-                        $("#tag-radio-2").attr("value",temp.sale_price)
+                        $("#tag2").text(convertpricetext);
+                         $("#tag-radio-2").attr("value",temp.sale_price)
                       }
-                      if(temp.SALE_SIZE == "size_235"){
+                      else if(temp.SALE_SIZE == "size_235"){
                         $("#tag3").text(convertpricetext);
                          $("#tag-radio-3").attr("value",temp.sale_price)
-                         $('#tag-radio-3').on('click', () => { 
-                          $('#selectsize').text('size_235');
-                          $('#selectprice').text(convertPrice($('#tag-radio-3').val()));
-                        }) 
+                       
                       }
                       else if(temp.SALE_SIZE == "size_240"){
                         $("#tag4").text(convertpricetext);
                         $("#tag-radio-4").attr("value",temp.sale_price)
-                        $('#tag-radio-4').on('click', () => { 
-                          $('#selectsize').text('size_240');
-                          $('#selectprice').text(convertPrice($('#tag-radio-4').val()));
-                        }) 
+                        
                       }
-                      if(temp.SALE_SIZE == "size_245"){
+                      else if(temp.SALE_SIZE == "size_245"){
                         $("#tag5").text(convertpricetext);
                          $("#tag-radio-5").attr("value",temp.sale_price)
-                         $('#tag-radio-5').on('click', () => { 
-                          $('#selectsize').text('size_245');
-                          $('#selectprice').text(convertPrice($('#tag-radio-5').val()));
-                        }) 
+                        
                       }
                       else if(temp.SALE_SIZE == "size_250"){
                         $("#tag6").text(convertpricetext);
                         $("#tag-radio-6").attr("value",temp.sale_price)
-                        $('#tag-radio-6').on('click', () => { 
-                          $('#selectsize').text('size_250');
-                          $('#selectprice').text(convertPrice($('#tag-radio-6').val()));
-                        }) 
+                      
                       }
-                      if(temp.SALE_SIZE == "size_255"){
+                      else if(temp.SALE_SIZE == "size_255"){
                         $("#tag7").text(convertpricetext);
                          $("#tag-radio-7").attr("value",temp.sale_price)
-                         $('#tag-radio-7').on('click', () => { 
-                          $('#selectsize').text('size_255');
-                          $('#selectprice').text(convertPrice($('#tag-radio-7').val()));
-                        }) 
+                        
                       }
                       else if(temp.SALE_SIZE == "size_260"){
                         $("#tag8").text(convertpricetext);
                         $("#tag-radio-8").attr("value",temp.sale_price)
-                        $('#tag-radio-8').on('click', () => { 
-                          $('#selectsize').text('size_260');
-                          $('#selectprice').text(convertPrice($('#tag-radio-8').val()));
-                        }) 
+                     
                       }
-                      if(temp.SALE_SIZE == "size_265"){
+                      else if(temp.SALE_SIZE == "size_265"){
                         $("#tag9").text(convertpricetext);
                          $("#tag-radio-9").attr("value",temp.sale_price)
-                         $('#tag-radio-9').on('click', () => { 
-                          $('#selectsize').text('size_265');
-                          $('#selectprice').text(convertPrice($('#tag-radio-9').val()));
-                        }) 
+                       
                       }
                       else if(temp.SALE_SIZE == "size_270"){
                         $("#tag10").text(convertpricetext);
                         $("#tag-radio-10").attr("value",temp.sale_price)
-                        $('#tag-radio-10').on('click', () => { 
-                          $('#selectsize').text('size_270');
-                          $('#selectprice').text(convertPrice($('#tag-radio-10').val()));
-                        }) 
+                       
                       }
-                      if(temp.SALE_SIZE == "size_275"){
+                      else if(temp.SALE_SIZE == "size_275"){
                         $("#tag11").text(convertpricetext);
                          $("#tag-radio-11").attr("value",temp.sale_price)
-                         $('#tag-radio-11').on('click', () => { 
-                          $('#selectsize').text('size_275');
-                          $('#selectprice').text(convertPrice($('#tag-radio-11').val()));
-                        }) 
+                       
                       }
                       else if(temp.SALE_SIZE == "size_280"){
                         $("#tag12").text(convertpricetext);
-                        $("#tag-radio-12").attr("value",temp.sale_price)
-                        $('#tag-radio-12').on('click', () => { 
-                          $('#selectsize').text('size_280');
-                          $('#selectprice').text(convertPrice($('#tag-radio-12').val()));
-                        }) 
+                        $("#tag-radio-12").attr("value",temp.sale_price)   
                       }
-                      if(temp.SALE_SIZE == "size_285"){
+                      else if(temp.SALE_SIZE == "size_285"){
                         $("#tag13").text(convertpricetext);
-                         $("#tag-radio-13").attr("value",temp.sale_price)
-                         $('#tag-radio-13').on('click', () => { 
-                          $('#selectsize').text('size_285');
-                          $('#selectprice').text(convertPrice($('#tag-radio-13').val()));
-                        }) 
+                         $("#tag-radio-13").attr("value",temp.sale_price) 
                       }
                       else if(temp.SALE_SIZE == "size_290"){
                         $("#tag14").text(convertpricetext);
                         $("#tag-radio-14").attr("value",temp.sale_price)
-                        $('#tag-radio-14').on('click', () => { 
-                          $('#selectsize').text('size_290');
-                          $('#selectprice').text(convertPrice($('#tag-radio-14').val()));
-                        }) 
                       }
-                      if(temp.SALE_SIZE == "size_295"){
+                      else if(temp.SALE_SIZE == "size_295"){
                         $("#tag15").text(convertpricetext);
                          $("#tag-radio-15").attr("value",temp.sale_price)
-                         $('#tag-radio-15').on('click', () => { 
-                          $('#selectsize').text('size_295');
-                          $('#selectprice').text(convertPrice($('#tag-radio-15').val()));
-                        }) 
                       }
                       else if(temp.SALE_SIZE == "size_300"){
                         $("#tag16").text(convertpricetext);
                         $("#tag-radio-16").attr("value",temp.sale_price)
-                        $('#tag-radio-16').on('click', () => { 
-                          $('#selectsize').text('size_300');
-                          $('#selectprice').text(convertPrice($('#tag-radio-16').val()));
-                        }) 
-                        
                       }
                        
                       
