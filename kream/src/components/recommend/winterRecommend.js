@@ -8,10 +8,12 @@ export const WinterRecommend = ({ products, setProducts, convertPrice }) => {
   //--aos
   useEffect(() => {
     AOS.init();
+    onA();
   })
 
   //---------------------------------------------------DAO 시작
   const [state, setState] = useState([]);
+  const onA = (event) => {
   fetch("/api/winter", {
     method: "get",
     headers: {
@@ -21,6 +23,8 @@ export const WinterRecommend = ({ products, setProducts, convertPrice }) => {
   })
     .then((res) => res.json())
     .then(json => setState(json));
+  }
+
   //--------------------------------------------------------끝
 
   return (

@@ -9,21 +9,25 @@ export const AccessorieCategory = ({ products, setProducts, convertPrice }) => {
 
   //--aos
   useEffect(() => {
+
     AOS.init();
-  })
+    onA();
+  }, [])
 
   //---------------------------------------------------DAO 시작
   const [state, setState] = useState([]);
+  const onA = (event) => {
+    fetch("/api/main/accessorieCategory", {
+      method: "get",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application / json",
+      },
+    })
+      .then((res) => res.json())
+      .then(json => setState(json));
+  }
 
-  fetch("/api/main/accessorieCategory", {
-    method: "get",
-    headers: {
-      "content-type": "application/json",
-      Accept: "application / json",
-    },
-  })
-    .then((res) => res.json())
-    .then(json => setState(json));
   //--------------------------------------------------------끝
   return (
     <>

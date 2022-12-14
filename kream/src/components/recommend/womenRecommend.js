@@ -10,10 +10,11 @@ export const WomenRecommend = ({ products, setProducts, convertPrice }) => {
   //--aos
   useEffect(() => {
     AOS.init();
+    onA();
   })
   //---------------------------------------------------DAO 시작
   const [state, setState] = useState([]);
-
+  const onA = (event) => {
   fetch("/api/womenRecommend", {
     method: "get",
     headers: {
@@ -23,6 +24,7 @@ export const WomenRecommend = ({ products, setProducts, convertPrice }) => {
   })
     .then((res) => res.json())
     .then(json => setState(json));
+}
   //--------------------------------------------------------끝
   return (
     <>

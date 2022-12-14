@@ -267,14 +267,12 @@ app.post('/api/idcheck', (req, res) => {
 
 //회원가입
 app.post('/api/register', (req, res) => {
-  console.log('login');
   const userId = req.body.userid;
   const userName = req.body.username;
   const userPw = req.body.userpw;
   const userEmail = req.body.useremail;
   const userPhonenumber = req.body.userphonenumber;
   const userAddress = req.body.useraddress;
-  console.log(req.body);
 
   maria.query("insert into user(userid,username,userpassword,useremail,userphonenumber,useraddress) values('" + userId + "','" + userName + "','" + userPw + "','" + userEmail + "','" + userPhonenumber + "','" + userAddress + "')", (err, data, fields) => {
     if (!err) res.send({ user: data });
@@ -386,11 +384,8 @@ app.post('/api/inputsale', (req, res) => {
   const SALE_PRICE = req.body.SALE_PRICE;
   const SALE_SIZE = req.body.SALE_SIZE;
 
-  console.log(req.body);
   maria.query("insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(" + SALE_PRODUCTID
     + ",'" + SALE_USERID + "'," + SALE_PRICE + ",'" + SALE_SIZE + "')", (err, data, fields) => {
-      console.log('success!');
-      console.log(data);
       if (!err) res.send({ sale: data });
     })
 })
@@ -399,12 +394,10 @@ app.post('/api/word', (req, res) => {
 
   const word = req.body.word;
 
-  console.log('word');
   maria.query("SELECT @ROWNUM:=@ROWNUM+1 AS rownum ,id,name,provider,price,image,category,gender,categorydetail FROM products WHERE (SELECT @ROWNUM:=0)=0 order by " + word, (err, data, fields) => {
     console.log('success');
     if (!err) res.send({ products: data });
     else res.send(err);
-    console.log(data);
   })
 })
 //내 판매목록 보기
@@ -453,7 +446,6 @@ app.post('/api/sale', (req, res) => {
     console.log('success');
     if (!err) res.send({ sale: data });
     else res.send(err);
-    console.log(data);
   })
 
 })

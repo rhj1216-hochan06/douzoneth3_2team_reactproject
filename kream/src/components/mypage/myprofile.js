@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./mypage.module.css";
 import { json, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -18,8 +18,10 @@ export const Myprofile = () => {
   const [userphonenumber, setUserphonenumber] = useState("");
   const [useraddress, setAddress] = useState("");
 
-
-  
+  useEffect(() => {
+    onA();
+  }, [])
+  const onA = (event) => {
   fetch("/api/mypage", {
 
     method: "POST",
@@ -43,6 +45,8 @@ export const Myprofile = () => {
       setAddress(data.user[0].useraddress)
     }
     )
+  }
+
 return(
     <>
   

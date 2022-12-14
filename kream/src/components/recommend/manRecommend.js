@@ -9,19 +9,22 @@ export const ManRecommend = ({ products, setProducts, convertPrice }) => {
   //--aos
   useEffect(() => {
     AOS.init();
-  })
+    fetch("/api/manRecommend", {
+      method: "get",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application / json",
+      },
+    })
+      .then((res) => res.json())
+      .then(json => setState(json));
+
+  },[])
 
   //---------------------------------------------------DAO 시작
   const [state, setState] = useState([]);
-  fetch("/api/manRecommend", {
-    method: "get",
-    headers: {
-      "content-type": "application/json",
-      Accept: "application / json",
-    },
-  })
-    .then((res) => res.json())
-    .then(json => setState(json));
+
+  
   //--------------------------------------------------------끝
 
   return (

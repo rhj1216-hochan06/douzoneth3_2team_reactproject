@@ -2,7 +2,7 @@ import styles from "./cart.module.css";
 import { CartHeader } from "./cartHeader";
 import { CartList } from "./cartList";
 import { TotalCart } from "./totalCart";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Cart = ({ convertPrice }) => {
     const [checkLists, setCheckLists] = useState([]);
@@ -16,22 +16,26 @@ export const Cart = ({ convertPrice }) => {
         cartLangth === checkLists.length && checkLists.length !== 0;
 
     //장바구니 목록 상시 출력
-    fetch("/api/cart", {
-        method: "post",
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify({
-            "id": sessionStorage.getItem("loginId"),
+    useEffect(() => {
+        onA();
+    }, [])
+    const onA = (event) => {
+        fetch("/api/cart", {
+            method: "post",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                "id": sessionStorage.getItem("loginId"),
+            })
         })
-    })
-        .then((res) => res.json())
-        .then(json => {
-            setCart(json.cart);
-            setCartLangth(Object.keys(json.cart).length);
-        }
-        );
-
+            .then((res) => res.json())
+            .then(json => {
+                setCart(json.cart);
+                setCartLangth(Object.keys(json.cart).length);
+            }
+            );
+    }
     //장바구니 수량 증감 기능
     // const handleQuantity = (id, type, cart_count) => {
     //     const cal = (count) => {
@@ -101,43 +105,43 @@ export const Cart = ({ convertPrice }) => {
     );
     return (
 
-            <div class={styles.main_content}>
-                <header className={styles.cart_title_wrap}>
-                </header>
-                <CartHeader handleCheckAll={handleCheckAll} isAllChecked={isAllChecked} />
-                {cart.length === 0 ? (
-                    <div className={styles.not}>
-                        <p></p>
-                        <h2>장바구니에 담긴 상품이 없습니다.</h2>
-                        <p>원하는 상품을 장바구니에 담아보세요!</p>
-                    </div>
-                ) : (
-                    cart.map((cart) => {
-                        return (
-                            <CartList
-                                key={`key-${cart.cart_saleno}`}
-                                cart={cart}
-                                setCart={setCart}
-                                convertPrice={convertPrice}
-                                // handleQuantity={handleQuantity}
-                                handleRemove={handleRemove}
-                                handleCheckList={handleCheckList}
-                                checkLists={checkLists}
-                            />
-                        );
-                    })
-                )
-                }
+        <div class={styles.main_content}>
+            <header className={styles.cart_title_wrap}>
+            </header>
+            <CartHeader handleCheckAll={handleCheckAll} isAllChecked={isAllChecked} />
+            {cart.length === 0 ? (
+                <div className={styles.not}>
+                    <p></p>
+                    <h2>장바구니에 담긴 상품이 없습니다.</h2>
+                    <p>원하는 상품을 장바구니에 담아보세요!</p>
+                </div>
+            ) : (
+                cart.map((cart) => {
+                    return (
+                        <CartList
+                            key={`key-${cart.cart_saleno}`}
+                            cart={cart}
+                            setCart={setCart}
+                            convertPrice={convertPrice}
+                            // handleQuantity={handleQuantity}
+                            handleRemove={handleRemove}
+                            handleCheckList={handleCheckList}
+                            checkLists={checkLists}
+                        />
+                    );
+                })
+            )
+            }
 
 
-                {cart.length === 0 ? "" : <TotalCart
-                    cart={cart} total={total} setTotal={setTotal}
-                    convertPrice={convertPrice}
-                    found={found}
-                />}
+            {cart.length === 0 ? "" : <TotalCart
+                cart={cart} total={total} setTotal={setTotal}
+                convertPrice={convertPrice}
+                found={found}
+            />}
 
 
-            </div>
+        </div>
 
     );
 };

@@ -10,8 +10,8 @@ import AOS from "aos";
 export const NewProducts = ({ convertPrice }) => {
     //---------------------------------------------------DAO 시작
     const [state, setState] = useState([]);
-
-    fetch("/api/", {
+    const onA = (event) => {
+        fetch("/api/", {
         method: "get",
         headers: {
             "content-type": "application/json"
@@ -22,17 +22,20 @@ export const NewProducts = ({ convertPrice }) => {
             setState(json);
             
         });
-
+    }
     //--------------------------------------------------------끝
 
     useEffect(() => {
         AOS.init({
             duration: 1200,
         })
+        onA();
         window.addEventListener('scroll', handleScroll);
+        
         return () => {
             window.removeEventListener('scroll', handleScroll); //clean up
         };
+        
     }, []);
 
     const handleScroll = () => {

@@ -7,6 +7,10 @@ export const TopNavBar = () => {
   const sessionStorage = window.sessionStorage;
   // const [userid, setUserid] = useState("환영합니다");
   // setUserid(sessionStorage.getItem("loginId"));
+  useEffect(() => {
+    onA();
+  }, [])
+  const onA = (event) => {
   fetch("/api/nav", {
     method: "post",
     headers: {
@@ -21,6 +25,7 @@ export const TopNavBar = () => {
       setCount(Object.keys(json).length);
     }
     );
+  }
   const onLogout = (event) => {
     sessionStorage.setItem("loginId", "");
   }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./mypage.module.css";
 import { json, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -18,6 +18,10 @@ const [date, setDate] = useState("");
 const [state, setState] = useState([]);
 const [userid, setUserid] = useState("");
 
+  useEffect(() => {
+    onA();
+  }, [])
+const onA = (event) => {
 fetch("/api/mypageshop", {
 
     method: "POST",
@@ -38,7 +42,7 @@ fetch("/api/mypageshop", {
        
     })
      
-   
+  }
 
     return (
 <>  
