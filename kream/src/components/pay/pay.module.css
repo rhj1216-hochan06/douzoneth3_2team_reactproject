@@ -151,3 +151,9 @@
     margin: 0px 45px 0px 45px;
     text-align: -webkit-left;
 }
+
+.footer_purchase_btn_text{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+  }

@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-import { useParams } from "react-router-dom";
-import { Detail } from "../../components/detail/Detail.js"
+import { useParams } from "react-router-dom"
 import styles from "../../components/pay/pay.module.css"
-import { confirmAlert } from 'react-confirm-alert'; // Import
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const BuyPay = (convertPrice) => {
     console.log('구매페이지');
@@ -192,16 +189,17 @@ export const BuyPay = (convertPrice) => {
                             <ul className={styles.kakaosort}>
                                 <li className={styles.kakaopay}>카카오페이 결제</li><br />
                             </ul>
-                        </div><br/>
+                        </div><br />
                     </div>
                     <div className={styles.check}>
                         <p className={styles.ment}>판매자의 판매거부, 배송지연, 미입고 등의 사유가 발생할 경우, 거래가 취소될 수 있습니다.
                             앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래 진행 상태 알림을 받을 수 없습니다.</p>
-                            <br/>
+                        <br />
                         <p className={styles.ment}>‘바로 결제하기’ 를 선택하시면 즉시 결제가 진행되며, 단순 변심이나 실수에 의한 취소가 불가능합니다.
                             본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불, 교환) 규정이 적용되지 않습니다.</p>
-                        <button onClick={onClickPayment}>결제하기</button>
-                    </div><br/><br/>
+                        <br /><br />
+                        <a role="button" onClick={onClickPayment} class="btn btn-dark"><span className={styles.footer_purchase_btn_text}>결제 하기</span></a>
+                    </div><br /><br />
                 </div>
             </div>
         </>
