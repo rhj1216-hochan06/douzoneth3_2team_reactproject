@@ -314,7 +314,7 @@ app.post('/api/cartinsert', (req, res) => {
   maria.query("select * from cart where cart_saleno = " + CART_SALENO + " and cart_userid = '" + CART_USERID + "'", (err, data) => {
     console.log(data);
     console.log(data.length);
-    if (data.length > 0) res.send(err);
+    if (data.length > 0) res.send({a:1});
     else {
       maria.query("INSERT INTO CART(CART_USERID,CART_SALENO) values('" + CART_USERID + "'," + CART_SALENO + ")", (err, data, fields) => {
         if (!err) res.send({ cart: data });

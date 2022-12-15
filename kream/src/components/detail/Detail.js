@@ -1862,7 +1862,11 @@ export const Detail = ({ convertPrice }) => {
   startTimer();
 
   const handleCart = () => {
-    console.log(saleno.SALE_NO);
+    console.log(saleno);
+    if(saleno.length === 0) {
+      alert("상품을 선택해주세요");
+      return;
+    }
     const number = saleno.SALE_NO;
     // 장바구니 추가 기능, 민약 상품아이디와 유저아이디로 조회했을 떄, 
     // 1. 데이터가 있다면 해당 count를 이곳의 xcount로 변경,
@@ -1884,7 +1888,9 @@ export const Detail = ({ convertPrice }) => {
       .then(data => {
         // console.log(data);
         // CarthandleClose();
+        console.log(data.data);
         window.location.reload();
+        alert("장바구니에 추가되었습니다!!");
       });
   };
 
