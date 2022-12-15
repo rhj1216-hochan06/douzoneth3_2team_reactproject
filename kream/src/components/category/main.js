@@ -10,11 +10,21 @@ export const Main = () => {
                 <br /><br /><br />
                 <h1 className={styles.shop}>SHOP</h1><br /><br /><br />
                 <div className={styles.Categoryimg}>
-                    <img className={styles.img} src="../images/allCategory.png" />
-                    <img className={styles.img} src="../images/AccCategory.png" />
-                    <img className={styles.img} src="../images/techCategory.png" />
-                    <img className={styles.img} src="../images/clothCategory.png" />
-                    <img className={styles.img} src="../images/lifeCategory.png" />
+                    <Link to="/main/products">
+                        <img className={styles.img} src="../images/allCategory.png" />
+                    </Link>
+                    <Link to="/main/accessorie">
+                        <img className={styles.img} src="../images/AccCategory.png" />
+                    </Link>
+                    <Link to="/main/tech">
+                        <img className={styles.img} src="../images/techCategory.png" />
+                    </Link>
+                    <Link to="/main/cloth">
+                        <img className={styles.img} src="../images/clothCategory.png" />
+                    </Link>
+                    <Link to="/main/life">
+                        <img className={styles.img} src="../images/lifeCategory.png" />
+                    </Link>
                 </div>
                 <ul className={styles.category}>
                     <li>
