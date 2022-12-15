@@ -1859,6 +1859,10 @@ export const Detail = ({ convertPrice }) => {
   startTimer();
 
   const handleCart = () => {
+    if (sessionStorage.getItem("loginId") === "" || sessionStorage.getItem("loginId") === null) {
+      alert("로그인이 필요한 서비스 입니다.")
+       window.location ='/login';
+    }
     console.log(saleno);
     if (saleno.length === 0) {
       alert("상품을 선택해주세요");
