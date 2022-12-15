@@ -3,6 +3,7 @@ import styles from "./category.module.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import AOS from "aos";
+import { lowPriceUpdate } from "../detail/lowPriceUpdate";
 
 export const TechCategory = ({ products, setProducts, convertPrice }) => {
   //--aos
@@ -42,6 +43,7 @@ export const TechCategory = ({ products, setProducts, convertPrice }) => {
           return <div className={styles.product}>
 
             <div class="item" data-aos="slide-up">
+              {lowPriceUpdate(product.id)}
               <Link to={`/products/${product.id}`}>
                 <div className={styles.product_image}>
                   <img src={product.image} alt="product" />

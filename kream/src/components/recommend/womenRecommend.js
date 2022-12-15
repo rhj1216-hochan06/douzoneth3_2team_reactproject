@@ -3,6 +3,7 @@ import styles from "./recommend.module.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import AOS from "aos";
+import { lowPriceUpdate } from "../detail/lowPriceUpdate";
 
 
 export const WomenRecommend = ({ products, setProducts, convertPrice }) => {
@@ -44,6 +45,7 @@ export const WomenRecommend = ({ products, setProducts, convertPrice }) => {
           return <div className={styles.product}>
             <div class="item" data-aos="slide-up">
               <Link to={`/products/${product.id}`}>
+                {lowPriceUpdate(product.id)}
                 <div className={styles.product_image}>
                   <img src={product.image} alt="product" />
                 </div>
