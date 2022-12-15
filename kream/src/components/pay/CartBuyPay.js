@@ -19,7 +19,9 @@ export const CartBuyPay = (convertPrice) => {
     const [provider, setProvider] = useState();
     const [username, serUsername] = useState();
     const [userphonenumber, setUserphonenumber] = useState();
-
+    const [price, setPrice] = useState();
+    const [size, setSize] = useState("");
+    const { id } = useParams();
 
     const onA = (event) => {
         fetch("/api/cart", {
@@ -40,28 +42,22 @@ export const CartBuyPay = (convertPrice) => {
             );
     }
     const dataReceive = () => {
-        fetch("/api/purchase/saleget", {
+        console.log("dataReceive");
+        fetch("/api/purchasecart/user", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json; charset=utf-8"
             },
             body: JSON.stringify({
-                "no": id,
                 "id": sessionStorage.getItem("loginId"),
-                //"sale_price": data.buy[0].SALE_PRICE,
             })
         })
             .then((res) => res.json())
             .then(data => {
-                console.log(data.buy);
-                setName(data.buy[0].name);
-                setSalePrice(data.buy[0].SALE_PRICE);
-                setImage(data.buy[0].image);
-                setAddress(data.buy[0].address);
-                setSize(data.buy[0].SALE_SIZE);
-                setProvider(data.buy[0].provider);
+                console.log(data.buy[0]);
+                setName(data.buy[0].username);
+                setAddress(data.buy[0].useraddress);
                 setUserphonenumber(data.buy[0].userphonenumber);
-                serUsername(data.buy[0].username);
                 //setSale(data);
             })
     }
@@ -79,9 +75,7 @@ export const CartBuyPay = (convertPrice) => {
         }
     }
 
-    const [price, setPrice] = useState();
-    const [size, setSize] = useState("");
-    const { id } = useParams();
+
 
 
 
@@ -267,7 +261,7 @@ export const CartBuyPay = (convertPrice) => {
                         </div>
                         <p className={styles.addressInfo1}>배송 정보</p>
                         <ul className={styles.addinfo}>
-                            <li className={styles.addressInfo}><font color="#999999">받는 분 : </font>{username}</li><br />
+                            <li className={styles.addressInfo}><font color="#999999">받는 분 : </font>{name}</li><br />
                             <li className={styles.addressInfo}><font color="#999999">연락처 : </font>{userphonenumber}</li><br />
                             <li className={styles.addressInfo}><font color="#999999">배송주소 : </font>{address}</li><br />
                         </ul>
