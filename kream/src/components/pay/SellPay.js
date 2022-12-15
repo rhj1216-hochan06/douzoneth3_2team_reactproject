@@ -1,17 +1,27 @@
+import { formToJSON } from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Form, Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { Detail } from "../../components/detail/Detail.js"
 import styles from "./pay.module.css";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 export const SellPay = (convertPrice) => {
+
     console.log('구매페이지');
+
+    const SalesloginCheck = () => {
+        //로그인했는지 확인하기
+        if (sessionStorage.getItem("loginId") === "" || sessionStorage.getItem("loginId") === null) {
+            console.log('로그인 안됨');
+            alert("로그인이 필요한 서비스 입니다.")
+            window.location = '/login';
+        }
+    }
     const [productid, setProductid] = useState("");
     const [price, setPrice] = useState();
-
-
-    const [state, setState] = useState([]);
-    const [userid, setUserid] = useState( sessionStorage.getItem("loginId"));
+    const [userid, setUserid] = useState(sessionStorage.getItem("loginId"));
     const [name, setName] = useState("");
     const { id } = useParams();
     const { size } = useParams();
@@ -24,9 +34,9 @@ export const SellPay = (convertPrice) => {
     const today = year + "-" + month + "-" + day;
     // -------------------------------------카카오
 
-   
+
     const onPriceHandler = (event) => {
-        setPrice(event.currentTarget.value)
+        setPrice(event.currentTarget.value.replace(/[^0-9]/g, ""));
     }
 
     const handleOnKeyPress = e => {
@@ -38,6 +48,7 @@ export const SellPay = (convertPrice) => {
     };
 
     useEffect(() => {
+        SalesloginCheck();
         const jquery = document.createElement("script");
         jquery.src = "https://code.jquery.com/jquery-1.12.4.min.js";
         const iamport = document.createElement("script");
@@ -51,31 +62,59 @@ export const SellPay = (convertPrice) => {
     }, []);
     //판매 등록 함수
     const onClicksell = () => {
-        fetch("/api/sale/sell", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
-            },
-            body: JSON.stringify({
-                //product 의 id ,price, size, 로그인된 아이디 넘겨줌
-                "id": id,
-                "userid": userid ,
 
-                "price": price,
-                "size": size
-            })
-        })
-            .then((res) => res.json())
-            .then(data => {
-              
+        let content = "최종 금액은 : " + price + "입니다. 등록 하시겠습니까?";
 
-            })
-            
-        console.log(id);
-        console.log(userid);
-        console.log(name);
-        console.log(price);
-        console.log(size);
+        confirmAlert({
+            title: '고객님!',
+            message: content,
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
+
+                        //sale에 등록
+                        fetch("/api/purchase/sell", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json; charset=utf-8"
+                            },
+                            body: JSON.stringify({
+                                //product 의 id ,price, size, 로그인된 아이디 넘겨줌
+                                "id": id,
+                                "userid": userid,
+                                "price": price,
+                                "size": size
+                            })
+                        }).then((res) => res.json())
+                            .then(data => {
+
+                                //stock 갯수 update
+                                fetch("/api/sell/stock", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json; charset=utf-8"
+                                    },
+                                    body: JSON.stringify({
+                                        //product 의 id ,price, size, 로그인된 아이디 넘겨줌
+                                        "id": id,
+                                        "size": size
+                                    })
+                                }).then((res) => res.json())
+                                    .then(data => {
+
+                                    })
+                            })
+                        window.location.href = "/mypage";
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => { }
+                }
+            ]
+        });
+
     }
 
     const callback = (response) => {
@@ -114,7 +153,6 @@ export const SellPay = (convertPrice) => {
 
     return (
         <>
-
             <table class="type10">
                 <thead>
                     <tr>
@@ -122,7 +160,6 @@ export const SellPay = (convertPrice) => {
                         <th scope="cols">상품번호</th>
                         <th className={styles.jb_th_3} scope="cols">이름</th>
                         <th scope="cols">사이즈</th>
-
                         <th scope="cols">날짜</th>
                     </tr>
                 </thead>
@@ -134,39 +171,13 @@ export const SellPay = (convertPrice) => {
                                     <img src={image} alt="product" />
                                 </div>
                             </Link></td>
-
                         <td>{id}</td>
-
                         <td>{name}</td>
-
                         <td>{size}</td>
-
-
                         <td>{today}</td>
-                        {/* <td>{year}-{month}-{day}</td> */}
                     </tr>
-
-
-
-
-
                 </tbody>
             </table>
-            {/* {state.sale && state.sale.map((product) => {
-                console.log("구매 들어오나요");
-                return <div >
-                    <div data-aos="slide-up">
-                        <div >
-                            <span>상품 사이즈 : {product.setSize}</span>
-                        </div>
-                        <div >
-                             <span>상품 가격 : {product.price}</span> 
-                        </div>
-                        <br /><br /><br />
-                    </div>0
-                </div>
-            })} */}
-
             <input className="set" type="text" value={price} placeholder="판매가격결정" onChange={onPriceHandler} onKeyPress={handleOnKeyPress} ></input>
             <button onClick={onClicksell}>판매등록하기</button>
 

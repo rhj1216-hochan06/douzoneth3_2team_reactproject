@@ -15,13 +15,13 @@ export const Cart = ({ convertPrice }) => {
     const isAllChecked =
         cartLangth === checkLists.length && checkLists.length !== 0;
 
-   //로그인했는지 확인하기
-   if (sessionStorage.getItem("loginId") === "" || sessionStorage.getItem("loginId") === null) {
-    console.log('로그인 안됨');
-    alert("로그인이 필요한 서비스 입니다.")
-   window.location = '/login';
-} 
-   
+    //로그인했는지 확인하기
+    if (sessionStorage.getItem("loginId") === "" || sessionStorage.getItem("loginId") === null) {
+        console.log('로그인 안됨');
+        alert("로그인이 필요한 서비스 입니다.")
+        window.location = '/login';
+    }
+
 
     //장바구니 목록 상시 출력
     useEffect(() => {
@@ -81,7 +81,7 @@ export const Cart = ({ convertPrice }) => {
                 "cart_saleno": saleno,
             })
         }).then((res) => res.json())
-        .then(data=>{window.location.reload();});
+            .then(data => { window.location.reload(); });
     };
 
 
