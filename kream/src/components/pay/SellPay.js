@@ -1,9 +1,11 @@
+import { formToJSON } from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Form, Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { Detail } from "../../components/detail/Detail.js"
 import styles from "./pay.module.css";
-
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 export const SellPay = (convertPrice) => {
     console.log('구매페이지');
     const [productid, setProductid] = useState("");
@@ -26,7 +28,7 @@ export const SellPay = (convertPrice) => {
 
    
     const onPriceHandler = (event) => {
-        setPrice(event.currentTarget.value)
+        setPrice(event.currentTarget.value.replace(/[^0-9]/g, ""));
     }
 
     const handleOnKeyPress = e => {
@@ -51,31 +53,66 @@ export const SellPay = (convertPrice) => {
     }, []);
     //판매 등록 함수
     const onClicksell = () => {
-        fetch("/api/sale/sell", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
-            },
-            body: JSON.stringify({
-                //product 의 id ,price, size, 로그인된 아이디 넘겨줌
-                "id": id,
-                "userid": userid ,
 
-                "price": price,
-                "size": size
-            })
-        })
-            .then((res) => res.json())
-            .then(data => {
-              
+        let content = "최종 금액은 : " + price + "입니다. 등록 하시겠습니까?";
+        
+        confirmAlert({
+            title: '고객님!',
+            message: content,
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: () => {
 
-            })
+                    //sale에 등록
+                    fetch("/api/purchase/sell", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8"
+                        },
+                        body: JSON.stringify({
+                            //product 의 id ,price, size, 로그인된 아이디 넘겨줌
+                            "id": id,
+                            "userid": userid ,
+                            "price": price,
+                            "size": size
+                        })
+                    }).then((res) => res.json())
+                    .then(data => {
+
+                        //stock 갯수 update
+                        fetch("/api/sell/stock", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8"
+                        },
+                        body: JSON.stringify({
+                        //product 의 id ,price, size, 로그인된 아이디 넘겨줌
+                            "id": id,
+                            "size": size
+                        })
+                        }).then((res) => res.json())
+                        .then(data => {
+                          
+                        })
+                    })
+                    window.location.href = "/mypage";
+                }
+              },
+              {
+                label: 'No',
+                onClick: () => {}
+              }
+            ]
+          });
+          
+       
+        
+          
             
-        console.log(id);
-        console.log(userid);
-        console.log(name);
-        console.log(price);
-        console.log(size);
+            
+        
+        
     }
 
     const callback = (response) => {
