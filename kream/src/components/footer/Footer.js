@@ -35,9 +35,9 @@ export const Footer = () => {
                 <div className='footer-link-wrapper'>
                     <div class='footer-link-items'>
                         <h3>Social Media</h3>
-                        <Link to='https://www.instagram.com/'>Instagram</Link>
-                        <Link to='https://www.youtube.com/'>Youtube</Link>
-                        <Link to='https://twitter.com/'>Twitter</Link>
+                        <Link onClick={() => { window.open("https://www.instagram.com/") }}>Instagram</Link>
+                        <Link onClick={() => { window.open("https://www.youtube.com/") }}>Youtube</Link>
+                        <Link onClick={() => { window.open("https://twitter.com/") }}>Twitter</Link>
                     </div>
                 </div>
             </div>
