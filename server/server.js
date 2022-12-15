@@ -152,6 +152,20 @@ app.post('/api/purchase', (req, res) => {
 
 })
 
+//구매페이지
+app.post('/api/purchase/buy/id', (req, res) => {
+  console.log('buyPay');
+  const id = req.body.id;
+  maria.query("select * from sale where sales_no = ?", [sales_no],
+    function (err, data) {
+      console.log('success');
+      if (!err) {
+        res.send({ products : data });
+      }
+      else res.send(err);
+    });
+})
+
 app.post('/api/purchase/threesize', (req, res) => {
   const id = req.body.id;
   maria.query("SELECT XS,S,M,L,XL FROM stock WHERE id = ?",[id],
