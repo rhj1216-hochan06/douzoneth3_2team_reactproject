@@ -34,8 +34,6 @@ export const Home = ({ convertPrice, setProducts, products }) => {
               <div className={styles.product_name}>한파특가</div>
             </Link>
           </div>
-          <Link to="/purchase/sell">판매페이지
-            </Link>
         </div>
       </main><br />
       <main className={styles.flex_wrap}>
