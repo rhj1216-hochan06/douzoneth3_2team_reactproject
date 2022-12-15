@@ -195,6 +195,25 @@
     background: rgb(0, 0, 0);
     border-style: dashed;
   }
+  .line4 {
+    width: 9vw;
+    height: 1px;
+
+    margin-right: 50px;;
+    background: rgb(0, 0, 0);
+    border-style: dashed;
+    margin: 0.5rem 0;
+  }
+
+  .line5 {
+    width: 15vw;
+    height: 2.5px;
+    margin: 0rem 0;
+
+    border: 0;
+    background: rgb(0, 0, 0);
+  
+  }
   .contentName1 {
     font-weight: bold;
  
@@ -412,4 +431,10 @@
   width: 8vh;
   font-size: 28px;
   text-align-last: center;
+}
+
+.box{
+  float: left;
+  width: 300px;
+  text-align-last: left;
 }
