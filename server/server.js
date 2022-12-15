@@ -425,7 +425,7 @@ app.post('/api/mypageshop', (req, res) => {
   console.log('mypageshop');
   let SALE_PRODUCTID = "";
   const id = req.body.id;
-  maria.query("SELECT *,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='" + id + "' and sale_check=0", (err, data) => {
+  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum ,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='"+id+"' and sale_check=0 AND (SELECT @ROWNUM:=0)=0 order by sale_date", (err, data) => {
     console.log('success');
     if (!err) {
       res.send({ sale: data });
@@ -446,7 +446,7 @@ app.post('/api/mypagesaled', (req, res) => {
   console.log('mypageshop');
   let SALE_PRODUCTID = "";
   const id = req.body.id;
-  maria.query("SELECT *,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='" + id + "' and sale_status=1", (err, data) => {
+  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum ,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='"+id+"' and sale_status=1 AND (SELECT @ROWNUM:=0)=0 order by sale_date", (err, data) => {
     console.log('success');
     if (!err) {
       res.send({ sale: data });
@@ -466,7 +466,7 @@ app.post('/api/mypagebuy', (req, res) => {
   console.log('mypageshop');
   let SALE_PRODUCTID = "";
   const id = req.body.id;
-  maria.query("SELECT *,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='" + id + "' and sale_check=1", (err, data) => {
+  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum ,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='"+id+"' and sale_check=1 AND (SELECT @ROWNUM:=0)=0 order by sale_date", (err, data) => {
     console.log('success');
     if (!err) {
       res.send({ sale: data });
