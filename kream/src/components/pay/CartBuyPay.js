@@ -6,6 +6,44 @@ import styles from "../../components/pay/pay.module.css"
 
 
 export const CartBuyPay = (convertPrice) => {
+
+    //------------------------------------카트 불러오기
+    const [total, setTotal] = useState("0");
+    const sessionStorage = window.sessionStorage;
+    const [cartLangth, setCartLangth] = useState([]);
+    const [cart, setCart] = useState([]);
+
+
+    //장바구니 목록 상시 출력
+    useEffect(() => {
+        onA();
+    }, [])
+    const onA = (event) => {
+        fetch("/api/cart", {
+            method: "post",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                "id": sessionStorage.getItem("loginId"),
+            })
+        })
+            .then((res) => res.json())
+            .then(json => {
+                setCart(json.cart);
+                setCartLangth(Object.keys(json.cart).length);
+            }
+            );
+    }
+
+
+
+
+
+
+
+
+    //----------------------------------------------------구매
     console.log('구매페이지');
 
     const SalesloginCheck = () => {
@@ -58,7 +96,7 @@ export const CartBuyPay = (convertPrice) => {
             pay_method: 'card', // 결제수단 (필수항목)
             merchant_uid: `mid_${new Date().getTime()}`, // 결제금액 (필수항목)
             name: '결제 테스트', // 주문명 (필수항목)
-            amount: `${search}`, // 금액 (필수항목)
+            amount: `${cart.total_price}`, // 금액 (필수항목)
             // custom_data: { name: '부가정보', desc: '세부 부가정보' },
             // buyer_name: ["asd"], // 구매자 이름
             // buyer_tel: ["01083259911"], // 구매자 전화번호 (필수항목)
@@ -73,7 +111,7 @@ export const CartBuyPay = (convertPrice) => {
         const { success, error_msg, imp_uid, merchant_uid, pay_method, paid_amount, status } = response;
         if (success) {
             alert('결제 성공');
-            window.location.href = "/mypage"
+            window.location.href = "/mypage/buylist"
         } else {
             alert(`결제 실패 : ${error_msg}`);
             window.location.href = "/cart"
@@ -109,7 +147,26 @@ export const CartBuyPay = (convertPrice) => {
                     <div className={styles.width}>
                         <div className={styles.product}>
                             <p className={styles.productInfo}>상품 정보</p>
-                            <p >상품 사진 / 상품명 / 사이즈 / 가격</p>
+                            <p >
+                                {/* 여기가 호진이가 작업한 결제 정보 불러오기 */}
+                                {
+                                    cart.map((cart) => {
+                                        return (
+                                            <>
+                                                {cart.cart_saleno}
+                                                <img src={`${cart.image}`} />
+                                                {cart.name}
+                                                {cart.sale_price}
+                                                {cart.sale_size}
+                                                <p />
+                                            </>
+
+
+                                        );
+                                    })
+
+                                }
+                            </p>
                         </div>
                         <div className={styles.address}>
                             <p className={styles.addressInfo}>배송주소</p>
@@ -125,7 +182,7 @@ export const CartBuyPay = (convertPrice) => {
                             <p className={styles.priceInfo}>상품금액 원</p>
                             <p className={styles.priceInfo}>배송비 무료</p>
                             <hr />
-                            <p className={styles.priceInfo}>총 결제 금액 원</p>
+                            <p className={styles.priceInfo}>총 결제 금액 {cart.total_price}원</p>
                         </div>
                         <div className={styles.payment}>
                             <p className={styles.payInfo}>결제 방법</p>
@@ -140,7 +197,7 @@ export const CartBuyPay = (convertPrice) => {
                             <p>‘바로 결제하기’ 를 선택하시면 즉시 결제가 진행되며, 단순 변심이나 실수에 의한 취소가 불가능합니다.
                                 본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불, 교환) 규정이 적용되지 않습니다.</p>
                             <p className={styles.payInfo}>총 결제 금액</p>
-                            <p>{search}</p>
+                            <p>{cart.total_price}</p>
                             <button onClick={onClickPayment}>결제하기</button>
                         </div>
                     </div>
