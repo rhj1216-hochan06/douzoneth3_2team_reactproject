@@ -60,6 +60,7 @@ import { Myprofile } from './components/mypage/myprofile';
 
 //결제
 import { Kakao } from './pages/Kakao'
+import { CartBuy } from './pages/Cartbuy';
 
 
 function App() {
@@ -110,7 +111,7 @@ function App() {
               <Route
                 path="/register" element={<Register
                 />} />
-                 <Route
+              <Route
                 path="/welcome" element={<Welcome
                 />} />
 
@@ -171,25 +172,32 @@ function App() {
               <Route path="/cloth" element={
                 <Provider store={store}> <Cloth products={products}
                   setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
-                  
+
               <Route path="/mypage" element={<Mypage />} >
-              <Route path="/mypage/salelist" element={
-                <Provider store={store}> <Mysale convertPrice={convertPrice} /></Provider>} />
+                <Route path="/mypage/salelist" element={
+                  <Provider store={store}> <Mysale convertPrice={convertPrice} /></Provider>} />
                 <Route path="/mypage/saledlist" element={
-                <Provider store={store}> <Mysaled convertPrice={convertPrice} /></Provider>} />
-                   <Route path="/mypage/buylist" element={
-                  <Provider store={store}> <Mybuy  convertPrice={convertPrice} /></Provider>} />
-              <Route path='/mypage/profile' element={<Myprofile />} /> </Route>
+                  <Provider store={store}> <Mysaled convertPrice={convertPrice} /></Provider>} />
+                <Route path="/mypage/buylist" element={
+                  <Provider store={store}> <Mybuy convertPrice={convertPrice} /></Provider>} />
+                <Route path='/mypage/profile' element={<Myprofile />} /> </Route>
 
               <Route path="/dummy" element={<Dummy />} />
               <Route path="/purchase/buy/:id" element={
-                  <Provider store={store}> <Buy products={products}
-                    setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
+                <Provider store={store}> <Buy products={products}
+                  setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               {/* <Route path="/sell" element={<Sell />} /> */}
               <Route path="/sale/sell/:id/:size" element={
-                  <Provider store={store}> <Sell products={products}
-                    setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
+                <Provider store={store}> <Sell products={products}
+                  setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route path="/kakao" element={<Kakao />} />
+              <Route path="/purchasecart/buy/:id" element={
+                <Provider store={store}> <CartBuy products={products}
+                  setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
+
+
+
+
             </Routes>
           </div>
           <footer1 >
