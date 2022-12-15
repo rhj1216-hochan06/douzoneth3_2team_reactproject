@@ -30,28 +30,29 @@ app.post('/api/detail', (req, res) => {
 app.post('/api/purchase/saleget', (req, res) => {
   console.log('saleget');
   const no = req.body.no;
-  maria.query("SELECT SALE_PRODUCTID,SALE_PRICE,SALE_SIZE FROM sale WHERE SALE_NO =?", [no],
+  const id = req.body.id;
+  maria.query("SELECT *,(SELECT useraddress FROM user WHERE USERID = ?) as address,(SELECT name FROM products WHERE ID=aaa.SALE_PRODUCTID) as name,(SELECT image FROM products WHERE ID=aaa.SALE_PRODUCTID) as image FROM sale AS aaa WHERE SALE_NO = ?", [id ,no],
     function (err, data) {
       console.log('success');
       if (!err) {
-        res.send({ buy: data });
+        res.send({buy: data});
       }
       else res.send(err);
     });
 })
 
-app.post('/api/purchase/productinfo', (req, res) => {
-  console.log('saleget');
-  const id = req.body.id;
-  maria.query("SELECT * FROM products WHERE ID=" + id,
-    function (err, data) {
-      console.log('success');
-      if (!err) {
-        res.send(data[0]);
-      }
-      else res.send(err);
-    });
-})
+// app.post('/api/purchase/productinfo', (req, res) => {
+//   console.log('saleget');
+//   const id = req.body.id;
+//   maria.query("SELECT * FROM products WHERE ID=" + id,
+//     function (err, data) {
+//       console.log('success');
+//       if (!err) {
+//         res.send(data[0]);
+//       }
+//       else res.send(err);
+//     });
+// })
 
 //구매시 Sale_No에 status 1로 설정
 app.post('/api/purchase/statusset', (req, res) => {

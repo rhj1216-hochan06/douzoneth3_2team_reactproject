@@ -17,27 +17,18 @@ export const BuyPay = (convertPrice) => {
             window.location = '/login';
         }
     }
-
     const { id } = useParams();
-    const [info, setInfo] = useState([]);
-    const [price, setPrice] = useState();
-    const [size, setSize] = useState();
+    const [name, setName] = useState();
+    const [address, setAddress] = useState();
     const [product, setProduct] = useState({});
+    const [saleprice, setSalePrice] = useState();
     const [userid, setUserid] = useState(sessionStorage.getItem("loginId"));
-
+    const [image, setImage] = useState();
     // -------------------------------------카카오
     const [search, setSearch] = useState("");
-    const onSearchHandler = (event) => {
-        setSearch(event.currentTarget.value)
-    }
 
-    const handleOnKeyPress = e => {
-        if (e.key === 'Enter') {
-            console.log(search)
-            onClickPayment();
-            //   onSearch(); // Enter 입력이 되면 클릭 이벤트 실행
-        }
-    };
+
+
     const dataReceive = () => {
         fetch("/api/purchase/saleget", {
             method: "POST",
@@ -46,36 +37,18 @@ export const BuyPay = (convertPrice) => {
             },
             body: JSON.stringify({
                 "no": id,
+                "id": sessionStorage.getItem("loginId"),
+                //"sale_price": data.buy[0].SALE_PRICE,
             })
         })
             .then((res) => res.json())
             .then(data => {
-                console.log(data.buy[0].SALE_PRODUCTID);
-                fetch("/api/purchase/productinfo", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json; charset=utf-8"
-                    },
-                    body: JSON.stringify({
-                        "id": data.buy[0].SALE_PRODUCTID,
-                    })
-                })
-                    .then((res) => res.json())
-                    .then(data => {
-                        console.log(data);
-                        //setPrice(data.buy);
-                        //setSize(data.buy);
-                        setProduct(data);
-                        console.log(data);
-
-
-
-                    })
-
-
+                setName(data.buy[0].name);
+                setSalePrice(data.buy[0].SALE_PRICE);
+                setImage(data.buy[0].image);
+                setAddress(data.buy[0].address);
+                //setSale(data);
             })
-
-
     }
 
     useEffect(() => {
@@ -101,22 +74,15 @@ export const BuyPay = (convertPrice) => {
             pay_method: 'card', // 결제수단 (필수항목)
             merchant_uid: `mid_${new Date().getTime()}`, // 결제금액 (필수항목)
             name: '결제 테스트', // 주문명 (필수항목)
-            amount: `${search}`, // 금액 (필수항목)
-            // custom_data: { name: '부가정보', desc: '세부 부가정보' },
-            // buyer_name: ["asd"], // 구매자 이름
-            // buyer_tel: ["01083259911"], // 구매자 전화번호 (필수항목)
-            // buyer_email: ["rdfdfa@asda.com"], // 구매자 이메일
-            // buyer_addr: ["주소"],
-            // buyer_postalcode: ["우편번호"]
+            amount: `${product.price}`, // 금액 (필수항목)
         };
         IMP.request_pay(data, callback);
     }
-
     const callback = (response) => {
         const { success, error_msg, imp_uid, merchant_uid, pay_method, paid_amount, status } = response;
         if (success) {
             alert('결제 성공');
-            window.location.href = "/"
+            window.location.href = "/mypage/buylist"
         } else {
             alert(`결제 실패 : ${error_msg}`);
             window.location.href = "/products"
@@ -124,95 +90,45 @@ export const BuyPay = (convertPrice) => {
     }
     //-------------------------------------
     //판매 등록 함수
-    const onClicksell = () => {
-        let content = "최종 금액은 : " + price + "입니다. 등록 하시겠습니까?";
-        confirmAlert({
-            title: '고객님!',
-            message: content,
-            buttons: [
-                {
-                    label: 'Yes',
-                    onClick: () => {
+    // const onClicksell = () => {
+    //     let content = "최종 금액은 : " + price + "입니다. 등록 하시겠습니까?";
+    //     confirmAlert({
+    //         title: '고객님!',
+    //         message: content,
+    //         buttons: [
+    //             {
+    //                 label: 'Yes',
+    //                 onClick: () => {
 
-                        //sale에 등록
-                        fetch("/api/purchase/buy", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json; charset=utf-8"
-                            },
-                            body: JSON.stringify({
-                                //product 의 id ,price, size, 로그인된 아이디 넘겨줌
-                                "id": id,
-                                "userid": userid,
-                                "price": product.price,
-                                "size": product.size
-                            })
-                        }).then((res) => res.json())
-                            .then(data => {
+    //                     //sale에 등록
+    //                     fetch("/api/purchase/buy", {
+    //                         method: "POST",
+    //                         headers: {
+    //                             "Content-Type": "application/json; charset=utf-8"
+    //                         },
+    //                         body: JSON.stringify({
+    //                             //product 의 id ,price, size, 로그인된 아이디 넘겨줌
+    //                             "id": id,
+    //                             "userid": userid,
+    //                             "price": `${product.price}`,
+    //                             "size": product.size
+    //                         })
+    //                     }).then((res) => res.json())
+    //                         .then(data => {
 
-                                //stock 갯수 update
-                                fetch("/api/buy/stock", {
-                                    method: "POST",
-                                    headers: {
-                                        "Content-Type": "application/json; charset=utf-8"
-                                    },
-                                    body: JSON.stringify({
-                                        //product 의 id ,price, size, 로그인된 아이디 넘겨줌
-                                        "id": product.id,
-                                        "size": size
-                                    })
-                                }).then((res) => res.json())
-                                    .then(data => {
+    //                         })
+    //                     window.location.href = "/mypage";
+    //                 }
+    //             },
+    //             {
+    //                 label: 'No',
+    //                 onClick: () => { }
+    //             }
+    //         ]
+    //     });
 
-                                    })
-                            })
-                        window.location.href = "/mypage";
-                    }
-                },
-                {
-                    label: 'No',
-                    onClick: () => { }
-                }
-            ]
-        });
-
-    }
-
+    // }
     //-------------------------------------
-
-    // fetch("/api/purchase/saleget", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json; charset=utf-8"
-    //     },
-    //     body: JSON.stringify({
-    //         "no": id,
-    //     })
-    // })
-    //     .then((res) => res.json())
-    //     .then(data => {
-    //         console.log(data.buy);
-    //          //setPrice(data.buy);
-    //          //setSize(data.buy);
-    //          setProduct(data.buy);
-
-
-    //     })
-
-    fetch("/api/detail", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8"
-        },
-        body: JSON.stringify({
-            "productId": id,
-        })
-    })
-        .then((res) => res.json())
-        .then(data => {
-            setProduct(data[0]);
-        });
-
     return (
         <>
 
@@ -227,10 +143,10 @@ export const BuyPay = (convertPrice) => {
                         <div className={styles.product}>
                             <p className={styles.productInfo}>상품 정보</p>
                             <p >상품 사진 / 상품명 / 사이즈 / 가격</p>
-                            <img src={product.image} alt="product" />
-                            <p>{product.name}</p>
-                            <p>{product.size}</p>
-                            <p>{product.price}</p>
+                            <img src={image} alt="product" />
+                            <p>{name}</p>
+                            <p>{saleprice}</p>
+                            <p>{address}</p>
                         </div>
                         <div className={styles.address}>
                             <p className={styles.addressInfo}>배송주소</p>
@@ -261,26 +177,9 @@ export const BuyPay = (convertPrice) => {
                             <p>‘바로 결제하기’ 를 선택하시면 즉시 결제가 진행되며, 단순 변심이나 실수에 의한 취소가 불가능합니다.
                                 본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불, 교환) 규정이 적용되지 않습니다.</p>
                             <p className={styles.payInfo}>총 결제 금액</p>
+                            {product.price}
                             <button onClick={onClickPayment}>결제하기</button>
                         </div>
-
-                        {/* {state.sale && state.sale.map((product) => {
-                console.log("구매 들어오나요");
-                return <div >
-                    <div data-aos="slide-up">
-                        <div >
-                            <span>상품 사이즈 : {product.setSize}</span>
-                        </div>
-                        <div >
-                             <span>상품 가격 : {product.price}</span> 
-                        </div>
-                        <br /><br /><br />
-                    </div>0
-                </div>
-            })} */}
-
-                        <input className="set" type="text" value={search} placeholder="상품명, 브랜드, 카테고리 검색" onChange={onSearchHandler} onKeyPress={handleOnKeyPress} ></input>
-                        <button onClick={onClickPayment}>결제하기</button>
                     </div>
                 </div>
             </div>
