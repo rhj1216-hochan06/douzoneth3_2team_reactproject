@@ -73,16 +73,12 @@ export const Detail = ({ convertPrice }) => {
   // ----------------- 구매 modal show function------------------------------------------------------------------------------------------------------------------------
   const PurchasehandleShow = (e) => {
 
-
     if (e.target.id == "purchasebtn") {
       setPurchaseShow(true);
     }
     else if (e.target.id == "cartbtn") {
       setCartShow(true);
     }
-
-
-
 
     fetch("/api/purchase", {
       method: "POST",
