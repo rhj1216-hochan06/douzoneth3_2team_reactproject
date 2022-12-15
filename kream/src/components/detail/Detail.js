@@ -1811,7 +1811,7 @@ export const Detail = ({ convertPrice }) => {
     }
   }
 
- 
+
   useEffect(() => {
     lowPriceUpdate(id);
     // axios.get("/data/products.json").then((data) => {
@@ -1932,34 +1932,34 @@ export const Detail = ({ convertPrice }) => {
   return (
 
     <>
-      <main className={styles.main}>
-        <section className={styles.product}>
-          <div className={styles.product_img}>
-            <img src={product.image} alt="product" />
-          </div>
-        </section>
-        <section className={styles.product}>
-          <div className={styles.product_info}>
-            <p className={styles.seller_store}>{product.provider}</p>
-            <p className={styles.product_name}>{product.name}</p>
-            <span className={styles.price}>
+        <main className={styles.main}>
+          <section className={styles.product}>
+            <div className={styles.product_img}>
+              <img src={product.image} alt="product" />
+            </div>
+          </section>
+          <section className={styles.product}>
+            <div className={styles.product_info}>
+              <p className={styles.seller_store}>{product.provider}</p>
+              <p className={styles.product_name}>{product.name}</p>
+              <span className={styles.price}>
+                <h4>최저가</h4>
+                {" " + convertPrice(product.price + "")}
 
-              {convertPrice(product.price + "")}
 
+                <span className={styles.unit}>원</span>
+              </span>
+            </div>
 
-              <span className={styles.unit}>원</span>
-            </span>
-          </div>
+            <div className={styles.line}></div>
+            <div className={styles.delivery}>
+              <p>택배배송 / 무료배송</p>
+            </div>
 
-          <div className={styles.line}></div>
-          <div className={styles.delivery}>
-            <p>택배배송 / 무료배송</p>
-          </div>
+            <div className={styles.line}></div>
 
-          <div className={styles.line}></div>
-
-          {/* --------------------------------------수량 UI--------------------------------------------------------------- */}
-          {/* <div className={styles.amount}>
+            {/* --------------------------------------수량 UI--------------------------------------------------------------- */}
+            {/* <div className={styles.amount}>
             <img
               className={styles.minus}
               src="/images/icon-minus-line.svg"
@@ -1980,10 +1980,10 @@ export const Detail = ({ convertPrice }) => {
           </div> */}
 
 
-          {/* --------------------------------------총 금액 UI--------------------------------------------------------------- */}
+            {/* --------------------------------------총 금액 UI--------------------------------------------------------------- */}
 
 
-          {/* <div className={styles.line}></div>
+            {/* <div className={styles.line}></div>
 
           <div className={styles.sum}>
             <div>
@@ -2001,167 +2001,167 @@ export const Detail = ({ convertPrice }) => {
             </div>
           </div> */}
 
-          <div className={styles.btn}>
-            <Button className={styles.btn_buy} onClick={PurchasehandleShow} id="purchasebtn">바로 구매</Button>
-            {/* <Button className={styles.btn_buy} data-bs-toggle={"modal"} data-bs-target={"#exampleModal"} data-bs-whatever={"@mdo"}>바로 구매</Button> */}
-            <Button variant="primary" className={styles.btn_modal} onClick={(e) => { SalehandleShow(e) }}>
-              판매
-            </Button>
+            <div className={styles.btn}>
+              <Button className={styles.btn_buy} onClick={PurchasehandleShow} id="purchasebtn">바로 구매</Button>
+              {/* <Button className={styles.btn_buy} data-bs-toggle={"modal"} data-bs-target={"#exampleModal"} data-bs-whatever={"@mdo"}>바로 구매</Button> */}
+              <Button variant="primary" className={styles.btn_modal} onClick={(e) => { SalehandleShow(e) }}>
+                판매
+              </Button>
 
 
 
-            {/* ---------------------------------------------구매 버튼  modal------------------------------------------------- */}
+              {/* ---------------------------------------------구매 버튼  modal------------------------------------------------- */}
 
 
-            <Modal
-              size="lg"
-              show={PurchaseShow}
-              onHide={PurchasehandleClose}
-              backdrop="static"
-              keyboard={false}
-            >
-              <Modal.Header closeButton>
-                <Modal.Title ><span className={styles.header_text_title}>Purchase</span></Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
+              <Modal
+                size="lg"
+                show={PurchaseShow}
+                onHide={PurchasehandleClose}
+                backdrop="static"
+                keyboard={false}
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title ><span className={styles.header_text_title}>Purchase</span></Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
 
-                <Modal.Body className="show-grid">
-                  <Container id="sizeRB">
+                  <Modal.Body className="show-grid">
+                    <Container id="sizeRB">
 
-                  </Container>
+                    </Container>
+                  </Modal.Body>
+
                 </Modal.Body>
-
-              </Modal.Body>
-              <Modal.Footer>
-                <div>
-                  <span className={styles.footer_text_title}>Size :&nbsp;&nbsp;</span>
-                  <span className={styles.footer_text_content} id="selectsize">&nbsp;&nbsp;&nbsp;</span>
-                  <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                  <span className={styles.footer_text_title}>Price :&nbsp;&nbsp;</span>
-                  <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
-                  <span>&nbsp;&nbsp;</span>
-                </div>
-                <Button id='salesnobtn' href={`/purchase/buy/1`} variant="primary" className={styles.footer_purchase_btn} ><span className={styles.footer_purchase_btn_text} >즉시 구매</span></Button>          </Modal.Footer>
-            </Modal>
+                <Modal.Footer>
+                  <div>
+                    <span className={styles.footer_text_title}>Size :&nbsp;&nbsp;</span>
+                    <span className={styles.footer_text_content} id="selectsize">&nbsp;&nbsp;&nbsp;</span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span className={styles.footer_text_title}>Price :&nbsp;&nbsp;</span>
+                    <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
+                    <span>&nbsp;&nbsp;</span>
+                  </div>
+                  <Button id='salesnobtn' href={`/purchase/buy/1`} variant="primary" className={styles.footer_purchase_btn} ><span className={styles.footer_purchase_btn_text} >즉시 구매</span></Button>          </Modal.Footer>
+              </Modal>
 
 
 
-            {/* ---------------------------------------------판매 버튼  modal------------------------------------------------- */}
+              {/* ---------------------------------------------판매 버튼  modal------------------------------------------------- */}
 
 
-            <Modal
-              size="lg"
-              show={SaleShow}
-              onHide={SalehandleClose}
-              backdrop="static"
-              keyboard={false}
-            >
-              <Modal.Header closeButton>
-                <Modal.Title ><span className={styles.header_text_title}>Sale</span></Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
+              <Modal
+                size="lg"
+                show={SaleShow}
+                onHide={SalehandleClose}
+                backdrop="static"
+                keyboard={false}
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title ><span className={styles.header_text_title}>Sale</span></Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
 
-                <Modal.Body className="show-grid">
-                  <Container id="sizeRB">
+                  <Modal.Body className="show-grid">
+                    <Container id="sizeRB">
 
-                  </Container>
+                    </Container>
+                  </Modal.Body>
+
                 </Modal.Body>
+                <Modal.Footer>
+                  <div>
+                    <span className={styles.footer_text_title}>Size :&nbsp;&nbsp;</span>
+                    <span className={styles.footer_text_content} id="selectsize">&nbsp;&nbsp;&nbsp;</span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span className={styles.footer_text_title}>Lowest Price :&nbsp;&nbsp;</span>
+                    <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
+                    <span>&nbsp;&nbsp;</span>
+                  </div>
+                  <Button id='sellbtn' href={`/sale/sell/1/0`} variant="primary" className={styles.footer_sale_btn}><span className={styles.footer_sale_btn_text}>판매 등록</span></Button>
+                </Modal.Footer>
+              </Modal>
 
-              </Modal.Body>
-              <Modal.Footer>
-                <div>
-                  <span className={styles.footer_text_title}>Size :&nbsp;&nbsp;</span>
-                  <span className={styles.footer_text_content} id="selectsize">&nbsp;&nbsp;&nbsp;</span>
-                  <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                  <span className={styles.footer_text_title}>Lowest Price :&nbsp;&nbsp;</span>
-                  <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
-                  <span>&nbsp;&nbsp;</span>
-                </div>
-                <Button id='sellbtn' href={`/sale/sell/1/0`} variant="primary" className={styles.footer_sale_btn}><span className={styles.footer_sale_btn_text}>판매 등록</span></Button>
-              </Modal.Footer>
-            </Modal>
-
-            {/* ---------------------------------------------장바구니 버튼  modal------------------------------------------------- */}
+              {/* ---------------------------------------------장바구니 버튼  modal------------------------------------------------- */}
 
 
-            <Modal
-              size="lg"
-              show={CartShow}
-              onHide={CarthandleClose}
-              backdrop="static"
-              keyboard={false}
-            >
-              <Modal.Header closeButton>
-                <Modal.Title ><span className={styles.header_text_title}>Cart</span></Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
+              <Modal
+                size="lg"
+                show={CartShow}
+                onHide={CarthandleClose}
+                backdrop="static"
+                keyboard={false}
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title ><span className={styles.header_text_title}>Cart</span></Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
 
-                <Modal.Body className="show-grid">
-                  <Container id="sizeRB">
+                  <Modal.Body className="show-grid">
+                    <Container id="sizeRB">
 
-                  </Container>
+                    </Container>
+                  </Modal.Body>
+
                 </Modal.Body>
+                <Modal.Footer>
+                  <div>
+                    <span className={styles.footer_text_title}>Size :&nbsp;&nbsp;</span>
+                    <span className={styles.footer_text_content} id="selectsize">&nbsp;&nbsp;&nbsp;</span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span className={styles.footer_text_title}>Lowest Price :&nbsp;&nbsp;</span>
+                    <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
+                    <span>&nbsp;&nbsp;</span>
+                  </div>
+                  <Button variant="primary" className={styles.footer_cart_btn} onClick={handleCart}><span className={styles.footer_cart_btn_text}>상품 담기</span></Button>
+                </Modal.Footer>
+              </Modal>
 
-              </Modal.Body>
-              <Modal.Footer>
-                <div>
-                  <span className={styles.footer_text_title}>Size :&nbsp;&nbsp;</span>
-                  <span className={styles.footer_text_content} id="selectsize">&nbsp;&nbsp;&nbsp;</span>
-                  <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                  <span className={styles.footer_text_title}>Lowest Price :&nbsp;&nbsp;</span>
-                  <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
-                  <span>&nbsp;&nbsp;</span>
-                </div>
-                <Button variant="primary" className={styles.footer_cart_btn} onClick={handleCart}><span className={styles.footer_cart_btn_text}>상품 담기</span></Button>
-              </Modal.Footer>
-            </Modal>
-
-            {/* ---------------------------------------------------------------------------------------------------- */}
-            <Button className={styles.btn_cart} onClick={(e) => { PurchasehandleShow(e) }} id="cartbtn"
-            //handleCart();
-            //window.location.reload();
-            >
-              장바구니</Button>
-            {/* <Button className={styles.btn_cart} onClick={() => {
+              {/* ---------------------------------------------------------------------------------------------------- */}
+              <Button className={styles.btn_cart} onClick={(e) => { PurchasehandleShow(e) }} id="cartbtn"
+              //handleCart();
+              //window.location.reload();
+              >
+                장바구니</Button>
+              {/* <Button className={styles.btn_cart} onClick={() => {
               inputSale(300000, "L");
             }}>
               테스트</Button> */}
-          </div>
-          <br />
-          <span className={styles.recent}>최근 거래 가격</span> <br />
-          <span className={styles.timer}>서버 시간 : {timer}</span>
-          <table>
-            <thead>
-              <tr>
-                <th>사이즈</th>
-                <th>가격</th>
-                <th>날짜</th>
-              </tr>
-            </thead>
-          </table>
-          {
-            sale.sale && sale.sale.map((data) => {
-              // if(!sale.sale){
-              //   return 'no data';
-              // }
-              return <div>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>{data.SALE_SIZE}</td>
-                      <td>{data.SALE_PRICE}</td>
-                      <td>{data.SALE_DATE.substring(0, 10)}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+            </div>
+            <br />
+            {/* <span className={styles.recent}>최근 거래 가격</span> <br />
+            <span className={styles.timer}>서버 시간 : {timer}</span> */}
+            <table>
+              <thead>
+                <tr>
+                  <th>사이즈</th>
+                  <th>가격</th>
+                  <th>날짜</th>
+                </tr>
+              </thead>
+            </table>
+            {
+              sale.sale && sale.sale.map((data) => {
+                // if(!sale.sale){
+                //   return 'no data';
+                // }
+                return <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>{data.SALE_SIZE}</td>
+                        <td>{data.SALE_PRICE}</td>
+                        <td>{data.SALE_DATE.substring(0, 10)}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              }
+              )
             }
-            )
-          }
-        </section>
-      </main>
-    </>
-  );
+          </section>
+        </main>
+      </>
+      );
 };
 
 
