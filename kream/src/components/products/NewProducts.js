@@ -5,6 +5,7 @@ import { up } from '../../store/counterSlice';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
+import { lowPriceUpdate } from "../detail/lowPriceUpdate";
 
 
 export const NewProducts = ({ convertPrice }) => {
@@ -58,6 +59,7 @@ export const NewProducts = ({ convertPrice }) => {
                     return <div className={styles.product}>
                         <div class="item" data-aos="slide-up">
                             <Link to={`/products/${product.id}`}>
+                                {lowPriceUpdate(product.id)}
                                 <div className={styles.product_image}>
                                     <img src={product.image} alt="product" />
                                 </div>

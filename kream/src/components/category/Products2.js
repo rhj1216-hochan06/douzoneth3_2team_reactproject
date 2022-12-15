@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
+import { lowPriceUpdate } from "../detail/lowPriceUpdate";
 
 
 export const Products2 = ({ convertPrice }) => {
@@ -159,6 +160,7 @@ export const Products2 = ({ convertPrice }) => {
             if (start <= product.rownum && product.rownum <= end) {
               return <div className={styles.product}>
                 <div class="item" data-aos="slide-up">
+                  {lowPriceUpdate(product.id)}
                   <Link to={`/products/${product.id}`}>
                     <div className={styles.product_image}>
                       <img src={product.image} alt="product" />
