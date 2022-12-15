@@ -1,23 +1,30 @@
 import styles from "./cart.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const TotalCart = ({ total, setTotal, cart, convertPrice, found }) => {
+  const sessionStorage = window.sessionStorage;
+  const [id, setId] = useState("");
+
+
   useEffect(() => {
+    setId("/purchasecart/buy/" + sessionStorage.getItem("loginId"));
+
     if (found) { //만약에 값이 있다면 즉, 계산할 필요가 있다면
       const temp = found.filter((item) => item.length !== 0);
-    const sum = temp.map((item) => item[0].sale_price * 1);//1 -> item[0].cart_count
+      const sum = temp.map((item) => item[0].sale_price * 1);//1 -> item[0].cart_count
       const reducer = (acc, cur) => acc + cur;
-    //   sum 길이가 0이면 결과값은 0이다.
+      //   sum 길이가 0이면 결과값은 0이다.
       if (sum.length === 0) {
-          setTotal(0);
-          return;
-        }
-        const itemTotal = sum.reduce(reducer);
-        setTotal(itemTotal);
-    } else {
         setTotal(0);
+        return;
+      }
+      const itemTotal = sum.reduce(reducer);
+      setTotal(itemTotal);
+    } else {
+      setTotal(0);
     }
-}, [cart, total, found, setTotal]);
+  }, [cart, total, found, setTotal]);
 
   return (
     <div className={styles.total}>
@@ -46,6 +53,8 @@ export const TotalCart = ({ total, setTotal, cart, convertPrice, found }) => {
           {convertPrice(total)}
         </p>
       </div>
-    </div>
+
+      <Link to={id} ><p>한꺼번에 결제</p></Link>
+    </div >
   );
 };
