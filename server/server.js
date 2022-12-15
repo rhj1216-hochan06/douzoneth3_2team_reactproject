@@ -342,7 +342,7 @@ app.post('/api/purchase/shoe', (req, res) => {
 })
 app.post('/api/purchase/size/price', (req, res) => {
   const id = req.body.id;
-  maria.query("SELECT MIN(sale_price) AS sale_price ,SALE_SIZE FROM sale WHERE sale_productid = ? ,sale_status = 0 group by sale_size", [id],
+  maria.query("SELECT MIN(sale_price) AS sale_price ,SALE_SIZE FROM sale WHERE sale_productid = ? and sale_status = 0 and sale_check = 0 group by sale_size", [id],
     function (err, data) {
       if (!err) res.send({ data });
       else {
@@ -720,7 +720,7 @@ app.post('/api/sale', (req, res) => {
 
 app.post('/api/get-low-price-update', (req, res) => {
   const pid = req.body.pid;
-  maria.query("SELECT MIN(SALE_PRICE) AS min FROM SALE WHERE SALE_STATUS = 0 and SALE_PRODUCTID = " + pid, (err, data, fields) => {
+  maria.query("SELECT MIN(SALE_PRICE) AS min FROM SALE WHERE SALE_STATUS = 0 and SALE_CHECK = 0 and SALE_PRODUCTID = " + pid, (err, data, fields) => {
     if (!err) res.send({ ass: data[0] });
     else res.send(err);
   })

@@ -390,20 +390,20 @@ export const Detail = ({ convertPrice }) => {
               if (json.data[0].size_30ml > 0) {
                 $('#row1').append("<div class='col-md-4 col-6'>"
                   + "<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1'>"
-                  + "<label id = 'size_30ml' tabindex='0' for='tag-radio-1' name='tag-radio-1' class='btn btn-dark' style = 'width:210px; height:95px; font-size:25px; font:bold; ' onclick=>30ml<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  + "<label id = 'size_30ml' tabindex='0' for='tag-radio-1' name='tag-radio-1' class='btn btn-dark' style = 'width:210px; height:95px; font-size:25px; font:bold; ' onclick=>30ml<br><span id = 'tag1' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   + "</div>");
 
               }
               else {
                 $('#row1').append("<div class='col-md-4 col-6'>"
                   + "<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' disabled>"
-                  + "<label id = 'size_30ml' tabindex='0' for='tag-radio-1' name='tag-radio-1' class='btn btn-dark' style = 'width:210px; height:95px; font-size:25px; font:bold; '>30ml<br><span style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
+                  + "<label id = 'size_30ml' tabindex='0' for='tag-radio-1' name='tag-radio-1' class='btn btn-dark' style = 'width:210px; height:95px; font-size:25px; font:bold; '>30ml<br><span id = 'tag1' style='font-size:22px; color:orange; font:bold;'>재고없음</span></label>"
                   + "</div>");
               }
               if (json.data[0].size_100ml > 0) {
                 $('#row1').append("<div class='col-md-4 col-6'>"
-                  + "<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-2' value = '2' onclick=handleChange(this)>"
-                  + "<label id = 'size_100ml' tabindex='0' for='tag-radio-2' name='tag-radio-2' class='btn btn-dark' style = 'width:210px; height:95px; font-size:25px; font:bold; '>100ml<br><span id = 'tag1'style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  + "<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-2' value = '2' >"
+                  + "<label id = 'size_100ml' tabindex='0' for='tag-radio-2' name='tag-radio-2' class='btn btn-dark' style = 'width:210px; height:95px; font-size:25px; font:bold; '>100ml<br><span id = 'tag2'style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   + "</div>");
 
               }
@@ -1231,21 +1231,21 @@ export const Detail = ({ convertPrice }) => {
               if (json.data[0].size_30ml > 0) {
                 $('#row1').append("<div class='col-md-4 col-6'>"
                   + "<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1'>"
-                  + "<label id = 'size_30ml' tabindex='0' for='tag-radio-1' name='tag-radio-1' class='btn btn-dark' style = 'width:210px; height:95px; font-size:25px; font:bold; ' onclick=>30ml<br><span style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  + "<label id = 'size_30ml' tabindex='0' for='tag-radio-1' name='tag-radio-1' class='btn btn-dark' style = 'width:210px; height:95px; font-size:25px; font:bold; ' onclick=>30ml<br><span id = 'tag1' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   + "</div>");
 
               }
               else {
                 $('#row1').append("<div class='col-md-4 col-6'>"
                   + "<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' >"
-                  + "<label id = 'size_30ml' tabindex='0' for='tag-radio-1' name='tag-radio-1' class='btn btn-dark' style = 'width:210px; height:95px; font-size:25px; font:bold; '>30ml<br><span style='font-size:22px; color:orange; font:bold;'>-</span></label>"
+                  + "<label id = 'size_30ml' tabindex='0' for='tag-radio-1' name='tag-radio-1' class='btn btn-dark' style = 'width:210px; height:95px; font-size:25px; font:bold; '>30ml<br><span id = 'tag1' style='font-size:22px; color:orange; font:bold;'>-</span></label>"
                   + "</div>");
                 $("#tag-radio-1").attr("value", "0")
               }
               if (json.data[0].size_100ml > 0) {
                 $('#row1').append("<div class='col-md-4 col-6'>"
-                  + "<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-2' value = '2' onclick=handleChange(this)>"
-                  + "<label id = 'size_100ml' tabindex='0' for='tag-radio-2' name='tag-radio-2' class='btn btn-dark' style = 'width:210px; height:95px; font-size:25px; font:bold; '>100ml<br><span id = 'tag1'style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
+                  + "<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-2' value = '2' >"
+                  + "<label id = 'size_100ml' tabindex='0' for='tag-radio-2' name='tag-radio-2' class='btn btn-dark' style = 'width:210px; height:95px; font-size:25px; font:bold; '>100ml<br><span id = 'tag2' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
                   + "</div>");
 
               }
