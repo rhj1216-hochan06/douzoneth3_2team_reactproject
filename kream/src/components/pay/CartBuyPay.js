@@ -3,21 +3,18 @@ import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { Detail } from "../../components/detail/Detail.js"
 import styles from "../../components/pay/pay.module.css"
-
+import $ from 'jquery';
 
 export const CartBuyPay = (convertPrice) => {
 
     //------------------------------------카트 불러오기
-    const [total, setTotal] = useState("0");
+    const [total, setTotal] = useState(0);
     const sessionStorage = window.sessionStorage;
     const [cartLangth, setCartLangth] = useState([]);
     const [cart, setCart] = useState([]);
 
 
-    //장바구니 목록 상시 출력
-    useEffect(() => {
-        onA();
-    }, [])
+
     const onA = (event) => {
         fetch("/api/cart", {
             method: "post",
@@ -37,12 +34,6 @@ export const CartBuyPay = (convertPrice) => {
     }
 
 
-
-
-
-
-
-
     //----------------------------------------------------구매
     console.log('구매페이지');
 
@@ -60,22 +51,14 @@ export const CartBuyPay = (convertPrice) => {
     const { id } = useParams();
 
     // -------------------------------------카카오
-    const [search, setSearch] = useState("1000");
 
-    const onSearchHandler = (event) => {
-        setSearch(event.currentTarget.value)
-    }
-
-    const handleOnKeyPress = e => {
-        if (e.key === 'Enter') {
-            console.log(search)
-            onClickPayment();
-            //   onSearch(); // Enter 입력이 되면 클릭 이벤트 실행
-        }
-    };
 
     useEffect(() => {
+        onA();
         SalesloginCheck();
+        purcahsebuy();
+
+
         const jquery = document.createElement("script");
         jquery.src = "https://code.jquery.com/jquery-1.12.4.min.js";
         const iamport = document.createElement("script");
@@ -89,6 +72,10 @@ export const CartBuyPay = (convertPrice) => {
     }, []);
 
     const onClickPayment = () => {
+        let temp1 = ($("#totalprice").html()) * 1;
+
+
+
         const { IMP } = window;
         IMP.init("imp54465658"); // 결제 데이터 정의
         const data = {
@@ -96,7 +83,7 @@ export const CartBuyPay = (convertPrice) => {
             pay_method: 'card', // 결제수단 (필수항목)
             merchant_uid: `mid_${new Date().getTime()}`, // 결제금액 (필수항목)
             name: '결제 테스트', // 주문명 (필수항목)
-            amount: `${cart.total_price}`, // 금액 (필수항목)
+            amount: `${temp1}`, // 금액 (필수항목)
             // custom_data: { name: '부가정보', desc: '세부 부가정보' },
             // buyer_name: ["asd"], // 구매자 이름
             // buyer_tel: ["01083259911"], // 구매자 전화번호 (필수항목)
@@ -111,6 +98,22 @@ export const CartBuyPay = (convertPrice) => {
         const { success, error_msg, imp_uid, merchant_uid, pay_method, paid_amount, status } = response;
         if (success) {
             alert('결제 성공');
+
+            //--성공시 db 작성
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             window.location.href = "/mypage/buylist"
         } else {
             alert(`결제 실패 : ${error_msg}`);
@@ -118,23 +121,23 @@ export const CartBuyPay = (convertPrice) => {
         }
     }
     //-------------------------------------
-
-    fetch("/api/purchase/buy/" + id, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8"
-        },
-        body: JSON.stringify({
-            "id": sessionStorage.getItem("loginId"),
+    const purcahsebuy = (response) => {
+        fetch("/api/purchase/buy/" + id, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            body: JSON.stringify({
+                "id": sessionStorage.getItem("loginId"),
+            })
         })
-    })
-        .then((res) => res.json())
-        .then(data => {
-            setSize(data.products[0].size);
-            console.log(data.products[0].size);
-            console.log(data.products.size);
-        })
-
+            .then((res) => res.json())
+            .then(data => {
+                setSize(data.products[0].size);
+                console.log(data.products[0].size);
+                console.log(data.products.size);
+            })
+    }
     return (
         <>
             <div>
@@ -151,8 +154,12 @@ export const CartBuyPay = (convertPrice) => {
                                 {/* 여기가 호진이가 작업한 결제 정보 불러오기 */}
                                 {
                                     cart.map((cart) => {
+                                        let temp = ($("#totalprice").html()) * 1;
+                                        temp += (cart.sale_price) * 1;
+                                        $("#totalprice").html(temp);
                                         return (
                                             <>
+
                                                 {cart.cart_saleno}
                                                 <img src={`${cart.image}`} />
                                                 {cart.name}
@@ -164,7 +171,6 @@ export const CartBuyPay = (convertPrice) => {
 
                                         );
                                     })
-
                                 }
                             </p>
                         </div>
@@ -179,10 +185,15 @@ export const CartBuyPay = (convertPrice) => {
                         <br />
                         <div className={styles.price}>
                             <p className={styles.priceInfo}>최종 결제 정보</p>
-                            <p className={styles.priceInfo}>상품금액 원</p>
+                            {cart.map((cart) => {
+                                return (
+                                    <p> 상품 {cart.name}, {cart.sale_price} 원 </p>
+                                );
+                            })}
+                            <p className={styles.priceInfo}></p>
                             <p className={styles.priceInfo}>배송비 무료</p>
                             <hr />
-                            <p className={styles.priceInfo}>총 결제 금액 {cart.total_price}원</p>
+                            <p className={styles.priceInfo}>총 결제 금액 <span id='totalprice' value="" />원</p>
                         </div>
                         <div className={styles.payment}>
                             <p className={styles.payInfo}>결제 방법</p>
@@ -196,8 +207,6 @@ export const CartBuyPay = (convertPrice) => {
                                 앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래 진행 상태 알림을 받을 수 없습니다.</p>
                             <p>‘바로 결제하기’ 를 선택하시면 즉시 결제가 진행되며, 단순 변심이나 실수에 의한 취소가 불가능합니다.
                                 본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불, 교환) 규정이 적용되지 않습니다.</p>
-                            <p className={styles.payInfo}>총 결제 금액</p>
-                            <p>{cart.total_price}</p>
                             <button onClick={onClickPayment}>결제하기</button>
                         </div>
                     </div>
