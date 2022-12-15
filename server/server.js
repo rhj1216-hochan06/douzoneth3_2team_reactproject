@@ -570,3 +570,21 @@ app.post('/api/sale', (req, res) => {
   })
 
 })
+
+
+app.post('/api/get-low-price-update', (req, res) => {
+  const pid = req.body.pid;
+  maria.query("SELECT MIN(SALE_PRICE) AS min FROM SALE WHERE SALE_PRODUCTID = " + pid , (err, data, fields) => {
+    if (!err) res.send({ass:data[0] });
+    else res.send(err);
+  })
+})
+
+app.post('/api/updateprice', (req, res) => {
+  const pid = req.body.pid;
+  const price = req.body.price;
+  maria.query("UPDATE PRODUCTS SET PRICE = '" + price + "' WHERE id = " + pid , (err, data, fields) => {
+    if (!err) res.send({ a : "success"});
+    else res.send(err);
+  })
+})

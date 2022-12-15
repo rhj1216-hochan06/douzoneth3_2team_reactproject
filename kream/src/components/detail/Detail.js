@@ -14,6 +14,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import $ from 'jquery';
 import { applyMiddleware } from "redux";
+import { LowPriceUpdate} from "./LowPriceUpdate";
 
 export const Detail = ({ convertPrice }) => {
   const { id } = useParams();
@@ -1861,7 +1862,7 @@ export const Detail = ({ convertPrice }) => {
   const handleCart = () => {
     if (sessionStorage.getItem("loginId") === "" || sessionStorage.getItem("loginId") === null) {
       alert("로그인이 필요한 서비스 입니다.")
-       window.location ='/login';
+      window.location = '/login';
     }
     console.log(saleno);
     if (saleno.length === 0) {
@@ -1884,15 +1885,15 @@ export const Detail = ({ convertPrice }) => {
       })
     })
       .then((res) => (
-          res.json()
+        res.json()
       ))
       .then(data => {
         // console.log(data);
         // CarthandleClose();
-        if(Object.keys(data).length == 2){
+        if (Object.keys(data).length == 2) {
           alert("이미 장바구니에 담은 물품입니다.");
         }
-        else if(Object.keys(data).length == 1){
+        else if (Object.keys(data).length == 1) {
           alert("장바구니에 추가되었습니다!!");
           window.location.reload();
         }
@@ -1928,7 +1929,6 @@ export const Detail = ({ convertPrice }) => {
   return (
 
     <>
-
       <main className={styles.main}>
         <section className={styles.product}>
           <div className={styles.product_img}>
@@ -1941,6 +1941,7 @@ export const Detail = ({ convertPrice }) => {
             <p className={styles.product_name}>{product.name}</p>
             <span className={styles.price}>
 
+              <LowPriceUpdate pid={id} />
               {convertPrice(product.price + "")}
 
 

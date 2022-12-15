@@ -1,7 +1,8 @@
 import { Detail } from "../components/detail/Detail.js";
+import React, { useState } from "react";
 
-const DetailPage = ({cart, setCart,convertPrice}) => {
-  return <Detail cart={cart} setCart={setCart} convertPrice={convertPrice}/>;
+const DetailPage = ({convertPrice}) => {
+  return <Detail convertPrice={convertPrice} />;
 };
 
 export default DetailPage;
