@@ -31,11 +31,11 @@ app.post('/api/purchase/saleget', (req, res) => {
   console.log('saleget');
   const no = req.body.no;
   const id = req.body.id;
-  maria.query("SELECT *,(SELECT useraddress FROM user WHERE USERID = ?) as address,(SELECT name FROM products WHERE ID=aaa.SALE_PRODUCTID) as name,(SELECT image FROM products WHERE ID=aaa.SALE_PRODUCTID) as image FROM sale AS aaa WHERE SALE_NO = ?", [id ,no],
+  maria.query("SELECT *,(SELECT useraddress FROM user WHERE USERID = ?) as address,(SELECT name FROM products WHERE ID=aaa.SALE_PRODUCTID) as name,(SELECT image FROM products WHERE ID=aaa.SALE_PRODUCTID) as image FROM sale AS aaa WHERE SALE_NO = ?", [id, no],
     function (err, data) {
       console.log('success');
       if (!err) {
-        res.send({buy: data});
+        res.send({ buy: data });
       }
       else res.send(err);
     });
@@ -68,8 +68,8 @@ app.post('/api/purchase/saleinsert', (req, res) => {
   const userid = req.body.userid;
   const price = req.body.price;
   const size = req.body.size;
-  const check = 1;
-  maria.query("insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE,SALE_CHECK) values(?,?,?,?,?)", [id, userid, price, size, check])
+
+  maria.query("insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE,SALE_CHECK) values(?,?,?,?,?)", [id, userid, price, size, 1])
 })
 
 app.post('/api/buy/stock', (req, res) => {
@@ -257,7 +257,7 @@ app.post('/api/purchase', (req, res) => {
 app.post('/api/purchase/buy/id', (req, res) => {
   console.log('buyPay');
   const id = req.body.id;
-  maria.query("select * from sale where sales_no = ?", [sales_no],
+  maria.query("select * from sale where sale_no = ?", [id],
     function (err, data) {
       console.log('success');
       if (!err) {
@@ -696,8 +696,8 @@ app.post('/api/sale', (req, res) => {
 
 app.post('/api/get-low-price-update', (req, res) => {
   const pid = req.body.pid;
-  maria.query("SELECT MIN(SALE_PRICE) AS min FROM SALE WHERE SALE_PRODUCTID = " + pid , (err, data, fields) => {
-    if (!err) res.send({ass:data[0] });
+  maria.query("SELECT MIN(SALE_PRICE) AS min FROM SALE WHERE SALE_PRODUCTID = " + pid, (err, data, fields) => {
+    if (!err) res.send({ ass: data[0] });
     else res.send(err);
   })
 })
@@ -705,8 +705,8 @@ app.post('/api/get-low-price-update', (req, res) => {
 app.post('/api/updateprice', (req, res) => {
   const pid = req.body.pid;
   const price = req.body.price;
-  maria.query("UPDATE PRODUCTS SET PRICE = '" + price + "' WHERE id = " + pid , (err, data, fields) => {
-    if (!err) res.send({ a : "success"});
+  maria.query("UPDATE PRODUCTS SET PRICE = '" + price + "' WHERE id = " + pid, (err, data, fields) => {
+    if (!err) res.send({ a: "success" });
     else res.send(err);
   })
 })
