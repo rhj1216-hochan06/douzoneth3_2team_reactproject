@@ -14,7 +14,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import $ from 'jquery';
 import { applyMiddleware } from "redux";
-import { LowPriceUpdate} from "./LowPriceUpdate";
+import { lowPriceUpdate, LowPriceUpdate} from "./LowPriceUpdate";
 
 export const Detail = ({ convertPrice }) => {
   const { id } = useParams();
@@ -1811,6 +1811,7 @@ export const Detail = ({ convertPrice }) => {
   }
 
   useEffect(() => {
+    {lowPriceUpdate(id)}
     // axios.get("/data/products.json").then((data) => {
     //   setProduct(data.data.products.find((product) => product.id === parseInt(id)));
     fetch("/api/detail", {
@@ -1954,7 +1955,7 @@ export const Detail = ({ convertPrice }) => {
             <p>택배배송 / 무료배송</p>
           </div>
 
-          <div className={styles.line}></div>
+          {/* <div className={styles.line}></div> */}
 
           {/* --------------------------------------수량 UI--------------------------------------------------------------- */}
           {/* <div className={styles.amount}>
@@ -1964,11 +1965,9 @@ export const Detail = ({ convertPrice }) => {
               alt="minus"
               onClick={() => handleQuantity("minus")}
             />
-
             <div className={styles.count}>
               <span>{count}</span>
             </div>
-
             <img
               className={styles.plus}
               src="/images/icon-plus-line.svg"
@@ -1982,12 +1981,10 @@ export const Detail = ({ convertPrice }) => {
 
 
           {/* <div className={styles.line}></div>
-
           <div className={styles.sum}>
             <div>
               <span className={styles.sum_price}>총 상품 금액</span>
             </div>
-
             <div className={styles.total_info}>
               <span className={styles.total}>
                 총 수량 <span className={styles.total_count}>{count}개</span>
@@ -2130,7 +2127,7 @@ export const Detail = ({ convertPrice }) => {
           </div>
           <br />
           <span className={styles.recent}>최근 거래 가격</span> <br />
-          <span className={styles.timer}>서버 시간 : {timer}</span>
+          {/* <span className={styles.timer}>{timer}</span> */}
           <table>
             <thead>
               <tr>
@@ -2189,7 +2186,7 @@ export const Detail = ({ convertPrice }) => {
 //   }
 
 //   useEffect(() => {
-    lowPriceUpdate(id);
+    
 //     axios.get("/data/products.json").then((data) => {
 //       setProduct(data.data.products.find((product) => product.id === parseInt(id)));
 //     });

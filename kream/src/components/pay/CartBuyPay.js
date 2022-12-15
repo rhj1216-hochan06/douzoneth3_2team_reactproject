@@ -53,7 +53,7 @@ export const CartBuyPay = (convertPrice) => {
         })
             .then((res) => res.json())
             .then(data => {
-                console.log(data.buy[0]);
+                console.log(data.buy);
                 setName(data.buy[0].name);
                 setSalePrice(data.buy[0].SALE_PRICE);
                 setImage(data.buy[0].image);
