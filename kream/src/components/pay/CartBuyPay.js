@@ -91,22 +91,26 @@ export const CartBuyPay = (convertPrice) => {
         IMP.request_pay(data, callback);
     }
 
-    const test = () => {
-
-
-        console.log("끝");
-
-        //window.location.href = "/mypage/profile"
-
-    }
-
-
-
 
     const callback = (response) => {
         const { success, error_msg, imp_uid, merchant_uid, pay_method, paid_amount, status } = response;
         if (success) {
             alert('결제 성공');
+
+            fetch("/api/cart/clear", {
+                method: "post",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    "id": sessionStorage.getItem("loginId"),
+                })
+            })
+                .then((res) => res.json())
+                .then(json => {
+                    console.log("카트 삭제 끝");
+                }
+                );//------카트 삭제 쿼리문 끝
 
 
             cart.map((cart) => {
@@ -251,7 +255,7 @@ export const CartBuyPay = (convertPrice) => {
                             <p className={styles.payInfo}>결제 방법</p>
                             <p className={styles.payInfo}>일반 결제</p>
                             <div className={styles.kakao}>
-                                <p onClick={test}>카카오페이</p>
+                                <p>카카오페이</p>
                             </div>
                         </div>
                         <div className={styles.check}>
