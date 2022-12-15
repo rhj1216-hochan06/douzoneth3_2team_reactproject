@@ -311,10 +311,16 @@ app.post('/api/cartinsert', (req, res) => {
   const CART_USERID = req.body.CART_USERID;
   const CART_SALENO = req.body.CART_SALENO;
   console.log(CART_USERID + "/" + CART_SALENO);
+  const sendText = {
+    text: "보내기 성공",
+  };
   maria.query("select * from cart where cart_saleno = " + CART_SALENO + " and cart_userid = '" + CART_USERID + "'", (err, data) => {
     console.log(data);
     console.log(data.length);
-    if (data.length > 0) res.send({a:1});
+    if (data.length > 0) {
+    res.send([{a:1},{b:2}]);
+    // console.log(sendText);
+  }
     else {
       maria.query("INSERT INTO CART(CART_USERID,CART_SALENO) values('" + CART_USERID + "'," + CART_SALENO + ")", (err, data, fields) => {
         if (!err) res.send({ cart: data });
