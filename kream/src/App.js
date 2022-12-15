@@ -32,6 +32,8 @@ import axios from "axios";
 import store from './store/store';
 import Login from "./components/loginregister/Login"
 import Register from "./components/loginregister/register"
+import Welcome from "./components/loginregister/welcompage"
+
 
 //디테일 페이지
 import DetailPage from './pages/DetailPage';
@@ -52,6 +54,7 @@ import { Search } from "./pages/Search";
 import { Mypagepage } from './pages/Mypagepage';
 import { Mypage } from './components/mypage/mypage';
 import { Mysale } from './components/mypage/mysalelist';
+import { Mysaled } from './components/mypage/mysaledlist';
 import { Mybuy } from './components/mypage/mybuylist';
 import { Myprofile } from './components/mypage/myprofile';
 
@@ -106,6 +109,9 @@ function App() {
                 />} />
               <Route
                 path="/register" element={<Register
+                />} />
+                 <Route
+                path="/welcome" element={<Welcome
                 />} />
 
               <Route
@@ -169,6 +175,8 @@ function App() {
               <Route path="/mypage" element={<Mypage />} >
               <Route path="/mypage/salelist" element={
                 <Provider store={store}> <Mysale convertPrice={convertPrice} /></Provider>} />
+                <Route path="/mypage/saledlist" element={
+                <Provider store={store}> <Mysaled convertPrice={convertPrice} /></Provider>} />
                    <Route path="/mypage/buylist" element={
                   <Provider store={store}> <Mybuy  convertPrice={convertPrice} /></Provider>} />
               <Route path='/mypage/profile' element={<Myprofile />} /> </Route>

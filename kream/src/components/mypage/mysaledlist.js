@@ -8,9 +8,9 @@ import Login from '../loginregister/Login.js';
 
 
 
-export const Mysale = (convertPrice) => {
+export const Mysaled = (convertPrice) => {
 
-  console.log('sale information0');
+  console.log('saled information0');
   const [productid, setProductid] = useState("");
   const [price, setPrice] = useState();
   const [sixe, setSize] = useState("");
@@ -22,7 +22,7 @@ export const Mysale = (convertPrice) => {
     onA();
   }, [])
 const onA = (event) => {
-fetch("/api/mypageshop", {
+fetch("/api/mypagesaled", {
 
     method: "POST",
     headers: {
@@ -40,6 +40,9 @@ fetch("/api/mypageshop", {
 
       setState(json);
 
+
+     
+
     })
      
   }
@@ -48,14 +51,14 @@ fetch("/api/mypageshop", {
 
   return (
     <>
-     
+ 
 
 
       <div className={styles.contenttt}>
         <div className={styles.main_content}>
 
           <div className={styles.contentcenter}>
-            <h3 className={styles.contentName1}> &nbsp;&nbsp;&nbsp; 나의 판매중인 상품</h3><br />
+            <h3 className={styles.contentName1}> &nbsp;&nbsp;&nbsp; 내 판매 완료 기록</h3><br />
             <hr className={styles.line} /><br />
 
             
