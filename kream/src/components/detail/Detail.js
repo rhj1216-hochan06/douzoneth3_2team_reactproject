@@ -74,6 +74,10 @@ export const Detail = ({ convertPrice }) => {
 
   // ----------------- 구매 modal show function------------------------------------------------------------------------------------------------------------------------
   const PurchasehandleShow = (e) => {
+    if (sessionStorage.getItem("loginId") === "" || sessionStorage.getItem("loginId") === null) {
+      alert("로그인이 필요한 서비스 입니다.")
+      window.location = '/login';
+    }
 
     if (e.target.id == "purchasebtn") {
       setPurchaseShow(true);
@@ -2073,7 +2077,12 @@ export const Detail = ({ convertPrice }) => {
                   <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
                   <span>&nbsp;&nbsp;</span>
                 </div>
-                <a role="button"  href="/sale/sell/1/0" id="sellbtn" class="btn btn-dark"><span className={styles.footer_sale_btn_text}>판매 등록</span></a> 
+                <a role="button"  href="/sale/sell/1/0" id="sellbtn" class="btn btn-dark" onClick={()=>{
+                      if (sessionStorage.getItem("loginId") === "" || sessionStorage.getItem("loginId") === null) {
+                        alert("로그인이 필요한 서비스 입니다.")
+                        window.location = '/login';
+                      }
+                }}><span className={styles.footer_sale_btn_text}>판매 등록</span></a> 
                 
               </Modal.Footer>
             </Modal>

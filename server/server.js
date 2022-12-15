@@ -322,7 +322,7 @@ app.post('/api/purchase/shoe', (req, res) => {
 })
 app.post('/api/purchase/size/price', (req, res) => {
   const id = req.body.id;
-  maria.query("SELECT MIN(sale_price) AS sale_price ,SALE_SIZE FROM sale WHERE sale_productid = ? group by sale_size", [id],
+  maria.query("SELECT MIN(sale_price) AS sale_price ,SALE_SIZE FROM sale WHERE sale_productid = ? ,sale_status = 0 group by sale_size", [id],
     function (err, data) {
       if (!err) res.send({ data });
       else {
