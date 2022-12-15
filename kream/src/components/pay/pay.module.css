@@ -1,0 +1,61 @@
+.info {
+    text-align: center;
+    margin: 10px;
+}
+
+.main {
+    font-weight: bold;
+    font-size: 30px;
+    margin: auto;
+}
+
+.background {
+    background-color: rgb(234, 234, 234);
+    text-align: -webkit-center;
+}
+
+.product {
+    background-color: white;
+}
+
+.address {
+    background-color: white;
+
+}
+
+.delivery {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.price {
+    background-color: white;
+}
+
+.payment {
+    background-color: white;
+}
+
+.check {
+    background-color: white;
+}
+
+.width {
+    width: 700px;
+}
+
+.productInfo {
+    text-align: left;
+}
+
+.addressInfo {
+    text-align: left;
+}
+
+.priceInfo {
+    text-align: left;
+}
+
+.payInfo {
+    text-align: left;
+}
