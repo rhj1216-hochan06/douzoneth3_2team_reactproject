@@ -363,12 +363,17 @@
   }
   .jb_th_1 {
     width: 20vw;
+    vertical-align: middle;
   }
  
   .jb_th_3 {
     width: 150vw;
   }
-  /* .jb-th-4 {
+
+.cellwid{  
+  width: 59vh;
+  } 
+   /* .jb-th-4 {
     width: 400px;
   }
   .jb-th-5 {
@@ -382,3 +387,29 @@
    .linklist{
     font-size: 15px;
    }
+
+   .flex_wrap2 {
+    display: flex;
+    place-items: baseline;
+    gap: 30px 50px;
+    margin: 0px auto 0;
+    margin-top: 35px;
+    max-width: min-content;
+  
+  }
+  
+  .page1 {
+    float: left;
+  }
+  .pagenationImg {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    margin: 0px 5px 5px 5px;
+  }
+  
+.pagenationImg2 {
+  width: 8vh;
+  font-size: 28px;
+  text-align-last: center;
+}
