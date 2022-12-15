@@ -8,9 +8,6 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 export const SellPay = (convertPrice) => {
-
-    console.log('구매페이지');
-
     const SalesloginCheck = () => {
         //로그인했는지 확인하기
         if (sessionStorage.getItem("loginId") === "" || sessionStorage.getItem("loginId") === null) {
@@ -19,17 +16,15 @@ export const SellPay = (convertPrice) => {
             window.location = '/login';
         }
     }
-    const [productid, setProductid] = useState("");
     const [price, setPrice] = useState();
     const [userid, setUserid] = useState(sessionStorage.getItem("loginId"));
-    const [name, setName] = useState("");
     const { id } = useParams();
     const { size } = useParams();
-    const [image, setImage] = useState([]);
     const date = new Date();
     const year = String(date.getFullYear());
     const month = String(date.getMonth());
     const day = String(date.getDate());
+    const [product, setProduct] = useState({});
     //오늘 날짜
     const today = year + "-" + month + "-" + day;
     // -------------------------------------카카오
@@ -135,21 +130,28 @@ export const SellPay = (convertPrice) => {
             "Content-Type": "application/json; charset=utf-8"
         },
         body: JSON.stringify({
-            "id": id
+            "id": id,
 
         })
     })
         .then((res) => res.json())
         .then(data => {
-            // setState(data);
-            setName(data.sell[0].name);
-
-            setImage(data.sell[0].image);
-            setProductid(data.sell[0].id);
-            // console.log(data.sell[0].name);
-            console.log(data);
 
         })
+
+    fetch("/api/detail", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+        body: JSON.stringify({
+            "productId": id,
+        })
+    })
+        .then((res) => res.json())
+        .then(data => {
+            setProduct(data);
+        });
 
     return (
         <>
@@ -166,13 +168,10 @@ export const SellPay = (convertPrice) => {
                 <tbody>
                     <tr>
                         <td>
-                            <Link to={`/products/${productid}`}>
-                                <div className={styles.product_image}>
-                                    <img src={image} alt="product" />
-                                </div>
-                            </Link></td>
+                            <img src={product.image} alt="product" />
+                        </td>
                         <td>{id}</td>
-                        <td>{name}</td>
+                        <td>{product.name}</td>
                         <td>{size}</td>
                         <td>{today}</td>
                     </tr>
