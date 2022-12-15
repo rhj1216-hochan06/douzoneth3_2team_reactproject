@@ -38,8 +38,7 @@ export const Detail = ({ convertPrice }) => {
   const PurchasehandleClose = () => setPurchaseShow(false);
   const SalehandleClose = () => setSaleShow(false);
   const CarthandleClose = () => setCartShow(false);
-
-  
+  const [saleno,setSaleno] = useState([]);
 
  
     //sessionStorage.setItem("sales_no", "숫자");
@@ -63,6 +62,7 @@ export const Detail = ({ convertPrice }) => {
     })
       .then((res) => res.json())
       .then(json => {
+        setSaleno(json.data[0]);
         sales_no = json.data[0].SALE_NO;
         sessionStorage.setItem("sales_no",sales_no);
         var link = '/purchase/buy/' + sales_no;
@@ -1813,9 +1813,12 @@ export const Detail = ({ convertPrice }) => {
   startTimer();
 
   const handleCart = () => {
-    //장바구니 추가 기능, 민약 상품아이디와 유저아이디로 조회했을 떄, 
-    //1. 데이터가 있다면 해당 count를 이곳의 count로 변경,
-    //2. 데이터가 없다면, id,count,userid를 가져가서 insert를 실행
+    console.log(saleno.SALE_NO);
+    const number = saleno.SALE_NO;
+    // 장바구니 추가 기능, 민약 상품아이디와 유저아이디로 조회했을 떄, 
+    // 1. 데이터가 있다면 해당 count를 이곳의 xcount로 변경,
+    // 2. 데이터가 없다면, id,count,userid를 가져가서 insert를 실행
+
     fetch("/api/cartinsert", {
       method: "POST",
       headers: {
@@ -1823,15 +1826,16 @@ export const Detail = ({ convertPrice }) => {
       },
       body: JSON.stringify({
         "CART_USERID": sessionStorage.getItem("loginId"),
-        "CART_PRODUCTID": product.id,
-        "CART_COUNT": count
+        "CART_SALENO": number,
       })
     })
-      .then((res) => res.json())
+      .then((res) => {
+        res.json()
+      })
       .then(data => {
-        console.log(data);
-        console.log(data.user.username);
-
+        // console.log(data);
+        // CarthandleClose();
+        window.location.reload();
       });
   };
 
@@ -2049,7 +2053,7 @@ export const Detail = ({ convertPrice }) => {
                   <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
                   <span>&nbsp;&nbsp;</span>
                 </div>
-                <Button variant="primary" className={styles.footer_cart_btn}><span className={styles.footer_cart_btn_text}>상품 담기</span></Button>
+                <Button variant="primary" className={styles.footer_cart_btn} onClick={handleCart}><span className={styles.footer_cart_btn_text}>상품 담기</span></Button>
               </Modal.Footer>
             </Modal>
 

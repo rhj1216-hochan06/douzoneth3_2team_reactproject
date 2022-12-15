@@ -80,7 +80,8 @@ export const Cart = ({ convertPrice }) => {
                 "userid": sessionStorage.getItem("loginId"),
                 "cart_saleno": saleno,
             })
-        }).then((res) => res.json());
+        }).then((res) => res.json())
+        .then(data=>{window.location.reload();});
     };
 
 

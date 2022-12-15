@@ -135,11 +135,11 @@ app.post('/api/saleno', (req, res) => {
   const id = req.body.id;
   const size = req.body.size;
   const price = req.body.price;
-  maria.query("select SALE_NO FROM sale WHERE SALE_PRICE = ? and SALE_PRODUCTID = ? and SALE_SIZE = ?  and SALE_CHECK = 0 order by SALE_NO;", [price, id, size],
+  maria.query("select SALE_NO FROM sale WHERE SALE_PRICE = ? and SALE_PRODUCTID = ? and SALE_SIZE = ?  and SALE_CHECK = 0 order by SALE_NO", [price, id, size],
     function (err, data) {
       if (!err) res.send({ data });
       else {
-        console.log("DB저장 성공");
+        console.log("DB저장 실패");
       };
     })
 })
@@ -309,25 +309,19 @@ app.post('/api/register', (req, res) => {
 
 app.post('/api/cartinsert', (req, res) => {
   const CART_USERID = req.body.CART_USERID;
-  const CART_PRODUCTID = req.body.CART_PRODUCTID;
-  const CART_COUNT = req.body.CART_COUNT;
-  maria.query("select * from cart where CART_USERID='" + CART_USERID
-    + "' and CART_PRODUCTID='" + CART_PRODUCTID + "'", (err, data, fields) => {
-      if (data.length != 0) {//1. 데이터가 있다면 해당 count를 이곳의 count로 변경,
-        maria.query("update cart set CART_COUNT =" + CART_COUNT +
-          " where CART_USERID = '" + CART_USERID + "' and CART_PRODUCTID='" + CART_PRODUCTID + "'"
-          , (err, data, fields) => {
-            if (!err) res.send({ cart: data });
-            else res.send(err);
-          })
-      } else if (data.length == 0) {//2. 데이터가 없다면, id,count,userid를 가져가서 insert를 실행
-        maria.query("insert into cart(CART_USERID,CART_PRODUCTID,CART_COUNT) values('"
-          + CART_USERID + "'," + CART_PRODUCTID + "," + CART_COUNT + ")", (err, data, fields) => {
-            if (!err) res.send({ cart: data });
-            else res.send(err);
-          })
-      }
-    })
+  const CART_SALENO = req.body.CART_SALENO;
+  console.log(CART_USERID + "/" + CART_SALENO);
+  maria.query("select * from cart where cart_saleno = " + CART_SALENO + " and cart_userid = '" + CART_USERID + "'", (err, data) => {
+    console.log(data);
+    console.log(data.length);
+    if (data.length > 0) res.send(err);
+    else {
+      maria.query("INSERT INTO CART(CART_USERID,CART_SALENO) values('" + CART_USERID + "'," + CART_SALENO + ")", (err, data, fields) => {
+        if (!err) res.send({ cart: data });
+        else res.send(err);
+      })
+    }
+  })
 })
 
 app.post('/api/nav', (req, res) => {
