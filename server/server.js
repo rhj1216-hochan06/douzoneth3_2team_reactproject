@@ -721,8 +721,8 @@ app.post('/api/updateprice', (req, res) => {
 app.post('/api/cart/clear', (req, res) => {
   console.log('cart/clear');
   const id = req.body.id;
-  maria.query(" DELETE FROM cart WHERE cart_userid=" + pid, (err, data, fields) => {
-    if (!err) res.send({ a: "success" });
+  maria.query(" DELETE FROM cart WHERE cart_userid= '" + id + "'", (err, data, fields) => {
+    if (!err) res.send("clear success");
     else res.send(err);
   })
 })

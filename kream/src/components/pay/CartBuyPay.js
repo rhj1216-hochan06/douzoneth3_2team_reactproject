@@ -91,17 +91,6 @@ export const CartBuyPay = (convertPrice) => {
         IMP.request_pay(data, callback);
     }
 
-    const test = () => {
-
-
-        console.log("끝");
-
-        //window.location.href = "/mypage/profile"
-
-    }
-
-
-
 
     const callback = (response) => {
         const { success, error_msg, imp_uid, merchant_uid, pay_method, paid_amount, status } = response;
@@ -266,7 +255,7 @@ export const CartBuyPay = (convertPrice) => {
                             <p className={styles.payInfo}>결제 방법</p>
                             <p className={styles.payInfo}>일반 결제</p>
                             <div className={styles.kakao}>
-                                <p onClick={test}>카카오페이</p>
+                                <p>카카오페이</p>
                             </div>
                         </div>
                         <div className={styles.check}>
