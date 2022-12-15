@@ -26,6 +26,26 @@ app.post('/api/detail', (req, res) => {
   })
 })
 
+app.post('/api/purchasecart/user', (req, res) => {
+  console.log('saleget');
+  const id = req.body.id;
+  maria.query("SELECT * FROM user where userid = ? ", [id],
+    function (err, data) {
+      if (!err) {
+        res.send({ buy: data });
+        console.log(data);
+      }
+      else res.send(err);
+    });
+})
+
+
+
+
+
+
+
+
 //상품 id, 가격 ,사이즈 가져오기
 app.post('/api/purchase/saleget', (req, res) => {
   console.log('saleget');
