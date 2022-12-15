@@ -105,7 +105,7 @@ const Register = () => {
 
             if (data.user.length != 0) {
               console.log('reg sucessss');
-              return navigate('/')
+              return navigate('/welcome')
             }
             else if (data.user.length == 0) {
               console.log('not sucessss');
@@ -130,32 +130,32 @@ const Register = () => {
           <form onSubmit={onSubmit}>
             <div className="size">
               <div className='gulza'><font color="red" className="point">*</font>NAME</div>
-              <input name="name" type="text" placeholder="이름" value={name} onChange={onNameHandler} class="loginregister__input" />
+              <input name="name" type="text" placeholder="이름" value={name} onChange={onNameHandler} class="loginregister__input" required/>
             </div><br/>
             <div className="size">
               <div className='gulza'><font color="red" className="point">*</font>ID</div>
-              <input name="id" type="id" placeholder="아이디" value={id} onChange={onIdHandler} class="loginregister__input2" />
+              <input name="id" type="id" placeholder="아이디" value={id} onChange={onIdHandler} class="loginregister__input2" required/>
               <Button variant="outline-dark" type="button" class="loginregister__button2" onClick={onIdcheck}>중복확인</Button>
             </div><br/>
             <div className="size">
               <div className='gulza2'><font color="red" className="point">*</font>PASSWORD</div>
-              <input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input" />
+              <input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input" required/>
             </div><br/>
             <div className="size">
               <div className='gulza'><font color="red" className="point">*</font>PASSWORD CONFIRM</div>
-              <input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler} class="loginregister__input" />
+              <input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler} class="loginregister__input" required/>
             </div><br/>
             <div className="size">
               <div className='gulza'><font color="red" className="point">*</font>EMAIL</div>
-              <input name="email" type="email" placeholder="이메일주소" value={email} onChange={onEmailHandler} class="loginregister__input" />
+              <input name="email" type="email" placeholder="이메일주소" value={email} onChange={onEmailHandler} class="loginregister__input" required />
             </div><br/>
             <div className="size">
               <div className='gulza'><font color="red" className="point">*</font>PHONENUMBER</div>
-              <input name="phonenumber" type="text" placeholder="전화번호" value={phonenumber} onChange={onPhonenumberHandler} class="loginregister__input" />
+              <input name="phonenumber" type="text" placeholder="전화번호" value={phonenumber} onChange={onPhonenumberHandler} class="loginregister__input" required/>
             </div><br/>
             <div className="size">
               <div className='gulza'><font color="red" className="point">*</font>Address</div>
-              <input name="address" type="text" placeholder="주소" value={address} onChange={onAddressHandler} class="loginregister__input" />
+              <input name="address" type="text" placeholder="주소" value={address} onChange={onAddressHandler} class="loginregister__input" required />
             </div>
             <div className="size2">
               <button type="submit" className="loginregister__button">계정 생성하기</button>

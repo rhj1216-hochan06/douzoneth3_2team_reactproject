@@ -19,6 +19,37 @@ export const Searchfind = ({ products, setProducts, convertPrice }) => {
   const [plength, setPLength] = useState("");
   const [find, setFind] = useState("");
 
+  const [count1, setCount1] = useState(1);
+  const [start, setstart] = useState(1);
+  const [end, setend] = useState(12);
+
+
+  const Countdown = (event) => {
+    if (start < 12) return Initcount();
+    setstart(start - 12);
+    setCount1(count1 - 1);
+    setend(end - 12);
+    console.log(start);
+    console.log(end);
+
+  }
+  const Countup = (event) => {
+    if (plength < end) return Initcount();
+    setstart(start + 12);
+    setCount1(count1 + 1);
+    setend(end + 12);
+    console.log(start);
+    console.log(end);
+
+
+  }
+  const Initcount = (event) => {
+    setstart(1);
+    setCount1(1);
+    setend(12);
+    console.log(start);
+    console.log(end);
+  }
 
   const onSearchHandler = (event) => {
     setSearch(event.currentTarget.value)
@@ -88,9 +119,11 @@ export const Searchfind = ({ products, setProducts, convertPrice }) => {
       </div><br />
       <main className={styles.flex_wrap}>
         {state.products && state.products.map((product) => { //map을 이용하여 상품 갯수만큼 반복시키기
-          if (!state.products) return 'no data';
+          if (!state.products) {return 'no data';}
           //  return <Product key={`key-${product.id}`} product={product} convertPrice={convertPrice} />;
-          return <div className={styles.product}>
+          else
+          if (start <= product.rownum && product.rownum <= end) {
+            return<div className={styles.product}>
             <div class="item" data-aos="slide-up">
               <Link to={`/products/${product.id}`}>
                 <div className={styles.product_image}>
@@ -111,7 +144,23 @@ export const Searchfind = ({ products, setProducts, convertPrice }) => {
               </div><br /><br /><br />
             </div>
           </div>
+          }
         })}
+      </main>
+      <main className={styles.flex_wrap2}>
+        <div className={styles.page1}>
+          <a href="#top">
+            <img className={styles.pagenationImg} src="/images/arrow1.png" alt="countdown" onClick={Countdown} />
+          </a>
+        </div>
+        <div className={styles.page1}>
+          <p className={styles.pagenationImg2}>{count1} /  {plength === 0 ||plength==="" ? <>1</> : <>{Math.ceil(plength / 12)}</>} </p>
+        </div>
+        <div className={styles.page1}>
+          <a href="#top">
+            <img className={styles.pagenationImg} src="/images/arrow2.png" alt="countdown" onClick={Countup} />
+          </a>
+        </div>
       </main>
     </>
   );

@@ -33,18 +33,34 @@ export const Mypage = () => {
 
       return (
         <><br/>
+          <div >
+        <div className={styles.box}>
+        <br/>
+        <br/>
           <ul >
+            <p className={styles.contentName1}>나의 정보</p>
+            <hr className={styles.line5}/><br/>
             <li >
               <Link className={styles.linklist} to="/mypage/profile">내 프로필</Link>
-            </li>
+            </li><hr className={styles.line4}/><br/><br/><br/>
+
+            <p className={styles.contentName1}>구매/판매 정보</p>
+            <hr className={styles.line5}/><br/>
             <li>
               <Link className={styles.linklist} to="/mypage/salelist">내가 판매중인 상품</Link>
-            </li>
+            </li><br/> <hr className={styles.line4}/>
+            <li>
+              <Link className={styles.linklist} to="/mypage/saledlist">내가 판매한 상품</Link>
+            </li><br/> <hr className={styles.line4}/>
             <li>
               <Link className={styles.linklist} to="/mypage/buylist">내가 구매한 상품</Link>
-            </li>
+            </li><br/> <hr className={styles.line4}/>
           </ul>
+          </div>
+          <div>
           <Outlet />    
+          </div>
+          </div>
         </>
       );
 

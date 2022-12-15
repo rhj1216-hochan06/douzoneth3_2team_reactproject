@@ -26,19 +26,119 @@ app.post('/api/detail', (req, res) => {
   })
 })
 
-
-//구매페이지
-app.post('/api/purchase/buy', (req, res) => {
-  console.log('buyPay');
-  const id = req.body.id;
-  maria.query("select * from products where id=?", [id],
+//상품 id, 가격 ,사이즈 가져오기
+app.post('/api/purchase/saleget', (req, res) => {
+  console.log('saleget');
+  const no = req.body.no;
+  maria.query("SELECT SALE_PRODUCTID,SALE_PRICE,SALE_SIZE FROM sale WHERE SALE_NO =?", [no],
     function (err, data) {
       console.log('success');
       if (!err) {
-        res.send({ products: data });
+        res.send({ buy: data });
       }
       else res.send(err);
     });
+})
+
+app.post('/api/purchase/productinfo', (req, res) => {
+  console.log('saleget');
+  const id = req.body.id;
+  maria.query("SELECT * FROM products WHERE ID=" + id,
+    function (err, data) {
+      console.log('success');
+      if (!err) {
+        res.send(data[0]);
+      }
+      else res.send(err);
+    });
+})
+
+//구매시 Sale_No에 status 1로 설정
+app.post('/api/purchase/statusset', (req, res) => {
+  console.log('statusset');
+  const no = req.body.no;
+  maria.query("UPDATE sale SET SALE_STATUS = 1 WHERE SALE_NO =?", [no])
+})
+
+//구매시 Sale에 상품id, userid, price,size,sale_check = 1 로 설정하여 삽입
+app.post('/api/purchase/saleinsert', (req, res) => {
+  console.log('statusset');
+  const id = req.body.id;
+  const userid = req.body.userid;
+  const price = req.body.price;
+  const size = req.body.size;
+  const check = 1;
+  maria.query("insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE,SALE_CHECK) values(?,?,?,?,?)", [id, userid, price, size, check])
+})
+
+app.post('/api/buy/stock', (req, res) => {
+
+  const id = req.body.id;
+  const size = req.body.size;
+  let count;
+  if (size == 'XS') maria.query("SELECT XS FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].XS - 1; maria.query("UPDATE STOCK SET XS = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'S') maria.query("SELECT S FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].S - 1; maria.query("UPDATE STOCK SET S = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'M') maria.query("SELECT M FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].M - 1; maria.query("UPDATE STOCK SET M = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'L') maria.query("SELECT L FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].L - 1; maria.query("UPDATE STOCK SET L = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'XL') maria.query("SELECT XL FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].XL - 1; maria.query("UPDATE STOCK SET XL = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_225') maria.query("SELECT size_225 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_225 - 1; maria.query("UPDATE STOCK SET size_225 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_230') maria.query("SELECT size_230 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_230 - 1; maria.query("UPDATE STOCK SET size_230 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_235') maria.query("SELECT size_235 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_235 - 1; maria.query("UPDATE STOCK SET size_235 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_240') maria.query("SELECT size_240 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_240 - 1; maria.query("UPDATE STOCK SET size_240 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_245') maria.query("SELECT size_245 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_245 - 1; maria.query("UPDATE STOCK SET size_245 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_250') maria.query("SELECT size_250 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_250 - 1; maria.query("UPDATE STOCK SET size_250 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_255') maria.query("SELECT size_255 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_255 - 1; maria.query("UPDATE STOCK SET size_255 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_260') maria.query("SELECT size_260 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_260 - 1; maria.query("UPDATE STOCK SET size_260 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_265') maria.query("SELECT size_265 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_265 - 1; maria.query("UPDATE STOCK SET size_265 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_270') maria.query("SELECT size_270 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_270 - 1; maria.query("UPDATE STOCK SET size_270 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_275') maria.query("SELECT size_270 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_275 - 1; maria.query("UPDATE STOCK SET size_275 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_280') maria.query("SELECT size_280 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_280 - 1; maria.query("UPDATE STOCK SET size_280 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_285') maria.query("SELECT size_285 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_285 - 1; maria.query("UPDATE STOCK SET size_285 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_290') maria.query("SELECT size_290 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_290 - 1; maria.query("UPDATE STOCK SET size_290 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_295') maria.query("SELECT size_295 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_295 - 1; maria.query("UPDATE STOCK SET size_295 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_300') maria.query("SELECT size_300 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_300 - 1; maria.query("UPDATE STOCK SET size_300 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
 })
 
 //판매페이지
@@ -52,84 +152,84 @@ app.post('/api/purchase/sell', (req, res) => {
   console.log(userid)
   console.log(price)
   console.log(size)
-  maria.query("insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(?,?,?,?)", [id,userid,price,size],
+  maria.query("insert into sale(SALE_PRODUCTID,SALE_USERID,SALE_PRICE,SALE_SIZE) values(?,?,?,?)", [id, userid, price, size],
     function (err, data) {
-      
+
       if (!err) {
-        res.send({ sell : data });
+        res.send({ sell: data });
       }
       else res.send(err);
     });
 })
 
 app.post('/api/sell/stock', (req, res) => {
-  
+
   const id = req.body.id;
   const size = req.body.size;
   let count;
-  if(size == 'XS')maria.query("SELECT XS FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].XS + 1; maria.query("UPDATE STOCK SET XS = ? WHERE id = ?", [count,id]);}else res.send(err);
+  if (size == 'XS') maria.query("SELECT XS FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].XS + 1; maria.query("UPDATE STOCK SET XS = ? WHERE id = ?", [count, id]); } else res.send(err);
   });
-  if(size == 'S')maria.query("SELECT S FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].S + 1; maria.query("UPDATE STOCK SET S = ? WHERE id = ?", [count,id]);}else res.send(err);
+  if (size == 'S') maria.query("SELECT S FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].S + 1; maria.query("UPDATE STOCK SET S = ? WHERE id = ?", [count, id]); } else res.send(err);
   });
-  if(size == 'M')maria.query("SELECT M FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].M + 1; maria.query("UPDATE STOCK SET M = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'L')maria.query("SELECT L FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].L + 1; maria.query("UPDATE STOCK SET L = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'XL')maria.query("SELECT XL FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].XL + 1; maria.query("UPDATE STOCK SET XL = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_225')maria.query("SELECT size_225 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_225 + 1; maria.query("UPDATE STOCK SET size_225 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_230')maria.query("SELECT size_230 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_230 + 1; maria.query("UPDATE STOCK SET size_230 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_235')maria.query("SELECT size_235 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_235 + 1; maria.query("UPDATE STOCK SET size_235 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_240')maria.query("SELECT size_240 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_240 + 1; maria.query("UPDATE STOCK SET size_240 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_245')maria.query("SELECT size_245 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_245 + 1; maria.query("UPDATE STOCK SET size_245 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_250')maria.query("SELECT size_250 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_250 + 1; maria.query("UPDATE STOCK SET size_250 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_255')maria.query("SELECT size_255 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_255 + 1; maria.query("UPDATE STOCK SET size_255 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_260')maria.query("SELECT size_260 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_260 + 1; maria.query("UPDATE STOCK SET size_260 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_265')maria.query("SELECT size_265 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_265 + 1; maria.query("UPDATE STOCK SET size_265 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_270')maria.query("SELECT size_270 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_270 + 1; maria.query("UPDATE STOCK SET size_270 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_275')maria.query("SELECT size_270 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_275 + 1; maria.query("UPDATE STOCK SET size_275 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_280')maria.query("SELECT size_280 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_280 + 1; maria.query("UPDATE STOCK SET size_280 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_285')maria.query("SELECT size_285 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_285 + 1; maria.query("UPDATE STOCK SET size_285 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_290')maria.query("SELECT size_290 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_290 + 1; maria.query("UPDATE STOCK SET size_290 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_295')maria.query("SELECT size_295 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_295 + 1; maria.query("UPDATE STOCK SET size_295 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
-  if(size == 'size_300')maria.query("SELECT size_300 FROM stock WHERE id = ?", [id],function (err, data) {
-    if (!err) {count = data[0].size_300 + 1; maria.query("UPDATE STOCK SET size_300 = ? WHERE id = ?", [count,id]);}else res.send(err);
-});
+  if (size == 'M') maria.query("SELECT M FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].M + 1; maria.query("UPDATE STOCK SET M = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'L') maria.query("SELECT L FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].L + 1; maria.query("UPDATE STOCK SET L = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'XL') maria.query("SELECT XL FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].XL + 1; maria.query("UPDATE STOCK SET XL = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_225') maria.query("SELECT size_225 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_225 + 1; maria.query("UPDATE STOCK SET size_225 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_230') maria.query("SELECT size_230 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_230 + 1; maria.query("UPDATE STOCK SET size_230 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_235') maria.query("SELECT size_235 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_235 + 1; maria.query("UPDATE STOCK SET size_235 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_240') maria.query("SELECT size_240 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_240 + 1; maria.query("UPDATE STOCK SET size_240 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_245') maria.query("SELECT size_245 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_245 + 1; maria.query("UPDATE STOCK SET size_245 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_250') maria.query("SELECT size_250 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_250 + 1; maria.query("UPDATE STOCK SET size_250 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_255') maria.query("SELECT size_255 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_255 + 1; maria.query("UPDATE STOCK SET size_255 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_260') maria.query("SELECT size_260 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_260 + 1; maria.query("UPDATE STOCK SET size_260 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_265') maria.query("SELECT size_265 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_265 + 1; maria.query("UPDATE STOCK SET size_265 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_270') maria.query("SELECT size_270 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_270 + 1; maria.query("UPDATE STOCK SET size_270 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_275') maria.query("SELECT size_270 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_275 + 1; maria.query("UPDATE STOCK SET size_275 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_280') maria.query("SELECT size_280 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_280 + 1; maria.query("UPDATE STOCK SET size_280 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_285') maria.query("SELECT size_285 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_285 + 1; maria.query("UPDATE STOCK SET size_285 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_290') maria.query("SELECT size_290 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_290 + 1; maria.query("UPDATE STOCK SET size_290 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_295') maria.query("SELECT size_295 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_295 + 1; maria.query("UPDATE STOCK SET size_295 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
+  if (size == 'size_300') maria.query("SELECT size_300 FROM stock WHERE id = ?", [id], function (err, data) {
+    if (!err) { count = data[0].size_300 + 1; maria.query("UPDATE STOCK SET size_300 = ? WHERE id = ?", [count, id]); } else res.send(err);
+  });
 })
 
 
@@ -160,7 +260,7 @@ app.post('/api/purchase/buy/id', (req, res) => {
     function (err, data) {
       console.log('success');
       if (!err) {
-        res.send({ products : data });
+        res.send({ products: data });
       }
       else res.send(err);
     });
@@ -168,7 +268,7 @@ app.post('/api/purchase/buy/id', (req, res) => {
 
 app.post('/api/purchase/threesize', (req, res) => {
   const id = req.body.id;
-  maria.query("SELECT XS,S,M,L,XL FROM stock WHERE id = ?",[id],
+  maria.query("SELECT XS,S,M,L,XL FROM stock WHERE id = ?", [id],
     function (err, data) {
       if (!err) res.send({ data });
       else {
@@ -413,9 +513,9 @@ app.post('/api/cartinsert', (req, res) => {
     console.log(data);
     console.log(data.length);
     if (data.length > 0) {
-    res.send([{a:1},{b:2}]);
-    // console.log(sendText);
-  }
+      res.send([{ a: 1 }, { b: 2 }]);
+      // console.log(sendText);
+    }
     else {
       maria.query("INSERT INTO CART(CART_USERID,CART_SALENO) values('" + CART_USERID + "'," + CART_SALENO + ")", (err, data, fields) => {
         if (!err) res.send({ cart: data });
@@ -483,7 +583,7 @@ app.post('/api/search', (req, res) => {
 
   const search = req.body.search;
 
-  maria.query("SELECT * FROM products WHERE name like '%" + search + "%' OR provider like'%" + search + "%' or category like'%" + search + "%'", (err, data, fields) => {
+  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum  FROM products WHERE (name like '%" + search + "%' OR provider like'%" + search + "%' or category LIKE'%" + search + "%') AND (SELECT @ROWNUM:=0)=0 order by id", (err, data, fields) => {
     if (!err) res.send({ products: data });
     else res.send(err);
   })
@@ -521,12 +621,33 @@ app.post('/api/word', (req, res) => {
     else res.send(err);
   })
 })
-//내 판매목록 보기
+//내 판매중목록 보기
 app.post('/api/mypageshop', (req, res) => {
   console.log('mypageshop');
   let SALE_PRODUCTID = "";
   const id = req.body.id;
-  maria.query("SELECT *,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='" + id + "' and sale_check=0", (err, data) => {
+  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum ,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='" + id + "' and sale_check=0 AND (SELECT @ROWNUM:=0)=0 order by sale_date", (err, data) => {
+    console.log('success');
+    if (!err) {
+      res.send({ sale: data });
+
+      console.log('mypageshop2');
+      SALE_PRODUCTID = data.SALE_PRODUCTID;
+    }
+
+    else res.send(err);
+
+  });
+
+})
+
+
+//내 판매한목록 보기
+app.post('/api/mypagesaled', (req, res) => {
+  console.log('mypageshop');
+  let SALE_PRODUCTID = "";
+  const id = req.body.id;
+  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum ,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='" + id + "' and sale_status=1 AND (SELECT @ROWNUM:=0)=0 order by sale_date", (err, data) => {
     console.log('success');
     if (!err) {
       res.send({ sale: data });
@@ -546,7 +667,7 @@ app.post('/api/mypagebuy', (req, res) => {
   console.log('mypageshop');
   let SALE_PRODUCTID = "";
   const id = req.body.id;
-  maria.query("SELECT *,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_check ='" + id + "' and sale_status=1", (err, data) => {
+  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum ,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='" + id + "' and sale_check=1 AND (SELECT @ROWNUM:=0)=0 order by sale_date", (err, data) => {
     console.log('success');
     if (!err) {
       res.send({ sale: data });

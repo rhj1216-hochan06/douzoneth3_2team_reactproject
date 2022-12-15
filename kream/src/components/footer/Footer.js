@@ -35,9 +35,9 @@ export const Footer = () => {
                 <div className='footer-link-wrapper'>
                     <div class='footer-link-items'>
                         <h3>Social Media</h3>
-                        <Link to='/'>Instagram</Link>
-                        <Link to='/'>Youtube</Link>
-                        <Link to='/'>Twitter</Link>
+                        <Link to='https://www.instagram.com/'>Instagram</Link>
+                        <Link to='https://www.youtube.com/'>Youtube</Link>
+                        <Link to='https://twitter.com/'>Twitter</Link>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@ export const Footer = () => {
                         >
                             <i className="fab fa-facebook-f"></i>
                         </Link>
-                        <Link className="social-icon-link instagram" to="/"
+                        <Link className="social-icon-link instagram" to=""
                             target="_blank"
                             aria-label="Instagram"
                         >

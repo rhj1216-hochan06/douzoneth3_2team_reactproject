@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { Detail } from "../../components/detail/Detail.js"
 import styles from "../../components/pay/pay.module.css"
+import { confirmAlert } from 'react-confirm-alert'; // Import
 
 
 export const BuyPay = (convertPrice) => {
@@ -17,13 +18,15 @@ export const BuyPay = (convertPrice) => {
         }
     }
 
-    const [price, setPrice] = useState();
-    const [size, setSize] = useState("");
     const { id } = useParams();
+    const [info, setInfo] = useState([]);
+    const [price, setPrice] = useState();
+    const [size, setSize] = useState();
+    const [product, setProduct] = useState({});
+    const [userid, setUserid] = useState(sessionStorage.getItem("loginId"));
 
     // -------------------------------------카카오
     const [search, setSearch] = useState("");
-
     const onSearchHandler = (event) => {
         setSearch(event.currentTarget.value)
     }
@@ -35,9 +38,49 @@ export const BuyPay = (convertPrice) => {
             //   onSearch(); // Enter 입력이 되면 클릭 이벤트 실행
         }
     };
+    const dataReceive = () => {
+        fetch("/api/purchase/saleget", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            body: JSON.stringify({
+                "no": id,
+            })
+        })
+            .then((res) => res.json())
+            .then(data => {
+                console.log(data.buy[0].SALE_PRODUCTID);
+                fetch("/api/purchase/productinfo", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8"
+                    },
+                    body: JSON.stringify({
+                        "id": data.buy[0].SALE_PRODUCTID,
+                    })
+                })
+                    .then((res) => res.json())
+                    .then(data => {
+                        console.log(data);
+                        //setPrice(data.buy);
+                        //setSize(data.buy);
+                        setProduct(data);
+                        console.log(data);
+
+
+
+                    })
+
+
+            })
+
+
+    }
 
     useEffect(() => {
         SalesloginCheck();
+        dataReceive();
         const jquery = document.createElement("script");
         jquery.src = "https://code.jquery.com/jquery-1.12.4.min.js";
         const iamport = document.createElement("script");
@@ -80,25 +123,99 @@ export const BuyPay = (convertPrice) => {
         }
     }
     //-------------------------------------
+    //판매 등록 함수
+    const onClicksell = () => {
+        let content = "최종 금액은 : " + price + "입니다. 등록 하시겠습니까?";
+        confirmAlert({
+            title: '고객님!',
+            message: content,
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
 
-    fetch("/api/purchase/buy/" + id, {
+                        //sale에 등록
+                        fetch("/api/purchase/buy", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json; charset=utf-8"
+                            },
+                            body: JSON.stringify({
+                                //product 의 id ,price, size, 로그인된 아이디 넘겨줌
+                                "id": id,
+                                "userid": userid,
+                                "price": product.price,
+                                "size": product.size
+                            })
+                        }).then((res) => res.json())
+                            .then(data => {
+
+                                //stock 갯수 update
+                                fetch("/api/buy/stock", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json; charset=utf-8"
+                                    },
+                                    body: JSON.stringify({
+                                        //product 의 id ,price, size, 로그인된 아이디 넘겨줌
+                                        "id": product.id,
+                                        "size": size
+                                    })
+                                }).then((res) => res.json())
+                                    .then(data => {
+
+                                    })
+                            })
+                        window.location.href = "/mypage";
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => { }
+                }
+            ]
+        });
+
+    }
+
+    //-------------------------------------
+
+    // fetch("/api/purchase/saleget", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json; charset=utf-8"
+    //     },
+    //     body: JSON.stringify({
+    //         "no": id,
+    //     })
+    // })
+    //     .then((res) => res.json())
+    //     .then(data => {
+    //         console.log(data.buy);
+    //          //setPrice(data.buy);
+    //          //setSize(data.buy);
+    //          setProduct(data.buy);
+
+
+    //     })
+
+    fetch("/api/detail", {
         method: "POST",
         headers: {
             "Content-Type": "application/json; charset=utf-8"
         },
         body: JSON.stringify({
-            "id": sessionStorage.getItem("loginId"),
+            "productId": id,
         })
     })
         .then((res) => res.json())
         .then(data => {
-            setSize(data.products[0].size);
-            console.log(data.products[0].size);
-            console.log(data.products.size);
-        })
+            setProduct(data[0]);
+        });
 
     return (
         <>
+
             <div>
                 <div className={styles.info}>
                     <br /><br />
@@ -110,6 +227,10 @@ export const BuyPay = (convertPrice) => {
                         <div className={styles.product}>
                             <p className={styles.productInfo}>상품 정보</p>
                             <p >상품 사진 / 상품명 / 사이즈 / 가격</p>
+                            <img src={product.image} alt="product" />
+                            <p>{product.name}</p>
+                            <p>{product.size}</p>
+                            <p>{product.price}</p>
                         </div>
                         <div className={styles.address}>
                             <p className={styles.addressInfo}>배송주소</p>
@@ -166,5 +287,6 @@ export const BuyPay = (convertPrice) => {
         </>
     )
 }
+
 
 
