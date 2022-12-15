@@ -124,20 +124,6 @@ export const SellPay = (convertPrice) => {
     }
     //-------------------------------------
 
-    fetch("/api/purchase/sell", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8"
-        },
-        body: JSON.stringify({
-            "id": id,
-
-        })
-    })
-        .then((res) => res.json())
-        .then(data => {
-
-        })
 
     fetch("/api/detail", {
         method: "POST",

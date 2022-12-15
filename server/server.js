@@ -30,28 +30,29 @@ app.post('/api/detail', (req, res) => {
 app.post('/api/purchase/saleget', (req, res) => {
   console.log('saleget');
   const no = req.body.no;
-  maria.query("SELECT SALE_PRODUCTID,SALE_PRICE,SALE_SIZE FROM sale WHERE SALE_NO =?", [no],
+  const id = req.body.id;
+  maria.query("SELECT *,(SELECT useraddress FROM user WHERE USERID = ?) as address,(SELECT name FROM products WHERE ID=aaa.SALE_PRODUCTID) as name,(SELECT image FROM products WHERE ID=aaa.SALE_PRODUCTID) as image FROM sale AS aaa WHERE SALE_NO = ?", [id ,no],
     function (err, data) {
       console.log('success');
       if (!err) {
-        res.send({ buy: data });
+        res.send({buy: data});
       }
       else res.send(err);
     });
 })
 
-app.post('/api/purchase/productinfo', (req, res) => {
-  console.log('saleget');
-  const id = req.body.id;
-  maria.query("SELECT * FROM products WHERE ID=" + id,
-    function (err, data) {
-      console.log('success');
-      if (!err) {
-        res.send(data[0]);
-      }
-      else res.send(err);
-    });
-})
+// app.post('/api/purchase/productinfo', (req, res) => {
+//   console.log('saleget');
+//   const id = req.body.id;
+//   maria.query("SELECT * FROM products WHERE ID=" + id,
+//     function (err, data) {
+//       console.log('success');
+//       if (!err) {
+//         res.send(data[0]);
+//       }
+//       else res.send(err);
+//     });
+// })
 
 //구매시 Sale_No에 status 1로 설정
 app.post('/api/purchase/statusset', (req, res) => {
@@ -596,7 +597,7 @@ app.post('/api/search', (req, res) => {
 
   const search = req.body.search;
 
-  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum  FROM products WHERE (name like '%"+search+"%' OR provider like'%"+search+"%' or category LIKE'%"+search+"%') AND (SELECT @ROWNUM:=0)=0 order by id", (err, data, fields) => {
+  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum  FROM products WHERE (name like '%" + search + "%' OR provider like'%" + search + "%' or category LIKE'%" + search + "%') AND (SELECT @ROWNUM:=0)=0 order by id", (err, data, fields) => {
     if (!err) res.send({ products: data });
     else res.send(err);
   })
@@ -639,7 +640,7 @@ app.post('/api/mypageshop', (req, res) => {
   console.log('mypageshop');
   let SALE_PRODUCTID = "";
   const id = req.body.id;
-  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum ,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='"+id+"' and sale_check=0 AND (SELECT @ROWNUM:=0)=0 order by sale_date", (err, data) => {
+  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum ,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='" + id + "' and sale_check=0 AND (SELECT @ROWNUM:=0)=0 order by sale_date", (err, data) => {
     console.log('success');
     if (!err) {
       res.send({ sale: data });
@@ -660,7 +661,7 @@ app.post('/api/mypagesaled', (req, res) => {
   console.log('mypageshop');
   let SALE_PRODUCTID = "";
   const id = req.body.id;
-  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum ,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='"+id+"' and sale_status=1 AND (SELECT @ROWNUM:=0)=0 order by sale_date", (err, data) => {
+  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum ,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='" + id + "' and sale_status=1 AND (SELECT @ROWNUM:=0)=0 order by sale_date", (err, data) => {
     console.log('success');
     if (!err) {
       res.send({ sale: data });
@@ -680,7 +681,7 @@ app.post('/api/mypagebuy', (req, res) => {
   console.log('mypageshop');
   let SALE_PRODUCTID = "";
   const id = req.body.id;
-  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum ,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='"+id+"' and sale_check=1 AND (SELECT @ROWNUM:=0)=0 order by sale_date", (err, data) => {
+  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum ,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='" + id + "' and sale_check=1 AND (SELECT @ROWNUM:=0)=0 order by sale_date", (err, data) => {
     console.log('success');
     if (!err) {
       res.send({ sale: data });
