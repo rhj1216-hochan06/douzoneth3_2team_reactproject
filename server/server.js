@@ -73,7 +73,7 @@ app.post('/api/purchase/sell', (req, res) => {
 
 app.post('/api/purchase/threesize', (req, res) => {
   const id = req.body.id;
-  maria.query("SELECT XS,S,M,L,XL FROM stock WHERE id = 42",
+  maria.query("SELECT XS,S,M,L,XL FROM stock WHERE id = ?",[id],
     function (err, data) {
       if (!err) res.send({ data });
       else {

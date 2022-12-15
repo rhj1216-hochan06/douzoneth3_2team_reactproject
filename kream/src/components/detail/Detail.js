@@ -118,7 +118,7 @@ export const Detail = ({ convertPrice }) => {
             .then((res) => res.json())
             .then(json => {
               console.log(json)
-
+              
 
               $('#sizeRB').append("<div id='row1' class='row' style='margin-bottom:10px;'>"
                 + "</div>"
@@ -128,7 +128,7 @@ export const Detail = ({ convertPrice }) => {
               );
 
 
-              if (json.data[0].XS > 0) {
+              if (json.data[0].XS > 0) {console.log("들어오나?")
                 $('#row1').append("<div class='col-md-4 col-6'>"
                   + "<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' >"
                   + "<label id = 'XS' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>XS<br><span id='tag1' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
