@@ -12,7 +12,13 @@ export const CartBuyPay = (convertPrice) => {
     const sessionStorage = window.sessionStorage;
     const [cartLangth, setCartLangth] = useState([]);
     const [cart, setCart] = useState([]);
-
+    const [name, setName] = useState();
+    const [address, setAddress] = useState();
+    const [saleprice, setSalePrice] = useState();
+    const [image, setImage] = useState();
+    const [provider, setProvider] = useState();
+    const [username, serUsername] = useState();
+    const [userphonenumber, setUserphonenumber] = useState();
 
 
     const onA = (event) => {
@@ -27,10 +33,37 @@ export const CartBuyPay = (convertPrice) => {
         })
             .then((res) => res.json())
             .then(json => {
+
                 setCart(json.cart);
                 setCartLangth(Object.keys(json.cart).length);
             }
             );
+    }
+    const dataReceive = () => {
+        fetch("/api/purchase/saleget", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            body: JSON.stringify({
+                "no": id,
+                "id": sessionStorage.getItem("loginId"),
+                //"sale_price": data.buy[0].SALE_PRICE,
+            })
+        })
+            .then((res) => res.json())
+            .then(data => {
+                console.log(data.buy);
+                setName(data.buy[0].name);
+                setSalePrice(data.buy[0].SALE_PRICE);
+                setImage(data.buy[0].image);
+                setAddress(data.buy[0].address);
+                setSize(data.buy[0].SALE_SIZE);
+                setProvider(data.buy[0].provider);
+                setUserphonenumber(data.buy[0].userphonenumber);
+                serUsername(data.buy[0].username);
+                //setSale(data);
+            })
     }
 
 
@@ -57,7 +90,7 @@ export const CartBuyPay = (convertPrice) => {
     useEffect(() => {
         onA();
         SalesloginCheck();
-
+        dataReceive();
         const jquery = document.createElement("script");
         jquery.src = "https://code.jquery.com/jquery-1.12.4.min.js";
         const iamport = document.createElement("script");
@@ -196,76 +229,91 @@ export const CartBuyPay = (convertPrice) => {
 
     return (
         <>
+
             <div>
                 <div className={styles.info}>
                     <br /><br />
-                    <p className={styles.main}> 배송 / 결제 </p>
+                    <p className={styles.main}> 배송 / 결제 </p><br />
                 </div>
                 <div className={styles.background}>
-                    <br />
+                    <br /><br />
                     <div className={styles.width}>
-                        <div className={styles.product}>
+                        <div className={styles.productInfoTitle}>
                             <p className={styles.productInfo}>상품 정보</p>
-                            <p >
-                                {/* 여기가 호진이가 작업한 결제 정보 불러오기 */}
-                                {
-                                    cart.map((cart) => {
-                                        let temp = ($("#totalprice").html()) * 1;
-                                        temp += (cart.sale_price) * 1;
-                                        $("#totalprice").html(temp);
-                                        return (
-                                            <>
+                            {
+                                cart.map((cart) => {
+                                    let temp = ($("#totalprice").html()) * 1;
+                                    temp += (cart.sale_price) * 1;
+                                    $("#totalprice").html(temp);
+                                    return (
+                                        <>
+                                            {cart.cart_saleno}
+                                            <div className={styles.imgdiv}>
+                                                <img className={styles.img123} src={`${cart.image}`} alt="product" />
+                                            </div>
+                                            <div className={styles.uldiv}>
+                                                <br />
+                                                <ul className={styles.sort}>
+                                                    <li className={styles.provider}>{cart.sale_price}</li><br />
+                                                    <li>{cart.name}</li><br />
+                                                    <li> {cart.sale_size}</li><br />
+                                                </ul>
+                                            </div>
+                                        </>
+                                    );
+                                })
+                            }
 
-                                                {cart.cart_saleno}
-                                                <img src={`${cart.image}`} />
-                                                {cart.name}
-                                                {cart.sale_price}
-                                                {cart.sale_size}
-                                                <p />
-                                            </>
-
-
-                                        );
-                                    })
-                                }
-                            </p>
                         </div>
-                        <div className={styles.address}>
-                            <p className={styles.addressInfo}>배송주소</p>
-                            <hr />
-                            <p className={styles.addressInfo}>배송 방법</p>
-                            <div className={styles.delivery}>
-                                <p className={styles.addressInfo}>일반배송</p>
-                            </div>
-                        </div>
+                        <p className={styles.addressInfo1}>배송 정보</p>
+                        <ul className={styles.addinfo}>
+                            <li className={styles.addressInfo}><font color="#999999">받는 분 : </font>{username}</li><br />
+                            <li className={styles.addressInfo}><font color="#999999">연락처 : </font>{userphonenumber}</li><br />
+                            <li className={styles.addressInfo}><font color="#999999">배송주소 : </font>{address}</li><br />
+                        </ul>
                         <br />
-                        <div className={styles.price}>
-                            <p className={styles.priceInfo}>최종 결제 정보</p>
-                            {cart.map((cart) => {
+                        <p className={styles.addressInfo1}>배송 방법</p>
+                        <div className={styles.delivery}>
+                            <div>
+                                <img className={styles.deliveryimg} src="/images/delivery.png" alt="delivery" />
+                            </div>
+                            <ul className={styles.deliverysort}>
+                                <li className={styles.addressInfo}>배송비 무료</li><br />
+                                <li className={styles.addressInfo}>지금 결제시 내일 도착 예정(택배사 상황에 따라 상이합니다.)</li>
+                            </ul>
+                        </div>
+                        <br /><hr /><br />
+                        <p className={styles.priceInfo1}>최종 결제 정보</p>
+                        <ul className={styles.price}>
+                            <li className={styles.priceInfo}>상품금액</li><font size="4"> {cart.map((cart) => {
                                 return (
                                     <p> 상품 {cart.name}, {cart.sale_price} 원 </p>
                                 );
-                            })}
-                            <p className={styles.priceInfo}></p>
-                            <p className={styles.priceInfo}>배송비 무료</p>
-                            <hr />
-                            <p className={styles.priceInfo}>총 결제 금액 <span id='totalprice' value="" />원</p>
-                        </div>
-                        <div className={styles.payment}>
-                            <p className={styles.payInfo}>결제 방법</p>
-                            <p className={styles.payInfo}>일반 결제</p>
-                            <div className={styles.kakao}>
-                                <p>카카오페이</p>
+                            })}</font><br />
+                            <li className={styles.priceInfo3}>배송비</li><font size="4">무료</font><br />
+                        </ul>
+                        <br /><hr /><br />
+                        <p className={styles.priceInfo1}>결제 수단</p>
+                        <ul className={styles.pay}>
+                            <li className={styles.payInfo1}>총 결제 금액</li><font size="5" color="red"><span id='totalprice' value="" />원</font><br />
+                        </ul>
+                        <div className={styles.delivery}>
+                            <div>
+                                <img className={styles.kakaoimg} src="/images/kakao.png" alt="delivery" />
                             </div>
-                        </div>
-                        <div className={styles.check}>
-                            <p>판매자의 판매거부, 배송지연, 미입고 등의 사유가 발생할 경우, 거래가 취소될 수 있습니다.
-                                앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래 진행 상태 알림을 받을 수 없습니다.</p>
-                            <p>‘바로 결제하기’ 를 선택하시면 즉시 결제가 진행되며, 단순 변심이나 실수에 의한 취소가 불가능합니다.
-                                본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불, 교환) 규정이 적용되지 않습니다.</p>
-                            <button onClick={onClickPayment}>결제하기</button>
-                        </div>
+                            <ul className={styles.kakaosort}>
+                                <li className={styles.kakaopay}>카카오페이 결제</li><br />
+                            </ul>
+                        </div><br />
                     </div>
+                    <div className={styles.check}>
+                        <p className={styles.ment}>판매자의 판매거부, 배송지연, 미입고 등의 사유가 발생할 경우, 거래가 취소될 수 있습니다.
+                            앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래 진행 상태 알림을 받을 수 없습니다.</p>
+                        <br />
+                        <p className={styles.ment}>‘바로 결제하기’ 를 선택하시면 즉시 결제가 진행되며, 단순 변심이나 실수에 의한 취소가 불가능합니다.
+                            본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불, 교환) 규정이 적용되지 않습니다.</p>
+                        <button onClick={onClickPayment}>결제하기</button>
+                    </div><br /><br />
                 </div>
             </div>
         </>

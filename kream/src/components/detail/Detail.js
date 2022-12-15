@@ -1965,11 +1965,9 @@ export const Detail = ({ convertPrice }) => {
               alt="minus"
               onClick={() => handleQuantity("minus")}
             />
-
             <div className={styles.count}>
               <span>{count}</span>
             </div>
-
             <img
               className={styles.plus}
               src="/images/icon-plus-line.svg"
@@ -1983,12 +1981,10 @@ export const Detail = ({ convertPrice }) => {
 
 
           {/* <div className={styles.line}></div>
-
           <div className={styles.sum}>
             <div>
               <span className={styles.sum_price}>총 상품 금액</span>
             </div>
-
             <div className={styles.total_info}>
               <span className={styles.total}>
                 총 수량 <span className={styles.total_count}>{count}개</span>
