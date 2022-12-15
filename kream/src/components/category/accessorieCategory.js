@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 
 
+
 export const AccessorieCategory = ({ products, setProducts, convertPrice }) => {
 
   //--aos
@@ -42,6 +43,7 @@ export const AccessorieCategory = ({ products, setProducts, convertPrice }) => {
           if (!state.products) return 'no data';
           //  return <Product key={`key-${product.id}`} product={product} convertPrice={convertPrice} />;
           return <div className={styles.product}>
+
             <div class="item" data-aos="slide-up">
               <Link to={`/products/${product.id}`}>
                 <div className={styles.product_image}>

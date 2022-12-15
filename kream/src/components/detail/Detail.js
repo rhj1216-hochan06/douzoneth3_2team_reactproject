@@ -14,7 +14,8 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import $ from 'jquery';
 import { applyMiddleware } from "redux";
-import { LowPriceUpdate} from "./LowPriceUpdate";
+import { lowPriceUpdate } from "./lowPriceUpdate";
+
 
 export const Detail = ({ convertPrice }) => {
   const { id } = useParams();
@@ -1810,7 +1811,9 @@ export const Detail = ({ convertPrice }) => {
     }
   }
 
+ 
   useEffect(() => {
+    lowPriceUpdate(id);
     // axios.get("/data/products.json").then((data) => {
     //   setProduct(data.data.products.find((product) => product.id === parseInt(id)));
     fetch("/api/detail", {
@@ -1941,7 +1944,6 @@ export const Detail = ({ convertPrice }) => {
             <p className={styles.product_name}>{product.name}</p>
             <span className={styles.price}>
 
-              <LowPriceUpdate pid={id} />
               {convertPrice(product.price + "")}
 
 
