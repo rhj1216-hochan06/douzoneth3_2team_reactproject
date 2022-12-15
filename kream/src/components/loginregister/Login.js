@@ -71,11 +71,11 @@ const Login = () => {
           <form onSubmit={onSubmit}>
             <div className={styles.size}>
               <p className={styles.gulza}><font color="red" className={styles.point}>*</font>ID</p>
-              <input name="userid" type="id" placeholder="아이디" value={userid} onChange={onIdHandler} className={styles.loginregister__input} />
+              <input name="userid" type="id" placeholder="아이디" value={userid} onChange={onIdHandler} className={styles.loginregister__input} required />
             </div><br />
             <div className={styles.size}>
               <h6 className={styles.gulza}><font color="red" className={styles.point}>*</font>PASSWORD</h6>
-              <input name="userpassword" type="password" placeholder="비밀번호" value={userpassword} onChange={onPasswordHandler} className={styles.loginregister__input} />
+              <input name="userpassword" type="password" placeholder="비밀번호" value={userpassword} onChange={onPasswordHandler} className={styles.loginregister__input} required/>
             </div><br />
             <div>
               <button type="submit" className={styles.loginregister__button}>로그인</button></div>
