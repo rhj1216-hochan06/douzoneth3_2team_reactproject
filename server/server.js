@@ -253,6 +253,10 @@ app.post('/api/purchase', (req, res) => {
 
 })
 
+
+
+
+
 //구매페이지
 app.post('/api/purchase/buy/id', (req, res) => {
   console.log('buyPay');
@@ -706,6 +710,18 @@ app.post('/api/updateprice', (req, res) => {
   const pid = req.body.pid;
   const price = req.body.price;
   maria.query("UPDATE PRODUCTS SET PRICE = '" + price + "' WHERE id = " + pid, (err, data, fields) => {
+    if (!err) res.send({ a: "success" });
+    else res.send(err);
+  })
+})
+
+
+
+//구매페이지
+app.post('/api/cart/clear', (req, res) => {
+  console.log('cart/clear');
+  const id = req.body.id;
+  maria.query(" DELETE FROM cart WHERE cart_userid=" + pid, (err, data, fields) => {
     if (!err) res.send({ a: "success" });
     else res.send(err);
   })
