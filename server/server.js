@@ -31,7 +31,7 @@ app.post('/api/purchase/saleget', (req, res) => {
   console.log('saleget');
   const no = req.body.no;
   const id = req.body.id;
-  maria.query("SELECT *,(SELECT useraddress FROM user WHERE USERID = ?) as address,(SELECT name FROM products WHERE ID=aaa.SALE_PRODUCTID) as name,(SELECT image FROM products WHERE ID=aaa.SALE_PRODUCTID) as image FROM sale AS aaa WHERE SALE_NO = ?", [id, no],
+  maria.query("SELECT *,(SELECT userphonenumber FROM user WHERE USERID = ?) as userphonenumber,(SELECT username FROM user WHERE USERID = ?) as username,(SELECT provider FROM products WHERE ID=aaa.SALE_PRODUCTID) as provider,(SELECT useraddress FROM user WHERE USERID = ?) as address,(SELECT name FROM products WHERE ID=aaa.SALE_PRODUCTID) as name,(SELECT image FROM products WHERE ID=aaa.SALE_PRODUCTID) as image FROM sale AS aaa WHERE SALE_NO = ?;", [id, id, id, no],
     function (err, data) {
       console.log('success');
       if (!err) {

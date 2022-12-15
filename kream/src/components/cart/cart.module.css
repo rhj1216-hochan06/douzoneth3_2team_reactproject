@@ -226,7 +226,7 @@
   margin: 0 auto;
   margin-top: 35px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   place-items: center;
 }
 
@@ -459,4 +459,16 @@ html,body{
 	height: 100vh;
 }
 .main_content{
+}
+.asd{
+  margin: 0 auto;
+    width: 160px;
+    height: 50px;
+    background: #999999;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    color: #ffffff;
 }

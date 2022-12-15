@@ -51,7 +51,10 @@
   margin-bottom: 20px;
  
 }
-
+.test{
+  color:#BF3393;
+  background-color: #BF3393;
+}
 .product_info .price {
   font-size: 36px;
   line-height: 45px;
@@ -250,6 +253,7 @@
 .footer_purchase_btn_text{
   font-size: 20px;
   font-weight: bold;
+  color: orange;
 }
 .footer_cart_btn{
   width: 200px;
@@ -258,6 +262,7 @@
 .footer_cart_btn_text{
   font-size: 20px;
   font-weight: bold;
+  color: orange;
 }
 .footer_sale_btn{
   width: 200px;
@@ -266,6 +271,7 @@
 .footer_sale_btn_text{
   font-size: 20px;
   font-weight: bold;
+  color: orange;
 }
 .back_btn{
   width: 100px;

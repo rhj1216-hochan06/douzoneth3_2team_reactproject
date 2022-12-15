@@ -54,7 +54,7 @@ export const TotalCart = ({ total, setTotal, cart, convertPrice, found }) => {
         </p>
       </div>
 
-      <Link to={id} ><p>한꺼번에 결제</p></Link>
+      <Link to={id} ><button className={styles.asd} >한꺼번에 결제</button></Link>
     </div >
   );
 };
