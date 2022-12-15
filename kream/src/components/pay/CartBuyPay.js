@@ -108,6 +108,21 @@ export const CartBuyPay = (convertPrice) => {
         if (success) {
             alert('결제 성공');
 
+            fetch("/api/cart/clear", {
+                method: "post",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    "id": sessionStorage.getItem("loginId"),
+                })
+            })
+                .then((res) => res.json())
+                .then(json => {
+                    console.log("카트 삭제 끝");
+                }
+                );//------카트 삭제 쿼리문 끝
+
 
             cart.map((cart) => {
 
