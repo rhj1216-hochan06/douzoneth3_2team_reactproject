@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { Detail } from "../../components/detail/Detail.js"
 import styles from "../../components/pay/pay.module.css"
-import $ from 'jquery';
+import $, { data } from 'jquery';
 
 export const CartBuyPay = (convertPrice) => {
 
@@ -50,13 +50,14 @@ export const CartBuyPay = (convertPrice) => {
     const [size, setSize] = useState("");
     const { id } = useParams();
 
+
+
     // -------------------------------------카카오
 
 
     useEffect(() => {
         onA();
         SalesloginCheck();
-        purcahsebuy();
 
 
         const jquery = document.createElement("script");
@@ -94,50 +95,105 @@ export const CartBuyPay = (convertPrice) => {
         IMP.request_pay(data, callback);
     }
 
+    const test = () => {
+
+
+        console.log("끝");
+
+        //window.location.href = "/mypage/profile"
+
+    }
+
+
+
+
     const callback = (response) => {
         const { success, error_msg, imp_uid, merchant_uid, pay_method, paid_amount, status } = response;
         if (success) {
             alert('결제 성공');
 
-            //--성공시 db 작성
+
+            cart.map((cart) => {
+
+                //-------------1번 쿼리문 
+                fetch("/api/purchase/buy/id", {
+                    method: "post",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "id": cart.cart_saleno,
+                    })
+                })
+                    .then((res) => res.json())
+                    .then(json => {
+                        console.log("1번끝");
+                        //------------2번 쿼리문 
+                        fetch("/api/buy/stock", {
+                            method: "post",
+                            headers: {
+                                "content-type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                "id": json.products[0].SALE_PRODUCTID,
+                                "size": cart.sale_size,
+                            })
+                        })
+                            .then((res) => res.json())
+                            .then(json => {
+                                console.log("2번끝");
+                            }
+                            );//------2번 쿼리문 끝
+                        //구매시 Sale에 상품id, userid, price,size,sale_check = 1 로 설정하여 삽입 3번 쿼리문
+                        fetch("/api/purchase/saleinsert", {
+                            method: "post",
+                            headers: {
+                                "content-type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                "id": json.products[0].SALE_PRODUCTID,
+                                "userid": sessionStorage.getItem("loginId"),
+                                "price": cart.sale_price,
+                                "size": cart.sale_size,
+                            })
+                        })
+                            .then((res) => res.json())
+                            .then(json => {
+                                console.log("3번끝");
+
+                            }
+                            );//------3번 쿼리문 끝
+                        //------------4번 쿼리문 
+                    }
+                    );//------1번 쿼리문 끝
+
+                fetch("/api/purchase/statusset", {
+                    method: "post",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "no": cart.cart_saleno,
+                    })
+                })
+                    .then((res) => res.json())
+                    .then(json => {
+                        console.log("4번끝");
+                    }
+                    );//------4번 쿼리문 끝
 
 
+            })//맵끝
 
 
-
-
-
-
-
-
-
-
-
-
-            window.location.href = "/mypage/buylist"
+            window.location.href = "/mypage/profile"
         } else {
             alert(`결제 실패 : ${error_msg}`);
             window.location.href = "/cart"
         }
     }
     //-------------------------------------
-    const purcahsebuy = (response) => {
-        fetch("/api/purchase/buy/" + id, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
-            },
-            body: JSON.stringify({
-                "id": sessionStorage.getItem("loginId"),
-            })
-        })
-            .then((res) => res.json())
-            .then(data => {
-                setSize(data.products[0].size);
-                console.log(data.products[0].size);
-                console.log(data.products.size);
-            })
-    }
+
     return (
         <>
             <div>
@@ -199,7 +255,7 @@ export const CartBuyPay = (convertPrice) => {
                             <p className={styles.payInfo}>결제 방법</p>
                             <p className={styles.payInfo}>일반 결제</p>
                             <div className={styles.kakao}>
-                                <p>카카오페이</p>
+                                <p onClick={test}>카카오페이</p>
                             </div>
                         </div>
                         <div className={styles.check}>
