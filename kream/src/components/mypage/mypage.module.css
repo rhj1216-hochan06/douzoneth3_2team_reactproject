@@ -437,4 +437,5 @@
   float: left;
   width: 300px;
   text-align-last: left;
+  /* text-align: -webkit-left; */
 }

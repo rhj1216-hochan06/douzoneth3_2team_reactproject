@@ -50,7 +50,7 @@ export const Mypage = () => {
               <Link className={styles.linklist} to="/mypage/salelist">내가 판매중인 상품</Link>
             </li><br/> <hr className={styles.line4}/>
             <li>
-              <Link className={styles.linklist} to="/mypage/saledlist">내가 판매한 상품</Link>
+              <Link className={styles.linklist} to="/mypage/saledlist">내가 판매완료한 상품</Link>
             </li><br/> <hr className={styles.line4}/>
             <li>
               <Link className={styles.linklist} to="/mypage/buylist">내가 구매한 상품</Link>
