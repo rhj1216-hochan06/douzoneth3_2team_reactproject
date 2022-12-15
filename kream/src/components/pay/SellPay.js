@@ -26,7 +26,7 @@ export const SellPay = (convertPrice) => {
     const day = String(date.getDate());
     const [product, setProduct] = useState({});
     //오늘 날짜
-    const today = year + "-" + month + "-" + day;
+    const today = year +"-"+ month +"-"+ day;
     // -------------------------------------카카오
 
 
@@ -100,7 +100,7 @@ export const SellPay = (convertPrice) => {
 
                                     })
                             })
-                        window.location.href = "/mypage";
+                        window.location.href = "/mypage/profile";
                     }
                 },
                 {
@@ -141,30 +141,34 @@ export const SellPay = (convertPrice) => {
 
     return (
         <>
-            <table class="type10">
-                <thead>
-                    <tr>
-                        <th className={styles.jb_th_1} scope="cols">상품</th>
-                        <th scope="cols">상품번호</th>
-                        <th className={styles.jb_th_3} scope="cols">이름</th>
-                        <th scope="cols">사이즈</th>
-                        <th scope="cols">날짜</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <img src={product.image} alt="product" />
-                        </td>
-                        <td>{id}</td>
-                        <td>{product.name}</td>
-                        <td>{size}</td>
-                        <td>{today}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <input className="set" type="text" value={price} placeholder="판매가격결정" onChange={onPriceHandler} onKeyPress={handleOnKeyPress} ></input>
-            <button onClick={onClicksell}>판매등록하기</button>
+
+            <div className={styles.info1}>
+                
+                    <h1 className={styles.fonts}>판매 등록하기</h1><br /> 
+                    <div className={styles.info2}>
+                    <div className={styles.sellInfo}>
+                    <div className={styles.prod}>
+                        <div className={styles.prod2}>
+                            <div className={styles.prodimage}>
+                                <img src={product.image} alt="product" className={styles.sellimg} />
+                            </div>
+                            <div className={styles.proddetail}>
+                                <h1 className={styles.fonts2}>{id}<br /></h1>
+                                <h1 className={styles.fonts2}>{product.name}<br /></h1>
+                                <h1 className={styles.fonts3}> {size}<br /></h1>
+                                <h1 className={styles.fonts3}>{today}<br /> <br /><br /><br /><br /><br /></h1>
+                            </div>
+                        </div>
+
+
+                        <div className={styles.king}>
+                       <input className={styles.set} type="text" value={price} placeholder="판매가격 입력" onChange={onPriceHandler} onKeyPress={handleOnKeyPress} ></input><div className={styles.fonts4}>원</div></div>
+                        <br /><br /><br />
+                        <button onClick={onClicksell} className={styles.loginregister__button}>판매등록하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </>
     )

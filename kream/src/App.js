@@ -176,6 +176,8 @@ function App() {
                   <Provider store={store}> <Mysale convertPrice={convertPrice} /></Provider>} />
                 <Route path="/mypage/buylist" element={
                   <Provider store={store}> <Mybuy convertPrice={convertPrice} /></Provider>} />
+               <Route path="/mypage/saledlist" element={
+                  <Provider store={store}> <Mysaled convertPrice={convertPrice} /></Provider>} />
                 <Route path='/mypage/profile' element={<Myprofile />} /> </Route>
 
               <Route path="/dummy" element={<Dummy />} />
