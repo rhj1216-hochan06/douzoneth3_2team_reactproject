@@ -54,11 +54,9 @@ export const CartBuyPay = (convertPrice) => {
 
     // -------------------------------------카카오
 
-
     useEffect(() => {
         onA();
         SalesloginCheck();
-
 
         const jquery = document.createElement("script");
         jquery.src = "https://code.jquery.com/jquery-1.12.4.min.js";
@@ -74,8 +72,6 @@ export const CartBuyPay = (convertPrice) => {
 
     const onClickPayment = () => {
         let temp1 = ($("#totalprice").html()) * 1;
-
-
 
         const { IMP } = window;
         IMP.init("imp54465658"); // 결제 데이터 정의
