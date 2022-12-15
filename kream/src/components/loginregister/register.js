@@ -105,7 +105,7 @@ const Register = () => {
 
             if (data.user.length != 0) {
               console.log('reg sucessss');
-              return navigate('/')
+              return navigate('/welcome')
             }
             else if (data.user.length == 0) {
               console.log('not sucessss');

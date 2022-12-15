@@ -420,7 +420,7 @@ app.post('/api/word', (req, res) => {
     else res.send(err);
   })
 })
-//내 판매목록 보기
+//내 판매중목록 보기
 app.post('/api/mypageshop', (req, res) => {
   console.log('mypageshop');
   let SALE_PRODUCTID = "";
@@ -440,12 +440,33 @@ app.post('/api/mypageshop', (req, res) => {
 
 })
 
+
+//내 판매한목록 보기
+app.post('/api/mypagesaled', (req, res) => {
+  console.log('mypageshop');
+  let SALE_PRODUCTID = "";
+  const id = req.body.id;
+  maria.query("SELECT *,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='" + id + "' and sale_status=1", (err, data) => {
+    console.log('success');
+    if (!err) {
+      res.send({ sale: data });
+
+      console.log('mypageshop2');
+      SALE_PRODUCTID = data.SALE_PRODUCTID;
+    }
+
+    else res.send(err);
+
+  });
+
+})
+
 //내 구매목록 보기
 app.post('/api/mypagebuy', (req, res) => {
   console.log('mypageshop');
   let SALE_PRODUCTID = "";
   const id = req.body.id;
-  maria.query("SELECT *,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_check ='" + id + "' and sale_status=1", (err, data) => {
+  maria.query("SELECT *,date_format(sale_date,'%Y-%m-%d') AS 'DATE',(SELECT image FROM products WHERE id=aaa.SALE_PRODUCTID) AS image,(SELECT name FROM products WHERE id=aaa.SALE_PRODUCTID) AS name FROM sale AS aaa WHERE sale_userid ='" + id + "' and sale_check=1", (err, data) => {
     console.log('success');
     if (!err) {
       res.send({ sale: data });
