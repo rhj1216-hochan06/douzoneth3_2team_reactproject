@@ -2,30 +2,37 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { Detail } from "../../components/detail/Detail.js"
+import styles from "./pay.module.css";
 
-
-export const BuyPay = (convertPrice) => {
+export const SellPay = (convertPrice) => {
     console.log('구매페이지');
     const [productid, setProductid] = useState("");
     const [price, setPrice] = useState();
-    const [size, setSize] = useState("");
-    const [date, setDate] = useState("");
+
+
     const [state, setState] = useState([]);
-    const [userid, setUserid] = useState("");
+    const [userid, setUserid] = useState( sessionStorage.getItem("loginId"));
+    const [name, setName] = useState("");
     const { id } = useParams();
-    const [product, setProduct] = useState([]);
-
+    const { size } = useParams();
+    const [image, setImage] = useState([]);
+    const date = new Date();
+    const year = String(date.getFullYear());
+    const month = String(date.getMonth());
+    const day = String(date.getDate());
+    //오늘 날짜
+    const today = year + "-" + month + "-" + day;
     // -------------------------------------카카오
-    const [search, setSearch] = useState("");
 
-    const onSearchHandler = (event) => {
-        setSearch(event.currentTarget.value)
+   
+    const onPriceHandler = (event) => {
+        setPrice(event.currentTarget.value)
     }
 
     const handleOnKeyPress = e => {
         if (e.key === 'Enter') {
-            console.log(search)
-            onClickPayment();
+            console.log(price)
+            onClicksell();
             //   onSearch(); // Enter 입력이 되면 클릭 이벤트 실행
         }
     };
@@ -42,24 +49,33 @@ export const BuyPay = (convertPrice) => {
             document.head.removeChild(iamport);
         }
     }, []);
+    //판매 등록 함수
+    const onClicksell = () => {
+        fetch("/api/sale/sell", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            body: JSON.stringify({
+                //product 의 id ,price, size, 로그인된 아이디 넘겨줌
+                "id": id,
+                "userid": userid ,
 
-    const onClickPayment = () => {
-        const { IMP } = window;
-        IMP.init("imp54465658"); // 결제 데이터 정의
-        const data = {
-            pg: 'kakaopay.TC0ONETIME', // PG사 (필수항목)
-            pay_method: 'card', // 결제수단 (필수항목)
-            merchant_uid: `mid_${new Date().getTime()}`, // 결제금액 (필수항목)
-            name: '결제 테스트', // 주문명 (필수항목)
-            amount: `${search}`, // 금액 (필수항목)
-            // custom_data: { name: '부가정보', desc: '세부 부가정보' },
-            // buyer_name: ["asd"], // 구매자 이름
-            // buyer_tel: ["01083259911"], // 구매자 전화번호 (필수항목)
-            // buyer_email: ["rdfdfa@asda.com"], // 구매자 이메일
-            // buyer_addr: ["주소"],
-            // buyer_postalcode: ["우편번호"]
-        };
-        IMP.request_pay(data, callback);
+                "price": price,
+                "size": size
+            })
+        })
+            .then((res) => res.json())
+            .then(data => {
+              
+
+            })
+            
+        console.log(id);
+        console.log(userid);
+        console.log(name);
+        console.log(price);
+        console.log(size);
     }
 
     const callback = (response) => {
@@ -74,31 +90,68 @@ export const BuyPay = (convertPrice) => {
     }
     //-------------------------------------
 
-    fetch("/api/purchase/buy", {
+    fetch("/api/purchase/sell", {
         method: "POST",
         headers: {
             "Content-Type": "application/json; charset=utf-8"
         },
         body: JSON.stringify({
-            "id": sessionStorage.getItem("loginId"),
-            "pid": 25
+            "id": id
+
         })
     })
         .then((res) => res.json())
         .then(data => {
-            setState(data);
-            setProduct(data.products);
+            // setState(data);
+            setName(data.sell[0].name);
+
+            setImage(data.sell[0].image);
+            setProductid(data.sell[0].id);
+            // console.log(data.sell[0].name);
+            console.log(data);
+
         })
 
     return (
         <>
-            <h3> 주문 상품 {product.price}</h3>
-            <p >상품 정보</p>
-            <p >상품 사진 / 이름 / 상품번호 /사이즈 / 가격 / 날짜</p>
-            <div >
-                <span>상품 사이즈 : {Detail.setSize}</span>
-            </div>
 
+            <table class="type10">
+                <thead>
+                    <tr>
+                        <th className={styles.jb_th_1} scope="cols">상품</th>
+                        <th scope="cols">상품번호</th>
+                        <th className={styles.jb_th_3} scope="cols">이름</th>
+                        <th scope="cols">사이즈</th>
+
+                        <th scope="cols">날짜</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <Link to={`/products/${productid}`}>
+                                <div className={styles.product_image}>
+                                    <img src={image} alt="product" />
+                                </div>
+                            </Link></td>
+
+                        <td>{id}</td>
+
+                        <td>{name}</td>
+
+                        <td>{size}</td>
+
+
+                        <td>{today}</td>
+                        {/* <td>{year}-{month}-{day}</td> */}
+                    </tr>
+
+
+
+
+
+                </tbody>
+            </table>
             {/* {state.sale && state.sale.map((product) => {
                 console.log("구매 들어오나요");
                 return <div >
@@ -114,8 +167,8 @@ export const BuyPay = (convertPrice) => {
                 </div>
             })} */}
 
-            <input className="set" type="text" value={search} placeholder="판매가격결정" onChange={onSearchHandler} onKeyPress={handleOnKeyPress} ></input>
-            <button onClick={onClickPayment}>결제하기</button>
+            <input className="set" type="text" value={price} placeholder="판매가격결정" onChange={onPriceHandler} onKeyPress={handleOnKeyPress} ></input>
+            <button onClick={onClicksell}>판매등록하기</button>
 
         </>
     )

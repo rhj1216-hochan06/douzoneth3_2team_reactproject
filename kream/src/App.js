@@ -39,6 +39,7 @@ import { Detail } from './components/detail/Detail';
 
 //구매 판매페이지
 import { Buy } from './pages/Buy';
+import { Sell } from './pages/Sell';
 // import Sell from './pages/Sell';
 // import { Buy } from './components/pay/BuyPay';
 // import { Sell } from './components/pay/SellPay';
@@ -177,6 +178,9 @@ function App() {
                   <Provider store={store}> <Buy products={products}
                     setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               {/* <Route path="/sell" element={<Sell />} /> */}
+              <Route path="/sale/sell/:id/:size" element={
+                  <Provider store={store}> <Sell products={products}
+                    setProducts={setProducts} convertPrice={convertPrice} /></Provider>} />
               <Route path="/kakao" element={<Kakao />} />
             </Routes>
           </div>

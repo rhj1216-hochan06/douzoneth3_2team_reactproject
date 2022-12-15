@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styles from "./detail.module.css";
 
 //-----------구매 function import--------------------------------------------------------------------------------------------------------------
@@ -40,12 +40,14 @@ export const Detail = ({ convertPrice }) => {
   const CarthandleClose = () => setCartShow(false);
   const [saleno,setSaleno] = useState([]);
 
- 
-    //sessionStorage.setItem("sales_no", "숫자");
-    //sessionStorage.getItem("loginId")
 
 
-  ///////////////////////////////////////////////////////////
+  const Setsell = (size) => {
+    var link= '/sale/sell/' + id +'/'+size;
+    $('#sellbtn').attr('href',link);
+  }
+
+
 
   const SetSalesNo = (size, price) => {
 
@@ -64,9 +66,8 @@ export const Detail = ({ convertPrice }) => {
       .then(json => {
         setSaleno(json.data[0]);
         sales_no = json.data[0].SALE_NO;
-        sessionStorage.setItem("sales_no",sales_no);
-        var link = '/purchase/buy/' + sales_no;
-        $('#salesnobtn').attr('href', link);
+        var link= '/purchase/buy/' + sales_no;
+        $('#salesnobtn').attr('href',link);
       })
   }
 
@@ -1086,22 +1087,32 @@ export const Detail = ({ convertPrice }) => {
                   })
 
                   $('#tag-radio-1').on('click', () => {
+                    let size = "XS"
+                    Setsell(size);
                     $('#selectsize').text('XS');
                     $('#selectprice').text(convertPrice($('#tag-radio-1').val()));
                   })
                   $('#tag-radio-2').on('click', () => {
+                    let size = "S"
+                    Setsell(size);
                     $('#selectsize').text('S');
                     $('#selectprice').text(convertPrice($('#tag-radio-2').val()));
                   })
                   $('#tag-radio-3').on('click', () => {
+                    let size = "M"
+                    Setsell(size);
                     $('#selectsize').text('M');
                     $('#selectprice').text(convertPrice($('#tag-radio-3').val()));
                   })
                   $('#tag-radio-4').on('click', () => {
+                    let size = "L"
+                    Setsell(size);
                     $('#selectsize').text('L');
                     $('#selectprice').text(convertPrice($('#tag-radio-4').val()));
                   })
                   $('#tag-radio-5').on('click', () => {
+                    let size = "XL"
+                    Setsell(size);
                     $('#selectsize').text('XL');
                     $('#selectprice').text(convertPrice($('#tag-radio-5').val()));
                   })
@@ -1178,6 +1189,8 @@ export const Detail = ({ convertPrice }) => {
                 })
 
               $('#tag-radio-1').on('click', () => {
+                let size = "onesize"
+                    Setsell(size);
                 $('#selectsize').text('onesize');
                 $('#selectprice').text(convertPrice($('#tag-radio-1').val()));
               })
@@ -1272,11 +1285,15 @@ export const Detail = ({ convertPrice }) => {
 
                   })
                   $('#tag-radio-1').on('click', () => {
-                    $('#selectsize').text('size_30ml');
+                    let size = "size_30ml"
+                    Setsell(size);
+                    $('#selectsize').text('30ml');
                     $('#selectprice').text(convertPrice($('#tag-radio-1').val()));
                   })
                   $('#tag-radio-2').on('click', () => {
-                    $('#selectsize').text('size_100ml');
+                    let size = "size_100ml"
+                    Setsell(size);
+                    $('#selectsize').text('100ml');
                     $('#selectprice').text(convertPrice($('#tag-radio-2').val()));
                   })
 
@@ -1577,82 +1594,114 @@ export const Detail = ({ convertPrice }) => {
 
 
                   $('#tag-radio-1').on('click', () => {
-                    $('#selectsize').text('size_225');
+                    let size = "size_225"
+                    Setsell(size);
+                    $('#selectsize').text('225');
                     $('#selectprice').text(convertPrice($('#tag-radio-1').val()));
                   })
 
                   $('#tag-radio-2').on('click', () => {
-                    $('#selectsize').text('size_230');
+                    let size = "size_230"
+                    Setsell(size);
+                    $('#selectsize').text('230');
                     $('#selectprice').text(convertPrice($('#tag-radio-2').val()));
                   })
 
                   $('#tag-radio-3').on('click', () => {
-                    $('#selectsize').text('size_235');
+                    let size = "size_235"
+                    Setsell(size);
+                    $('#selectsize').text('235');
                     $('#selectprice').text(convertPrice($('#tag-radio-3').val()));
                   })
 
                   $('#tag-radio-4').on('click', () => {
-                    $('#selectsize').text('size_240');
+                    let size = "size_240"
+                    Setsell(size);
+                    $('#selectsize').text('240');
                     $('#selectprice').text(convertPrice($('#tag-radio-4').val()));
                   })
 
                   $('#tag-radio-5').on('click', () => {
-                    $('#selectsize').text('size_245');
+                    let size = "size_245"
+                    Setsell(size);
+                    $('#selectsize').text('245');
                     $('#selectprice').text(convertPrice($('#tag-radio-5').val()));
                   })
 
                   $('#tag-radio-6').on('click', () => {
-                    $('#selectsize').text('size_250');
+                    let size = "size_250"
+                    Setsell(size);
+                    $('#selectsize').text('250');
                     $('#selectprice').text(convertPrice($('#tag-radio-6').val()));
                   })
 
                   $('#tag-radio-7').on('click', () => {
-                    $('#selectsize').text('size_255');
+                    let size = "size_255"
+                    Setsell(size);
+                    $('#selectsize').text('255');
                     $('#selectprice').text(convertPrice($('#tag-radio-7').val()));
                   })
 
                   $('#tag-radio-8').on('click', () => {
-                    $('#selectsize').text('size_260');
+                    let size = "size_260"
+                    Setsell(size);
+                    $('#selectsize').text('260');
                     $('#selectprice').text(convertPrice($('#tag-radio-8').val()));
                   })
 
                   $('#tag-radio-9').on('click', () => {
-                    $('#selectsize').text('size_265');
+                    let size = "size_265"
+                    Setsell(size);
+                    $('#selectsize').text('265');
                     $('#selectprice').text(convertPrice($('#tag-radio-9').val()));
                   })
 
                   $('#tag-radio-10').on('click', () => {
-                    $('#selectsize').text('size_270');
+                    let size = "size_270"
+                    Setsell(size);
+                    $('#selectsize').text('270');
                     $('#selectprice').text(convertPrice($('#tag-radio-10').val()));
                   })
 
                   $('#tag-radio-11').on('click', () => {
-                    $('#selectsize').text('size_275');
+                    let size = "size_275"
+                    Setsell(size);
+                    $('#selectsize').text('275');
                     $('#selectprice').text(convertPrice($('#tag-radio-11').val()));
                   })
 
                   $('#tag-radio-12').on('click', () => {
-                    $('#selectsize').text('size_280');
+                    let size = "size_280"
+                    Setsell(size);
+                    $('#selectsize').text('280');
                     $('#selectprice').text(convertPrice($('#tag-radio-12').val()));
                   })
 
                   $('#tag-radio-13').on('click', () => {
-                    $('#selectsize').text('size_285');
+                    let size = "size_285"
+                    Setsell(size);
+                    $('#selectsize').text('285');
                     $('#selectprice').text(convertPrice($('#tag-radio-13').val()));
                   })
 
                   $('#tag-radio-14').on('click', () => {
-                    $('#selectsize').text('size_290');
+                    let size = "size_290"
+                    Setsell(size);
+                    $('#selectsize').text('290');
                     $('#selectprice').text(convertPrice($('#tag-radio-14').val()));
                   })
 
                   $('#tag-radio-15').on('click', () => {
-                    $('#selectsize').text('size_295');
+                    let size = "size_295"
+                    Setsell(size);
+                    $('#selectsize').text('295');
                     $('#selectprice').text(convertPrice($('#tag-radio-15').val()));
                   })
 
                   $('#tag-radio-16').on('click', () => {
-                    $('#selectsize').text('size_300');
+                    let size = "size_300"
+                    Setsell(size);
+                    $('#selectsize').text('300');
                     $('#selectprice').text(convertPrice($('#tag-radio-16').val()));
                   })
 
@@ -1976,13 +2025,7 @@ export const Detail = ({ convertPrice }) => {
                   <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
                   <span>&nbsp;&nbsp;</span>
                 </div>
-                
-                <Button  id='salesnobtn' href={`/purchase/buy/1`} variant="primary" className={styles.footer_purchase_btn} ><span className={styles.footer_purchase_btn_text} >즉시 구매</span></Button>
-                {/* <Link to="/purchase/buy/1">
-                  <input type="button" id='salesnobtn' variant="primary" className={styles.footer_purchase_btn} />
-                  <span className={styles.footer_purchase_btn_text} >즉시 구매</span>
-                </Link> */}
-              </Modal.Footer>
+                <Button id='salesnobtn' href={`/purchase/buy/1`} variant="primary" className={styles.footer_purchase_btn} ><span className={styles.footer_purchase_btn_text} >즉시 구매</span></Button>          </Modal.Footer>
             </Modal>
 
 
@@ -2018,7 +2061,7 @@ export const Detail = ({ convertPrice }) => {
                   <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
                   <span>&nbsp;&nbsp;</span>
                 </div>
-                <Button variant="primary" className={styles.footer_sale_btn}><span className={styles.footer_sale_btn_text}>판매 등록</span></Button>
+                <Button id='sellbtn' href={`/sale/sell/1/0`} variant="primary" className={styles.footer_sale_btn}><span className={styles.footer_sale_btn_text}>판매 등록</span></Button>
               </Modal.Footer>
             </Modal>
 

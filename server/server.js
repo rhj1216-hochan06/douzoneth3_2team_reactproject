@@ -60,8 +60,8 @@ app.post('/api/purchase/buy', (req, res) => {
 //판매페이지
 app.post('/api/purchase/sell', (req, res) => {
   console.log('sellPay');
-  const pid = req.body.pid;
-  maria.query("select * from products where id=?", [pid],
+  const id = req.body.id;
+  maria.query("select * from products where id=?", [id],
     function (err, data) {
       console.log('success');
       if (!err) {
