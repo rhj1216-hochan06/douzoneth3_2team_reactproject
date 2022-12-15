@@ -38,13 +38,13 @@ export const Detail = ({ convertPrice }) => {
   const PurchasehandleClose = () => setPurchaseShow(false);
   const SalehandleClose = () => setSaleShow(false);
   const CarthandleClose = () => setCartShow(false);
-  const [saleno,setSaleno] = useState([]);
+  const [saleno, setSaleno] = useState([]);
 
 
 
   const Setsell = (size) => {
-    var link= '/sale/sell/' + id +'/'+size;
-    $('#sellbtn').attr('href',link);
+    var link = '/sale/sell/' + id + '/' + size;
+    $('#sellbtn').attr('href', link);
   }
 
 
@@ -66,8 +66,8 @@ export const Detail = ({ convertPrice }) => {
       .then(json => {
         setSaleno(json.data[0]);
         sales_no = json.data[0].SALE_NO;
-        var link= '/purchase/buy/' + sales_no;
-        $('#salesnobtn').attr('href',link);
+        var link = '/purchase/buy/' + sales_no;
+        $('#salesnobtn').attr('href', link);
       })
   }
 
@@ -114,7 +114,7 @@ export const Detail = ({ convertPrice }) => {
             .then((res) => res.json())
             .then(json => {
               console.log(json)
-              
+
 
               $('#sizeRB').append("<div id='row1' class='row' style='margin-bottom:10px;'>"
                 + "</div>"
@@ -124,7 +124,8 @@ export const Detail = ({ convertPrice }) => {
               );
 
 
-              if (json.data[0].XS > 0) {console.log("들어오나?")
+              if (json.data[0].XS > 0) {
+                console.log("들어오나?")
                 $('#row1').append("<div class='col-md-4 col-6'>"
                   + "<input class ='btn-check' name='options' type='radio' autocomplete='off' id = 'tag-radio-1' value = '1' >"
                   + "<label id = 'XS' tabindex='0' for='tag-radio-1' class='btn btn-primary' style = 'width:210px; height:95px; font-size:25px; font:bold; '>XS<br><span id='tag1' style='font-size:22px; color:orange; font:bold;'>233,242</span></label>"
@@ -1186,7 +1187,7 @@ export const Detail = ({ convertPrice }) => {
 
               $('#tag-radio-1').on('click', () => {
                 let size = "onesize"
-                    Setsell(size);
+                Setsell(size);
                 $('#selectsize').text('onesize');
                 $('#selectprice').text(convertPrice($('#tag-radio-1').val()));
               })
@@ -1859,7 +1860,7 @@ export const Detail = ({ convertPrice }) => {
 
   const handleCart = () => {
     console.log(saleno);
-    if(saleno.length === 0) {
+    if (saleno.length === 0) {
       alert("상품을 선택해주세요");
       return;
     }
@@ -1878,16 +1879,22 @@ export const Detail = ({ convertPrice }) => {
         "CART_SALENO": number,
       })
     })
-      .then((res) => {
-        res.json()
-      })
+      .then((res) => (
+          res.json()
+      ))
       .then(data => {
         // console.log(data);
         // CarthandleClose();
-        console.log(data.data);
-        window.location.reload();
-        alert("장바구니에 추가되었습니다!!");
+        if(Object.keys(data).length == 2){
+          alert("이미 장바구니에 담은 물품입니다.");
+        }
+        else if(Object.keys(data).length == 1){
+          alert("장바구니에 추가되었습니다!!");
+          window.location.reload();
+        }
+        // console.log(data);
       });
+    // })
   };
 
   const inputSale = (price, size) => {
