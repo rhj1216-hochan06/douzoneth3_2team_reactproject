@@ -156,7 +156,7 @@ export const Mysale = (convertPrice) => {
           </a>
         </div>
         <div className={styles.page1}>
-          <p className={styles.pagenationImg2}>{count1} / {Math.ceil(plength / 20)} </p>
+          <p className={styles.pagenationImg2}>{count1} /  {plength === 0 ? <>1</> : <>{Math.ceil(plength / 20)}</>} </p>
         </div>
         <div className={styles.page1}>
           <a href="#top">

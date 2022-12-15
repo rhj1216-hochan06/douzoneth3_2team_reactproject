@@ -585,7 +585,7 @@ app.post('/api/search', (req, res) => {
 
   const search = req.body.search;
 
-  maria.query("SELECT * FROM products WHERE name like '%" + search + "%' OR provider like'%" + search + "%' or category like'%" + search + "%'", (err, data, fields) => {
+  maria.query("SELECT *,@ROWNUM:=@ROWNUM+1 AS rownum  FROM products WHERE (name like '%"+search+"%' OR provider like'%"+search+"%' or category LIKE'%"+search+"%') AND (SELECT @ROWNUM:=0)=0 order by id", (err, data, fields) => {
     if (!err) res.send({ products: data });
     else res.send(err);
   })
