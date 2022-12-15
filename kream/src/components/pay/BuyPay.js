@@ -20,14 +20,13 @@ export const BuyPay = (convertPrice) => {
     const { id } = useParams();
     const [name, setName] = useState();
     const [address, setAddress] = useState();
-    const [product, setProduct] = useState({});
     const [saleprice, setSalePrice] = useState();
-    const [userid, setUserid] = useState(sessionStorage.getItem("loginId"));
     const [image, setImage] = useState();
+    const [size, setSize] = useState();
+    const [provider, setProvider] = useState();
+    const [username, serUsername] = useState();
+    const [userphonenumber, setUserphonenumber] = useState();
     // -------------------------------------카카오
-    const [search, setSearch] = useState("");
-
-
 
     const dataReceive = () => {
         fetch("/api/purchase/saleget", {
@@ -47,6 +46,10 @@ export const BuyPay = (convertPrice) => {
                 setSalePrice(data.buy[0].SALE_PRICE);
                 setImage(data.buy[0].image);
                 setAddress(data.buy[0].address);
+                setSize(data.buy[0].SALE_SIZE);
+                setProvider(data.buy[0].provider);
+                setUserphonenumber(data.buy[0].userphonenumber);
+                serUsername(data.buy[0].username);
                 //setSale(data);
             })
     }
@@ -74,7 +77,7 @@ export const BuyPay = (convertPrice) => {
             pay_method: 'card', // 결제수단 (필수항목)
             merchant_uid: `mid_${new Date().getTime()}`, // 결제금액 (필수항목)
             name: '결제 테스트', // 주문명 (필수항목)
-            amount: `${product.price}`, // 금액 (필수항목)
+            amount: `${saleprice}`, // 금액 (필수항목)
         };
         IMP.request_pay(data, callback);
     }
@@ -135,52 +138,70 @@ export const BuyPay = (convertPrice) => {
             <div>
                 <div className={styles.info}>
                     <br /><br />
-                    <p className={styles.main}> 배송 / 결제 </p>
+                    <p className={styles.main}> 배송 / 결제 </p><br />
                 </div>
                 <div className={styles.background}>
-                    <br />
+                    <br /><br />
                     <div className={styles.width}>
-                        <div className={styles.product}>
+                        <div className={styles.productInfoTitle}>
                             <p className={styles.productInfo}>상품 정보</p>
-                            <p >상품 사진 / 상품명 / 사이즈 / 가격</p>
-                            <img src={image} alt="product" />
-                            <p>{name}</p>
-                            <p>{saleprice}</p>
-                            <p>{address}</p>
                         </div>
-                        <div className={styles.address}>
-                            <p className={styles.addressInfo}>배송주소</p>
-                            <hr />
-                            <p className={styles.addressInfo}>배송 방법</p>
-                            <div className={styles.delivery}>
-                                <p className={styles.addressInfo}>일반배송</p>
-                            </div>
+                        <div className={styles.imgdiv}>
+                            <img className={styles.img} src={image} alt="product" />
                         </div>
+                        <div className={styles.uldiv}>
+                            <br />
+                            <ul className={styles.sort}>
+                                <li className={styles.provider}>{provider}</li><br />
+                                <li>{name}</li><br />
+                                <li>{size}</li><br />
+                            </ul>
+                        </div><br /><hr /><br />
+                        <p className={styles.addressInfo1}>배송 정보</p>
+                        <ul className={styles.addinfo}>
+                            <li className={styles.addressInfo}><font color="#999999">받는 분 : </font>{username}</li><br />
+                            <li className={styles.addressInfo}><font color="#999999">연락처 : </font>{userphonenumber}</li><br />
+                            <li className={styles.addressInfo}><font color="#999999">배송주소 : </font>{address}</li><br />
+                        </ul>
                         <br />
-                        <div className={styles.price}>
-                            <p className={styles.priceInfo}>최종 결제 정보</p>
-                            <p className={styles.priceInfo}>상품금액 원</p>
-                            <p className={styles.priceInfo}>배송비 무료</p>
-                            <hr />
-                            <p className={styles.priceInfo}>총 결제 금액 원</p>
-                        </div>
-                        <div className={styles.payment}>
-                            <p className={styles.payInfo}>결제 방법</p>
-                            <p className={styles.payInfo}>일반 결제</p>
-                            <div className={styles.kakao}>
-                                <p>카카오페이</p>
+                        <p className={styles.addressInfo1}>배송 방법</p>
+                        <div className={styles.delivery}>
+                            <div>
+                                <img className={styles.deliveryimg} src="/images/delivery.png" alt="delivery" />
                             </div>
+                            <ul className={styles.deliverysort}>
+                                <li className={styles.addressInfo}>배송비 무료</li><br />
+                                <li className={styles.addressInfo}>지금 결제시 내일 도착 예정(택배사 상황에 따라 상이합니다.)</li>
+                            </ul>
                         </div>
-                        <div className={styles.check}>
-                            <p>판매자의 판매거부, 배송지연, 미입고 등의 사유가 발생할 경우, 거래가 취소될 수 있습니다.
-                                앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래 진행 상태 알림을 받을 수 없습니다.</p>
-                            <p>‘바로 결제하기’ 를 선택하시면 즉시 결제가 진행되며, 단순 변심이나 실수에 의한 취소가 불가능합니다.
-                                본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불, 교환) 규정이 적용되지 않습니다.</p>
-                            <p className={styles.payInfo}>총 결제 금액</p>
-                            {product.price}
-                            <button onClick={onClickPayment}>결제하기</button>
-                        </div>
+                        <br /><hr /><br />
+                        <p className={styles.priceInfo1}>최종 결제 정보</p>
+                        <ul className={styles.price}>
+                            <li className={styles.priceInfo}>상품금액</li><font size="4">{saleprice}원</font><br />
+                            <li className={styles.priceInfo3}>배송비</li><font size="4">무료</font><br />
+                        </ul>
+                        <br /><hr /><br />
+                        <p className={styles.priceInfo1}>결제 수단</p>
+                        <ul className={styles.pay}>
+                            <li className={styles.payInfo1}>총 결제 금액</li><font size="5" color="red">{saleprice}원</font><br />
+                        </ul>
+                        <div className={styles.delivery}>
+                            <div>
+                                <img className={styles.kakaoimg} src="/images/kakao.png" alt="delivery" />
+                            </div>
+                            <ul className={styles.kakaosort}>
+                                <li className={styles.kakaopay}>카카오페이 결제</li><br />
+                            </ul>
+                        </div><br/>
                     </div>
+                    <div className={styles.check}>
+                        <p className={styles.ment}>판매자의 판매거부, 배송지연, 미입고 등의 사유가 발생할 경우, 거래가 취소될 수 있습니다.
+                            앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래 진행 상태 알림을 받을 수 없습니다.</p>
+                            <br/>
+                        <p className={styles.ment}>‘바로 결제하기’ 를 선택하시면 즉시 결제가 진행되며, 단순 변심이나 실수에 의한 취소가 불가능합니다.
+                            본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불, 교환) 규정이 적용되지 않습니다.</p>
+                        <button onClick={onClickPayment}>결제하기</button>
+                    </div><br/><br/>
                 </div>
             </div>
         </>

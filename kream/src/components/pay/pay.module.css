@@ -10,17 +10,10 @@
 }
 
 .background {
-    background-color: rgb(234, 234, 234);
+    border: 1px solid #000;
     text-align: -webkit-center;
-}
-
-.product {
-    background-color: white;
-}
-
-.address {
-    background-color: white;
-
+    width: 800px;
+    margin: auto;
 }
 
 .delivery {
@@ -28,34 +21,133 @@
     border-radius: 10px;
 }
 
-.price {
-    background-color: white;
-}
-
-.payment {
-    background-color: white;
-}
-
-.check {
-    background-color: white;
-}
-
 .width {
     width: 700px;
+    background-color: white;
 }
 
 .productInfo {
     text-align: left;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.addressInfo1 {
+    text-align: left;
+    font-weight: bold;
+    font-size: 22px;
 }
 
 .addressInfo {
     text-align: left;
 }
 
+
+.priceInfo1 {
+    text-align: left;
+    font-weight: bold;
+    font-size: 22px;
+}
+
 .priceInfo {
+    text-align: left;
+    margin-left: -70px;
+    float: left;
+    font-size: 20px;
+}
+.priceInfo3 {
+    text-align: left;
+    margin-left: -70px;
+    float: left;
+    font-size: 20px;
+    margin-left: -88px;
+}
+
+.payInfo1 {
+    text-align: left;
+    margin-left: -70px;
+    float: left;
+    font-size: 20px;
+}
+.payInfo2 {
+    text-align: left;
+    margin-left: -95px;
+    float: left;
+    font-size: 20px;
+}
+
+.img {
+    height: 120px;
+    width: 120px;
+    float: left;
+    border: 1px solid #adadad;
+    border-radius: 15px;
+    margin-right: 20px;
+}
+
+.productInfoTitle {
+    margin: auto;
+}
+
+.sort {
+    text-align: left;
+    font-size: 18px;
+    margin-top: -15px;
+}
+
+.imgdiv {
+    margin-top: 10px;
+}
+
+.uldiv {
+    margin-top: 10px;
+}
+
+.provider {
+    font-weight: 600;
+}
+
+.addinfo {
+    text-align-last: left;
+    margin-left: -35px;
+}
+
+.deliveryimg {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-top: 14px;
+    margin-left: 20px;
+}
+
+.deliverysort {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.kakaosort {
+    text-align: left;
+    margin-top: 13px;
+}
+
+.price {
+    margin-top: 10px;
+    line-height: 30px;
+}
+
+.kakaopay {
     text-align: left;
 }
 
-.payInfo {
-    text-align: left;
+.kakaoimg {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-top: 4px;
+    margin-left: 20px;
+}
+
+.ment {
+    margin: 0px 45px 0px 45px;
+    text-align: -webkit-left;
 }
