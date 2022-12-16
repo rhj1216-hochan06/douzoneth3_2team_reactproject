@@ -12,7 +12,6 @@ export const lowPriceUpdate = ( pid ) => {
   // const onA = (event) => {
 
   const A = async () => {
-    console.log(pid);
     const response = await fetch("/api/get-low-price-update", {
       method: "POST",
       headers: {
@@ -34,10 +33,8 @@ export const lowPriceUpdate = ( pid ) => {
   // console.log(lowprice);
   // console.log(pid);
   ( async () => {
-  console.log("최저값?");
 
   const num = await A();
-  console.log(num);
   const response2 = await fetch("/api/updateprice", {
     method: "POST",
     headers: {
