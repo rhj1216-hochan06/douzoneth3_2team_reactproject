@@ -1,0 +1,178 @@
+.info1 {
+    text-align: center;
+    margin: 10px;
+}
+
+.main {
+    font-weight: bold;
+    font-size: 30px;
+    margin: auto;
+}
+
+.background {
+    border: 1px solid #000;
+    text-align: -webkit-center;
+    width: 800px;
+    margin: auto;
+}
+
+.delivery {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.width {
+    width: 700px;
+    background-color: white;
+}
+
+.productInfo {
+    text-align: left;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.addressInfo1 {
+    text-align: left;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.addressInfo {
+    text-align: left;
+}
+
+
+.priceInfo1 {
+    text-align: left;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.priceInfo {
+    text-align: left;
+}
+
+.payInfo {
+    text-align: left;
+}
+
+.sellInfo {
+    display: inline-block;
+
+}
+
+.prodimage {
+    float: left;
+
+    width: 200px;
+
+}
+
+.proddetail {
+    display: inline-block;
+    width: 30vw;
+    text-align: -webkit-left;
+    padding-top: 30px;
+}
+
+.sellimg {
+    width: 180px;
+    border-radius: 8%;
+
+}
+
+.fonts {
+    font-weight: bolder;
+}
+
+.fonts2 {
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.fonts3 {
+    font-size: 15px;
+
+}
+
+.fonts4 {
+    font-size: 33px;
+}
+
+.info1 {
+    text-align: center;
+
+
+}
+
+.info2 {
+
+
+    background-color: rgb(236, 236, 236);
+}
+
+.prod {
+    background-color: white;
+    margin: 15px;
+    padding: 20px;
+    width: 800px;
+}
+
+.loginregister__button {
+    background-color: rgb(68, 68, 68);
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    width: 100vw;
+    border-radius: 5px;
+    border-color: rgb(68, 68, 68);
+    height: 48px;
+    margin-top: 10px;
+    width: -webkit-fill-available;
+}
+
+.set {
+    text-align: right;
+
+    display: flex;
+    height: 50px;
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+    font-size: 30px;
+    width: -webkit-fill-available;
+    outline: none;
+    margin-right: 5px;
+
+}
+
+.king {
+    display: flex;
+}
+
+
+
+.kakaoimg {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-top: 4px;
+    margin-left: 20px;
+}
+
+.ment {
+    margin: 0px 45px 0px 45px;
+    text-align: -webkit-left;
+}
+
+.footer_purchase_btn_text {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.img123 {
+
+    width: 300px;
+    height: 300px;
+}

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Form, Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { Detail } from "../../components/detail/Detail.js"
-import styles from "./pay.module.css";
+import styles from "./pay2.module.css";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 

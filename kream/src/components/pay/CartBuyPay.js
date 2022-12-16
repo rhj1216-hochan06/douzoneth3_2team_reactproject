@@ -241,16 +241,16 @@ export const CartBuyPay = (convertPrice) => {
                                     $("#totalprice").html(temp);
                                     return (
                                         <>
-                                            {cart.cart_saleno}
                                             <div className={styles.imgdiv}>
-                                                <img className={styles.img123} src={`${cart.image}`} alt="product" />
+                                                <img className={styles.img} src={`${cart.image}`} alt="product" />
                                             </div>
                                             <div className={styles.uldiv}>
                                                 <br />
                                                 <ul className={styles.sort}>
-                                                    <li className={styles.provider}>{cart.sale_price}</li><br />
                                                     <li>{cart.name}</li><br />
-                                                    <li> {cart.sale_size}</li><br />
+                                                    <li>{cart.sale_size}</li><br />
+                                                    <li className={styles.saleprice}>{cart.sale_price}원</li>
+                                                    <br /><br /><br />
                                                 </ul>
                                             </div>
                                         </>
@@ -265,7 +265,7 @@ export const CartBuyPay = (convertPrice) => {
                             <li className={styles.addressInfo}><font color="#999999">연락처 : </font>{userphonenumber}</li><br />
                             <li className={styles.addressInfo}><font color="#999999">배송주소 : </font>{address}</li><br />
                         </ul>
-                        <br />
+                        <br /><br />
                         <p className={styles.addressInfo1}>배송 방법</p>
                         <div className={styles.delivery}>
                             <div>
@@ -281,10 +281,10 @@ export const CartBuyPay = (convertPrice) => {
                         <ul className={styles.price}>
                             <li className={styles.priceInfo}>상품금액</li><font size="4"> {cart.map((cart) => {
                                 return (
-                                    <p> 상품 {cart.name}, {cart.sale_price} 원 </p>
+                                    <p>{cart.sale_price} 원 </p>
                                 );
                             })}</font><br />
-                            <li className={styles.priceInfo3}>배송비</li><font size="4">무료</font><br />
+                            <li className={styles.priceInfo5}>배송비</li><font size="4">무료</font><br />
                         </ul>
                         <br /><hr /><br />
                         <p className={styles.priceInfo1}>결제 수단</p>
@@ -306,7 +306,8 @@ export const CartBuyPay = (convertPrice) => {
                         <br />
                         <p className={styles.ment}>‘바로 결제하기’ 를 선택하시면 즉시 결제가 진행되며, 단순 변심이나 실수에 의한 취소가 불가능합니다.
                             본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불, 교환) 규정이 적용되지 않습니다.</p>
-                        <button onClick={onClickPayment}>결제하기</button>
+                        <br /><br />
+                        <a role="button" onClick={onClickPayment} class="btn btn-dark"><span className={styles.footer_purchase_btn_text}>결제 하기</span></a>
                     </div><br /><br />
                 </div>
             </div>

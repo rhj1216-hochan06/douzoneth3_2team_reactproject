@@ -1,12 +1,6 @@
-.info1 {
+.info {
     text-align: center;
     margin: 10px;
-}
-
-.main {
-    font-weight: bold;
-    font-size: 30px;
-    margin: auto;
 }
 
 .background {
@@ -51,97 +45,113 @@
 
 .priceInfo {
     text-align: left;
+    margin-left: -70px;
+    float: left;
+    font-size: 20px;
 }
 
-.payInfo {
+.priceInfo3 {
+    text-align: left;
+    margin-left: -70px;
+    float: left;
+    font-size: 20px;
+    margin-left: -88px;
+}
+
+.priceInfo5 {
+    text-align: left;
+    margin-left: -70px;
+    float: left;
+    font-size: 20px;
+}
+
+.payInfo1 {
+    text-align: left;
+    margin-left: -70px;
+    float: left;
+    font-size: 20px;
+}
+
+.saleprice {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.main {
+    font-weight: bold;
+    font-size: 30px;
+    margin: auto;
+}
+
+.payInfo2 {
+    text-align: left;
+    margin-left: -95px;
+    float: left;
+    font-size: 20px;
+}
+
+.img {
+    height: 120px;
+    width: 120px;
+    float: left;
+    border: 1px solid #adadad;
+    border-radius: 15px;
+    margin-right: 20px;
+}
+
+.productInfoTitle {
+    margin: auto;
+}
+
+.sort {
+    text-align: left;
+    font-size: 18px;
+    margin-top: -15px;
+}
+
+.imgdiv {
+    margin-top: 10px;
+}
+
+.uldiv {
+    margin-top: 10px;
+}
+
+.provider {
+    font-weight: 600;
+}
+
+.addinfo {
+    text-align-last: left;
+    margin-left: -35px;
+}
+
+.deliveryimg {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-top: 14px;
+    margin-left: 20px;
+}
+
+.deliverysort {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.kakaosort {
+    text-align: left;
+    margin-top: 13px;
+}
+
+.price {
+    margin-top: 10px;
+    line-height: 30px;
+}
+
+.kakaopay {
     text-align: left;
 }
-
-.sellInfo {
-    display: inline-block;
-    
-}
-.prodimage{
-    float: left;
- 
-    width: 200px;
-
-}
-.proddetail{
-    display: inline-block;
-    width: 30vw;
-    text-align: -webkit-left;
-    padding-top: 30px;}
-.sellimg{
-    width: 180px;
-    border-radius: 8%;
-
-}
-.fonts{
-font-weight: bolder;
-}
-
-.fonts2{
-    font-size: 15px;
-    font-weight: bolder;
-    }
-.fonts3{
-    font-size: 15px;
-   
-    }
-
-    .fonts4{
-        font-size: 33px;
-    }
-
-.info1 {
-    text-align: center;
-
-    
-    }
-
-.info2 {
-
-    
-  background-color: rgb(236, 236, 236);
- }
-    
-.prod{
-    background-color: white;
-    margin: 15px;
-    padding: 20px;
-    width: 800px;
-}
-.loginregister__button {
-    background-color: rgb(68, 68, 68);
-    color: rgb(255, 255, 255);
-    font-weight: 700;
-    width: 100vw;
-    border-radius: 5px;
-    border-color: rgb(68, 68, 68);
-    height: 48px;
-    margin-top: 10px;
-    width: -webkit-fill-available;
-  }
-  .set{
-    text-align: right;
-   
-display: flex;
-    height: 50px;
-    border-right: 0;
-    border-left: 0;
-    border-top: 0;
-    font-size: 30px;
-    width: -webkit-fill-available;
-    outline: none;
-    margin-right: 5px;
-
-  }
- .king{
-display: flex;
- }
-
-
 
 .kakaoimg {
     width: 50px;
@@ -156,13 +166,8 @@ display: flex;
     text-align: -webkit-left;
 }
 
-.footer_purchase_btn_text{
+.footer_purchase_btn_text {
     font-size: 20px;
     font-weight: bold;
     color: white;
-  }
-.img123{
-
-    width: 300px;
-    height: 300px;
 }
