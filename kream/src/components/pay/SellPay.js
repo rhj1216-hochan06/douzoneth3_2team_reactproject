@@ -156,7 +156,7 @@ export const SellPay = (convertPrice) => {
                                 <h1 className={styles.fonts2}>{id}<br /></h1>
                                 <h1 className={styles.fonts2}>{product.name}<br /></h1>
                                 <h1 className={styles.fonts3}> {size}<br /></h1>
-                                <h1 className={styles.fonts3}>{today}<br /> <br /><br /><br /><br /><br /></h1>
+                                <h1 className={styles.fonts3}>{today}<br /> <br /><br /><br /></h1>
                             </div>
                         </div>
 
