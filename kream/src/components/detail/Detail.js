@@ -29,6 +29,7 @@ export const Detail = ({ convertPrice }) => {
   let size = "";
   let price = "";
   var sales_no = "";
+  var selectno = '/products/' + id;
 
   // ------ test--------------------------------------------------------
   const [PurchaseShow, setPurchaseShow] = useState(false);
@@ -2040,7 +2041,7 @@ export const Detail = ({ convertPrice }) => {
                   <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
                   <span>&nbsp;&nbsp;</span>
                 </div>
-                  <a role="button" tabindex="0" href="/purchase/buy/1" id="salesnobtn" class="btn btn-dark"><span className={styles.footer_purchase_btn_text}>즉시 구매</span></a>       
+                  <a role="button" tabindex="0" href={selectno} id="salesnobtn" class="btn btn-dark"><span className={styles.footer_purchase_btn_text}>즉시 구매</span></a>       
                   </Modal.Footer>  
             </Modal>
 
@@ -2077,7 +2078,7 @@ export const Detail = ({ convertPrice }) => {
                   <span className={styles.footer_text_content} id="selectprice">&nbsp;&nbsp;&nbsp;</span>
                   <span>&nbsp;&nbsp;</span>
                 </div>
-                <a role="button"  href="/sale/sell/1/0" id="sellbtn" class="btn btn-dark" onClick={()=>{
+                <a role="button"  href={selectno} id="sellbtn" class="btn btn-dark" onClick={()=>{
                       if (sessionStorage.getItem("loginId") === "" || sessionStorage.getItem("loginId") === null) {
                         alert("로그인이 필요한 서비스 입니다.")
                         window.location = '/login';
