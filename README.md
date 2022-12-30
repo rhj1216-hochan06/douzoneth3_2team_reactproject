@@ -1,20 +1,21 @@
 # douzoneth3_2team_reactproject
-간단 구동법
+#### 간단 구동법
+```
 마리아db 필요
 db코드는 server 폴더의 dv 안에 ddl과 dml로 구분되어있음
 터미널을 열고 
-.../douzoneth3_2team_reactproject> cd kream
-.../douzoneth3_2team_reactproject\kream> npm i
-.../douzoneth3_2team_reactproject\kream> Npm run build 
-.../douzoneth3_2team_reactproject\kream> cd../
-.../douzoneth3_2team_reactproject> cd server
-.../douzoneth3_2team_reactproject\server> nodemon server.js
+../douzoneth3_2team_reactproject> cd kream
+../douzoneth3_2team_reactproject\kream> npm i
+../douzoneth3_2team_reactproject\kream> Npm run build 
+../douzoneth3_2team_reactproject\kream> cd../
+../douzoneth3_2team_reactproject> cd server
+../douzoneth3_2team_reactproject\server> nodemon server.js
 
 이후 
 http://localhost:8080/
 접속
 UI.zip으로 화면 캡쳐본 확인 가능
-
+```
 #### 라이브러리 설치 (추가 설치시 기록하기)
 ```
 $ npm install @reduxjs/toolkit
