@@ -75,6 +75,7 @@
 [시스템 흐름도 이미지]
 
 ## 시연
+UI.zip으로 화면 캡쳐본 확인 가능
 
 [시연 내용]
 
@@ -84,52 +85,6 @@
 
 [DB 테이블 설정 내용]
 
-### 4.2 코드 구조
-
-Server.js에서 nodemon 명령어를 실행하면 서버가 켜집니다.
-이후 kream 폴더에서 npm run build 명령어로 만들어진 페이지가 실행되고 각 페이지들이 실행됩니다.
-App.js에서 설정한 주소로 이동하면 페이지 폴더 안의 JS 파일로 이동하게 되고, 해당 파일에서 호출하는 components 폴더 안의 JS 파일로 이동하게 됩니다.
-
-### 4.3 깃 설치 이후 최초 구동시
-
-```shell
-douzoneth3_2team_reactproject> cd .\kream\
-douzoneth3_2team_reactproject\kream> npm i
-douzoneth3_2team_reactproject\kream> npm run build
-project\douzoneth3_2team_reactproject\server> nodemon .\server.js
-
-
-
-
-#### 간단 구동법
-```
-마리아db 필요
-db코드는 server 폴더의 dv 안에 ddl과 dml로 구분되어있음
-터미널을 열고 
-../douzoneth3_2team_reactproject> cd kream
-../douzoneth3_2team_reactproject\kream> npm i
-../douzoneth3_2team_reactproject\kream> Npm run build 
-../douzoneth3_2team_reactproject\kream> cd../
-../douzoneth3_2team_reactproject> cd server
-../douzoneth3_2team_reactproject\server> nodemon server.js
-
-이후 
-http://localhost:8080/
-접속
-UI.zip으로 화면 캡쳐본 확인 가능
-```
-#### 라이브러리 설치 (추가 설치시 기록하기)
-```
-$ npm i
-$ yarn add react-bootstrap bootstrap 
-// $ npm install bootstrap bootstrap 으로는 버전이 달라 주입이 안된다...yarn으로 연결하니 잘됨. 이유는 yarn의 독자적 설치 방식덕분 
-// node 버전 차이로 제대로 설치가 되지 않으면 사용할 것 
-$ npm i -g nodemon //서버 재실행 자동화 설치 (nodemon 을 전역으로 설치할 때 사용)
-```
----
-
-#### DB(임시,테이블이름,컬럼,구조 상의 필요)
-
 `DB연결 및 실행방법(mariaDB)`
 kream폴더로 이동, npm run build
 server/db/db.js 파일을 본인의 db정보로 수정 
@@ -138,18 +93,36 @@ local 8080으로 접속
 
 > DDL위치는 db폴더 안 DDL.md 파일 참조.
 
----
 
-#### css파일명 유의사항
-- 파일명.js에 css를 적용한다면 css 파일명은 반드시 파일명.module.css가 되어야 한다.
+### 4.2 코드 구조
 
-#### 이미지 기본 주소
-- 이미지의 기본 주소(/)는 public으로 지정되어있다. "/images/파일명.png" 으로 변경시 참고
+Server.js에서 nodemon 명령어를 실행하면 서버가 켜집니다.
+이후 kream 폴더에서 npm run build 명령어로 만들어진 페이지가 실행되고 각 페이지들이 실행됩니다.
+App.js에서 설정한 주소로 이동하면 페이지 폴더 안의 JS 파일로 이동하게 되고, 해당 파일에서 호출하는 components 폴더 안의 JS 파일로 이동하게 됩니다.
 
-#### 디렉터리 구조
-components / pages <br>
-components : 내부 기능의 동작 및 css
-pages : 각 페이지를 라우터 기준으로 분리
+### 4.3 깃 설치 이후 최초 구동시
+마리아db 필요
+db코드는 server 폴더의 dv 안에 ddl과 dml로 구분되어있음
+터미널을 열고 
+```
+$ npm i
+$ yarn add react-bootstrap bootstrap 
+// $ npm install bootstrap bootstrap 으로는 버전이 달라 주입이 안된다...yarn으로 연결하니 잘됨. 이유는 yarn의 독자적 설치 방식덕분 
+// node 버전 차이로 제대로 설치가 되지 않으면 사용할 것 
+$ npm i -g nodemon //서버 재실행 자동화 설치 (nodemon 을 전역으로 설치할 때 사용)
+../douzoneth3_2team_reactproject> cd kream
+../douzoneth3_2team_reactproject\kream> npm i
+../douzoneth3_2team_reactproject\kream> Npm run build 
+../douzoneth3_2team_reactproject\kream> cd../
+../douzoneth3_2team_reactproject> cd server
+../douzoneth3_2team_reactproject\server> nodemon server.js
+```
 
----
+이후 http://localhost:8080/ 접속
+
+###노션
+https://www.notion.so/2-d62e62afacc7475f84ef50b4261b90d3
+매일 회의 및 회의록 작성 
+![image](https://github.com/rhj1216-hochan06/douzoneth3_2team_reactproject/assets/83914448/5f2f64ae-1bfa-4fe8-a371-06f023e8805b)
+
 
