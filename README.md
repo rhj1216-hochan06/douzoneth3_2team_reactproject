@@ -87,8 +87,8 @@
 언어	|JavaScript
 프레임워크|	React, Spring Framework
 데이터베이스|	MariaDB
-개발 도구|	Visual Studio Code, Eclipse, Spring Tool Suite
-빌드 도구|	npm, Maven
+개발 도구|	Visual Studio Code, Node.js 
+빌드 도구|	npm,nodemon
 버전 관리|	Git
 
 ### 2.3 시스템 흐름도
